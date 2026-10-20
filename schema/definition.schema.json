@@ -1,0 +1,300 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "definition.schema.json",
+  "title": "ワークフローの定義",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "format",
+    "id",
+    "version",
+    "title",
+    "purpose",
+    "phases",
+    "deliverables",
+    "acceptance"
+  ],
+  "properties": {
+    "format": {
+      "const": 1,
+      "description": "定義の形の版"
+    },
+    "id": {
+      "$ref": "#/$defs/id"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "purpose": {
+      "type": "string",
+      "minLength": 1,
+      "description": "この定義で何を作るか"
+    },
+    "phases": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "name",
+          "purpose",
+          "after",
+          "deliverables",
+          "acceptance"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "#/$defs/id"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "purpose": {
+            "type": "string",
+            "minLength": 1
+          },
+          "after": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/id"
+            },
+            "description": "先に終えている工程"
+          },
+          "deliverables": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/id"
+            }
+          },
+          "acceptance": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/id"
+            },
+            "description": "この工程を終える条件"
+          }
+        }
+      }
+    },
+    "deliverables": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "name",
+          "form",
+          "outline"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "#/$defs/id"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "form": {
+            "enum": [
+              "文書",
+              "表",
+              "図",
+              "画面",
+              "コード"
+            ],
+            "description": "人が確かめるときの形"
+          },
+          "outline": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/section"
+            },
+            "description": "見出しの並び。人が確かめる順"
+          },
+          "uses": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/id"
+            },
+            "description": "もとにする成果物"
+          }
+        }
+      }
+    },
+    "items": {
+      "type": "array",
+      "description": "ID を持つ項目の種類。影響と網羅はこの表と rules だけで決める",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "name",
+          "idForm"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "#/$defs/id"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "idForm": {
+            "type": "string",
+            "description": "項目の ID の形。{nn}・{nnn} は桁をそろえた連番、{n} は連番、{parent} は親の項目の ID"
+          },
+          "parent": {
+            "$ref": "#/$defs/id",
+            "description": "親の項目の種類。ID は親の ID から作る"
+          }
+        }
+      }
+    },
+    "rules": {
+      "type": "array",
+      "description": "引用と網羅の規則",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "type"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "#/$defs/id"
+          },
+          "type": {
+            "enum": [
+              "cites",
+              "covered"
+            ]
+          },
+          "from": {
+            "$ref": "#/$defs/id",
+            "description": "cites：引用する側の項目の種類"
+          },
+          "to": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/id"
+            },
+            "description": "cites：引用できる先の項目の種類"
+          },
+          "min": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "cites：少なくともいくつ引用するか"
+          },
+          "of": {
+            "$ref": "#/$defs/id",
+            "description": "covered：引用される側の項目の種類"
+          },
+          "by": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/id"
+            },
+            "description": "covered：引用する側の項目の種類"
+          },
+          "exempt": {
+            "const": true,
+            "description": "covered：理由を書けば除ける"
+          }
+        }
+      }
+    },
+    "acceptance": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "text",
+          "checkedBy",
+          "target"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "#/$defs/id"
+          },
+          "text": {
+            "type": "string",
+            "minLength": 1
+          },
+          "checkedBy": {
+            "enum": [
+              "人",
+              "AI"
+            ]
+          },
+          "target": {
+            "$ref": "#/$defs/id",
+            "description": "確かめる成果物"
+          },
+          "rules": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/id"
+            },
+            "description": "この条件を機械で確かめる規則"
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]*(\\.[a-z0-9-]+)*$"
+    },
+    "section": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "heading",
+        "describe"
+      ],
+      "properties": {
+        "heading": {
+          "type": "string",
+          "minLength": 1
+        },
+        "describe": {
+          "type": "string",
+          "minLength": 1,
+          "description": "この見出しの下に書くこと"
+        },
+        "repeat": {
+          "const": true,
+          "description": "項目ごとに繰り返す見出し（ストーリーごと・画面ごとなど）。見出しの文字は項目の名前に置き換える"
+        },
+        "children": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/section"
+          }
+        },
+        "item": {
+          "$ref": "#/$defs/id",
+          "description": "この見出しの下の一つ一つが、この種類の項目になる"
+        }
+      }
+    }
+  }
+}

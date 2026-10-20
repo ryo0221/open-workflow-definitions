@@ -1,0 +1,1438 @@
+{
+  "format": 1,
+  "id": "software-product",
+  "version": "1.5.0",
+  "title": "ソフトウェア製品の開発",
+  "purpose": "画面のあるソフトウェア製品を、人が工程ごとに成果物を確かめて受け入れながら、AI と対話して作り、Local から本番まで段階的に動かして公開する。",
+  "phases": [
+    {
+      "id": "process",
+      "name": "進め方",
+      "purpose": "この Project で通る工程の順と、工程ごとの成果物・達成条件・確かめる人を決める。",
+      "after": [],
+      "deliverables": [
+        "process-map"
+      ],
+      "acceptance": [
+        "process.complete",
+        "process.readable",
+        "process.approved"
+      ]
+    },
+    {
+      "id": "scope",
+      "name": "目的と範囲",
+      "purpose": "何のために誰に向けて作るか、何を含めて何を含めないか、成功をどう測るかを決める。",
+      "after": [
+        "process"
+      ],
+      "deliverables": [
+        "scope-doc"
+      ],
+      "acceptance": [
+        "scope.one-page",
+        "scope.out-of-scope",
+        "scope.measurable",
+        "scope.roles",
+        "scope.approved"
+      ]
+    },
+    {
+      "id": "stories",
+      "name": "ストーリー",
+      "purpose": "利用者が製品をどう使うかの流れを書き、流れごとに確かめられる受入条件を決める。",
+      "after": [
+        "scope"
+      ],
+      "deliverables": [
+        "story-set"
+      ],
+      "acceptance": [
+        "stories.traced",
+        "stories.testable",
+        "stories.covered",
+        "stories.approved"
+      ]
+    },
+    {
+      "id": "screens",
+      "name": "画面",
+      "purpose": "デザインの土台（トークン）を決め、ストーリーをたどれる画面の一覧と遷移を決め、各画面を部品で組んだデザインにして、人が触れる試作で確かめる。",
+      "after": [
+        "stories"
+      ],
+      "deliverables": [
+        "design-foundation",
+        "screen-map",
+        "screen-designs",
+        "components",
+        "wording"
+      ],
+      "acceptance": [
+        "screens.foundation",
+        "screens.walkable",
+        "screens.states",
+        "screens.components",
+        "screens.wording",
+        "screens.prototype-approved"
+      ]
+    },
+    {
+      "id": "states",
+      "name": "状態",
+      "purpose": "データと画面の状態と、その移り変わりを決める。どの操作でどの状態からどの状態へ移るか、移れないときにどう扱うかを表にする。",
+      "after": [
+        "screens"
+      ],
+      "deliverables": [
+        "state-tables"
+      ],
+      "acceptance": [
+        "states.complete",
+        "states.covered",
+        "states.approved"
+      ]
+    },
+    {
+      "id": "premises",
+      "name": "外部前提",
+      "purpose": "頼る外部のサービスや仕組みの挙動・制限・費用を前提として書き、確かめられるものは実際に確かめる。",
+      "after": [
+        "states"
+      ],
+      "deliverables": [
+        "premise-ledger"
+      ],
+      "acceptance": [
+        "premises.measured",
+        "premises.cited",
+        "premises.dependencies",
+        "premises.approved"
+      ]
+    },
+    {
+      "id": "controls",
+      "name": "統制と非機能",
+      "purpose": "権限・監査・データの保持と削除・規模と応答の目標・秘密の扱い・監視・バックアップ・費用を、本番を前提に決める。",
+      "after": [
+        "premises"
+      ],
+      "deliverables": [
+        "controls-doc"
+      ],
+      "acceptance": [
+        "controls.personas",
+        "controls.operations",
+        "controls.production",
+        "controls.approved"
+      ]
+    },
+    {
+      "id": "architecture",
+      "name": "構成",
+      "purpose": "本番の構成を決める。部品（サービス・データ・外部とのつなぎ口）とそのつながり、データの形を図と表にする。",
+      "after": [
+        "controls"
+      ],
+      "deliverables": [
+        "architecture-map"
+      ],
+      "acceptance": [
+        "architecture.covered",
+        "architecture.production",
+        "architecture.approved"
+      ]
+    },
+    {
+      "id": "environments",
+      "name": "環境ごとの開発計画",
+      "purpose": "Local・dev・Staging・本番の各環境で、製品として機能するまでの計画を立てる。開発は Local から順に進め、前の環境で主要な流れが通ってから次へ進む。",
+      "after": [
+        "architecture"
+      ],
+      "deliverables": [
+        "environment-plan"
+      ],
+      "acceptance": [
+        "environments.complete",
+        "environments.iac",
+        "environments.approved"
+      ]
+    },
+    {
+      "id": "build-local",
+      "name": "実装（Local）",
+      "purpose": "受け入れた仕様と画面をもとにコードを作り、Local で主要な流れのすべての受入条件の試験を通す。",
+      "after": [
+        "environments"
+      ],
+      "deliverables": [
+        "code-local",
+        "test-trace"
+      ],
+      "acceptance": [
+        "build-local.tests",
+        "build-local.gates",
+        "build-local.approved"
+      ]
+    },
+    {
+      "id": "build-dev",
+      "name": "実装（dev）",
+      "purpose": "IaC で dev を用意して配備し、計画で置き換えたものを本物に戻しながら、dev で主要な流れを通す。",
+      "after": [
+        "build-local"
+      ],
+      "deliverables": [
+        "code-dev"
+      ],
+      "acceptance": [
+        "build-dev.deployed",
+        "build-dev.flows",
+        "build-dev.approved"
+      ]
+    },
+    {
+      "id": "build-staging",
+      "name": "実装（Staging）",
+      "purpose": "本物の認証と外部のサービスにつないだ Staging で、主要な流れを通す。",
+      "after": [
+        "build-dev"
+      ],
+      "deliverables": [
+        "code-staging"
+      ],
+      "acceptance": [
+        "build-staging.real",
+        "build-staging.flows",
+        "build-staging.approved"
+      ]
+    },
+    {
+      "id": "release",
+      "name": "公開と学び",
+      "purpose": "本番に公開するかを判断し、公開したら成功の測り方を測って、学びを記録する。",
+      "after": [
+        "build-staging"
+      ],
+      "deliverables": [
+        "release-record"
+      ],
+      "acceptance": [
+        "release.decision",
+        "release.metrics",
+        "release.learning"
+      ]
+    }
+  ],
+  "deliverables": [
+    {
+      "id": "process-map",
+      "name": "工程の表",
+      "form": "図",
+      "outline": [
+        {
+          "heading": "工程",
+          "describe": "名前・目的・先に終える工程"
+        },
+        {
+          "heading": "成果物",
+          "describe": "名前・人が確かめるときの形・見出し"
+        },
+        {
+          "heading": "達成条件",
+          "describe": "文・確かめる人（人か AI）・確かめる成果物"
+        }
+      ]
+    },
+    {
+      "id": "scope-doc",
+      "name": "目的と範囲",
+      "form": "文書",
+      "outline": [
+        {
+          "heading": "目的",
+          "describe": "解決する課題と、作り終えたときに達成していること",
+          "item": "purpose"
+        },
+        {
+          "heading": "利用者",
+          "describe": "製品にかかわる人の種類。使う人だけでなく、管理する人（組織や権限）・運用する人（監視・障害・問い合わせ）・お金を扱う人（請求・入金・返金）・支える人（サポート）について、いるかいないかを書く。いないときは理由を書く",
+          "children": [
+            {
+              "heading": "利用者の名前",
+              "describe": "状況・したいこと・今困っていること",
+              "item": "user",
+              "repeat": true
+            }
+          ]
+        },
+        {
+          "heading": "範囲",
+          "describe": "この Project で作るものの境目",
+          "children": [
+            {
+              "heading": "含めるもの",
+              "describe": "作る機能と体験の一覧",
+              "item": "include"
+            },
+            {
+              "heading": "含めないもの",
+              "describe": "作らないものと、その代わりの扱い",
+              "item": "exclude"
+            }
+          ]
+        },
+        {
+          "heading": "成功の測り方",
+          "describe": "指標ごとに、何を・いつ数え・どの値なら成功とするか",
+          "item": "metric"
+        },
+        {
+          "heading": "前提と制約",
+          "describe": "動かす環境・使える技術・期限など、決まっていて動かせないこと",
+          "item": "constraint"
+        }
+      ],
+      "uses": [
+        "process-map"
+      ]
+    },
+    {
+      "id": "story-set",
+      "name": "ストーリー",
+      "form": "文書",
+      "outline": [
+        {
+          "heading": "言葉",
+          "describe": "このプロジェクトで使う言葉と、その意味",
+          "item": "term"
+        },
+        {
+          "heading": "ストーリーの名前",
+          "describe": "ストーリーごとに 1 つ",
+          "item": "story",
+          "repeat": true,
+          "children": [
+            {
+              "heading": "流れ",
+              "describe": "利用者・きっかけ・手順・終わり方（成功・中断・取り消し）"
+            },
+            {
+              "heading": "受入条件",
+              "describe": "前提・操作・期待する結果。入力には規則と違反したときの扱い",
+              "item": "criterion"
+            },
+            {
+              "heading": "表示例",
+              "describe": "画面に出す文言",
+              "item": "example"
+            },
+            {
+              "heading": "例外",
+              "describe": "0 件・二度の操作・途中の失敗・権限が無いときなどの扱い",
+              "item": "exception"
+            }
+          ]
+        }
+      ],
+      "uses": [
+        "scope-doc"
+      ]
+    },
+    {
+      "id": "design-foundation",
+      "name": "デザインの土台",
+      "form": "表",
+      "outline": [
+        {
+          "heading": "書体",
+          "describe": "画面の文字と等幅の書体。版とライセンス。外部前提の台帳にも入れる"
+        },
+        {
+          "heading": "トークン",
+          "describe": "色・字の大きさの段・字の太さ・行の高さ・余白・角の丸み・線・影・濃さ。名前・値・意味",
+          "item": "token",
+          "repeat": true
+        },
+        {
+          "heading": "モード",
+          "describe": "ライト・ダークなど、同じトークンの値の切り替え"
+        }
+      ],
+      "uses": [
+        "scope-doc"
+      ]
+    },
+    {
+      "id": "screen-map",
+      "name": "画面の一覧と遷移",
+      "form": "図",
+      "outline": [
+        {
+          "heading": "画面",
+          "describe": "画面ごとに、名前・目的・どこから入るか・見えるもの・できる操作と、操作の行き先（遷移か同じ画面の中の変化）と応える受入条件",
+          "item": "screen"
+        },
+        {
+          "heading": "遷移",
+          "describe": "元の画面・先の画面・引き金の操作・満たすストーリー",
+          "item": "transition"
+        }
+      ],
+      "uses": [
+        "story-set"
+      ]
+    },
+    {
+      "id": "screen-designs",
+      "name": "画面のデザイン",
+      "form": "画面",
+      "outline": [
+        {
+          "heading": "画面の名前",
+          "describe": "画面ごとに 1 つ",
+          "repeat": true,
+          "children": [
+            {
+              "heading": "状態",
+              "describe": "初期・空・読み込み中・誤りなど、画面の状態の一覧",
+              "children": [
+                {
+                  "heading": "状態の名前",
+                  "describe": "状態ごとの要素・文言・操作と、使う部品",
+                  "item": "state",
+                  "repeat": true
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "uses": [
+        "screen-map",
+        "components",
+        "wording",
+        "design-foundation"
+      ]
+    },
+    {
+      "id": "components",
+      "name": "部品",
+      "form": "画面",
+      "outline": [
+        {
+          "heading": "部品の名前",
+          "describe": "部品ごとに 1 つ",
+          "item": "component",
+          "repeat": true,
+          "children": [
+            {
+              "heading": "バリアント",
+              "describe": "種類と、それぞれを使う場面",
+              "item": "variant"
+            },
+            {
+              "heading": "入力",
+              "describe": "部品が受け取る値と、その既定値"
+            },
+            {
+              "heading": "状態",
+              "describe": "押せない・選んだ・読み込み中などの状態"
+            }
+          ]
+        }
+      ],
+      "uses": [
+        "story-set",
+        "design-foundation"
+      ]
+    },
+    {
+      "id": "wording",
+      "name": "画面の言葉の辞書",
+      "form": "表",
+      "outline": [
+        {
+          "heading": "言葉の名前",
+          "describe": "言葉ごとに 1 つ。言葉（名詞）だけでなく、画面の操作（ボタンやタブの文言）と状態も入れる",
+          "item": "word",
+          "repeat": true,
+          "children": [
+            {
+              "heading": "表記",
+              "describe": "画面で使う正しい表記"
+            },
+            {
+              "heading": "種類",
+              "describe": "言葉・操作・状態のどれか"
+            },
+            {
+              "heading": "アイコン",
+              "describe": "表記と一緒に出すアイコン。操作とタブには必ず付ける"
+            },
+            {
+              "heading": "使わない表記",
+              "describe": "揺れとして見つける表記"
+            },
+            {
+              "heading": "意味・根拠",
+              "describe": "言葉はストーリーの言葉、操作と状態はその操作を求める受入条件かストーリー"
+            }
+          ]
+        }
+      ],
+      "uses": [
+        "story-set"
+      ]
+    },
+    {
+      "id": "state-tables",
+      "name": "状態の表",
+      "form": "表",
+      "outline": [
+        {
+          "heading": "状態を持つものの名前",
+          "describe": "状態を持つものごとに 1 つ",
+          "item": "entity",
+          "repeat": true,
+          "children": [
+            {
+              "heading": "状態",
+              "describe": "状態の一覧と意味"
+            },
+            {
+              "heading": "移り変わり",
+              "describe": "元の状態・先の状態・引き金の操作・移れないときの扱い",
+              "item": "state-transition",
+              "repeat": true
+            }
+          ]
+        }
+      ],
+      "uses": [
+        "story-set",
+        "screen-map"
+      ]
+    },
+    {
+      "id": "premise-ledger",
+      "name": "外部前提の台帳",
+      "form": "表",
+      "outline": [
+        {
+          "heading": "前提",
+          "describe": "外部の主体・頼る挙動・制限・費用・確かめ方・確かめた結果か本番でしか決まらない理由。サービスだけでなく、実行時のライブラリ・開発の道具・試験の道具・配備の道具も、版つきで入れる",
+          "item": "premise",
+          "repeat": true
+        }
+      ],
+      "uses": [
+        "story-set"
+      ]
+    },
+    {
+      "id": "controls-doc",
+      "name": "統制と非機能",
+      "form": "文書",
+      "outline": [
+        {
+          "heading": "権限",
+          "describe": "利用者ごとに見られるものと操作できるもの",
+          "item": "control"
+        },
+        {
+          "heading": "監査",
+          "describe": "残す記録と残す期間"
+        },
+        {
+          "heading": "データの保持と削除",
+          "describe": "保持する期間と消し方"
+        },
+        {
+          "heading": "規模と応答の目標",
+          "describe": "量と、応答の速さの目標"
+        },
+        {
+          "heading": "秘密の扱い",
+          "describe": "鍵や個人の情報の置き場と扱い"
+        },
+        {
+          "heading": "運用の要求",
+          "describe": "監視・バックアップ・費用"
+        },
+        {
+          "heading": "本番の業務",
+          "describe": "本番でだけ起きる業務と、それを行う人と画面。運用（監視・障害・問い合わせ・利用者からのデータの請求）、管理（組織・権限・利用の停止）、お金（請求・入金・返金・税）、法令（規約・個人情報）。該当しないものは理由を書く"
+        }
+      ],
+      "uses": [
+        "story-set",
+        "premise-ledger"
+      ]
+    },
+    {
+      "id": "architecture-map",
+      "name": "構成の図",
+      "form": "図",
+      "outline": [
+        {
+          "heading": "部品",
+          "describe": "サービス・データ・外部とのつなぎ口",
+          "item": "arch-part"
+        },
+        {
+          "heading": "つながり",
+          "describe": "部品のあいだのつながりと受け渡すもの"
+        },
+        {
+          "heading": "データの形",
+          "describe": "保存するものと、その形"
+        }
+      ],
+      "uses": [
+        "controls-doc",
+        "state-tables",
+        "premise-ledger"
+      ]
+    },
+    {
+      "id": "environment-plan",
+      "name": "環境ごとの開発計画",
+      "form": "表",
+      "outline": [
+        {
+          "heading": "環境の名前",
+          "describe": "Local・dev・Staging・本番ごとに 1 つ",
+          "item": "stage",
+          "repeat": true,
+          "children": [
+            {
+              "heading": "動かす範囲",
+              "describe": "その環境で動かすストーリー"
+            },
+            {
+              "heading": "本番の業務",
+              "describe": "その環境で動かす本番の業務（運用・管理・お金・法令）と、本番だけで確かめるもの"
+            },
+            {
+              "heading": "外部のサービス",
+              "describe": "つなぐ外部のサービスと、その版や設定"
+            },
+            {
+              "heading": "データ",
+              "describe": "使うデータと、その用意の仕方"
+            },
+            {
+              "heading": "確かめ方",
+              "describe": "その環境で通す試験と、人が触る流れ"
+            },
+            {
+              "heading": "用意と配備",
+              "describe": "IaC の手順"
+            },
+            {
+              "heading": "着く時期",
+              "describe": "その環境で主要な流れが通る見込みの日"
+            },
+            {
+              "heading": "置き換えるもの",
+              "describe": "本番から置き換えるものと、本物に戻す環境"
+            }
+          ]
+        }
+      ],
+      "uses": [
+        "architecture-map"
+      ]
+    },
+    {
+      "id": "code-local",
+      "name": "コード（Local）",
+      "form": "コード",
+      "outline": [
+        {
+          "heading": "コード",
+          "describe": "リポジトリの今の版"
+        },
+        {
+          "heading": "ゲートの結果",
+          "describe": "静的検査・型・試験・遷移の通し確認の結果"
+        }
+      ],
+      "uses": [
+        "architecture-map",
+        "environment-plan",
+        "screen-designs"
+      ]
+    },
+    {
+      "id": "test-trace",
+      "name": "試験の対応表",
+      "form": "表",
+      "outline": [
+        {
+          "heading": "試験",
+          "describe": "試験ごとに、確かめる受入条件。試験の名前やコードに条項の ID を書かず、この表に持つ",
+          "item": "test",
+          "repeat": true
+        }
+      ],
+      "uses": [
+        "story-set"
+      ]
+    },
+    {
+      "id": "code-dev",
+      "name": "コード（dev）",
+      "form": "コード",
+      "outline": [
+        {
+          "heading": "配備の記録",
+          "describe": "IaC で用意・配備した記録"
+        },
+        {
+          "heading": "ゲートの結果",
+          "describe": "dev で通した試験の結果"
+        }
+      ],
+      "uses": [
+        "code-local",
+        "environment-plan"
+      ]
+    },
+    {
+      "id": "code-staging",
+      "name": "コード（Staging）",
+      "form": "コード",
+      "outline": [
+        {
+          "heading": "配備の記録",
+          "describe": "IaC で用意・配備した記録"
+        },
+        {
+          "heading": "ゲートの結果",
+          "describe": "Staging で通した試験の結果"
+        },
+        {
+          "heading": "本物に戻したもの",
+          "describe": "置き換えから本物に戻したものの一覧"
+        }
+      ],
+      "uses": [
+        "code-dev",
+        "environment-plan"
+      ]
+    },
+    {
+      "id": "release-record",
+      "name": "公開の記録",
+      "form": "文書",
+      "outline": [
+        {
+          "heading": "公開の判断",
+          "describe": "公開するか・理由・判断した人"
+        },
+        {
+          "heading": "測り方",
+          "describe": "成功の測り方を、いつ何で測るか"
+        },
+        {
+          "heading": "学び",
+          "describe": "測った結果と、次に変えること"
+        }
+      ],
+      "uses": [
+        "code-staging",
+        "scope-doc"
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "purpose",
+      "name": "目的",
+      "idForm": "PU-{nn}"
+    },
+    {
+      "id": "user",
+      "name": "利用者",
+      "idForm": "UR-{nn}"
+    },
+    {
+      "id": "include",
+      "name": "含めるもの",
+      "idForm": "IN-{nn}"
+    },
+    {
+      "id": "exclude",
+      "name": "含めないもの",
+      "idForm": "EX-{nn}"
+    },
+    {
+      "id": "metric",
+      "name": "成功の測り方",
+      "idForm": "ME-{nn}"
+    },
+    {
+      "id": "constraint",
+      "name": "前提と制約",
+      "idForm": "CO-{nn}"
+    },
+    {
+      "id": "term",
+      "name": "言葉",
+      "idForm": "TE-{nn}"
+    },
+    {
+      "id": "story",
+      "name": "ストーリー",
+      "idForm": "ST-{nn}"
+    },
+    {
+      "id": "criterion",
+      "name": "受入条件",
+      "idForm": "{parent}#{n}",
+      "parent": "story"
+    },
+    {
+      "id": "example",
+      "name": "表示例",
+      "idForm": "{parent}#e{n}",
+      "parent": "story"
+    },
+    {
+      "id": "exception",
+      "name": "例外",
+      "idForm": "{parent}#x{n}",
+      "parent": "story"
+    },
+    {
+      "id": "screen",
+      "name": "画面",
+      "idForm": "SC-{nn}"
+    },
+    {
+      "id": "transition",
+      "name": "遷移",
+      "idForm": "TR-{nn}"
+    },
+    {
+      "id": "state",
+      "name": "画面の状態",
+      "idForm": "{parent}.{n}",
+      "parent": "screen"
+    },
+    {
+      "id": "word",
+      "name": "画面の言葉",
+      "idForm": "WD-{nn}"
+    },
+    {
+      "id": "token",
+      "name": "トークン",
+      "idForm": "TK-{nn}"
+    },
+    {
+      "id": "component",
+      "name": "部品",
+      "idForm": "CP-{nn}"
+    },
+    {
+      "id": "variant",
+      "name": "バリアント",
+      "idForm": "{parent}.{n}",
+      "parent": "component"
+    },
+    {
+      "id": "entity",
+      "name": "状態を持つもの",
+      "idForm": "SM-{nn}"
+    },
+    {
+      "id": "state-transition",
+      "name": "状態の移り変わり",
+      "idForm": "{parent}#t{n}",
+      "parent": "entity"
+    },
+    {
+      "id": "premise",
+      "name": "外部前提",
+      "idForm": "EP-{nn}"
+    },
+    {
+      "id": "control",
+      "name": "統制",
+      "idForm": "NF-{nn}"
+    },
+    {
+      "id": "arch-part",
+      "name": "構成の部品",
+      "idForm": "AR-{nn}"
+    },
+    {
+      "id": "stage",
+      "name": "環境",
+      "idForm": "EN-{nn}"
+    },
+    {
+      "id": "test",
+      "name": "試験",
+      "idForm": "TS-{nnn}"
+    }
+  ],
+  "rules": [
+    {
+      "id": "story-cites-user",
+      "type": "cites",
+      "from": "story",
+      "to": [
+        "user"
+      ],
+      "min": 1
+    },
+    {
+      "id": "story-cites-scope",
+      "type": "cites",
+      "from": "story",
+      "to": [
+        "purpose",
+        "include"
+      ],
+      "min": 1
+    },
+    {
+      "id": "example-cites-criterion",
+      "type": "cites",
+      "from": "example",
+      "to": [
+        "criterion"
+      ],
+      "min": 1
+    },
+    {
+      "id": "transition-cites-story",
+      "type": "cites",
+      "from": "transition",
+      "to": [
+        "story",
+        "criterion"
+      ],
+      "min": 1
+    },
+    {
+      "id": "transition-cites-screens",
+      "type": "cites",
+      "from": "transition",
+      "to": [
+        "screen"
+      ],
+      "min": 2
+    },
+    {
+      "id": "state-uses-component",
+      "type": "cites",
+      "from": "state",
+      "to": [
+        "component",
+        "variant"
+      ],
+      "min": 1
+    },
+    {
+      "id": "state-uses-word",
+      "type": "cites",
+      "from": "state",
+      "to": [
+        "word"
+      ],
+      "min": 1
+    },
+    {
+      "id": "word-cites-term",
+      "type": "cites",
+      "from": "word",
+      "to": [
+        "term",
+        "story",
+        "criterion"
+      ],
+      "min": 1
+    },
+    {
+      "id": "user-covered",
+      "type": "covered",
+      "of": "user",
+      "by": [
+        "story"
+      ]
+    },
+    {
+      "id": "include-covered",
+      "type": "covered",
+      "of": "include",
+      "by": [
+        "story"
+      ],
+      "exempt": true
+    },
+    {
+      "id": "story-covered",
+      "type": "covered",
+      "of": "story",
+      "by": [
+        "transition"
+      ],
+      "exempt": true
+    },
+    {
+      "id": "screen-covered",
+      "type": "covered",
+      "of": "screen",
+      "by": [
+        "transition"
+      ]
+    },
+    {
+      "id": "component-covered",
+      "type": "covered",
+      "of": "component",
+      "by": [
+        "state"
+      ]
+    },
+    {
+      "id": "word-covered",
+      "type": "covered",
+      "of": "word",
+      "by": [
+        "state"
+      ],
+      "exempt": true
+    },
+    {
+      "id": "transition-cites-criterion",
+      "type": "cites",
+      "from": "state-transition",
+      "to": [
+        "criterion"
+      ],
+      "min": 1
+    },
+    {
+      "id": "criterion-covered-by-transition",
+      "type": "covered",
+      "of": "criterion",
+      "by": [
+        "state-transition"
+      ],
+      "exempt": true
+    },
+    {
+      "id": "premise-covered",
+      "type": "covered",
+      "of": "premise",
+      "by": [
+        "criterion"
+      ],
+      "exempt": true
+    },
+    {
+      "id": "control-cites-user",
+      "type": "cites",
+      "from": "control",
+      "to": [
+        "user"
+      ],
+      "min": 1
+    },
+    {
+      "id": "story-covered-by-part",
+      "type": "covered",
+      "of": "story",
+      "by": [
+        "arch-part"
+      ],
+      "exempt": true
+    },
+    {
+      "id": "stage-cites-part",
+      "type": "cites",
+      "from": "stage",
+      "to": [
+        "arch-part",
+        "story"
+      ],
+      "min": 1
+    },
+    {
+      "id": "test-cites-criterion",
+      "type": "cites",
+      "from": "test",
+      "to": [
+        "criterion"
+      ],
+      "min": 1
+    },
+    {
+      "id": "criterion-covered-by-test",
+      "type": "covered",
+      "of": "criterion",
+      "by": [
+        "test"
+      ],
+      "exempt": true
+    },
+    {
+      "id": "component-uses-token",
+      "type": "cites",
+      "from": "component",
+      "to": [
+        "token"
+      ],
+      "min": 1
+    },
+    {
+      "id": "token-covered",
+      "type": "covered",
+      "of": "token",
+      "by": [
+        "component"
+      ],
+      "exempt": true
+    }
+  ],
+  "acceptance": [
+    {
+      "id": "process.complete",
+      "text": "どの工程にも、成果物と達成条件と確かめる人がある。",
+      "checkedBy": "AI",
+      "target": "process-map"
+    },
+    {
+      "id": "process.readable",
+      "text": "工程の順とつながりを、図で全体から一つの工程まで読める。",
+      "checkedBy": "AI",
+      "target": "process-map"
+    },
+    {
+      "id": "process.approved",
+      "text": "人が図で全体を読み、この進め方で始めると承認している。",
+      "checkedBy": "人",
+      "target": "process-map"
+    },
+    {
+      "id": "scope.one-page",
+      "text": "目的・利用者・範囲・成功の測り方が、1 ページに収まっている。",
+      "checkedBy": "AI",
+      "target": "scope-doc"
+    },
+    {
+      "id": "scope.out-of-scope",
+      "text": "含めないものが、少なくとも一つ具体的に書いてある。",
+      "checkedBy": "AI",
+      "target": "scope-doc"
+    },
+    {
+      "id": "scope.measurable",
+      "text": "成功の測り方が、何をいつ数えれば判断できるかの形で書いてある。",
+      "checkedBy": "AI",
+      "target": "scope-doc"
+    },
+    {
+      "id": "scope.roles",
+      "text": "利用者に、使う人のほか、管理・運用・お金・支援の役割が、いるかいないか（いないときは理由）で書いてある。",
+      "checkedBy": "AI",
+      "target": "scope-doc"
+    },
+    {
+      "id": "scope.approved",
+      "text": "人が目的と範囲を読み、承認している。",
+      "checkedBy": "人",
+      "target": "scope-doc"
+    },
+    {
+      "id": "stories.traced",
+      "text": "どのストーリーも、目的と範囲の目的と利用者のどれかに結び付いている。",
+      "checkedBy": "AI",
+      "target": "story-set",
+      "rules": [
+        "story-cites-user",
+        "story-cites-scope"
+      ]
+    },
+    {
+      "id": "stories.testable",
+      "text": "どの受入条件も、前提・操作・期待する結果の形で書いてある。",
+      "checkedBy": "AI",
+      "target": "story-set"
+    },
+    {
+      "id": "stories.covered",
+      "text": "目的と範囲の利用者のそれぞれと、含めるもののそれぞれに、少なくとも一つのストーリーがある（含めるものは、ストーリーが要らない理由を書けば除ける）。",
+      "checkedBy": "AI",
+      "target": "story-set",
+      "rules": [
+        "user-covered",
+        "include-covered"
+      ]
+    },
+    {
+      "id": "stories.approved",
+      "text": "人がストーリーを読み、承認している。",
+      "checkedBy": "人",
+      "target": "story-set"
+    },
+    {
+      "id": "screens.foundation",
+      "text": "部品と画面の色・書体・字の大きさ・角の丸みは、デザインの土台のトークンだけを使い、値を直接持たない。書体は版とライセンスつきで外部前提の台帳にある。",
+      "checkedBy": "AI",
+      "target": "design-foundation",
+      "rules": [
+        "component-uses-token",
+        "token-covered"
+      ]
+    },
+    {
+      "id": "screens.walkable",
+      "text": "どのストーリーの流れも、画面の遷移で始めから終わりまでたどれる。",
+      "checkedBy": "AI",
+      "target": "screen-map",
+      "rules": [
+        "transition-cites-story",
+        "transition-cites-screens",
+        "story-covered",
+        "screen-covered"
+      ]
+    },
+    {
+      "id": "screens.states",
+      "text": "どの画面にも、初期・空・読み込み中・誤りの状態のデザインがある（その状態が起きない画面は理由を書く）。",
+      "checkedBy": "AI",
+      "target": "screen-designs"
+    },
+    {
+      "id": "screens.components",
+      "text": "画面の要素は部品の組み合わせでできていて、部品に無い見た目を画面ごとに作っていない。",
+      "checkedBy": "AI",
+      "target": "screen-designs",
+      "rules": [
+        "state-uses-component",
+        "component-covered"
+      ]
+    },
+    {
+      "id": "screens.wording",
+      "text": "画面に出る言葉と操作は辞書の表記を使い、使わない表記が無い。操作とタブには辞書のアイコンが付く。辞書の言葉の意味は、ストーリーの言葉と食い違わない。",
+      "checkedBy": "AI",
+      "target": "wording",
+      "rules": [
+        "state-uses-word",
+        "word-cites-term",
+        "word-covered"
+      ]
+    },
+    {
+      "id": "screens.prototype-approved",
+      "text": "人が試作を触ってストーリーの流れを通し、承認している。",
+      "checkedBy": "人",
+      "target": "screen-designs"
+    },
+    {
+      "id": "states.complete",
+      "text": "状態を持つものごとに、状態・移り変わり・引き金の操作・移れないときの扱いがある。",
+      "checkedBy": "AI",
+      "target": "state-tables",
+      "rules": [
+        "transition-cites-criterion"
+      ]
+    },
+    {
+      "id": "states.covered",
+      "text": "状態を変える受入条件は、どれも状態の移り変わりのどれかに結び付いている。",
+      "checkedBy": "AI",
+      "target": "state-tables",
+      "rules": [
+        "criterion-covered-by-transition"
+      ]
+    },
+    {
+      "id": "states.approved",
+      "text": "人が状態の表を読み、承認している。",
+      "checkedBy": "人",
+      "target": "state-tables"
+    },
+    {
+      "id": "premises.measured",
+      "text": "どの前提も、確かめた結果か、本番でしか決まらない理由がある。",
+      "checkedBy": "AI",
+      "target": "premise-ledger"
+    },
+    {
+      "id": "premises.cited",
+      "text": "外部の主体に頼る受入条件は、どれも前提を引いている。",
+      "checkedBy": "AI",
+      "target": "premise-ledger",
+      "rules": [
+        "premise-covered"
+      ]
+    },
+    {
+      "id": "premises.dependencies",
+      "text": "実行時のライブラリ・開発の道具・試験の道具・配備の道具が、版つきで台帳にある。",
+      "checkedBy": "AI",
+      "target": "premise-ledger"
+    },
+    {
+      "id": "premises.approved",
+      "text": "人が前提の台帳を読み、承認している。",
+      "checkedBy": "人",
+      "target": "premise-ledger"
+    },
+    {
+      "id": "controls.personas",
+      "text": "どの利用者についても、見られるものと操作できるものが決まっている。",
+      "checkedBy": "AI",
+      "target": "controls-doc",
+      "rules": [
+        "control-cites-user"
+      ]
+    },
+    {
+      "id": "controls.operations",
+      "text": "監視・バックアップ・秘密・費用の要求がある。",
+      "checkedBy": "AI",
+      "target": "controls-doc"
+    },
+    {
+      "id": "controls.production",
+      "text": "本番の業務（運用・管理・お金・法令）のそれぞれに、行う人・画面・ストーリーがあるか、該当しない理由がある。",
+      "checkedBy": "AI",
+      "target": "controls-doc"
+    },
+    {
+      "id": "controls.approved",
+      "text": "人が統制と非機能を読み、承認している。",
+      "checkedBy": "人",
+      "target": "controls-doc"
+    },
+    {
+      "id": "architecture.covered",
+      "text": "どの主要なストーリーも、それを動かす構成の部品に結び付いている。",
+      "checkedBy": "AI",
+      "target": "architecture-map",
+      "rules": [
+        "story-covered-by-part"
+      ]
+    },
+    {
+      "id": "architecture.production",
+      "text": "構成は本番を前提にしていて、Local でだけ成り立つ前提を含まない。",
+      "checkedBy": "AI",
+      "target": "architecture-map"
+    },
+    {
+      "id": "architecture.approved",
+      "text": "人が構成の図を読み、承認している。",
+      "checkedBy": "人",
+      "target": "architecture-map"
+    },
+    {
+      "id": "environments.complete",
+      "text": "4 つの環境のそれぞれに、動かす範囲・つなぐ外部のサービス・データ・確かめ方・用意と配備の手順・着く時期・本番から置き換えるものがある。",
+      "checkedBy": "AI",
+      "target": "environment-plan",
+      "rules": [
+        "stage-cites-part"
+      ]
+    },
+    {
+      "id": "environments.iac",
+      "text": "dev 以降の環境の用意と配備は、手順を宣言した IaC で行う計画になっている。",
+      "checkedBy": "AI",
+      "target": "environment-plan"
+    },
+    {
+      "id": "environments.approved",
+      "text": "人が環境ごとの開発計画を読み、承認している。",
+      "checkedBy": "人",
+      "target": "environment-plan"
+    },
+    {
+      "id": "build-local.tests",
+      "text": "主要なストーリーのどの受入条件にも、それを確かめる試験があり、Local で通る。",
+      "checkedBy": "AI",
+      "target": "test-trace",
+      "rules": [
+        "test-cites-criterion",
+        "criterion-covered-by-test"
+      ]
+    },
+    {
+      "id": "build-local.gates",
+      "text": "静的検査・型・すべての試験・画面の遷移の通し確認が Local で通る。",
+      "checkedBy": "AI",
+      "target": "code-local"
+    },
+    {
+      "id": "build-local.approved",
+      "text": "人が Local で主要な流れを触り、承認している。",
+      "checkedBy": "人",
+      "target": "code-local"
+    },
+    {
+      "id": "build-dev.deployed",
+      "text": "dev が IaC で用意・配備され、その記録がある。",
+      "checkedBy": "AI",
+      "target": "code-dev"
+    },
+    {
+      "id": "build-dev.flows",
+      "text": "dev で主要な流れの受入条件の試験が通る。",
+      "checkedBy": "AI",
+      "target": "code-dev"
+    },
+    {
+      "id": "build-dev.approved",
+      "text": "人が dev で主要な流れを触り、承認している。",
+      "checkedBy": "人",
+      "target": "code-dev"
+    },
+    {
+      "id": "build-staging.real",
+      "text": "計画で置き換えたものが、すべて本物に戻っている。",
+      "checkedBy": "AI",
+      "target": "code-staging"
+    },
+    {
+      "id": "build-staging.flows",
+      "text": "Staging で主要な流れの受入条件の試験が通る。",
+      "checkedBy": "AI",
+      "target": "code-staging"
+    },
+    {
+      "id": "build-staging.approved",
+      "text": "人が Staging で主要な流れを触り、承認している。",
+      "checkedBy": "人",
+      "target": "code-staging"
+    },
+    {
+      "id": "release.decision",
+      "text": "公開するかの判断が、理由と一緒に記録されている。",
+      "checkedBy": "人",
+      "target": "release-record"
+    },
+    {
+      "id": "release.metrics",
+      "text": "目的と範囲の成功の測り方を、いつ何で測るかが決まっている。",
+      "checkedBy": "AI",
+      "target": "release-record"
+    },
+    {
+      "id": "release.learning",
+      "text": "公開の後に測った結果と学びが記録されている。",
+      "checkedBy": "人",
+      "target": "release-record"
+    }
+  ]
+}
