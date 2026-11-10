@@ -1,0 +1,1254 @@
+{
+  "format": 1,
+  "id": "visual-identity",
+  "version": "1.0.0",
+  "title": "ビジュアル・アイデンティティ制作",
+  "purpose": "組織・製品・サービスなどの理念と用途から、ロゴ、シンボル、アプリアイコン等の視覚表現を探索・制作し、評価・承認を経て利用可能なデザイン資産と運用ルールを整える。題材・製品・道具・出力形式は利用側が決める。",
+  "phases": [
+    {
+      "id": "process",
+      "name": "進め方",
+      "purpose": "対象、制作範囲、工程、省略・反復の扱い、AIに委ねる範囲、承認責任者と完成の出口を決める。",
+      "after": [],
+      "deliverables": [
+        "process-map"
+      ],
+      "acceptance": [
+        "process.complete",
+        "process.approved"
+      ]
+    },
+    {
+      "id": "brand",
+      "name": "ブランド理解",
+      "purpose": "何を誰にどう伝えるか、変えてはいけない核と避けたい印象を把握する。",
+      "after": [
+        "process"
+      ],
+      "deliverables": [
+        "brand-brief"
+      ],
+      "acceptance": [
+        "brand.complete",
+        "brand.approved"
+      ]
+    },
+    {
+      "id": "usage",
+      "name": "用途と要件",
+      "purpose": "ロゴ・シンボル・アプリアイコンなどの使用場所と求める品質、運用・権利上の制約を定める。",
+      "after": [
+        "brand"
+      ],
+      "deliverables": [
+        "usage-requirements"
+      ],
+      "acceptance": [
+        "usage.traced",
+        "usage.approved"
+      ]
+    },
+    {
+      "id": "research",
+      "name": "調査と参考収集",
+      "purpose": "関連する表現・類似例・権利条件を整理し、模倣しないための判断材料をそろえる。",
+      "after": [
+        "usage"
+      ],
+      "deliverables": [
+        "reference-board"
+      ],
+      "acceptance": [
+        "research.sources",
+        "research.approved"
+      ]
+    },
+    {
+      "id": "concept",
+      "name": "表現コンセプト",
+      "purpose": "ブランド特性と要件を踏まえ、複数の視覚表現の方向性とデザイン原則を言語化する。",
+      "after": [
+        "research"
+      ],
+      "deliverables": [
+        "concept-board"
+      ],
+      "acceptance": [
+        "concept.traced",
+        "concept.approved"
+      ]
+    },
+    {
+      "id": "sketch",
+      "name": "造形探索・ラフ",
+      "purpose": "コンセプトごとに粗い造形を試し、案ごとに残す点と変える点を記録する。",
+      "after": [
+        "concept"
+      ],
+      "deliverables": [
+        "sketches"
+      ],
+      "acceptance": [
+        "sketch.traced",
+        "sketch.approved"
+      ]
+    },
+    {
+      "id": "candidates",
+      "name": "候補制作",
+      "purpose": "ラフから比較可能な複数案を作り、用途とコンセプトへの対応を明示する。",
+      "after": [
+        "sketch"
+      ],
+      "deliverables": [
+        "candidate-set"
+      ],
+      "acceptance": [
+        "candidates.traced",
+        "candidates.approved"
+      ]
+    },
+    {
+      "id": "refinement",
+      "name": "デザイン詳細化",
+      "purpose": "候補の形・色・文字・余白・レイヤー構造を整え、修正可能な状態で保持する。",
+      "after": [
+        "candidates"
+      ],
+      "deliverables": [
+        "construction-guide"
+      ],
+      "acceptance": [
+        "refinement.layers",
+        "refinement.approved"
+      ]
+    },
+    {
+      "id": "evaluation",
+      "name": "比較評価",
+      "purpose": "候補の印象・独自性・整合性・改善余地を比較し、好みと観察を区別して記録する。",
+      "after": [
+        "refinement"
+      ],
+      "deliverables": [
+        "evaluation-log"
+      ],
+      "acceptance": [
+        "evaluation.traced",
+        "evaluation.approved"
+      ]
+    },
+    {
+      "id": "verification",
+      "name": "使用環境での検証",
+      "purpose": "必要な縮小サイズ、単色、背景、形状切り抜きなどで候補を検証し、未確認事項を残す。",
+      "after": [
+        "evaluation"
+      ],
+      "deliverables": [
+        "verification-report"
+      ],
+      "acceptance": [
+        "verification.traced",
+        "verification.approved"
+      ]
+    },
+    {
+      "id": "selection",
+      "name": "採用判断",
+      "purpose": "評価と検証を踏まえて採用・差し戻し・見送りを決め、判断の根拠と対象版を固定する。",
+      "after": [
+        "verification"
+      ],
+      "deliverables": [
+        "decision-record"
+      ],
+      "acceptance": [
+        "selection.traced",
+        "selection.approved"
+      ]
+    },
+    {
+      "id": "master",
+      "name": "マスター制作",
+      "purpose": "採用したデザインの編集可能な原本と再現に必要な仕様を確定する。",
+      "after": [
+        "selection"
+      ],
+      "deliverables": [
+        "master-design"
+      ],
+      "acceptance": [
+        "master.traced",
+        "master.approved"
+      ]
+    },
+    {
+      "id": "variants",
+      "name": "展開と利用ルール",
+      "purpose": "用途に応じたロゴ・アイコン等の派生版と、使い分け・禁止事項をまとめる。",
+      "after": [
+        "master"
+      ],
+      "deliverables": [
+        "asset-family",
+        "usage-guide"
+      ],
+      "acceptance": [
+        "variants.traced",
+        "variants.approved",
+        "guide.approved"
+      ]
+    },
+    {
+      "id": "handoff",
+      "name": "引き渡しと学び",
+      "purpose": "確定した版・利用権・確認結果・未解決事項を引き渡し、次の制作に生かす学びを残す。",
+      "after": [
+        "variants"
+      ],
+      "deliverables": [
+        "handoff-record"
+      ],
+      "acceptance": [
+        "handoff.complete",
+        "handoff.approved"
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "id": "plan",
+      "name": "企画",
+      "phases": [
+        "process",
+        "brand",
+        "usage"
+      ]
+    },
+    {
+      "id": "explore",
+      "name": "探索",
+      "phases": [
+        "research",
+        "concept",
+        "sketch"
+      ]
+    },
+    {
+      "id": "design",
+      "name": "造形",
+      "phases": [
+        "candidates",
+        "refinement"
+      ]
+    },
+    {
+      "id": "review",
+      "name": "評価と判断",
+      "phases": [
+        "evaluation",
+        "verification",
+        "selection"
+      ]
+    },
+    {
+      "id": "deliver",
+      "name": "完成と展開",
+      "phases": [
+        "master",
+        "variants",
+        "handoff"
+      ]
+    }
+  ],
+  "deliverables": [
+    {
+      "id": "process-map",
+      "name": "進め方",
+      "form": "図",
+      "outline": [
+        {
+          "heading": "対象と出口",
+          "describe": "対象となるブランド・製品、作る資産の範囲、完了時に使える状態"
+        },
+        {
+          "heading": "工程・順序・成果物",
+          "describe": "通る工程、先に終える工程、各工程の成果物・達成条件と確認する人"
+        },
+        {
+          "heading": "省く工程と代替確認",
+          "describe": "省く工程や成果物、理由、代わりの確認方法。対象に不要な媒体・派生版もここで決める"
+        },
+        {
+          "heading": "AIに頼む範囲",
+          "describe": "調査・生成・修正・比較・確認の各段階でAIが提案できること、人が判断すること、外部資料の扱い"
+        },
+        {
+          "heading": "責任者と判断の進め方",
+          "describe": "最終承認責任者、差し戻しと版の固定、反復するときの再確認"
+        }
+      ]
+    },
+    {
+      "id": "brand-brief",
+      "name": "ブランドブリーフ",
+      "form": "文書",
+      "outline": [
+        {
+          "heading": "対象と背景",
+          "describe": "存在意義・事業・利用者・名称や由来・現在の課題"
+        },
+        {
+          "heading": "伝えたい特性",
+          "describe": "印象・価値・人格・他と区別したい特徴を特性ごとに記す",
+          "item": "brand-attribute"
+        },
+        {
+          "heading": "避けたい表現",
+          "describe": "似せてはいけない方向性、誤解を招く表現、文化・地域での注意"
+        },
+        {
+          "heading": "判断の優先順位",
+          "describe": "相反する特性がある場合の優先順位と人が判断する理由"
+        }
+      ],
+      "uses": [
+        "process-map"
+      ]
+    },
+    {
+      "id": "usage-requirements",
+      "name": "用途と要件",
+      "form": "表",
+      "outline": [
+        {
+          "heading": "用途と場面",
+          "describe": "表示場所、利用者、背景、サイズ、媒体、必要なシンボル・文字の組み合わせを用途ごとに記す",
+          "item": "usage-context"
+        },
+        {
+          "heading": "デザイン要件",
+          "describe": "視認性、識別性、拡大縮小、単色使用、アクセシビリティ、制約、検証方法と優先度",
+          "item": "requirement"
+        },
+        {
+          "heading": "権利と運用の制約",
+          "describe": "商標調査の必要性、素材と書体の利用条件、発注者の権利、地域・配布先による注意"
+        }
+      ],
+      "uses": [
+        "brand-brief"
+      ]
+    },
+    {
+      "id": "reference-board",
+      "name": "調査と参考資料",
+      "form": "図・文書",
+      "outline": [
+        {
+          "heading": "参照資料",
+          "describe": "何を参考にするか・出典・参照版・利用条件・外部送信の可否・何を参考にし何を避けるか",
+          "item": "reference"
+        },
+        {
+          "heading": "似た表現の整理",
+          "describe": "既存のブランドや競合との共通点と混同リスク。参考にすることと模倣することを区別する"
+        },
+        {
+          "heading": "調査の不足",
+          "describe": "未確認の権利、利用地域、資料の出所、専門家確認が必要な論点"
+        }
+      ],
+      "uses": [
+        "usage-requirements"
+      ]
+    },
+    {
+      "id": "concept-board",
+      "name": "デザイン方針とコンセプト",
+      "form": "文書・図",
+      "outline": [
+        {
+          "heading": "デザイン原則",
+          "describe": "形状、印象、読みやすさ、配色、線・余白の決まりとその根拠",
+          "item": "design-principle"
+        },
+        {
+          "heading": "表現コンセプト",
+          "describe": "方向性ごとの狙い、特徴、避けること、比較する観点",
+          "item": "concept"
+        },
+        {
+          "heading": "方向性の使い分け",
+          "describe": "どの方向性をどの用途で試すか、相容れない表現があれば理由を記す"
+        }
+      ],
+      "uses": [
+        "brand-brief",
+        "usage-requirements",
+        "reference-board"
+      ]
+    },
+    {
+      "id": "sketches",
+      "name": "ラフと造形探索",
+      "form": "絵・図",
+      "outline": [
+        {
+          "heading": "ラフ",
+          "describe": "試した造形、元のコンセプト、ラフの版、手を入れた部分と残す特徴",
+          "item": "sketch"
+        },
+        {
+          "heading": "造形の観察",
+          "describe": "印象、弱点、変形の余地、次に試したい変化"
+        },
+        {
+          "heading": "AIと人の関与",
+          "describe": "提案元、人の描き直し、採用した部分、外部資料の使用"
+        }
+      ],
+      "uses": [
+        "concept-board"
+      ]
+    },
+    {
+      "id": "candidate-set",
+      "name": "デザイン候補",
+      "form": "デザイン",
+      "outline": [
+        {
+          "heading": "候補",
+          "describe": "候補の識別子、元ラフと元要件、狙い、比較する版、プレビューと編集可能な原本の参照",
+          "item": "candidate"
+        },
+        {
+          "heading": "比較用の条件",
+          "describe": "表示サイズ・配置・背景等をそろえた見せ方。単一候補のみの場合の理由"
+        },
+        {
+          "heading": "変更の履歴",
+          "describe": "版間で直した部分、提案・却下・採用の来歴"
+        }
+      ],
+      "uses": [
+        "sketches",
+        "usage-requirements"
+      ]
+    },
+    {
+      "id": "construction-guide",
+      "name": "造形とレイヤーの設計",
+      "form": "デザイン・文書",
+      "outline": [
+        {
+          "heading": "造形の仕様",
+          "describe": "比率、線、曲率、色、タイポグラフィ、余白、配置、許容する変形"
+        },
+        {
+          "heading": "編集単位とレイヤー",
+          "describe": "候補ごとのパーツやレイヤーの名前・重ね順・内容・版・残す状態・人とAIの編集範囲。レイヤーは元の候補を引用し、評価・検証はそのレイヤーの確認版を引用する。配色・形・構成の変更時は改訂レイヤーを起点に評価・検証・採用判断へ影響を伝える",
+          "item": "layer"
+        },
+        {
+          "heading": "固定する特徴と例外",
+          "describe": "識別性に必須の部分、用途に応じて変更してよい部分とその条件"
+        }
+      ],
+      "uses": [
+        "candidate-set",
+        "concept-board"
+      ]
+    },
+    {
+      "id": "evaluation-log",
+      "name": "候補の比較評価",
+      "form": "表",
+      "outline": [
+        {
+          "heading": "評価",
+          "describe": "候補、対象となる固定版と構成レイヤーの確認版、観点、観察、判断、改善案、評価者・評価日を一件ずつ記す。評価は対象の候補と実際に確認したレイヤーを引用し、同じ候補・固定版の構成に対する引用漏れは検出する",
+          "item": "evaluation"
+        },
+        {
+          "heading": "評価方法",
+          "describe": "共通の比較条件と基準。数値にできない美的判断は文章で残す"
+        },
+        {
+          "heading": "再制作の論点",
+          "describe": "追加のラフや候補の改訂が必要な点と、その理由"
+        }
+      ],
+      "uses": [
+        "candidate-set",
+        "construction-guide"
+      ],
+      "view": {
+        "as": "table",
+        "items": "evaluation",
+        "columns": [
+          "候補",
+          "対象版",
+          "観点",
+          "観察",
+          "判断",
+          "改善案",
+          "評価者"
+        ]
+      }
+    },
+    {
+      "id": "verification-report",
+      "name": "使用環境での検証",
+      "form": "表",
+      "outline": [
+        {
+          "heading": "検証",
+          "describe": "候補・固定版、確認したレイヤーの版、用途、要求事項、条件、結果、根拠、未確認事項を記す。検証は同じ候補・固定版の構成レイヤーを引用し、他候補や旧版のレイヤーで代替しない",
+          "item": "verification"
+        },
+        {
+          "heading": "代表ケース",
+          "describe": "小さな表示、単色、ライト・ダーク背景、切り抜き・輪郭、文字の読める大きさなど必要なケース"
+        },
+        {
+          "heading": "不合格と再試行",
+          "describe": "失敗や不明を合格扱いせず、対象・原因・再検証の必要性を残す"
+        }
+      ],
+      "uses": [
+        "usage-requirements",
+        "candidate-set",
+        "evaluation-log"
+      ],
+      "view": {
+        "as": "table",
+        "items": "verification",
+        "columns": [
+          "候補",
+          "用途",
+          "対象版",
+          "条件",
+          "結果",
+          "根拠",
+          "未確認事項"
+        ]
+      }
+    },
+    {
+      "id": "decision-record",
+      "name": "採用の判断",
+      "form": "文書",
+      "outline": [
+        {
+          "heading": "採用判断",
+          "describe": "採用・保留・差し戻し・見送り、採用候補と固定版、評価・検証の根拠、決裁者を一件で記す。採用対象に適用するデザイン要件を列挙し、各要件について同じ候補・同じ固定版の検証結果を対応付ける。未検証・不合格・適用除外は区別し、例外採用は理由と責任者の明示判断を記録する",
+          "item": "selection"
+        },
+        {
+          "heading": "不採用の理由",
+          "describe": "見送った案と未解決の論点。判断者が残す美的評価と実務上の制約"
+        },
+        {
+          "heading": "再開の条件",
+          "describe": "ブランド・用途・候補の版・構成レイヤーが変わったとき、どの要件・評価・検証と採用判断を再確認するか。別候補や別版の検証結果で代替しない"
+        }
+      ],
+      "uses": [
+        "evaluation-log",
+        "verification-report"
+      ]
+    },
+    {
+      "id": "master-design",
+      "name": "デザインのマスター",
+      "form": "デザイン",
+      "outline": [
+        {
+          "heading": "マスター",
+          "describe": "確定したシンボル・文字・組み合わせなどの原本、採用判断・版・構造・利用権とのつながり",
+          "item": "master-asset"
+        },
+        {
+          "heading": "再現仕様",
+          "describe": "比率、余白、配色、文字、編集可能な構成、再現に必要な参照"
+        },
+        {
+          "heading": "原本と検収",
+          "describe": "読み直し・再編集できる正本、採用した版と一致することの確認結果"
+        }
+      ],
+      "uses": [
+        "decision-record",
+        "construction-guide"
+      ]
+    },
+    {
+      "id": "asset-family",
+      "name": "展開版の一覧",
+      "form": "デザイン・表",
+      "outline": [
+        {
+          "heading": "展開版",
+          "describe": "用途ごとの派生版（変更なしでマスターを直接使用する場合も対応版を登録）、元マスター、変更点、版、検証・承認の状態と必要な利用権",
+          "item": "variant"
+        },
+        {
+          "heading": "展開の範囲",
+          "describe": "組み合わせ、横・縦、単色、背景違い、アイコン等から必要なものを選ぶ。不要なものは理由を書く"
+        },
+        {
+          "heading": "用途との対応",
+          "describe": "定めた各用途が展開版で網羅されているかを確認する。マスターをそのまま用いる用途も元マスターを指す展開版の対応として明示する。範囲外・未作成の用途は理由と確認者を記し、理由付きの適用除外とする"
+        }
+      ],
+      "uses": [
+        "master-design",
+        "usage-requirements"
+      ],
+      "view": {
+        "as": "table",
+        "items": "variant",
+        "columns": [
+          "用途",
+          "元マスター",
+          "差分",
+          "対象版",
+          "検証",
+          "承認"
+        ]
+      }
+    },
+    {
+      "id": "usage-guide",
+      "name": "利用ガイド",
+      "form": "文書・図",
+      "outline": [
+        {
+          "heading": "正しい使用例",
+          "describe": "余白、背景、最小サイズ、配置、ロゴとシンボルの使い分け"
+        },
+        {
+          "heading": "避ける使い方",
+          "describe": "変形・文字の置換・色変更・背景との衝突など認めない使い方と例外"
+        },
+        {
+          "heading": "権利と管理",
+          "describe": "素材・書体等の利用条件、許可される利用先、更新時の承認方法"
+        }
+      ],
+      "uses": [
+        "asset-family",
+        "construction-guide"
+      ]
+    },
+    {
+      "id": "handoff-record",
+      "name": "引き渡しと学び",
+      "form": "文書・表",
+      "outline": [
+        {
+          "heading": "引き渡し内容",
+          "describe": "確定マスターと展開版の一覧、確認済みの版、原本の編集可能性、利用ガイド、受領者"
+        },
+        {
+          "heading": "権利と未解決事項",
+          "describe": "素材・書体の利用権、商標等の未確定事項、利用前に必要な確認と責任者"
+        },
+        {
+          "heading": "学び",
+          "describe": "評価・検証・採用判断に基づく次回への改善点",
+          "item": "learning"
+        },
+        {
+          "heading": "最終受領",
+          "describe": "受領日・承認責任者・未完了を残す場合の扱い"
+        }
+      ],
+      "uses": [
+        "master-design",
+        "asset-family",
+        "usage-guide"
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "brand-attribute",
+      "name": "ブランド特性",
+      "idForm": "BA-{nn}"
+    },
+    {
+      "id": "usage-context",
+      "name": "用途",
+      "idForm": "UC-{nn}"
+    },
+    {
+      "id": "requirement",
+      "name": "デザイン要件",
+      "idForm": "RQ-{nn}"
+    },
+    {
+      "id": "reference",
+      "name": "参考資料",
+      "idForm": "RF-{nn}"
+    },
+    {
+      "id": "design-principle",
+      "name": "デザイン原則",
+      "idForm": "DP-{nn}"
+    },
+    {
+      "id": "concept",
+      "name": "表現コンセプト",
+      "idForm": "CP-{nn}"
+    },
+    {
+      "id": "sketch",
+      "name": "ラフ",
+      "idForm": "SK-{nnn}"
+    },
+    {
+      "id": "candidate",
+      "name": "デザイン候補",
+      "idForm": "CA-{nnn}"
+    },
+    {
+      "id": "layer",
+      "name": "編集レイヤー",
+      "idForm": "LY-{nnn}"
+    },
+    {
+      "id": "evaluation",
+      "name": "候補評価",
+      "idForm": "EV-{nnn}"
+    },
+    {
+      "id": "verification",
+      "name": "環境検証",
+      "idForm": "VT-{nnn}"
+    },
+    {
+      "id": "selection",
+      "name": "採用判断",
+      "idForm": "SL-{nn}"
+    },
+    {
+      "id": "master-asset",
+      "name": "マスター",
+      "idForm": "MA-{nn}"
+    },
+    {
+      "id": "variant",
+      "name": "展開版",
+      "idForm": "VA-{nnn}"
+    },
+    {
+      "id": "learning",
+      "name": "学び",
+      "idForm": "LE-{nn}"
+    }
+  ],
+  "rules": [
+    {
+      "id": "requirement-cites-usage",
+      "type": "cites",
+      "from": "requirement",
+      "to": [
+        "usage-context"
+      ],
+      "min": 1
+    },
+    {
+      "id": "principle-cites-brand",
+      "type": "cites",
+      "from": "design-principle",
+      "to": [
+        "brand-attribute"
+      ],
+      "min": 1
+    },
+    {
+      "id": "principle-cites-reference",
+      "type": "cites",
+      "from": "design-principle",
+      "to": [
+        "reference"
+      ],
+      "min": 0
+    },
+    {
+      "id": "concept-cites-principle",
+      "type": "cites",
+      "from": "concept",
+      "to": [
+        "design-principle"
+      ],
+      "min": 1
+    },
+    {
+      "id": "sketch-cites-concept",
+      "type": "cites",
+      "from": "sketch",
+      "to": [
+        "concept"
+      ],
+      "min": 1
+    },
+    {
+      "id": "candidate-cites-sketch",
+      "type": "cites",
+      "from": "candidate",
+      "to": [
+        "sketch"
+      ],
+      "min": 1
+    },
+    {
+      "id": "candidate-cites-requirement",
+      "type": "cites",
+      "from": "candidate",
+      "to": [
+        "requirement"
+      ],
+      "min": 1
+    },
+    {
+      "id": "layer-cites-candidate",
+      "type": "cites",
+      "from": "layer",
+      "to": [
+        "candidate"
+      ],
+      "min": 1
+    },
+    {
+      "id": "evaluation-cites-candidate",
+      "type": "cites",
+      "from": "evaluation",
+      "to": [
+        "candidate"
+      ],
+      "min": 1
+    },
+    {
+      "id": "evaluation-cites-layer",
+      "type": "cites",
+      "from": "evaluation",
+      "to": [
+        "layer"
+      ],
+      "min": 1
+    },
+    {
+      "id": "evaluation-cites-principle",
+      "type": "cites",
+      "from": "evaluation",
+      "to": [
+        "design-principle"
+      ],
+      "min": 1
+    },
+    {
+      "id": "verification-cites-candidate",
+      "type": "cites",
+      "from": "verification",
+      "to": [
+        "candidate"
+      ],
+      "min": 1
+    },
+    {
+      "id": "verification-cites-layer",
+      "type": "cites",
+      "from": "verification",
+      "to": [
+        "layer"
+      ],
+      "min": 1
+    },
+    {
+      "id": "verification-cites-requirement",
+      "type": "cites",
+      "from": "verification",
+      "to": [
+        "requirement"
+      ],
+      "min": 1
+    },
+    {
+      "id": "selection-cites-candidate",
+      "type": "cites",
+      "from": "selection",
+      "to": [
+        "candidate"
+      ],
+      "min": 1
+    },
+    {
+      "id": "selection-cites-evaluation",
+      "type": "cites",
+      "from": "selection",
+      "to": [
+        "evaluation"
+      ],
+      "min": 1
+    },
+    {
+      "id": "selection-cites-verification",
+      "type": "cites",
+      "from": "selection",
+      "to": [
+        "verification"
+      ],
+      "min": 1
+    },
+    {
+      "id": "master-cites-selection",
+      "type": "cites",
+      "from": "master-asset",
+      "to": [
+        "selection"
+      ],
+      "min": 1
+    },
+    {
+      "id": "variant-cites-master",
+      "type": "cites",
+      "from": "variant",
+      "to": [
+        "master-asset"
+      ],
+      "min": 1
+    },
+    {
+      "id": "variant-cites-usage",
+      "type": "cites",
+      "from": "variant",
+      "to": [
+        "usage-context"
+      ],
+      "min": 1
+    },
+    {
+      "id": "learning-cites-basis",
+      "type": "cites",
+      "from": "learning",
+      "to": [
+        "evaluation",
+        "verification",
+        "selection"
+      ],
+      "min": 1
+    },
+    {
+      "id": "brand-attribute-covered",
+      "type": "covered",
+      "of": "brand-attribute",
+      "by": [
+        "design-principle"
+      ],
+      "exempt": true
+    },
+    {
+      "id": "usage-context-covered",
+      "type": "covered",
+      "of": "usage-context",
+      "by": [
+        "requirement"
+      ],
+      "exempt": true
+    },
+    {
+      "id": "requirement-covered",
+      "type": "covered",
+      "of": "requirement",
+      "by": [
+        "verification"
+      ],
+      "exempt": true
+    },
+    {
+      "id": "concept-covered",
+      "type": "covered",
+      "of": "concept",
+      "by": [
+        "sketch"
+      ],
+      "exempt": true
+    },
+    {
+      "id": "candidate-covered",
+      "type": "covered",
+      "of": "candidate",
+      "by": [
+        "evaluation"
+      ],
+      "exempt": true
+    },
+    {
+      "id": "layer-evaluated",
+      "type": "covered",
+      "of": "layer",
+      "by": [
+        "evaluation"
+      ],
+      "exempt": true
+    },
+    {
+      "id": "layer-verified",
+      "type": "covered",
+      "of": "layer",
+      "by": [
+        "verification"
+      ],
+      "exempt": true
+    },
+    {
+      "id": "master-covered",
+      "type": "covered",
+      "of": "master-asset",
+      "by": [
+        "variant"
+      ],
+      "exempt": true
+    },
+    {
+      "id": "usage-context-delivered",
+      "type": "covered",
+      "of": "usage-context",
+      "by": [
+        "variant"
+      ],
+      "exempt": true
+    }
+  ],
+  "acceptance": [
+    {
+      "id": "process.complete",
+      "text": "対象・出口、工程と成果物、責任者とAIの関与、省略の理由と代替確認が明記されている。",
+      "checkedBy": "AI",
+      "target": "process-map"
+    },
+    {
+      "id": "process.approved",
+      "text": "人が工程と役割・責任・省略を確認し、開始を承認している。",
+      "checkedBy": "人",
+      "target": "process-map"
+    },
+    {
+      "id": "brand.complete",
+      "text": "伝えたい特性、避けたい印象、判断の優先順位が書かれている。",
+      "checkedBy": "AI",
+      "target": "brand-brief"
+    },
+    {
+      "id": "brand.approved",
+      "text": "ブランドの責任者が価値・人格と表現の方向を承認している。",
+      "checkedBy": "人",
+      "target": "brand-brief"
+    },
+    {
+      "id": "usage.traced",
+      "text": "各デザイン要件が使用場面を引用し、用途と要件の抜けが明示されている。",
+      "checkedBy": "AI",
+      "target": "usage-requirements",
+      "rules": [
+        "requirement-cites-usage",
+        "usage-context-covered"
+      ]
+    },
+    {
+      "id": "usage.approved",
+      "text": "人が実際の使用場所・優先度・権利条件・必要な検証を確認している。",
+      "checkedBy": "人",
+      "target": "usage-requirements"
+    },
+    {
+      "id": "research.sources",
+      "text": "各参考資料の出典・版・利用条件・外部送信可否・利用目的が書かれ、未確認事項を区別できる。",
+      "checkedBy": "AI",
+      "target": "reference-board"
+    },
+    {
+      "id": "research.approved",
+      "text": "人が調査結果を見て、模倣・混同・権利のリスクを確認している。必要なら専門家確認を未完として残す。",
+      "checkedBy": "人",
+      "target": "reference-board"
+    },
+    {
+      "id": "concept.traced",
+      "text": "デザイン原則がブランド特性を、コンセプトがデザイン原則を引用している。",
+      "checkedBy": "AI",
+      "target": "concept-board",
+      "rules": [
+        "principle-cites-brand",
+        "concept-cites-principle",
+        "brand-attribute-covered"
+      ]
+    },
+    {
+      "id": "concept.approved",
+      "text": "人がコンセプトと避ける表現を承認している。",
+      "checkedBy": "人",
+      "target": "concept-board"
+    },
+    {
+      "id": "sketch.traced",
+      "text": "各ラフが元のコンセプトを引用し、試していない方向性が分かる。",
+      "checkedBy": "AI",
+      "target": "sketches",
+      "rules": [
+        "sketch-cites-concept",
+        "concept-covered"
+      ]
+    },
+    {
+      "id": "sketch.approved",
+      "text": "人が粗い造形と次に試す方向を確認している。",
+      "checkedBy": "人",
+      "target": "sketches"
+    },
+    {
+      "id": "candidates.traced",
+      "text": "各候補が元のラフと要件を引用し、比較に使う版を特定できる。",
+      "checkedBy": "AI",
+      "target": "candidate-set",
+      "rules": [
+        "candidate-cites-sketch",
+        "candidate-cites-requirement"
+      ]
+    },
+    {
+      "id": "candidates.approved",
+      "text": "人が候補の多様性とコンセプトへの適合を評価し、比較対象を承認している。",
+      "checkedBy": "人",
+      "target": "candidate-set"
+    },
+    {
+      "id": "refinement.layers",
+      "text": "レイヤーごとに名前・重ね順・内容・編集範囲・版・対象候補があり、再編集できる構造を説明できる。レイヤー改訂時の対象版を固定している。",
+      "checkedBy": "AI",
+      "target": "construction-guide",
+      "rules": [
+        "layer-cites-candidate"
+      ]
+    },
+    {
+      "id": "refinement.approved",
+      "text": "人が形状・配色・文字・余白と、ラフから残した意図を確かめている。",
+      "checkedBy": "人",
+      "target": "construction-guide"
+    },
+    {
+      "id": "evaluation.traced",
+      "text": "各評価が対象候補・デザイン原則と、実際に評価したレイヤー（確認版）を引用する。候補の固定版に含まれる評価対象レイヤーに引用漏れがなく、例外は理由付きで区別する。観察と美的な好みを区別して記録する。候補とレイヤーが異なる版で混在する場合は未確認とする。",
+      "checkedBy": "AI",
+      "target": "evaluation-log",
+      "rules": [
+        "evaluation-cites-candidate",
+        "evaluation-cites-layer",
+        "evaluation-cites-principle",
+        "candidate-covered",
+        "layer-evaluated"
+      ]
+    },
+    {
+      "id": "evaluation.approved",
+      "text": "人が比較条件と評価結果を確認し、修正または次の検証に進む判断をしている。",
+      "checkedBy": "人",
+      "target": "evaluation-log"
+    },
+    {
+      "id": "verification.traced",
+      "text": "各検証が候補・要件・確認したレイヤーを引用し、候補とレイヤーの同一固定版、条件・結果・根拠・不明点が揃っている。構成レイヤーの検証引用漏れは理由付きの適用除外を除き未完了とし、他候補・別版のレイヤーを流用しない。未検証・不合格を合格扱いしない。",
+      "checkedBy": "AI",
+      "target": "verification-report",
+      "rules": [
+        "verification-cites-candidate",
+        "verification-cites-layer",
+        "verification-cites-requirement",
+        "requirement-covered",
+        "layer-verified"
+      ]
+    },
+    {
+      "id": "verification.approved",
+      "text": "人が実際の使用条件での見え方を確かめ、問題点と未確認事項を承認または差し戻している。",
+      "checkedBy": "人",
+      "target": "verification-report"
+    },
+    {
+      "id": "selection.traced",
+      "text": "採用判断が候補・評価・検証を引用し、採用候補の固定版に適用する各要件に、その候補と同じ固定版の検証結果が対応していることを確認する。他候補・別版の検証では代替しない。未検証・不合格・適用除外を区別し、未検証・不合格の例外採用および適用除外には根拠と責任者の明示判断を残す。対象版・根拠・決裁者が揃わなければ未完了とする。",
+      "checkedBy": "AI",
+      "target": "decision-record",
+      "rules": [
+        "selection-cites-candidate",
+        "selection-cites-evaluation",
+        "selection-cites-verification"
+      ]
+    },
+    {
+      "id": "selection.approved",
+      "text": "最終責任者がデザインの採否を判断し、機械的な得点だけで採用していない。未検証・不合格・適用除外の各要件の例外理由と残余リスクを確認し、必要なら保留・差し戻しにしている。",
+      "checkedBy": "人",
+      "target": "decision-record"
+    },
+    {
+      "id": "master.traced",
+      "text": "マスターが採用判断を引用し、対象の固定版と再編集可能な正本を識別できる。",
+      "checkedBy": "AI",
+      "target": "master-design",
+      "rules": [
+        "master-cites-selection"
+      ]
+    },
+    {
+      "id": "master.approved",
+      "text": "人が採用案とマスターの造形・色・文字・余白の一致を確認している。",
+      "checkedBy": "人",
+      "target": "master-design"
+    },
+    {
+      "id": "variants.traced",
+      "text": "必要な展開版がマスターと用途を引用し、各用途を展開版で網羅する。マスターをそのまま使う場合も用途との対応を明示する。範囲外・未作成は理由付きの適用除外にし、必要な用途の抜けを検出できる。",
+      "checkedBy": "AI",
+      "target": "asset-family",
+      "rules": [
+        "variant-cites-master",
+        "variant-cites-usage",
+        "master-covered",
+        "usage-context-delivered"
+      ]
+    },
+    {
+      "id": "variants.approved",
+      "text": "人が各用途での表示と変更許容範囲を確認している。",
+      "checkedBy": "人",
+      "target": "asset-family"
+    },
+    {
+      "id": "guide.approved",
+      "text": "人が正しい使用例・禁止例・権利条件・更新ルールを確認している。",
+      "checkedBy": "人",
+      "target": "usage-guide"
+    },
+    {
+      "id": "handoff.complete",
+      "text": "採用した版・受領者・必要な原本と展開版・利用権・未解決事項・根拠のある学びが揃っている。",
+      "checkedBy": "AI",
+      "target": "handoff-record",
+      "rules": [
+        "learning-cites-basis"
+      ]
+    },
+    {
+      "id": "handoff.approved",
+      "text": "人が成果物と権利・未完了の扱いを受領し、引き渡しを承認している。",
+      "checkedBy": "人",
+      "target": "handoff-record"
+    }
+  ]
+}
