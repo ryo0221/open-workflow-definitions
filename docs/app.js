@@ -59,7 +59,7 @@
       demos: {
         software: {
           id: "software-product", version: "PUBLIC EXAMPLE · SIMPLIFIED",
-          source: "公開定義を参考にした簡略例", title: "ソフトウェアをつくる",
+          source: "公開定義の工程抜粋", title: "ソフトウェアをつくる",
           phases: [
             ["進め方", "工程の順序と責任を明確にする。", "工程マップ", "進め方を人が確認する"],
             ["目的と範囲", "誰にどんな価値を届けるか、対象外も含めて決める。", "スコープ文書", "範囲と成功条件が明確"],
@@ -69,25 +69,25 @@
           ]
         },
         manga: {
-          id: "fiction-manga", version: "CONCEPTUAL EXAMPLE",
-          source: "適用イメージ（公開定義ではありません）", title: "漫画をつくる",
+          id: "fiction-manga", version: "PUBLIC DEFINITION · SELECTED PHASES",
+          source: "公開定義の13工程から5工程を抜粋", title: "漫画をつくる",
           phases: [
-            ["構想", "主題・読者・作品の狙いを整理する。", "企画概要", "作品の狙いが共有されている"],
-            ["物語", "展開と人物の選択を組み立てる。", "プロット", "出来事と因果関係に整合性がある"],
-            ["ネーム", "ページ・コマ・台詞・視線の流れを設計する。", "ネーム", "読み順と情報が伝わる"],
-            ["作画", "ラフから線画、仕上げへ段階的に進める。", "原稿ページ", "絵と演出の一貫性を確認"],
-            ["確認", "作品全体の連続性と表記を確認する。", "校正記録", "人が最終的に受け入れる"]
+            ["企画", "作品の狙い、画作りとレイヤーの決まりを整える。", "企画書・画作りガイド", "作者が制作方針を確認"],
+            ["人物", "人物の設定と関係、描写の一貫性を整える。", "人物表・関係図・設定画", "外見と関係を作者が受け入れる"],
+            ["ネーム", "ページ・コマ・人物の配置・カメラを設計する。", "ネーム", "読み順・構図・意図を確認"],
+            ["ラフ", "ネームをもとに姿勢・表情・背景を描き分ける。", "ラフ原稿", "人物配置と作画方針を確認"],
+            ["仕上げと写植", "線画から塗りと効果、吹き出しを仕上げる。", "完成原稿・写植記録", "文字と見せ方を確認"]
           ]
         },
         identity: {
-          id: "visual-identity", version: "CONCEPTUAL EXAMPLE",
-          source: "適用イメージ（公開定義ではありません）", title: "ロゴをつくる",
+          id: "visual-identity", version: "PUBLIC DEFINITION · SELECTED PHASES",
+          source: "公開定義の14工程から5工程を抜粋", title: "ロゴをつくる",
           phases: [
-            ["方向性", "ブランドの価値・用途・制約を整理する。", "制作ブリーフ", "方向性を合意する"],
-            ["探索", "比喩・形・文字の方向を広く試す。", "探索ボード", "候補の比較軸がある"],
-            ["候補", "有望案を絞り込み比較する。", "ロゴ候補", "複数の利用条件で検証する"],
-            ["採用", "人が採用案を判断して決める。", "採用記録", "採用理由が説明できる"],
-            ["展開", "サイズ・色・媒体別に仕上げる。", "マスター・用途別データ", "利用条件を満たす"]
+            ["ブランド理解", "ブランド特性と伝えるべき核を理解する。", "ブランド概要", "誰に何を伝えるか明確"],
+            ["造形探索・ラフ", "方向性を広く検討し、造形の可能性を試す。", "ラフ案", "試行と根拠を残す"],
+            ["候補制作", "比較できる複数の候補を制作する。", "候補案", "用途との対応が明確"],
+            ["採用判断", "評価と検証を踏まえ人が採否を決める。", "採用判断記録", "判断根拠と版を固定"],
+            ["マスター制作", "編集可能な原本と再現仕様を確定する。", "マスターデザイン", "再現可能性を確認"]
           ]
         }
       }
@@ -149,7 +149,7 @@
       demos: {
         software: {
           id: "software-product", version: "PUBLIC EXAMPLE · SIMPLIFIED",
-          source: "Simplified from a public definition", title: "Build software",
+          source: "Selected phases from a public definition", title: "Build software",
           phases: [
             ["Process", "Agree on phase order and responsibilities.", "Process map", "Human review of the process"],
             ["Scope", "Set goals, boundaries and measures of success.", "Scope document", "Clear scope and success criteria"],
@@ -159,25 +159,25 @@
           ]
         },
         manga: {
-          id: "fiction-manga", version: "CONCEPTUAL EXAMPLE",
-          source: "Concept only (not in public release)", title: "Create comics",
+          id: "fiction-manga", version: "PUBLIC DEFINITION · SELECTED PHASES",
+          source: "5 of 13 phases from the public definition", title: "Create comics",
           phases: [
-            ["Concept", "Define the theme, reader and creative intent.", "Creative brief", "Shared creative direction"],
-            ["Story", "Structure events and character decisions.", "Plot outline", "Coherent events and causality"],
-            ["Storyboard", "Plan pages, panels, dialogue and reading order.", "Storyboards", "Readable visual flow"],
-            ["Artwork", "Move from roughs to linework and finishing.", "Pages", "Consistent art and direction"],
-            ["Review", "Check continuity and language across the work.", "Review notes", "Human final acceptance"]
+            ["Concept", "Set the creative intent, art guide and layer conventions.", "Concept brief and art guide", "Creator reviews direction"],
+            ["Characters", "Define characters, relationships and visual consistency.", "Character sheets and art", "Creator approves appearances"],
+            ["Storyboard", "Plan pages, panels, figures and camera placement.", "Storyboard pages", "Check composition and reading flow"],
+            ["Roughs", "Draw poses, expressions and backgrounds for each panel.", "Rough pages", "Review the drawings and references"],
+            ["Finishing", "Apply shading, effects and lettering to inked pages.", "Finished pages and lettering record", "Review text and presentation"]
           ]
         },
         identity: {
-          id: "visual-identity", version: "CONCEPTUAL EXAMPLE",
-          source: "Concept only (not in public release)", title: "Design a visual identity",
+          id: "visual-identity", version: "PUBLIC DEFINITION · SELECTED PHASES",
+          source: "5 of 14 phases from the public definition", title: "Design a visual identity",
           phases: [
-            ["Direction", "Define brand values, uses and constraints.", "Creative brief", "Direction is agreed"],
-            ["Explore", "Explore forms, metaphors and typography.", "Exploration board", "Comparison criteria"],
-            ["Candidates", "Develop and compare promising routes.", "Design candidates", "Test across contexts"],
-            ["Select", "Choose a direction with human review.", "Decision record", "Rationale is explicit"],
-            ["Deliver", "Prepare sizes, colors and context variants.", "Masters and variants", "Meets usage constraints"]
+            ["Brand", "Clarify the brand character and what to communicate.", "Brand brief", "Clear direction"],
+            ["Sketch", "Explore multiple forms and design directions.", "Sketches", "Keep design rationale"],
+            ["Candidates", "Create comparable alternatives from promising sketches.", "Candidate set", "Mapped to intended uses"],
+            ["Select", "Use evaluations and checks to decide with human review.", "Decision record", "Fix rationale and version"],
+            ["Master", "Finalize editable masters and reproduction rules.", "Master design", "Verify reproducibility"]
           ]
         }
       }
