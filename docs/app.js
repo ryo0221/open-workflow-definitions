@@ -199,7 +199,8 @@
 
   function byId(id) { return document.getElementById(id); }
 
-  function setHeroStage(index) {
+  function setHeroStage(index, announce = false) {
+    byId("hero-inspector-index").parentElement.setAttribute("aria-live", announce ? "polite" : "off");
     stage = index;
     nodes.forEach((node, i) => {
       const active = i === stage;
@@ -296,7 +297,7 @@
   nodes.forEach((node, index) => {
     node.addEventListener("click", () => {
       userSelectedStage = true;
-      setHeroStage(index);
+      setHeroStage(index, true);
     });
   });
   languageButtons.forEach(button => button.addEventListener("click", () => setLanguage(button.dataset.lang)));
