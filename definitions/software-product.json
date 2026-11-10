@@ -1,7 +1,7 @@
 {
   "format": 1,
   "id": "software-product",
-  "version": "1.5.0",
+  "version": "1.7.0",
   "title": "ソフトウェア製品の開発",
   "purpose": "画面のあるソフトウェア製品を、人が工程ごとに成果物を確かめて受け入れながら、AI と対話して作り、Local から本番まで段階的に動かして公開する。",
   "phases": [
@@ -221,7 +221,47 @@
       "acceptance": [
         "release.decision",
         "release.metrics",
-        "release.learning"
+        "release.learning",
+        "release.learning-traced"
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "id": "plan",
+      "name": "企画",
+      "phases": [
+        "process",
+        "scope",
+        "stories"
+      ]
+    },
+    {
+      "id": "design",
+      "name": "設計",
+      "phases": [
+        "screens",
+        "states",
+        "premises",
+        "controls",
+        "architecture"
+      ]
+    },
+    {
+      "id": "build",
+      "name": "作る",
+      "phases": [
+        "environments",
+        "build-local",
+        "build-dev"
+      ]
+    },
+    {
+      "id": "ship",
+      "name": "出す",
+      "phases": [
+        "build-staging",
+        "release"
       ]
     }
   ],
@@ -739,7 +779,8 @@
         },
         {
           "heading": "学び",
-          "describe": "測った結果と、次に変えること"
+          "describe": "一つ一つの学び。学んだことを 1 行の題にし、本文に根拠と測った数字と、次に変えることを書く。次の版の目的と範囲を直す材料になる",
+          "item": "learning"
         }
       ],
       "uses": [
@@ -879,6 +920,11 @@
       "id": "test",
       "name": "試験",
       "idForm": "TS-{nnn}"
+    },
+    {
+      "id": "learning",
+      "name": "学び",
+      "idForm": "LE-{nn}"
     }
   ],
   "rules": [
@@ -1100,6 +1146,70 @@
         "component"
       ],
       "exempt": true
+    },
+    {
+      "id": "learning-cites-basis",
+      "type": "cites",
+      "from": "learning",
+      "to": [
+        "metric",
+        "criterion"
+      ],
+      "min": 1
+    },
+    {
+      "id": "purpose-cites-learning",
+      "type": "cites",
+      "from": "purpose",
+      "to": [
+        "learning"
+      ],
+      "min": 0
+    },
+    {
+      "id": "user-cites-learning",
+      "type": "cites",
+      "from": "user",
+      "to": [
+        "learning"
+      ],
+      "min": 0
+    },
+    {
+      "id": "include-cites-learning",
+      "type": "cites",
+      "from": "include",
+      "to": [
+        "learning"
+      ],
+      "min": 0
+    },
+    {
+      "id": "exclude-cites-learning",
+      "type": "cites",
+      "from": "exclude",
+      "to": [
+        "learning"
+      ],
+      "min": 0
+    },
+    {
+      "id": "metric-cites-learning",
+      "type": "cites",
+      "from": "metric",
+      "to": [
+        "learning"
+      ],
+      "min": 0
+    },
+    {
+      "id": "constraint-cites-learning",
+      "type": "cites",
+      "from": "constraint",
+      "to": [
+        "learning"
+      ],
+      "min": 0
     }
   ],
   "acceptance": [
@@ -1430,9 +1540,18 @@
     },
     {
       "id": "release.learning",
-      "text": "公開の後に測った結果と学びが記録されている。",
+      "text": "公開の後に測った結果と学びが、学びの項目として 1 件ずつ記録されている。",
       "checkedBy": "人",
       "target": "release-record"
+    },
+    {
+      "id": "release.learning-traced",
+      "text": "どの学びも、目的と範囲の成功の測り方か、ストーリーの受入条件のどれかをもとにしている。",
+      "checkedBy": "AI",
+      "target": "release-record",
+      "rules": [
+        "learning-cites-basis"
+      ]
     }
   ]
 }

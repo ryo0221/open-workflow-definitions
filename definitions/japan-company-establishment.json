@@ -1,0 +1,1122 @@
+{
+  "format": 1,
+  "id": "japan-company-establishment",
+  "version": "1.0.0",
+  "title": "会社を設計し、設立して事業を始める",
+  "purpose": "会社の存在意義、目指す未来、顧客価値、事業と組織の姿をまず人に伝わる制作物として形にし、その方針に基づいて法人設立と事業開始の実務を進める。",
+  "phases": [
+    {
+      "id": "charter",
+      "name": "進め方",
+      "purpose": "目的から会社設立と事業開始までの全体像を、セクション分けした工程図として確かめる。",
+      "after": [],
+      "deliverables": [
+        "process-graph",
+        "charter-register",
+        "source-register"
+      ],
+      "acceptance": [
+        "charter.review",
+        "charter.sources",
+        "process.visual"
+      ]
+    },
+    {
+      "id": "purpose",
+      "name": "会社の存在意義・目指す未来",
+      "purpose": "Purpose・Mission・Visionを、会社Webサイトや説明資料に使える図として定める。",
+      "after": [
+        "charter"
+      ],
+      "deliverables": [
+        "purpose-vision"
+      ],
+      "acceptance": [
+        "purpose.review"
+      ]
+    },
+    {
+      "id": "business",
+      "name": "事業構想・顧客価値",
+      "purpose": "事業の柱と顧客に提供する価値を、対外説明可能な図で示し検証する。",
+      "after": [
+        "purpose"
+      ],
+      "deliverables": [
+        "business-model",
+        "business-register"
+      ],
+      "acceptance": [
+        "business.review",
+        "business.trace",
+        "business.visual",
+        "business.model-trace"
+      ]
+    },
+    {
+      "id": "products",
+      "name": "事業とプロダクトの戦略",
+      "purpose": "共通技術・公開資産と製品・事業の関係、持続可能な価値提供を視覚化する。",
+      "after": [
+        "business"
+      ],
+      "deliverables": [
+        "product-portfolio"
+      ],
+      "acceptance": [
+        "products.review",
+        "products.trace"
+      ]
+    },
+    {
+      "id": "organization",
+      "name": "組織・協業の設計",
+      "purpose": "創業時と成長時の組織・役割・意思決定の仕組みを設計する。",
+      "after": [
+        "purpose",
+        "business"
+      ],
+      "deliverables": [
+        "organization-map"
+      ],
+      "acceptance": [
+        "organization.review",
+        "organization.trace"
+      ]
+    },
+    {
+      "id": "story",
+      "name": "会社紹介・対外発信素材",
+      "purpose": "会社の理念と事業をWebや営業説明に再利用できる成果物としてまとめる。",
+      "after": [
+        "products",
+        "organization"
+      ],
+      "deliverables": [
+        "company-story"
+      ],
+      "acceptance": [
+        "story.review",
+        "story.trace"
+      ]
+    },
+    {
+      "id": "corporate",
+      "name": "法人の基本設計",
+      "purpose": "商号・本店・事業目的・機関・株式・決算期などを決める。",
+      "after": [
+        "organization"
+      ],
+      "deliverables": [
+        "corporate-register"
+      ],
+      "acceptance": [
+        "corporate.review",
+        "corporate.trace"
+      ]
+    },
+    {
+      "id": "capital",
+      "name": "設立資金と出資の準備",
+      "purpose": "設立費用・出資条件・資金源・払込み手順を確認する。",
+      "after": [
+        "corporate"
+      ],
+      "deliverables": [
+        "capital-register"
+      ],
+      "acceptance": [
+        "capital.review",
+        "capital.trace"
+      ]
+    },
+    {
+      "id": "rights",
+      "name": "知財・権利承継の確認",
+      "purpose": "既存資産・第三者権利・発明・商標と会社への承継方法を整理する。",
+      "after": [
+        "charter"
+      ],
+      "deliverables": [
+        "rights-register"
+      ],
+      "acceptance": [
+        "rights.review",
+        "rights.trace"
+      ]
+    },
+    {
+      "id": "incorporation",
+      "name": "定款・払込み・設立登記",
+      "purpose": "定款認証、払込み、設立時調査、登記申請と補正・完了確認を行う。",
+      "after": [
+        "capital"
+      ],
+      "deliverables": [
+        "incorporation-register"
+      ],
+      "acceptance": [
+        "incorporation.review",
+        "incorporation.trace"
+      ]
+    },
+    {
+      "id": "tax",
+      "name": "税務・自治体の届出",
+      "purpose": "国税・地方税の届出、申告方式と消費税の判断を行う。",
+      "after": [
+        "incorporation"
+      ],
+      "deliverables": [
+        "tax-register"
+      ],
+      "acceptance": [
+        "tax.review",
+        "tax.trace"
+      ]
+    },
+    {
+      "id": "people",
+      "name": "社会保険・労務の整備",
+      "purpose": "役員報酬・社会保険・雇用・委託の適用条件と手続きを確認する。",
+      "after": [
+        "incorporation"
+      ],
+      "deliverables": [
+        "people-register"
+      ],
+      "acceptance": [
+        "people.review",
+        "people.trace"
+      ]
+    },
+    {
+      "id": "finance",
+      "name": "銀行・会計・資金繰り",
+      "purpose": "法人口座・会計・証憑保存・支払統制・資金繰りを整える。",
+      "after": [
+        "incorporation"
+      ],
+      "deliverables": [
+        "finance-register"
+      ],
+      "acceptance": [
+        "finance.review",
+        "finance.trace"
+      ]
+    },
+    {
+      "id": "operations",
+      "name": "契約・情報管理・業務基盤",
+      "purpose": "契約・情報管理・委託取引・営業と運用の基盤を準備する。",
+      "after": [
+        "business",
+        "products",
+        "rights"
+      ],
+      "deliverables": [
+        "operations-register"
+      ],
+      "acceptance": [
+        "operations.review",
+        "operations.trace"
+      ]
+    },
+    {
+      "id": "launch",
+      "name": "事業開始の判断",
+      "purpose": "登記と実際の事業開始を区別し、提供範囲ごとに開始可否を判断する。",
+      "after": [
+        "tax",
+        "people",
+        "finance",
+        "operations",
+        "story"
+      ],
+      "deliverables": [
+        "launch-register"
+      ],
+      "acceptance": [
+        "launch.review",
+        "launch.trace"
+      ]
+    },
+    {
+      "id": "review",
+      "name": "初回運営レビューと継続管理",
+      "purpose": "初回の会計・顧客・資金・期限レビューを行い、日常管理へ引き継ぐ。",
+      "after": [
+        "launch"
+      ],
+      "deliverables": [
+        "review-register"
+      ],
+      "acceptance": [
+        "review.review",
+        "review.trace"
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "id": "direction",
+      "name": "会社の理念と事業像",
+      "phases": [
+        "charter",
+        "purpose",
+        "business",
+        "products",
+        "organization",
+        "story"
+      ]
+    },
+    {
+      "id": "establishment",
+      "name": "会社を形にする",
+      "phases": [
+        "corporate",
+        "capital",
+        "rights",
+        "incorporation"
+      ]
+    },
+    {
+      "id": "foundation",
+      "name": "事業を動かす準備",
+      "phases": [
+        "tax",
+        "people",
+        "finance",
+        "operations"
+      ]
+    },
+    {
+      "id": "start",
+      "name": "公開と継続運営",
+      "phases": [
+        "launch",
+        "review"
+      ]
+    }
+  ],
+  "deliverables": [
+    {
+      "id": "charter-register",
+      "name": "進め方・前提の確認の台帳",
+      "form": "表",
+      "outline": [
+        {
+          "heading": "管理項目",
+          "describe": "意思決定者・未確認事項・秘匿境界・期限監視を決める。各項目に安定したID、内容、状態、適用判断、担当、起算事実、期限規則と確定期限、次の行動、証跡参照、確認者・確認日、対象外理由と再確認条件、情報区分を持たせる。未確認は未確認のまま残す。秘匿原本は権限制御された保管先に置き、ここには安全な参照だけを残す。",
+          "item": "premise"
+        }
+      ],
+      "uses": []
+    },
+    {
+      "id": "business-register",
+      "name": "事業と顧客の検証の台帳",
+      "form": "表",
+      "outline": [
+        {
+          "heading": "管理項目",
+          "describe": "顧客・課題・提供価値・収益仮説と検証方法を定める。各項目に安定したID、内容、状態、適用判断、担当、起算事実、期限規則と確定期限、次の行動、証跡参照、確認者・確認日、対象外理由と再確認条件、情報区分を持たせる。未確認は未確認のまま残す。秘匿原本は権限制御された保管先に置き、ここには安全な参照だけを残す。",
+          "item": "business-item"
+        }
+      ],
+      "uses": [
+        "charter-register",
+        "source-register"
+      ]
+    },
+    {
+      "id": "corporate-register",
+      "name": "法人の基本設計の台帳",
+      "form": "表",
+      "outline": [
+        {
+          "heading": "管理項目",
+          "describe": "商号・本店・事業目的・機関・株式・決算期などを決める。各項目に安定したID、内容、状態、適用判断、担当、起算事実、期限規則と確定期限、次の行動、証跡参照、確認者・確認日、対象外理由と再確認条件、情報区分を持たせる。未確認は未確認のまま残す。秘匿原本は権限制御された保管先に置き、ここには安全な参照だけを残す。",
+          "item": "corporate-item"
+        }
+      ],
+      "uses": [
+        "charter-register",
+        "source-register"
+      ]
+    },
+    {
+      "id": "capital-register",
+      "name": "設立資金と出資の準備の台帳",
+      "form": "表",
+      "outline": [
+        {
+          "heading": "管理項目",
+          "describe": "設立費用・出資条件・資金源・払込み手順を確認する。各項目に安定したID、内容、状態、適用判断、担当、起算事実、期限規則と確定期限、次の行動、証跡参照、確認者・確認日、対象外理由と再確認条件、情報区分を持たせる。未確認は未確認のまま残す。秘匿原本は権限制御された保管先に置き、ここには安全な参照だけを残す。",
+          "item": "capital-item"
+        }
+      ],
+      "uses": [
+        "corporate-register",
+        "source-register"
+      ]
+    },
+    {
+      "id": "rights-register",
+      "name": "知財・権利承継の確認の台帳",
+      "form": "表",
+      "outline": [
+        {
+          "heading": "管理項目",
+          "describe": "既存資産・第三者権利・発明・商標と会社への承継方法を整理する。各項目に安定したID、内容、状態、適用判断、担当、起算事実、期限規則と確定期限、次の行動、証跡参照、確認者・確認日、対象外理由と再確認条件、情報区分を持たせる。未確認は未確認のまま残す。秘匿原本は権限制御された保管先に置き、ここには安全な参照だけを残す。",
+          "item": "rights-item"
+        }
+      ],
+      "uses": [
+        "charter-register",
+        "source-register"
+      ]
+    },
+    {
+      "id": "incorporation-register",
+      "name": "定款・払込み・設立登記の台帳",
+      "form": "表",
+      "outline": [
+        {
+          "heading": "管理項目",
+          "describe": "定款認証、払込み、設立時調査、登記申請と補正・完了確認を行う。各項目に安定したID、内容、状態、適用判断、担当、起算事実、期限規則と確定期限、次の行動、証跡参照、確認者・確認日、対象外理由と再確認条件、情報区分を持たせる。未確認は未確認のまま残す。秘匿原本は権限制御された保管先に置き、ここには安全な参照だけを残す。",
+          "item": "incorporation-item"
+        }
+      ],
+      "uses": [
+        "capital-register",
+        "source-register"
+      ]
+    },
+    {
+      "id": "tax-register",
+      "name": "税務・自治体の届出の台帳",
+      "form": "表",
+      "outline": [
+        {
+          "heading": "管理項目",
+          "describe": "国税・地方税の届出、申告方式と消費税の判断を行う。各項目に安定したID、内容、状態、適用判断、担当、起算事実、期限規則と確定期限、次の行動、証跡参照、確認者・確認日、対象外理由と再確認条件、情報区分を持たせる。未確認は未確認のまま残す。秘匿原本は権限制御された保管先に置き、ここには安全な参照だけを残す。",
+          "item": "tax-item"
+        }
+      ],
+      "uses": [
+        "incorporation-register",
+        "source-register"
+      ]
+    },
+    {
+      "id": "people-register",
+      "name": "社会保険・労務の整備の台帳",
+      "form": "表",
+      "outline": [
+        {
+          "heading": "管理項目",
+          "describe": "役員報酬・社会保険・雇用・委託の適用条件と手続きを確認する。各項目に安定したID、内容、状態、適用判断、担当、起算事実、期限規則と確定期限、次の行動、証跡参照、確認者・確認日、対象外理由と再確認条件、情報区分を持たせる。未確認は未確認のまま残す。秘匿原本は権限制御された保管先に置き、ここには安全な参照だけを残す。",
+          "item": "people-item"
+        }
+      ],
+      "uses": [
+        "incorporation-register",
+        "source-register"
+      ]
+    },
+    {
+      "id": "finance-register",
+      "name": "銀行・会計・資金繰りの台帳",
+      "form": "表",
+      "outline": [
+        {
+          "heading": "管理項目",
+          "describe": "法人口座・会計・証憑保存・支払統制・資金繰りを整える。各項目に安定したID、内容、状態、適用判断、担当、起算事実、期限規則と確定期限、次の行動、証跡参照、確認者・確認日、対象外理由と再確認条件、情報区分を持たせる。未確認は未確認のまま残す。秘匿原本は権限制御された保管先に置き、ここには安全な参照だけを残す。",
+          "item": "finance-item"
+        }
+      ],
+      "uses": [
+        "incorporation-register",
+        "source-register"
+      ]
+    },
+    {
+      "id": "operations-register",
+      "name": "契約・情報管理・業務基盤の台帳",
+      "form": "表",
+      "outline": [
+        {
+          "heading": "管理項目",
+          "describe": "契約・情報管理・委託取引・営業と運用の基盤を準備する。各項目に安定したID、内容、状態、適用判断、担当、起算事実、期限規則と確定期限、次の行動、証跡参照、確認者・確認日、対象外理由と再確認条件、情報区分を持たせる。未確認は未確認のまま残す。秘匿原本は権限制御された保管先に置き、ここには安全な参照だけを残す。",
+          "item": "operations-item"
+        }
+      ],
+      "uses": [
+        "business-register",
+        "rights-register",
+        "source-register"
+      ]
+    },
+    {
+      "id": "launch-register",
+      "name": "事業開始の判断の台帳",
+      "form": "表",
+      "outline": [
+        {
+          "heading": "管理項目",
+          "describe": "登記と実際の事業開始を区別し、提供範囲ごとに開始可否を判断する。各項目に安定したID、内容、状態、適用判断、担当、起算事実、期限規則と確定期限、次の行動、証跡参照、確認者・確認日、対象外理由と再確認条件、情報区分を持たせる。未確認は未確認のまま残す。秘匿原本は権限制御された保管先に置き、ここには安全な参照だけを残す。",
+          "item": "launch-item"
+        }
+      ],
+      "uses": [
+        "tax-register",
+        "people-register",
+        "finance-register",
+        "operations-register",
+        "source-register"
+      ]
+    },
+    {
+      "id": "review-register",
+      "name": "初回運営レビューと継続管理の台帳",
+      "form": "表",
+      "outline": [
+        {
+          "heading": "管理項目",
+          "describe": "初回の会計・顧客・資金・期限レビューを行い、日常管理へ引き継ぐ。各項目に安定したID、内容、状態、適用判断、担当、起算事実、期限規則と確定期限、次の行動、証跡参照、確認者・確認日、対象外理由と再確認条件、情報区分を持たせる。未確認は未確認のまま残す。秘匿原本は権限制御された保管先に置き、ここには安全な参照だけを残す。",
+          "item": "review-item"
+        }
+      ],
+      "uses": [
+        "launch-register",
+        "source-register"
+      ]
+    },
+    {
+      "id": "source-register",
+      "name": "確認根拠の台帳",
+      "form": "表",
+      "outline": [
+        {
+          "heading": "確認根拠",
+          "describe": "一次情報の発行者、名称、参照先、確認日、適用範囲、要点と未確認の限界を記録する。法令・公的手続と社内判断の根拠を区別する。",
+          "item": "source-item"
+        }
+      ]
+    },
+    {
+      "id": "process-graph",
+      "name": "プロジェクトの進め方（セクション付き工程グラフ）",
+      "form": "図",
+      "outline": [
+        {
+          "heading": "全体の進め方",
+          "describe": "工程・成果物・依存関係・人が判断する箇所を、セクション別に図示する。工程定義を唯一の正本とし、図はその内容と対応させて閲覧・編集できるようにする。図のために工程や関係を別に管理せず、変更は工程定義へ反映する。"
+        }
+      ]
+    },
+    {
+      "id": "purpose-vision",
+      "name": "パーパス・ミッション・ビジョンの対外説明図",
+      "form": "図",
+      "outline": [
+        {
+          "heading": "存在意義と目指す未来",
+          "describe": "Purpose・Mission・Visionの意味と相互関係を、Webサイトや会社紹介にそのまま利用できる品質の図解として制作する。文章案・未確定文言と確定版を区別する。一つ一つを安定したIDを持つ項目にし、下流の項目がもとにした項目を引用できるようにする。",
+          "item": "purpose-statement"
+        }
+      ],
+      "uses": [
+        "process-graph"
+      ]
+    },
+    {
+      "id": "business-model",
+      "name": "事業全体像・顧客価値の図解",
+      "form": "図",
+      "outline": [
+        {
+          "heading": "価値をどう届けるか",
+          "describe": "顧客の課題・提供価値・事業の柱・価値提供の仕組みを、顧客や事業パートナーに伝わる図として制作する。一つ一つを安定したIDを持つ項目にし、下流の項目がもとにした項目を引用できるようにする。",
+          "item": "value-item"
+        }
+      ],
+      "uses": [
+        "purpose-vision"
+      ]
+    },
+    {
+      "id": "product-portfolio",
+      "name": "製品・共通技術・収益構造の関係図",
+      "form": "図",
+      "outline": [
+        {
+          "heading": "提供するものと持続性",
+          "describe": "共通技術・OSS・商用プロダクト・提供形態・収益と投資の循環を図解する。特定製品名や価格は利用側で決定する。一つ一つを安定したIDを持つ項目にし、下流の項目がもとにした項目を引用できるようにする。",
+          "item": "offering"
+        }
+      ],
+      "uses": [
+        "business-model"
+      ]
+    },
+    {
+      "id": "organization-map",
+      "name": "組織・協業・意思決定の設計図",
+      "form": "図",
+      "outline": [
+        {
+          "heading": "会社と人の役割",
+          "describe": "初期組織、将来の役割、外部パートナー、決裁と責任の境界を視覚的に整理する。一つ一つを安定したIDを持つ項目にし、下流の項目がもとにした項目を引用できるようにする。",
+          "item": "role"
+        }
+      ],
+      "uses": [
+        "purpose-vision",
+        "business-model"
+      ]
+    },
+    {
+      "id": "company-story",
+      "name": "会社紹介・Webサイト掲載用の説明素材",
+      "form": "図",
+      "outline": [
+        {
+          "heading": "会社をどう説明するか",
+          "describe": "理念・価値・事業の全体像を、会社紹介資料やWebサイトで再利用できる図・説明文として仕上げる。一つ一つを安定したIDを持つ項目にし、下流の項目がもとにした項目を引用できるようにする。",
+          "item": "story-item"
+        }
+      ],
+      "uses": [
+        "purpose-vision",
+        "business-model",
+        "product-portfolio"
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "premise",
+      "name": "進め方・前提の確認の項目",
+      "idForm": "CH-{nnn}"
+    },
+    {
+      "id": "business-item",
+      "name": "事業と顧客の検証の項目",
+      "idForm": "BU-{nnn}"
+    },
+    {
+      "id": "corporate-item",
+      "name": "法人の基本設計の項目",
+      "idForm": "CO-{nnn}"
+    },
+    {
+      "id": "capital-item",
+      "name": "設立資金と出資の準備の項目",
+      "idForm": "CA-{nnn}"
+    },
+    {
+      "id": "rights-item",
+      "name": "知財・権利承継の確認の項目",
+      "idForm": "IP-{nnn}"
+    },
+    {
+      "id": "incorporation-item",
+      "name": "定款・払込み・設立登記の項目",
+      "idForm": "IN-{nnn}"
+    },
+    {
+      "id": "tax-item",
+      "name": "税務・自治体の届出の項目",
+      "idForm": "TX-{nnn}"
+    },
+    {
+      "id": "people-item",
+      "name": "社会保険・労務の整備の項目",
+      "idForm": "PE-{nnn}"
+    },
+    {
+      "id": "finance-item",
+      "name": "銀行・会計・資金繰りの項目",
+      "idForm": "FI-{nnn}"
+    },
+    {
+      "id": "operations-item",
+      "name": "契約・情報管理・業務基盤の項目",
+      "idForm": "OP-{nnn}"
+    },
+    {
+      "id": "launch-item",
+      "name": "事業開始の判断の項目",
+      "idForm": "LA-{nnn}"
+    },
+    {
+      "id": "review-item",
+      "name": "初回運営レビューと継続管理の項目",
+      "idForm": "RV-{nnn}"
+    },
+    {
+      "id": "source-item",
+      "name": "確認根拠",
+      "idForm": "SO-{nnn}"
+    },
+    {
+      "id": "purpose-statement",
+      "name": "存在意義・目指す未来の項目",
+      "idForm": "PV-{nnn}"
+    },
+    {
+      "id": "value-item",
+      "name": "事業の柱・顧客価値の項目",
+      "idForm": "VA-{nnn}"
+    },
+    {
+      "id": "offering",
+      "name": "提供物・共通技術の項目",
+      "idForm": "PR-{nnn}"
+    },
+    {
+      "id": "role",
+      "name": "役割・意思決定の項目",
+      "idForm": "OR-{nnn}"
+    },
+    {
+      "id": "story-item",
+      "name": "会社紹介の説明の項目",
+      "idForm": "ST-{nnn}"
+    }
+  ],
+  "rules": [
+    {
+      "id": "business.basis",
+      "type": "cites",
+      "from": "business-item",
+      "to": [
+        "premise",
+        "source-item",
+        "value-item"
+      ],
+      "min": 1
+    },
+    {
+      "id": "corporate.basis",
+      "type": "cites",
+      "from": "corporate-item",
+      "to": [
+        "premise",
+        "source-item",
+        "purpose-statement",
+        "role"
+      ],
+      "min": 1
+    },
+    {
+      "id": "capital.basis",
+      "type": "cites",
+      "from": "capital-item",
+      "to": [
+        "premise",
+        "source-item",
+        "corporate-item"
+      ],
+      "min": 1
+    },
+    {
+      "id": "rights.basis",
+      "type": "cites",
+      "from": "rights-item",
+      "to": [
+        "premise",
+        "source-item"
+      ],
+      "min": 1
+    },
+    {
+      "id": "incorporation.basis",
+      "type": "cites",
+      "from": "incorporation-item",
+      "to": [
+        "premise",
+        "source-item",
+        "capital-item"
+      ],
+      "min": 1
+    },
+    {
+      "id": "tax.basis",
+      "type": "cites",
+      "from": "tax-item",
+      "to": [
+        "premise",
+        "source-item",
+        "incorporation-item"
+      ],
+      "min": 1
+    },
+    {
+      "id": "people.basis",
+      "type": "cites",
+      "from": "people-item",
+      "to": [
+        "premise",
+        "source-item",
+        "incorporation-item",
+        "role"
+      ],
+      "min": 1
+    },
+    {
+      "id": "finance.basis",
+      "type": "cites",
+      "from": "finance-item",
+      "to": [
+        "premise",
+        "source-item",
+        "incorporation-item"
+      ],
+      "min": 1
+    },
+    {
+      "id": "operations.basis",
+      "type": "cites",
+      "from": "operations-item",
+      "to": [
+        "premise",
+        "source-item",
+        "business-item",
+        "rights-item",
+        "offering",
+        "role"
+      ],
+      "min": 1
+    },
+    {
+      "id": "launch.basis",
+      "type": "cites",
+      "from": "launch-item",
+      "to": [
+        "premise",
+        "source-item",
+        "tax-item",
+        "people-item",
+        "finance-item",
+        "operations-item",
+        "offering",
+        "story-item"
+      ],
+      "min": 1
+    },
+    {
+      "id": "review.basis",
+      "type": "cites",
+      "from": "review-item",
+      "to": [
+        "premise",
+        "source-item",
+        "launch-item"
+      ],
+      "min": 1
+    },
+    {
+      "id": "purpose.basis",
+      "type": "cites",
+      "from": "purpose-statement",
+      "to": [
+        "premise",
+        "source-item"
+      ],
+      "min": 0
+    },
+    {
+      "id": "value.basis",
+      "type": "cites",
+      "from": "value-item",
+      "to": [
+        "purpose-statement"
+      ],
+      "min": 1
+    },
+    {
+      "id": "products.basis",
+      "type": "cites",
+      "from": "offering",
+      "to": [
+        "value-item"
+      ],
+      "min": 1
+    },
+    {
+      "id": "organization.basis",
+      "type": "cites",
+      "from": "role",
+      "to": [
+        "purpose-statement",
+        "value-item"
+      ],
+      "min": 1
+    },
+    {
+      "id": "story.basis",
+      "type": "cites",
+      "from": "story-item",
+      "to": [
+        "purpose-statement",
+        "value-item",
+        "offering"
+      ],
+      "min": 1
+    }
+  ],
+  "acceptance": [
+    {
+      "id": "charter.review",
+      "text": "未確認事項にも確認担当と確認期限があり、公開範囲・証跡保管先・承認権限・期限監視方法を人が確認する。未確定の会社条件は確定したと扱わない。 必須項目が完了し、対象外は人の理由・再確認条件を伴うこと。参照がつながることだけを実務完了や法的承認の証拠にしない。",
+      "checkedBy": "人",
+      "target": "charter-register"
+    },
+    {
+      "id": "business.review",
+      "text": "顧客仮説・販売対象・収益と費用の仮説を区別し、検証結果と次の判断を人が確認する。 必須項目が完了し、対象外は人の理由・再確認条件を伴うこと。参照がつながることだけを実務完了や法的承認の証拠にしない。",
+      "checkedBy": "人",
+      "target": "business-register"
+    },
+    {
+      "id": "business.trace",
+      "text": "各管理項目に、根拠または上流の管理項目への明示の引用がある。これは接続の検査であり、根拠の妥当性・期限・実施完了は人が確認する。",
+      "checkedBy": "AI",
+      "target": "business-register",
+      "rules": [
+        "business.basis"
+      ]
+    },
+    {
+      "id": "corporate.review",
+      "text": "商号、本店、目的、機関、役員、発起人、株式、決算期、公告方法と許認可の確認結果が整合し、設立方式と必要書類を人が確認する。 必須項目が完了し、対象外は人の理由・再確認条件を伴うこと。参照がつながることだけを実務完了や法的承認の証拠にしない。",
+      "checkedBy": "人",
+      "target": "corporate-register"
+    },
+    {
+      "id": "corporate.trace",
+      "text": "各管理項目に、根拠または上流の管理項目への明示の引用がある。これは接続の検査であり、根拠の妥当性・期限・実施完了は人が確認する。",
+      "checkedBy": "AI",
+      "target": "corporate-register",
+      "rules": [
+        "corporate.basis"
+      ]
+    },
+    {
+      "id": "capital.review",
+      "text": "出資者の同意、資本金・株式数、設立費用、資金源、払込みの方法を証跡で確認する。融資・補助金は確約と見込みを分け、現物出資等の特殊条件は手順を再確認する。 必須項目が完了し、対象外は人の理由・再確認条件を伴うこと。参照がつながることだけを実務完了や法的承認の証拠にしない。",
+      "checkedBy": "人",
+      "target": "capital-register"
+    },
+    {
+      "id": "capital.trace",
+      "text": "各管理項目に、根拠または上流の管理項目への明示の引用がある。これは接続の検査であり、根拠の妥当性・期限・実施完了は人が確認する。",
+      "checkedBy": "AI",
+      "target": "capital-register",
+      "rules": [
+        "capital.basis"
+      ]
+    },
+    {
+      "id": "rights.review",
+      "text": "既存資産の権利者と会社で使う根拠を確認する。個人・前職・委託先の権利、依存資産、既存公開条件と出願前秘匿を確認し、未解決資産は使用・公開を保留する。 必須項目が完了し、対象外は人の理由・再確認条件を伴うこと。参照がつながることだけを実務完了や法的承認の証拠にしない。",
+      "checkedBy": "人",
+      "target": "rights-register"
+    },
+    {
+      "id": "rights.trace",
+      "text": "各管理項目に、根拠または上流の管理項目への明示の引用がある。これは接続の検査であり、根拠の妥当性・期限・実施完了は人が確認する。",
+      "checkedBy": "AI",
+      "target": "rights-register",
+      "rules": [
+        "rights.basis"
+      ]
+    },
+    {
+      "id": "incorporation.review",
+      "text": "採用した設立方式の定款認証・出資履行・機関決定・調査・添付書類・申請期限を確認し、申請受付と登記完了を分けて記録する。成立日と登記情報の確認前に設立完了にしない。 必須項目が完了し、対象外は人の理由・再確認条件を伴うこと。参照がつながることだけを実務完了や法的承認の証拠にしない。",
+      "checkedBy": "人",
+      "target": "incorporation-register"
+    },
+    {
+      "id": "incorporation.trace",
+      "text": "各管理項目に、根拠または上流の管理項目への明示の引用がある。これは接続の検査であり、根拠の妥当性・期限・実施完了は人が確認する。",
+      "checkedBy": "AI",
+      "target": "incorporation-register",
+      "rules": [
+        "incorporation.basis"
+      ]
+    },
+    {
+      "id": "tax.review",
+      "text": "起算日と提出先を確認し、法人設立届、青色申告、給与関係、地方税、消費税・適格請求書の適否、期限、提出控えを確認する。期限未到来でも必要な届出が未実施なら工程完了にしない。 必須項目が完了し、対象外は人の理由・再確認条件を伴うこと。参照がつながることだけを実務完了や法的承認の証拠にしない。",
+      "checkedBy": "人",
+      "target": "tax-register"
+    },
+    {
+      "id": "tax.trace",
+      "text": "各管理項目に、根拠または上流の管理項目への明示の引用がある。これは接続の検査であり、根拠の妥当性・期限・実施完了は人が確認する。",
+      "checkedBy": "AI",
+      "target": "tax-register",
+      "rules": [
+        "tax.basis"
+      ]
+    },
+    {
+      "id": "people.review",
+      "text": "役員だけの場合も社会保険を確認し、給与・労働保険・雇用保険・雇用条件の適用、起算日、期限、手続控えを確認する。対象外は理由と再確認条件を残す。 必須項目が完了し、対象外は人の理由・再確認条件を伴うこと。参照がつながることだけを実務完了や法的承認の証拠にしない。",
+      "checkedBy": "人",
+      "target": "people-register"
+    },
+    {
+      "id": "people.trace",
+      "text": "各管理項目に、根拠または上流の管理項目への明示の引用がある。これは接続の検査であり、根拠の妥当性・期限・実施完了は人が確認する。",
+      "checkedBy": "AI",
+      "target": "people-register",
+      "rules": [
+        "people.basis"
+      ]
+    },
+    {
+      "id": "finance.review",
+      "text": "口座、会計方針、開始残高、設立前支出、請求入金支払、証憑保存、納税資金、資金不足時の対応を人が確認する。口座開設や融資を保証されたと扱わない。 必須項目が完了し、対象外は人の理由・再確認条件を伴うこと。参照がつながることだけを実務完了や法的承認の証拠にしない。",
+      "checkedBy": "人",
+      "target": "finance-register"
+    },
+    {
+      "id": "finance.trace",
+      "text": "各管理項目に、根拠または上流の管理項目への明示の引用がある。これは接続の検査であり、根拠の妥当性・期限・実施完了は人が確認する。",
+      "checkedBy": "AI",
+      "target": "finance-register",
+      "rules": [
+        "finance.basis"
+      ]
+    },
+    {
+      "id": "operations.review",
+      "text": "契約主体、利用条件、個人情報、委託・再委託、取引法令、権限、復旧と事故対応、許認可を人が確認する。署名・発注・公開は必要な個別承認を得て実施する。 必須項目が完了し、対象外は人の理由・再確認条件を伴うこと。参照がつながることだけを実務完了や法的承認の証拠にしない。",
+      "checkedBy": "人",
+      "target": "operations-register"
+    },
+    {
+      "id": "operations.trace",
+      "text": "各管理項目に、根拠または上流の管理項目への明示の引用がある。これは接続の検査であり、根拠の妥当性・期限・実施完了は人が確認する。",
+      "checkedBy": "AI",
+      "target": "operations-register",
+      "rules": [
+        "operations.basis"
+      ]
+    },
+    {
+      "id": "launch.review",
+      "text": "顧客向け提供範囲、権利、許認可、契約、資金、請求、支援体制と未解決リスクを確認する。製品ごとの公開・商用条件を満たした範囲だけ開始を承認し、承認前に実売・公開済みとしない。 必須項目が完了し、対象外は人の理由・再確認条件を伴うこと。参照がつながることだけを実務完了や法的承認の証拠にしない。",
+      "checkedBy": "人",
+      "target": "launch-register"
+    },
+    {
+      "id": "launch.trace",
+      "text": "各管理項目に、根拠または上流の管理項目への明示の引用がある。これは接続の検査であり、根拠の妥当性・期限・実施完了は人が確認する。",
+      "checkedBy": "AI",
+      "target": "launch-register",
+      "rules": [
+        "launch.basis"
+      ]
+    },
+    {
+      "id": "review.review",
+      "text": "初回運営の実績、月次締め、資金予実、顧客の反応、申告・更新・公告等の継続期限を確認し、未完了事項に担当と次回日を付けて引き継ぐ。 必須項目が完了し、対象外は人の理由・再確認条件を伴うこと。参照がつながることだけを実務完了や法的承認の証拠にしない。",
+      "checkedBy": "人",
+      "target": "review-register"
+    },
+    {
+      "id": "review.trace",
+      "text": "各管理項目に、根拠または上流の管理項目への明示の引用がある。これは接続の検査であり、根拠の妥当性・期限・実施完了は人が確認する。",
+      "checkedBy": "AI",
+      "target": "review-register",
+      "rules": [
+        "review.basis"
+      ]
+    },
+    {
+      "id": "charter.sources",
+      "text": "必要な一次情報と未確認の地域・条件別資料を識別し、情報の鮮度と再確認の担当を人が確認する。",
+      "checkedBy": "人",
+      "target": "source-register"
+    },
+    {
+      "id": "process.visual",
+      "text": "工程のセクション・依存・成果物・意思決定が図として理解できる",
+      "checkedBy": "人",
+      "target": "process-graph"
+    },
+    {
+      "id": "purpose.review",
+      "text": "パーパス・ミッション・ビジョンが一目で伝わり、対外利用の可否が判断されている",
+      "checkedBy": "人",
+      "target": "purpose-vision"
+    },
+    {
+      "id": "business.visual",
+      "text": "顧客の課題と提供価値が図で説明できる",
+      "checkedBy": "人",
+      "target": "business-model"
+    },
+    {
+      "id": "products.review",
+      "text": "提供物と事業の関係が図で伝わる",
+      "checkedBy": "人",
+      "target": "product-portfolio"
+    },
+    {
+      "id": "organization.review",
+      "text": "組織と意思決定の責任関係が図で伝わる",
+      "checkedBy": "人",
+      "target": "organization-map"
+    },
+    {
+      "id": "story.review",
+      "text": "会社紹介に使える内容と品質になっている",
+      "checkedBy": "人",
+      "target": "company-story"
+    },
+    {
+      "id": "business.model-trace",
+      "text": "各項目に、もとにした上流の項目への明示の引用がある。これは接続の検査であり、内容の妥当性は人が確認する。",
+      "checkedBy": "AI",
+      "target": "business-model",
+      "rules": [
+        "value.basis"
+      ]
+    },
+    {
+      "id": "products.trace",
+      "text": "各項目に、もとにした上流の項目への明示の引用がある。これは接続の検査であり、内容の妥当性は人が確認する。",
+      "checkedBy": "AI",
+      "target": "product-portfolio",
+      "rules": [
+        "products.basis"
+      ]
+    },
+    {
+      "id": "organization.trace",
+      "text": "各項目に、もとにした上流の項目への明示の引用がある。これは接続の検査であり、内容の妥当性は人が確認する。",
+      "checkedBy": "AI",
+      "target": "organization-map",
+      "rules": [
+        "organization.basis"
+      ]
+    },
+    {
+      "id": "story.trace",
+      "text": "各項目に、もとにした上流の項目への明示の引用がある。これは接続の検査であり、内容の妥当性は人が確認する。",
+      "checkedBy": "AI",
+      "target": "company-story",
+      "rules": [
+        "story.basis"
+      ]
+    }
+  ]
+}
