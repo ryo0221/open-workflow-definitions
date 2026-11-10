@@ -22,7 +22,7 @@ Publishing is an explicit repository setting; this PR does not enable Pages, cha
 
 - Japanese is the default language. JP / EN switches all first-party page copy and interactive examples. The preference is kept locally if storage is available; `?lang=en` overrides it.
 - The hero graph animates connections and cycles through concepts until a visitor clicks a node. It stops animating the selected node automatically once a visitor chooses.
-- The workflow explorer includes a simplified view of the publicly released `software-product` definition, plus **conceptual illustrations** for manga and visual identity. The latter two are not presented as public definitions.
+- The workflow explorer includes a simplified view of the publicly released `software-product` definition, plus five selected phases from each of the now-public manga and visual identity definitions. All three are explicitly simplified tours, not full workflow implementations.
 - The reference-tracing illustration is not an implementation of impact analysis, review, approvals, or project-level verification.
 - Respects `prefers-reduced-motion`; keyboard-operable tabs, buttons, and skip link are included.
 - No telemetry, third-party scripts, backend, or build-time dependencies.
@@ -31,7 +31,7 @@ Publishing is an explicit repository setting; this PR does not enable Pages, cha
 
 The public repository provides declarations, JSON Schema and basic definition checks. **It does not execute the workflow or automatically validate a project's actual artifacts, approvals, or quality.** These capabilities belong to a consuming host such as PaoBub or another application.
 
-To edit translations, update the `ja` and `en` dictionaries in `app.js` together. The visible static Japanese text in `index.html` is a no-JavaScript fallback. Preserve the distinction between public definitions and conceptual demonstrations.
+To edit translations, update the `ja` and `en` dictionaries in `app.js` together. The visible static Japanese text in `index.html` is a no-JavaScript fallback. Keep the examples explicitly labeled as selected / shortened tours rather than full workflow implementations.
 
 ## Files
 
