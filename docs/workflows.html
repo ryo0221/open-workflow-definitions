@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f6f0">
+  <meta name="description" content="公開されている6種類のワークフローを、目的・工程・成果物から探す。ソフトウェア開発、小説、漫画、デザイン、会社設立。">
+  <title>ワークフローを探す — Workflow Definitions</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%231c2925'/%3E%3Cpath d='M13 18l9 28 10-20 10 20 9-28' fill='none' stroke='%23c9fa83' stroke-width='5'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./styles.css"><link rel="stylesheet" href="./catalog.css">
+  <script src="./catalog-data.js" defer></script><script src="./catalog.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main" data-copy="skip">本文へ移動</a>
+<header class="site-header">
+  <a class="brand" href="./index.html" aria-label="Workflow Definitions"><span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span><span class="brand-type">workflow<span class="brand-light">/</span>definitions</span></a>
+  <nav class="catalog-nav" aria-label="Navigation"><a href="./index.html" data-copy="home">考え方</a><a href="#catalog" aria-current="page" data-copy="navCatalog">ワークフロー</a></nav>
+  <div class="header-actions"><div class="language-switch" role="group" aria-label="Language / 言語"><button type="button" class="lang-btn is-active" data-lang="ja" aria-pressed="true">JP</button><button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button></div><a class="nav-github" href="https://github.com/ryo0221/open-workflow-definitions" target="_blank" rel="noopener noreferrer"><span>GitHub</span><span aria-hidden="true">↗</span></a></div>
+</header>
+<main id="main">
+  <section class="catalog-hero wrap">
+    <div class="eyebrow"><span class="status-dot"></span>WORKFLOW LIBRARY</div>
+    <div class="catalog-hero-row"><h1 data-copy="title">つくりたいものから、<br>進め方を選ぶ。</h1><div class="catalog-hero-aside"><p data-copy="lead">ソフトウェアも、物語も、会社も。公開されている6つの定義から、あなたの仕事に合う出発点を。</p><div class="catalog-facts"><span><strong>06</strong><small data-copy="factDefinitions">公開定義</small></span><span><strong>74</strong><small data-copy="factPhases">工程</small></span><span><strong>MIT</strong><small data-copy="factLicense">自由に改良・再利用</small></span></div></div></div>
+    <div class="catalog-bottomline"><span data-copy="snapshot">公開リポジトリの定義をもとにした紹介</span><a href="#catalog"><span data-copy="browse">一覧を見る</span> ↓</a></div>
+  </section>
+  <section id="catalog" class="catalog-area wrap" aria-labelledby="catalog-heading">
+    <div class="catalog-section-head"><h2 id="catalog-heading" data-copy="collectionTitle">仕事に合わせた、6つの進め方。</h2><span class="mono">01 — 06</span></div>
+    <div class="catalog-filters" role="group" aria-label="Workflow categories"><button data-filter="all" aria-pressed="true" class="is-active" data-copy="all">すべて</button><button data-filter="development" aria-pressed="false" data-copy="development">ソフトウェア</button><button data-filter="creative" aria-pressed="false" data-copy="creative">創作・デザイン</button><button data-filter="business" aria-pressed="false" data-copy="business">事業・組織</button></div>
+    <div id="workflow-cards" class="workflow-cards"></div>
+    <p class="catalog-note" data-copy="catalogNote">工程や成果物は仕事に合わせて調整できます。数字は定義に含まれる全項目の数で、省略可能な成果物も含みます。</p>
+  </section>
+  <section id="workflow-detail" class="detail-section" aria-labelledby="detail-title">
+    <div class="wrap">
+      <div class="section-label section-label-light"><span>EXPLORE</span><span data-copy="detailKicker">定義を、ひとつ深く。</span></div>
+      <div class="detail-toolbar"><label for="workflow-select" data-copy="choose">ワークフローを選ぶ</label><select id="workflow-select"></select></div>
+      <div class="detail-heading"><div><div id="detail-meta" class="detail-meta mono"></div><h2 id="detail-title"></h2><p id="detail-summary"></p></div><a id="source-link" class="source-link" target="_blank" rel="noopener noreferrer"><span data-copy="source">定義の原文を見る</span> ↗</a></div>
+      <div class="detail-overview"><div><h3 data-copy="when">こんなときに</h3><p id="detail-use"></p></div><div><h3 data-copy="outputs">つくるもの</h3><ul id="detail-outputs"></ul></div><div><h3 data-copy="shape">進め方の構成</h3><p id="detail-counts"></p><p class="detail-subnote" data-copy="structureNote">工程の前後関係と、人・AIが確かめる条件を定義。</p></div></div>
+      <section id="manga-sample" class="manga-sample" hidden aria-labelledby="sample-title"><div class="sample-copy"><span class="sample-kicker mono">MAKING OF / 00:44</span><h3 id="sample-title" data-copy="sampleTitle">漫画ができるまでを、制作画面で。</h3><p data-copy="sampleBody">制作画面から44秒を抜粋。地図、人物の設定画、ネーム、仕上げ、完成原稿へと、工程と成果物のつながりをたどります。</p><p class="sample-note" data-copy="sampleNote">提供された制作動画から、紹介に必要な場面を切り出して編集しています。</p></div><div class="sample-player"><video id="manga-video" controls playsinline preload="metadata" poster="./assets/manga-workflow-poster.jpg" aria-label="漫画ワークフローの制作サンプル"><source src="./assets/manga-workflow-digest.mp4" type="video/mp4"><span data-copy="videoFallback">動画に対応したブラウザーでご覧ください。</span></video><div class="sample-caption"><span data-copy="sampleCaption">PaoBub · 漫画制作ワークフローのサンプル</span><span>0:44</span></div></div></section>
+      <div class="process-intro"><h3 data-copy="processTitle">工程を選んで、中身を見る。</h3><p data-copy="processLead">実際の定義に含まれるすべての工程を掲載しています。</p></div>
+      <div class="process-layout"><nav id="phase-list" class="phase-list" aria-label="Workflow phases"></nav><article id="phase-detail" class="phase-detail" aria-labelledby="phase-title"><div class="phase-detail-head"><span id="phase-number" class="mono"></span><span data-copy="phaseLabel">選択中の工程</span></div><h3 id="phase-title"></h3><div id="phase-original-note" class="original-note" hidden data-copy="originalNote">Below: original Japanese purpose, deliverables and criteria from the definition.</div><p id="phase-purpose" class="phase-purpose"></p><div class="predecessors"><span data-copy="after">先に終える工程</span><div id="phase-after"></div></div><h4 class="detail-block-title" data-copy="deliverableTitle">この工程でつくるもの</h4><div id="phase-deliverables"></div><h4 class="detail-block-title" data-copy="criteriaTitle">この工程で確かめること</h4><ul id="phase-criteria" class="criteria-list"></ul></article></div>
+      <div class="detail-footer"><p data-copy="definitionNote">これは進め方の定義です。作業の実行、承認の記録、成果物の検査は、利用するツールや人が担います。</p><a href="#catalog"><span data-copy="back">一覧に戻る</span> ↑</a></div>
+    </div>
+  </section>
+  <section class="catalog-closing wrap"><span class="eyebrow">ADAPT IT TO YOUR WORK</span><h2 data-copy="closingTitle">そのまま始めても、<br>あなたのやり方に変えても。</h2><p data-copy="closingBody">工程、成果物、確かめ方。定義を読み、あなたの仕事に合うように育ててください。</p><a class="btn btn-dark" href="https://github.com/ryo0221/open-workflow-definitions" target="_blank" rel="noopener noreferrer"><span data-copy="closingCta">GitHubで定義を見る</span> ↗</a></section>
+</main>
+<footer class="site-footer"><span class="footer-brand">workflow/definitions</span><span data-copy="footer">オープンな定義。自由な実装。</span><a href="./index.html" data-copy="backHome">トップページへ ↗</a></footer>
+</body></html>

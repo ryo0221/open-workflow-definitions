@@ -1,6 +1,6 @@
-# Workflow Definitions landing page
+# Workflow Definitions website
 
-This directory contains a dependency-free, bilingual (Japanese / English), interactive landing page for the public [Workflow Definitions](https://github.com/ryo0221/open-workflow-definitions) repository.
+This directory contains the dependency-free Japanese / English landing page and the workflow library for [Workflow Definitions](https://github.com/ryo0221/open-workflow-definitions).
 
 ## Preview locally
 
@@ -10,33 +10,55 @@ From the repository root:
 python3 -m http.server 8000 --directory docs
 ```
 
-Open http://localhost:8000 in a browser. All animations and interactions work without npm, a build step, or backend services.
+Open http://localhost:8000. No package installation, build step, backend, telemetry or third-party scripts are required.
 
-## Publish with GitHub Pages
+## GitHub Pages
 
-In the repository settings, choose **Pages → Build and deployment → Deploy from a branch → main → /docs**. Merge this PR before enabling Pages. The site uses relative asset paths and works under the default `/open-workflow-definitions/` Pages project path.
+After the website changes are merged, choose **Settings → Pages → Build and deployment → Deploy from a branch → main → /docs**, then save. The website uses relative asset paths and supports the `/open-workflow-definitions/` project path. `.nojekyll` keeps these assets as plain static files.
 
-Publishing is an explicit repository setting; this PR does not enable Pages, change repository visibility, or add Actions workflows. Add a custom domain separately if needed.
+The website source and GitHub Pages enablement are separate operations. The source commit does not by itself enable Pages.
 
-## Design and behavior
+## Landing page
 
-- Japanese is the default language. JP / EN switches all first-party page copy and interactive examples. The preference is kept locally if storage is available; `?lang=en` overrides it.
-- The hero graph animates connections and cycles through concepts until a visitor clicks a node. It stops animating the selected node automatically once a visitor chooses.
-- The workflow explorer includes a simplified view of the publicly released `software-product` definition, plus five selected phases from each of the now-public manga and visual identity definitions. All three are explicitly simplified tours, not full workflow implementations.
-- The reference-tracing illustration is not an implementation of impact analysis, review, approvals, or project-level verification.
-- Respects `prefers-reduced-motion`; keyboard-operable tabs, buttons, and skip link are included.
-- No telemetry, third-party scripts, backend, or build-time dependencies.
+- Japanese is the default. JP / EN translates the landing page and its interactive examples. The preference is stored locally when available; `?lang=en` overrides it.
+- The hero graph animates connections and cycles through concepts until a visitor chooses a node. Automatic changes do not announce through a live region.
+- The interactive tour shows simplified excerpts from the software, manga and visual identity definitions.
+- Keyboard navigation and reduced-motion preferences are supported.
+
+## Workflow library
+
+`workflows.html` introduces all six definitions at public commit `a6d827efeaeb9dc904d0350626f1450a9bc4b6ba`:
+
+| Definition | Version | Phases | Deliverables |
+| --- | --- | ---: | ---: |
+| software-product | 1.7.0 | 13 | 18 |
+| software-refactoring | 1.0.0 | 6 | 12 |
+| fiction-novel | 1.2.0 | 12 | 21 |
+| fiction-manga | 1.1.0 | 13 | 22 |
+| visual-identity | 1.0.0 | 14 | 15 |
+| japan-company-establishment | 1.0.0 | 16 | 19 |
+
+All 74 phases are included, with source links, prerequisites, deliverables, expandable outlines and acceptance criteria. Category filters and shareable workflow/phase URLs support navigation.
+
+Introductions, interface copy, phase names and section names are available in Japanese and English. Detailed purposes, deliverable names, outlines and criteria retain the original Japanese text; the English view explicitly identifies these as source excerpts. Keep both language dictionaries in sync when editing introductory copy.
+
+The data in `catalog-data.js` is a bundled snapshot of those public definitions. Update its provenance commit and source links when refreshing the snapshot.
+
+## Manga example
+
+`assets/manga-workflow-digest.mp4` is a 44-second edit of the author-supplied `manga-workflow-demo-short.mp4`. It includes selected scenes of world/setting design, character artwork, storyboards, finishing and completed manga pages. The original recording is not included.
+
+Source excerpts in seconds: 28–36, 68–73, 80–85, 110–118, 126–131, 147–153, 169–176. The clip uses H.264 High Level 4.1, yuv420p and fast-start metadata. It retains native controls and `playsinline`, without autoplay. The poster is taken from the edited clip.
 
 ## Content boundaries
 
-The public repository provides declarations, JSON Schema and basic definition checks. **It does not execute the workflow or automatically validate a project's actual artifacts, approvals, or quality.** These capabilities belong to a consuming host such as PaoBub or another application.
-
-To edit translations, update the `ja` and `en` dictionaries in `app.js` together. The visible static Japanese text in `index.html` is a no-JavaScript fallback. Keep the examples explicitly labeled as selected / shortened tours rather than full workflow implementations.
+These pages explain workflow definitions. Workflow execution, approval records, impact analysis and project artifact verification are responsibilities of the people and host tools using the definitions. The landing-page graphs are illustrative and do not perform those operations.
 
 ## Files
 
-- `index.html`: semantic page structure, illustration markup, links and metadata.
-- `styles.css`: responsive layouts, original visual language and reduced-motion support.
-- `app.js`: translations, graph inspector, workflow explorer, and trace demonstration.
+- `index.html`, `styles.css`, `app.js`: landing page and animated examples.
+- `workflows.html`, `catalog.css`, `catalog.js`: workflow library and phase inspector.
+- `catalog-data.js`: the six definition snapshots and introductory translations.
+- `assets/`: edited manga sample and poster.
 
-Licensed under the repository's MIT License.
+Code and definitions follow the repository's MIT License.

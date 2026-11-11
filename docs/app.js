@@ -5,7 +5,7 @@
     ja: {
       pageTitle: "Workflow Definitions — AIと人に、共有できる進め方を。",
       description: "人とAIの仕事を、工程・成果物・引用・達成条件で記述するオープンなワークフロー定義。",
-      skip: "本文へ移動", navWhy: "考え方", navExplore: "体験する", navInside: "定義の中身",
+      skip: "本文へ移動", navWorkflows: "ワークフロー", catalogCta: "6つのワークフローを見る", navWhy: "考え方", navExplore: "体験する", navInside: "定義の中身",
       heroEyebrow: "OPEN WORKFLOW LANGUAGE · MIT LICENSE",
       heroTitle1: "人とAIに、", heroTitle2: "共有できる", heroTitle3: "「進め方」を。",
       heroBody: "何を作り、どうつなぎ、何をもって完了とするか。仕事の進め方を、特定のツールに閉じ込めず、読める・検査できる定義にする。",
@@ -95,7 +95,7 @@
     en: {
       pageTitle: "Workflow Definitions — A shared way of working.",
       description: "An open, tool-independent language for defining phases, deliverables, references, and acceptance criteria.",
-      skip: "Skip to content", navWhy: "Why it matters", navExplore: "Explore", navInside: "Under the hood",
+      skip: "Skip to content", navWorkflows: "Workflows", catalogCta: "Explore all 6 workflows", navWhy: "Why it matters", navExplore: "Explore", navInside: "Under the hood",
       heroEyebrow: "OPEN WORKFLOW LANGUAGE · MIT LICENSE",
       heroTitle1: "A shared", heroTitle2: "way of working", heroTitle3: "for people + AI.",
       heroBody: "Define what gets made, how things connect, and what counts as done. Make the way work happens readable, inspectable and independent of any one tool.",
