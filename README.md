@@ -25,7 +25,7 @@
 
 小説の制作向けには `definitions/fiction-novel.json` の **`fiction-novel@1.2.0`** を収録しています。工程・項目と、利用側が受け持つことは [利用ガイド](docs/fiction-novel.md) を参照してください。
 
-漫画の制作向けには `definitions/fiction-manga.json` の **`fiction-manga@1.2.0`** を収録しています。画作りガイド（レイヤーの決まり）・地図・ネームと、利用側が受け持つことは [利用ガイド](docs/fiction-manga.md) を参照してください。
+漫画の制作向けには `definitions/fiction-manga.json` の **`fiction-manga@1.3.0`** を収録しています。画作りガイド（レイヤーの決まり）・地図・ネームと、利用側が受け持つことは [利用ガイド](docs/fiction-manga.md) を参照してください。
 
 ロゴ・シンボル・アプリアイコンなどの視覚表現の制作向けには `definitions/visual-identity.json` の **`visual-identity@1.0.0`** を収録しています。探索・ラフ・候補比較・採用・マスター・用途別展開の進め方は [利用ガイド](docs/visual-identity.md) を参照してください。
 
