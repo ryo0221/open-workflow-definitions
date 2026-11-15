@@ -1136,6 +1136,15 @@
       "min": 0
     },
     {
+      "id": "envelope-cites-hard-point",
+      "type": "cites",
+      "from": "envelope",
+      "to": [
+        "hard-point"
+      ],
+      "min": 0
+    },
+    {
       "id": "body-cites-detail-parameter",
       "type": "cites",
       "from": "body",
@@ -1169,6 +1178,16 @@
       "from": "drawing",
       "to": [
         "body"
+      ],
+      "min": 0
+    },
+    {
+      "id": "drawing-cites-detail",
+      "type": "cites",
+      "from": "drawing",
+      "to": [
+        "detail-parameter",
+        "key-characteristic"
       ],
       "min": 0
     },
@@ -1209,6 +1228,16 @@
       "min": 1
     },
     {
+      "id": "dfm-finding-cites-geometry",
+      "type": "cites",
+      "from": "dfm-finding",
+      "to": [
+        "body",
+        "detail-parameter"
+      ],
+      "min": 0
+    },
+    {
       "id": "test-cites-requirement",
       "type": "cites",
       "from": "test",
@@ -1216,6 +1245,15 @@
         "requirement"
       ],
       "min": 1
+    },
+    {
+      "id": "test-cites-analysis",
+      "type": "cites",
+      "from": "test",
+      "to": [
+        "analysis"
+      ],
+      "min": 0
     },
     {
       "id": "test-result-cites-test",
@@ -1254,6 +1292,15 @@
       "min": 1
     },
     {
+      "id": "operation-cites-drawing",
+      "type": "cites",
+      "from": "operation",
+      "to": [
+        "drawing"
+      ],
+      "min": 0
+    },
+    {
       "id": "process-failure-cites-operation",
       "type": "cites",
       "from": "process-failure",
@@ -1281,6 +1328,16 @@
       "min": 1
     },
     {
+      "id": "capability-cites-control",
+      "type": "cites",
+      "from": "capability",
+      "to": [
+        "control",
+        "part-approval"
+      ],
+      "min": 0
+    },
+    {
       "id": "certification-cites-regulation",
       "type": "cites",
       "from": "certification",
@@ -1288,6 +1345,15 @@
         "regulation"
       ],
       "min": 1
+    },
+    {
+      "id": "certification-cites-test",
+      "type": "cites",
+      "from": "certification",
+      "to": [
+        "test"
+      ],
+      "min": 0
     },
     {
       "id": "launch-issue-cites-source",
@@ -1322,6 +1388,16 @@
       "min": 1
     },
     {
+      "id": "key-characteristic-cites-geometry",
+      "type": "cites",
+      "from": "key-characteristic",
+      "to": [
+        "body",
+        "detail-parameter"
+      ],
+      "min": 0
+    },
+    {
       "id": "analysis-cites-model",
       "type": "cites",
       "from": "analysis",
@@ -1330,6 +1406,15 @@
         "envelope"
       ],
       "min": 1
+    },
+    {
+      "id": "analysis-cites-detail-parameter",
+      "type": "cites",
+      "from": "analysis",
+      "to": [
+        "detail-parameter"
+      ],
+      "min": 0
     },
     {
       "id": "appearance-cites-body",
@@ -1341,6 +1426,16 @@
       "min": 1
     },
     {
+      "id": "appearance-cites-detail",
+      "type": "cites",
+      "from": "appearance",
+      "to": [
+        "detail-parameter",
+        "concept"
+      ],
+      "min": 0
+    },
+    {
       "id": "quote-cites-supplier",
       "type": "cites",
       "from": "quote",
@@ -1348,6 +1443,16 @@
         "supplier"
       ],
       "min": 1
+    },
+    {
+      "id": "quote-cites-drawing",
+      "type": "cites",
+      "from": "quote",
+      "to": [
+        "drawing",
+        "sourcing-decision"
+      ],
+      "min": 0
     },
     {
       "id": "part-approval-cites-supplier",
@@ -1359,6 +1464,16 @@
       "min": 1
     },
     {
+      "id": "part-approval-cites-key-characteristic",
+      "type": "cites",
+      "from": "part-approval",
+      "to": [
+        "key-characteristic",
+        "quote"
+      ],
+      "min": 0
+    },
+    {
       "id": "control-cites-operation",
       "type": "cites",
       "from": "control",
@@ -1368,11 +1483,29 @@
       "min": 1
     },
     {
+      "id": "control-cites-process-failure",
+      "type": "cites",
+      "from": "control",
+      "to": [
+        "process-failure"
+      ],
+      "min": 0
+    },
+    {
       "id": "failure-mode-cites-requirement",
       "type": "cites",
       "from": "failure-mode",
       "to": [
         "requirement"
+      ],
+      "min": 0
+    },
+    {
+      "id": "failure-mode-cites-interface",
+      "type": "cites",
+      "from": "failure-mode",
+      "to": [
+        "interface"
       ],
       "min": 0
     },
@@ -1625,7 +1758,8 @@
         "envelope-cites-parameter",
         "envelope-cites-subsystem",
         "hard-point-modelled",
-        "subsystem-placed"
+        "subsystem-placed",
+        "envelope-cites-hard-point"
       ]
     },
     {
@@ -1653,7 +1787,8 @@
       "checkedBy": "AI",
       "target": "dfmea",
       "rules": [
-        "failure-mode-cites-source"
+        "failure-mode-cites-source",
+        "failure-mode-cites-interface"
       ]
     },
     {
@@ -1692,7 +1827,8 @@
       "rules": [
         "drawing-cites-part",
         "drawing-cites-body",
-        "part-drawn"
+        "part-drawn",
+        "drawing-cites-detail"
       ]
     },
     {
@@ -1702,7 +1838,8 @@
       "target": "key-characteristics",
       "rules": [
         "key-characteristic-cites-part",
-        "key-characteristic-cites-reason"
+        "key-characteristic-cites-reason",
+        "key-characteristic-cites-geometry"
       ]
     },
     {
@@ -1712,7 +1849,8 @@
       "target": "analysis-report",
       "rules": [
         "analysis-cites-requirement",
-        "analysis-cites-model"
+        "analysis-cites-model",
+        "analysis-cites-detail-parameter"
       ]
     },
     {
@@ -1723,7 +1861,8 @@
       "rules": [
         "appearance-cites-design-theme",
         "appearance-cites-body",
-        "design-theme-reviewed"
+        "design-theme-reviewed",
+        "appearance-cites-detail"
       ]
     },
     {
@@ -1738,7 +1877,8 @@
       "checkedBy": "AI",
       "target": "dfm-review",
       "rules": [
-        "dfm-finding-cites-part"
+        "dfm-finding-cites-part",
+        "dfm-finding-cites-geometry"
       ]
     },
     {
@@ -1754,7 +1894,8 @@
       "target": "dv-plan",
       "rules": [
         "test-cites-requirement",
-        "requirement-verified"
+        "requirement-verified",
+        "test-cites-analysis"
       ]
     },
     {
@@ -1780,7 +1921,8 @@
       "target": "quote-comparison",
       "rules": [
         "quote-cites-part",
-        "quote-cites-supplier"
+        "quote-cites-supplier",
+        "quote-cites-drawing"
       ]
     },
     {
@@ -1791,7 +1933,8 @@
       "rules": [
         "part-approval-cites-part",
         "part-approval-cites-supplier",
-        "part-approved"
+        "part-approved",
+        "part-approval-cites-key-characteristic"
       ]
     },
     {
@@ -1807,7 +1950,8 @@
       "target": "process-flow",
       "rules": [
         "operation-cites-part",
-        "process-failure-cites-operation"
+        "process-failure-cites-operation",
+        "operation-cites-drawing"
       ]
     },
     {
@@ -1818,7 +1962,8 @@
       "rules": [
         "control-cites-key-characteristic",
         "control-cites-operation",
-        "key-characteristic-controlled"
+        "key-characteristic-controlled",
+        "control-cites-process-failure"
       ]
     },
     {
@@ -1834,7 +1979,8 @@
       "target": "pv-report",
       "rules": [
         "capability-cites-key-characteristic",
-        "key-characteristic-capable"
+        "key-characteristic-capable",
+        "capability-cites-control"
       ]
     },
     {
@@ -1844,7 +1990,8 @@
       "target": "pv-report",
       "rules": [
         "certification-cites-regulation",
-        "regulation-certified"
+        "regulation-certified",
+        "certification-cites-test"
       ]
     },
     {
