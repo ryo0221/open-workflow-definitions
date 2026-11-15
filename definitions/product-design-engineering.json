@@ -1164,6 +1164,15 @@
       "min": 1
     },
     {
+      "id": "drawing-cites-body",
+      "type": "cites",
+      "from": "drawing",
+      "to": [
+        "body"
+      ],
+      "min": 0
+    },
+    {
       "id": "key-characteristic-cites-part",
       "type": "cites",
       "from": "key-characteristic",
@@ -1682,6 +1691,7 @@
       "target": "drawings",
       "rules": [
         "drawing-cites-part",
+        "drawing-cites-body",
         "part-drawn"
       ]
     },
