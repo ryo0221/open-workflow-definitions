@@ -1127,6 +1127,25 @@
       "min": 0
     },
     {
+      "id": "envelope-cites-parameter",
+      "type": "cites",
+      "from": "envelope",
+      "to": [
+        "parameter"
+      ],
+      "min": 0
+    },
+    {
+      "id": "body-cites-detail-parameter",
+      "type": "cites",
+      "from": "body",
+      "to": [
+        "detail-parameter",
+        "parameter"
+      ],
+      "min": 0
+    },
+    {
       "id": "body-cites-part",
       "type": "cites",
       "from": "body",
@@ -1594,6 +1613,7 @@
       "target": "layout-model",
       "rules": [
         "parameter-cites-hard-point",
+        "envelope-cites-parameter",
         "envelope-cites-subsystem",
         "hard-point-modelled",
         "subsystem-placed"
@@ -1651,6 +1671,7 @@
       "rules": [
         "body-cites-part",
         "detail-parameter-cites-parameter",
+        "body-cites-detail-parameter",
         "part-modelled"
       ]
     },
