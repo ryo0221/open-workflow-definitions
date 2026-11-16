@@ -1,0 +1,305 @@
+{
+  "format": 1,
+  "id": "community-content-release",
+  "version": "0.1.0",
+  "title": "Community掲載コンテンツ",
+  "purpose": "固定版と根拠を引き継ぎ、制作・修正・人による公開判断・学びを記録する試案。",
+  "phases": [
+    {
+      "id": "step-1",
+      "name": "掲載方針",
+      "purpose": "掲載方針の結果と根拠を記録する。",
+      "after": [],
+      "deliverables": [
+        "record-1"
+      ],
+      "acceptance": [
+        "step-1.evidence",
+        "step-1.reviewed"
+      ]
+    },
+    {
+      "id": "step-2",
+      "name": "素材・利用条件・来歴の確認",
+      "purpose": "素材・利用条件・来歴の確認の結果と根拠を記録する。",
+      "after": [
+        "step-1"
+      ],
+      "deliverables": [
+        "record-2"
+      ],
+      "acceptance": [
+        "step-2.evidence",
+        "step-2.reviewed"
+      ]
+    },
+    {
+      "id": "step-3",
+      "name": "編集・パッケージ化",
+      "purpose": "編集・パッケージ化の結果と根拠を記録する。",
+      "after": [
+        "step-2"
+      ],
+      "deliverables": [
+        "record-3"
+      ],
+      "acceptance": [
+        "step-3.evidence",
+        "step-3.reviewed"
+      ]
+    },
+    {
+      "id": "step-4",
+      "name": "掲載審査・修正",
+      "purpose": "掲載審査・修正の結果と根拠を記録する。",
+      "after": [
+        "step-3"
+      ],
+      "deliverables": [
+        "record-4"
+      ],
+      "acceptance": [
+        "step-4.evidence",
+        "step-4.reviewed"
+      ]
+    },
+    {
+      "id": "step-5",
+      "name": "公開",
+      "purpose": "公開の結果と根拠を記録する。",
+      "after": [
+        "step-4"
+      ],
+      "deliverables": [
+        "record-5"
+      ],
+      "acceptance": [
+        "step-5.evidence",
+        "step-5.reviewed"
+      ]
+    },
+    {
+      "id": "step-6",
+      "name": "学び",
+      "purpose": "学びの結果と根拠を記録する。",
+      "after": [
+        "step-5"
+      ],
+      "deliverables": [
+        "record-6"
+      ],
+      "acceptance": [
+        "step-6.evidence",
+        "step-6.reviewed"
+      ]
+    }
+  ],
+  "deliverables": [
+    {
+      "id": "record-1",
+      "name": "掲載方針記録",
+      "form": "文書",
+      "uses": [],
+      "outline": [
+        {
+          "heading": "対象版と入力",
+          "describe": "対象の固定版、入力参照、担当、作成日時を記す。"
+        },
+        {
+          "heading": "成果と根拠",
+          "describe": "実操作・再現・提案を区別し、成果物、利用条件、検証の根拠を記す。"
+        },
+        {
+          "heading": "レビューと変更",
+          "describe": "差し戻し、修正、再確認、影響範囲、未実施と残件を記す。"
+        }
+      ]
+    },
+    {
+      "id": "record-2",
+      "name": "素材・利用条件・来歴の確認記録",
+      "form": "文書",
+      "uses": [
+        "record-1"
+      ],
+      "outline": [
+        {
+          "heading": "対象版と入力",
+          "describe": "対象の固定版、入力参照、担当、作成日時を記す。"
+        },
+        {
+          "heading": "成果と根拠",
+          "describe": "実操作・再現・提案を区別し、成果物、利用条件、検証の根拠を記す。"
+        },
+        {
+          "heading": "レビューと変更",
+          "describe": "差し戻し、修正、再確認、影響範囲、未実施と残件を記す。"
+        }
+      ]
+    },
+    {
+      "id": "record-3",
+      "name": "編集・パッケージ化記録",
+      "form": "文書",
+      "uses": [
+        "record-2"
+      ],
+      "outline": [
+        {
+          "heading": "対象版と入力",
+          "describe": "対象の固定版、入力参照、担当、作成日時を記す。"
+        },
+        {
+          "heading": "成果と根拠",
+          "describe": "実操作・再現・提案を区別し、成果物、利用条件、検証の根拠を記す。"
+        },
+        {
+          "heading": "レビューと変更",
+          "describe": "差し戻し、修正、再確認、影響範囲、未実施と残件を記す。"
+        }
+      ]
+    },
+    {
+      "id": "record-4",
+      "name": "掲載審査・修正記録",
+      "form": "文書",
+      "uses": [
+        "record-3"
+      ],
+      "outline": [
+        {
+          "heading": "対象版と入力",
+          "describe": "対象の固定版、入力参照、担当、作成日時を記す。"
+        },
+        {
+          "heading": "成果と根拠",
+          "describe": "実操作・再現・提案を区別し、成果物、利用条件、検証の根拠を記す。"
+        },
+        {
+          "heading": "レビューと変更",
+          "describe": "差し戻し、修正、再確認、影響範囲、未実施と残件を記す。"
+        }
+      ]
+    },
+    {
+      "id": "record-5",
+      "name": "公開記録",
+      "form": "文書",
+      "uses": [
+        "record-4"
+      ],
+      "outline": [
+        {
+          "heading": "対象版と入力",
+          "describe": "対象の固定版、入力参照、担当、作成日時を記す。"
+        },
+        {
+          "heading": "成果と根拠",
+          "describe": "実操作・再現・提案を区別し、成果物、利用条件、検証の根拠を記す。"
+        },
+        {
+          "heading": "レビューと変更",
+          "describe": "差し戻し、修正、再確認、影響範囲、未実施と残件を記す。"
+        }
+      ]
+    },
+    {
+      "id": "record-6",
+      "name": "学び記録",
+      "form": "文書",
+      "uses": [
+        "record-5"
+      ],
+      "outline": [
+        {
+          "heading": "対象版と入力",
+          "describe": "対象の固定版、入力参照、担当、作成日時を記す。"
+        },
+        {
+          "heading": "成果と根拠",
+          "describe": "実操作・再現・提案を区別し、成果物、利用条件、検証の根拠を記す。"
+        },
+        {
+          "heading": "レビューと変更",
+          "describe": "差し戻し、修正、再確認、影響範囲、未実施と残件を記す。"
+        }
+      ]
+    }
+  ],
+  "items": [],
+  "rules": [],
+  "acceptance": [
+    {
+      "id": "step-1.evidence",
+      "text": "対象版、根拠、残件を記録し、前工程の固定版を特定している。",
+      "checkedBy": "AI",
+      "target": "record-1"
+    },
+    {
+      "id": "step-1.reviewed",
+      "text": "責任者本人が対象版と根拠を確認し、判断を記録している。",
+      "checkedBy": "人",
+      "target": "record-1"
+    },
+    {
+      "id": "step-2.evidence",
+      "text": "対象版、根拠、残件を記録し、前工程の固定版を特定している。",
+      "checkedBy": "AI",
+      "target": "record-2"
+    },
+    {
+      "id": "step-2.reviewed",
+      "text": "責任者本人が対象版と根拠を確認し、判断を記録している。",
+      "checkedBy": "人",
+      "target": "record-2"
+    },
+    {
+      "id": "step-3.evidence",
+      "text": "対象版、根拠、残件を記録し、前工程の固定版を特定している。",
+      "checkedBy": "AI",
+      "target": "record-3"
+    },
+    {
+      "id": "step-3.reviewed",
+      "text": "責任者本人が対象版と根拠を確認し、判断を記録している。",
+      "checkedBy": "人",
+      "target": "record-3"
+    },
+    {
+      "id": "step-4.evidence",
+      "text": "対象版、根拠、残件を記録し、前工程の固定版を特定している。",
+      "checkedBy": "AI",
+      "target": "record-4"
+    },
+    {
+      "id": "step-4.reviewed",
+      "text": "責任者本人が対象版と根拠を確認し、判断を記録している。",
+      "checkedBy": "人",
+      "target": "record-4"
+    },
+    {
+      "id": "step-5.evidence",
+      "text": "対象版、根拠、残件を記録し、前工程の固定版を特定している。",
+      "checkedBy": "AI",
+      "target": "record-5"
+    },
+    {
+      "id": "step-5.reviewed",
+      "text": "責任者本人が対象版と根拠を確認し、判断を記録している。",
+      "checkedBy": "人",
+      "target": "record-5"
+    },
+    {
+      "id": "step-6.evidence",
+      "text": "対象版、根拠、残件を記録し、前工程の固定版を特定している。",
+      "checkedBy": "AI",
+      "target": "record-6"
+    },
+    {
+      "id": "step-6.reviewed",
+      "text": "責任者本人が対象版と根拠を確認し、判断を記録している。",
+      "checkedBy": "人",
+      "target": "record-6"
+    }
+  ]
+}
