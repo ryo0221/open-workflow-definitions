@@ -29,6 +29,8 @@
 
 ロゴ・シンボル・アプリアイコンなどの視覚表現の制作向けには `definitions/visual-identity.json` の **`visual-identity@1.0.0`** を収録しています。探索・ラフ・候補比較・採用・マスター・用途別展開の進め方は [利用ガイド](docs/visual-identity.md) を参照してください。
 
+建物・塔・橋などの施工計画向けには `definitions/construction-planning.json` の **`construction-planning@1.0.0`** を収録しています。施工単位・工法・工程表・揚重と搬入の計画を、日付ごとの模型で模擬して確かめ、承認して説明する進め方は [利用ガイド](docs/construction-planning.md) を参照してください。
+
 株式会社設立・事業開始向けには `definitions/japan-company-establishment.json` の **`japan-company-establishment@1.0.0`** を収録しています。適用範囲と利用上の区別は [利用ガイド](docs/japan-company-establishment.md) を参照してください。
 
 ## 定義の書き方の原則
