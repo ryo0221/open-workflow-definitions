@@ -1,0 +1,1010 @@
+{
+  "format": 1,
+  "id": "vehicle-styling",
+  "version": "1.0.0",
+  "title": "自動車の外観デザイン",
+  "purpose": "自動車の外観を、性格と規則、硬い点のパッケージ、空気の筋書きから先に決め、3面の線図と比率で全体の形を固めてから、面・細部・色と材料・最終の絵と動画へ進める。形の問題は面ではなく線図へ戻して直し、各工程の終わりに一人の判断を取る。題材・道具・出力形式は利用側が決める。",
+  "phases": [
+    {
+      "id": "process",
+      "name": "進め方",
+      "purpose": "何を作り、どの工程を、誰の判断で、どの道具で回すかを決める。",
+      "after": [],
+      "deliverables": [
+        "process-map"
+      ],
+      "acceptance": [
+        "process.complete",
+        "process.approved"
+      ]
+    },
+    {
+      "id": "brief",
+      "name": "性格と規則",
+      "purpose": "車の役割と性格のことば、寸法の枠と守る条件（規則）、比率の目安を、形より先に決める。",
+      "after": [
+        "process"
+      ],
+      "deliverables": [
+        "design-brief"
+      ],
+      "acceptance": [
+        "brief.complete",
+        "brief.approved"
+      ]
+    },
+    {
+      "id": "package",
+      "name": "硬い点とパッケージ",
+      "purpose": "車輪・乗員・機械などの硬い点を先に置き、外形をその包絡として決める。中身を詰めて形の自由を作る。",
+      "after": [
+        "brief"
+      ],
+      "deliverables": [
+        "package-layout"
+      ],
+      "acceptance": [
+        "package.complete",
+        "package.approved"
+      ]
+    },
+    {
+      "id": "airflow",
+      "name": "空気の筋書き",
+      "purpose": "空気の入口と出口、押さえ付ける面、渦を出す所を、パッケージ図の上に先に決める。外形はその結果として決める。",
+      "after": [
+        "package"
+      ],
+      "deliverables": [
+        "airflow-scenario"
+      ],
+      "acceptance": [
+        "airflow.complete",
+        "airflow.approved"
+      ]
+    },
+    {
+      "id": "lines",
+      "name": "3面の線図",
+      "purpose": "側面・平面・正面の主な線で全体を一度に描き、案を並べて1案を選ぶ。3次元の面は後で線から作る。",
+      "after": [
+        "airflow"
+      ],
+      "deliverables": [
+        "line-drawings"
+      ],
+      "acceptance": [
+        "lines.complete",
+        "lines.approved"
+      ]
+    },
+    {
+      "id": "proportions",
+      "name": "比率",
+      "purpose": "選んだ案を比率の目安で測り、外れた所を線図かパッケージへ戻って直す。格好良さに一番効く所なので、ここの承認まで面を作らない。",
+      "after": [
+        "lines"
+      ],
+      "deliverables": [
+        "proportion-check"
+      ],
+      "acceptance": [
+        "proportions.complete",
+        "proportions.approved"
+      ]
+    },
+    {
+      "id": "surfaces",
+      "name": "面",
+      "purpose": "線図の線から3次元の曲線を作り、曲線網で外板を張る。曲率と映り込みで面の張りと継ぎ目を確かめる。",
+      "after": [
+        "proportions"
+      ],
+      "deliverables": [
+        "surface-model"
+      ],
+      "acceptance": [
+        "surfaces.complete",
+        "surfaces.approved"
+      ]
+    },
+    {
+      "id": "aero",
+      "name": "空力の簡易検査",
+      "purpose": "面ができた形を簡易な指標で見て、空気の筋書きと合わない所を探して直す。流体の解析ではない。",
+      "after": [
+        "surfaces"
+      ],
+      "deliverables": [
+        "aero-check"
+      ],
+      "acceptance": [
+        "aero.complete",
+        "aero.approved"
+      ]
+    },
+    {
+      "id": "details",
+      "name": "細部",
+      "purpose": "灯体・開口・見切り線・ホイール・ミラーを、線図の線と空気の筋に沿わせて作る。",
+      "after": [
+        "aero"
+      ],
+      "deliverables": [
+        "detail-design"
+      ],
+      "acceptance": [
+        "details.complete",
+        "details.approved"
+      ]
+    },
+    {
+      "id": "finish",
+      "name": "色・材料・絵",
+      "purpose": "配色の案と材料を決め、写実の光で最終の静止画と動画を作る。",
+      "after": [
+        "details"
+      ],
+      "deliverables": [
+        "colour-material",
+        "presentation"
+      ],
+      "acceptance": [
+        "finish.complete",
+        "finish.scheme-approved",
+        "finish.approved"
+      ]
+    },
+    {
+      "id": "review",
+      "name": "判断の記録と完成",
+      "purpose": "各工程の判断を記録し、性格のことばが形に表れたかを振り返って、完成を宣言する。",
+      "after": [
+        "finish"
+      ],
+      "deliverables": [
+        "design-log"
+      ],
+      "acceptance": [
+        "log.complete",
+        "log.approved"
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "id": "plan",
+      "name": "企画",
+      "phases": [
+        "process",
+        "brief"
+      ]
+    },
+    {
+      "id": "skeleton",
+      "name": "骨格",
+      "phases": [
+        "package",
+        "airflow"
+      ]
+    },
+    {
+      "id": "form",
+      "name": "形",
+      "phases": [
+        "lines",
+        "proportions"
+      ]
+    },
+    {
+      "id": "surface",
+      "name": "面と細部",
+      "phases": [
+        "surfaces",
+        "aero",
+        "details"
+      ]
+    },
+    {
+      "id": "finish-section",
+      "name": "仕上げ",
+      "phases": [
+        "finish",
+        "review"
+      ]
+    }
+  ],
+  "deliverables": [
+    {
+      "id": "process-map",
+      "name": "進め方",
+      "form": "文書",
+      "outline": [
+        {
+          "heading": "題材と出口",
+          "describe": "作る車（独自の車か、既存の車の見直しか）、どこまで作るか（線図まで・面まで・仕上げの絵と動画まで）、完成とする状態"
+        },
+        {
+          "heading": "工程と戻り方",
+          "describe": "使う工程、省く工程と理由と代わりの確認。形の問題が後の工程で見つかったとき、面を直さずに線図へ戻る約束"
+        },
+        {
+          "heading": "判断する人とAIの関与",
+          "describe": "形の良し悪しを決める人（1人）、各工程の終わりに見せるもの、AIに任せる作業（作図・面張り・計測・描画）と人が決めること"
+        },
+        {
+          "heading": "道具と足りないもの",
+          "describe": "使う道具（CAD・描画・計測）、工程を回すのに足りない機能と、それを用意する工程"
+        },
+        {
+          "heading": "参考と権利",
+          "describe": "参考にする本・車・人の考え方の出典と要約の範囲。実在の車名・標章・意匠を写さないことの断り"
+        }
+      ],
+      "uses": []
+    },
+    {
+      "id": "design-brief",
+      "name": "性格と規則",
+      "form": "表",
+      "outline": [
+        {
+          "heading": "役割",
+          "describe": "誰がどこでどう使う車か、競う相手や置かれる場面"
+        },
+        {
+          "heading": "性格",
+          "describe": "低く・張った・軽いのような、形で見せたい性格のことば。一つずつ短い説明を付ける",
+          "item": "trait"
+        },
+        {
+          "heading": "規則",
+          "describe": "寸法の枠（全長・全幅・全高・ホイールベース・タイヤ・地上高・乗員）と守る条件を一件ずつ。法規・題材の約束・自分で決めた枠を分けて書く",
+          "item": "rule"
+        },
+        {
+          "heading": "比率の目安",
+          "describe": "車輪の外径と全高、ホイールベースと全長、窓と車体、幅と高さ、タイヤとフェンダーの差など、形を決める目安の数と、その根拠",
+          "item": "proportion-target"
+        }
+      ],
+      "uses": [
+        "process-map"
+      ]
+    },
+    {
+      "id": "package-layout",
+      "name": "硬い点とパッケージ",
+      "form": "図",
+      "outline": [
+        {
+          "heading": "硬い点",
+          "describe": "車輪・乗員・機械・燃料・冷却・荷物などの動かせない物を、位置と大きさで一件ずつ。規則のどれから来たかを引く",
+          "item": "hard-point"
+        },
+        {
+          "heading": "包絡",
+          "describe": "側面と平面で、硬い点を包む最小の外形。乗員の目の位置とガラスの角度、車輪とボンネットの高さ"
+        },
+        {
+          "heading": "詰めた所",
+          "describe": "外形を絞るために動かした・小さくした硬い点と、その理由"
+        }
+      ],
+      "uses": [
+        "design-brief"
+      ]
+    },
+    {
+      "id": "airflow-scenario",
+      "name": "空気の筋書き",
+      "form": "図",
+      "outline": [
+        {
+          "heading": "空気の筋",
+          "describe": "前の開口・床下・車輪のまわり・冷却・後ろの抜けなど、空気の入口から出口までの筋を一本ずつ。押さえ付ける面と渦を出す所も筋に書く",
+          "item": "flow"
+        },
+        {
+          "heading": "形への約束",
+          "describe": "筋を通すために外形に課す約束（開口の位置、床の上がり、キャビンの絞り）"
+        }
+      ],
+      "uses": [
+        "package-layout"
+      ]
+    },
+    {
+      "id": "line-drawings",
+      "name": "3面の線図",
+      "form": "図",
+      "outline": [
+        {
+          "heading": "案",
+          "describe": "側面・平面・正面を同じ縮尺で並べた線図の案を2〜3。一つずつ考えと性格のことばを書く",
+          "item": "proposal"
+        },
+        {
+          "heading": "主な線",
+          "describe": "ルーフ・肩・ベルトライン・窓の輪郭・ロッカー・フェンダーの頂点・前後の端など、案ごとの主な線。硬い点・空気の筋・性格のどれに従うかを引く",
+          "item": "line"
+        },
+        {
+          "heading": "影絵",
+          "describe": "各案を黒一色で描いた側面・平面・正面。線を消してシルエットだけで比べる"
+        }
+      ],
+      "uses": [
+        "package-layout",
+        "airflow-scenario"
+      ]
+    },
+    {
+      "id": "proportion-check",
+      "name": "比率",
+      "form": "表",
+      "outline": [
+        {
+          "heading": "測り",
+          "describe": "選んだ案（と直した版）で、比率の目安ごとの値。目安から外れた所に印",
+          "item": "measure"
+        },
+        {
+          "heading": "直したこと",
+          "describe": "外れた所を直した線と、パッケージまで戻した所"
+        },
+        {
+          "heading": "直した3面図",
+          "describe": "直した後の線図と影絵"
+        }
+      ],
+      "uses": [
+        "design-brief",
+        "line-drawings"
+      ]
+    },
+    {
+      "id": "surface-model",
+      "name": "面",
+      "form": "モデル",
+      "outline": [
+        {
+          "heading": "面",
+          "describe": "線図の線から作った3次元の曲線と、それで張った外板の面を一枚ずつ。どの線から作ったかを引く",
+          "item": "panel"
+        },
+        {
+          "heading": "面の確かめ",
+          "describe": "曲率の連続、映り込み（zebraや反射線）、継ぎ目、フレアやプレスラインの張りの確かめを一件ずつ。結果と、直したか残したか",
+          "item": "surface-check"
+        },
+        {
+          "heading": "静止画",
+          "describe": "外板を写実で描いた静止画（4方向）と、映り込みの画像"
+        }
+      ],
+      "uses": [
+        "line-drawings",
+        "proportion-check"
+      ]
+    },
+    {
+      "id": "aero-check",
+      "name": "空力の簡易検査",
+      "form": "表",
+      "outline": [
+        {
+          "heading": "指標",
+          "describe": "前面投影面積、流れに対する面の向き、流れの向きの急な曲がり（剥がれやすい所）、床下の上がり角など、利用側の道具で出せる簡易な指標の値と画像"
+        },
+        {
+          "heading": "所見",
+          "describe": "空気の筋書きと合わない所を一件ずつ。どの筋か、どの面か",
+          "item": "aero-finding"
+        },
+        {
+          "heading": "見た目との重なり",
+          "describe": "見た目の違和感と指標の悪い所が重なった所、重ならなかった所"
+        }
+      ],
+      "uses": [
+        "airflow-scenario",
+        "surface-model"
+      ]
+    },
+    {
+      "id": "detail-design",
+      "name": "細部",
+      "form": "モデル",
+      "outline": [
+        {
+          "heading": "細部",
+          "describe": "灯体のグラフィック、吸気と排気の開口、見切り線、ホイールの意匠、ミラーなどを一件ずつ。線図のどの線か、空気のどの筋に沿わせたかを引く",
+          "item": "detail"
+        },
+        {
+          "heading": "寄りの静止画",
+          "describe": "細部ごとの寄りの静止画"
+        }
+      ],
+      "uses": [
+        "line-drawings",
+        "surface-model",
+        "aero-check"
+      ]
+    },
+    {
+      "id": "colour-material",
+      "name": "色と材料",
+      "form": "表",
+      "outline": [
+        {
+          "heading": "配色",
+          "describe": "配色の案を2〜3。外板・ホイール・ガラス・樹脂の色の組",
+          "item": "scheme"
+        },
+        {
+          "heading": "材料",
+          "describe": "塗装・ガラス・ゴム・樹脂・金属の材料を、配色ごとに一件ずつ",
+          "item": "material"
+        },
+        {
+          "heading": "並べ比べ",
+          "describe": "配色の案を同じ向き・同じ光で並べた絵"
+        }
+      ],
+      "uses": [
+        "detail-design"
+      ]
+    },
+    {
+      "id": "presentation",
+      "name": "最終の絵と動画",
+      "form": "絵",
+      "outline": [
+        {
+          "heading": "絵",
+          "describe": "選んだ配色で、写実の光の静止画（4〜6方向）と、回り込みと走行の動画を一件ずつ。光・背景・解像度",
+          "item": "image"
+        },
+        {
+          "heading": "見え方の弱い所",
+          "describe": "絵で見て弱い所（暗い・沈む・映り込みの乱れ）と、直したか残したか"
+        }
+      ],
+      "uses": [
+        "colour-material"
+      ]
+    },
+    {
+      "id": "design-log",
+      "name": "判断の記録",
+      "form": "表",
+      "outline": [
+        {
+          "heading": "判断",
+          "describe": "各工程で人が決めたことを一件ずつ。何について（案・測り・面の確かめ・所見・細部・配色・絵）、選んだこと、理由、戻った工程",
+          "item": "decision"
+        },
+        {
+          "heading": "学び",
+          "describe": "次の車で変えること。足りなかった道具、効いた目安、戻りが多かった工程"
+        }
+      ],
+      "uses": [
+        "process-map"
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "rule",
+      "name": "規則",
+      "idForm": "RL-{nn}"
+    },
+    {
+      "id": "trait",
+      "name": "性格",
+      "idForm": "TR-{nn}"
+    },
+    {
+      "id": "proportion-target",
+      "name": "比率の目安",
+      "idForm": "PT-{nn}"
+    },
+    {
+      "id": "hard-point",
+      "name": "硬い点",
+      "idForm": "HP-{nn}"
+    },
+    {
+      "id": "flow",
+      "name": "空気の筋",
+      "idForm": "FL-{nn}"
+    },
+    {
+      "id": "proposal",
+      "name": "案",
+      "idForm": "VA-{n}"
+    },
+    {
+      "id": "line",
+      "name": "主な線",
+      "idForm": "LN-{nn}"
+    },
+    {
+      "id": "measure",
+      "name": "比率の測り",
+      "idForm": "PM-{nn}"
+    },
+    {
+      "id": "panel",
+      "name": "面",
+      "idForm": "SF-{nn}"
+    },
+    {
+      "id": "surface-check",
+      "name": "面の確かめ",
+      "idForm": "SC-{nn}"
+    },
+    {
+      "id": "aero-finding",
+      "name": "空力の所見",
+      "idForm": "AF-{nn}"
+    },
+    {
+      "id": "detail",
+      "name": "細部",
+      "idForm": "DT-{nn}"
+    },
+    {
+      "id": "scheme",
+      "name": "配色",
+      "idForm": "CS-{n}"
+    },
+    {
+      "id": "material",
+      "name": "材料",
+      "idForm": "MA-{nn}"
+    },
+    {
+      "id": "image",
+      "name": "絵",
+      "idForm": "RD-{nn}"
+    },
+    {
+      "id": "decision",
+      "name": "判断",
+      "idForm": "DC-{nn}"
+    }
+  ],
+  "rules": [
+    {
+      "id": "hard-point-cites-rule",
+      "type": "cites",
+      "from": "hard-point",
+      "to": [
+        "rule"
+      ],
+      "min": 0
+    },
+    {
+      "id": "flow-cites-hard-point",
+      "type": "cites",
+      "from": "flow",
+      "to": [
+        "hard-point"
+      ],
+      "min": 1
+    },
+    {
+      "id": "line-cites-basis",
+      "type": "cites",
+      "from": "line",
+      "to": [
+        "hard-point",
+        "flow",
+        "trait"
+      ],
+      "min": 1
+    },
+    {
+      "id": "line-cites-proposal",
+      "type": "cites",
+      "from": "line",
+      "to": [
+        "proposal"
+      ],
+      "min": 1
+    },
+    {
+      "id": "measure-cites-target",
+      "type": "cites",
+      "from": "measure",
+      "to": [
+        "proportion-target"
+      ],
+      "min": 1
+    },
+    {
+      "id": "measure-cites-proposal",
+      "type": "cites",
+      "from": "measure",
+      "to": [
+        "proposal"
+      ],
+      "min": 1
+    },
+    {
+      "id": "measure-cites-rule",
+      "type": "cites",
+      "from": "measure",
+      "to": [
+        "rule"
+      ],
+      "min": 0
+    },
+    {
+      "id": "panel-cites-line",
+      "type": "cites",
+      "from": "panel",
+      "to": [
+        "line"
+      ],
+      "min": 1
+    },
+    {
+      "id": "surface-check-cites-panel",
+      "type": "cites",
+      "from": "surface-check",
+      "to": [
+        "panel"
+      ],
+      "min": 1
+    },
+    {
+      "id": "aero-finding-cites-flow",
+      "type": "cites",
+      "from": "aero-finding",
+      "to": [
+        "flow"
+      ],
+      "min": 1
+    },
+    {
+      "id": "aero-finding-cites-panel",
+      "type": "cites",
+      "from": "aero-finding",
+      "to": [
+        "panel"
+      ],
+      "min": 0
+    },
+    {
+      "id": "detail-cites-line",
+      "type": "cites",
+      "from": "detail",
+      "to": [
+        "line",
+        "flow"
+      ],
+      "min": 1
+    },
+    {
+      "id": "material-cites-scheme",
+      "type": "cites",
+      "from": "material",
+      "to": [
+        "scheme"
+      ],
+      "min": 1
+    },
+    {
+      "id": "image-cites-scheme",
+      "type": "cites",
+      "from": "image",
+      "to": [
+        "scheme"
+      ],
+      "min": 0
+    },
+    {
+      "id": "decision-cites-subject",
+      "type": "cites",
+      "from": "decision",
+      "to": [
+        "proposal",
+        "measure",
+        "surface-check",
+        "aero-finding",
+        "detail",
+        "scheme",
+        "image"
+      ],
+      "min": 1
+    },
+    {
+      "id": "decision-cites-trait",
+      "type": "cites",
+      "from": "decision",
+      "to": [
+        "trait",
+        "rule"
+      ],
+      "min": 0
+    },
+    {
+      "id": "rule-covered",
+      "type": "covered",
+      "of": "rule",
+      "by": [
+        "hard-point",
+        "measure"
+      ],
+      "exempt": true
+    },
+    {
+      "id": "target-measured",
+      "type": "covered",
+      "of": "proportion-target",
+      "by": [
+        "measure"
+      ],
+      "exempt": true
+    },
+    {
+      "id": "hard-point-drawn",
+      "type": "covered",
+      "of": "hard-point",
+      "by": [
+        "line",
+        "flow"
+      ],
+      "exempt": true
+    },
+    {
+      "id": "flow-checked",
+      "type": "covered",
+      "of": "flow",
+      "by": [
+        "aero-finding",
+        "detail"
+      ],
+      "exempt": true
+    },
+    {
+      "id": "line-surfaced",
+      "type": "covered",
+      "of": "line",
+      "by": [
+        "panel",
+        "detail"
+      ],
+      "exempt": true
+    },
+    {
+      "id": "proposal-decided",
+      "type": "covered",
+      "of": "proposal",
+      "by": [
+        "decision"
+      ]
+    },
+    {
+      "id": "finding-decided",
+      "type": "covered",
+      "of": "aero-finding",
+      "by": [
+        "decision"
+      ]
+    },
+    {
+      "id": "surface-check-decided",
+      "type": "covered",
+      "of": "surface-check",
+      "by": [
+        "decision"
+      ],
+      "exempt": true
+    },
+    {
+      "id": "scheme-decided",
+      "type": "covered",
+      "of": "scheme",
+      "by": [
+        "decision"
+      ]
+    },
+    {
+      "id": "trait-shown",
+      "type": "covered",
+      "of": "trait",
+      "by": [
+        "line",
+        "decision"
+      ],
+      "exempt": true
+    }
+  ],
+  "acceptance": [
+    {
+      "id": "process.complete",
+      "text": "題材と出口、工程と戻り方、判断する人とAIの関与、道具と足りないもの、参考と権利が書かれている。",
+      "checkedBy": "AI",
+      "target": "process-map"
+    },
+    {
+      "id": "process.approved",
+      "text": "判断する人が工程・見せるもの・戻り方を確かめ、開始を承認している。",
+      "checkedBy": "人",
+      "target": "process-map"
+    },
+    {
+      "id": "brief.complete",
+      "text": "役割、性格のことばと説明、規則（寸法の枠と条件）、比率の目安と根拠が書かれている。",
+      "checkedBy": "AI",
+      "target": "design-brief"
+    },
+    {
+      "id": "brief.approved",
+      "text": "判断する人が性格と規則と目安を確かめ、この枠で形を探すことを承認している。",
+      "checkedBy": "人",
+      "target": "design-brief"
+    },
+    {
+      "id": "package.complete",
+      "text": "硬い点が位置と大きさで置かれ、側面と平面の包絡と、詰めた所が書かれている。",
+      "checkedBy": "AI",
+      "target": "package-layout",
+      "rules": [
+        "hard-point-cites-rule",
+        "rule-covered"
+      ]
+    },
+    {
+      "id": "package.approved",
+      "text": "判断する人がパッケージ図を見て、乗員と車輪と機械の置き方を承認している。",
+      "checkedBy": "人",
+      "target": "package-layout"
+    },
+    {
+      "id": "airflow.complete",
+      "text": "空気の筋が硬い点を引いて書かれ、形への約束がある。",
+      "checkedBy": "AI",
+      "target": "airflow-scenario",
+      "rules": [
+        "flow-cites-hard-point"
+      ]
+    },
+    {
+      "id": "airflow.approved",
+      "text": "判断する人が筋書きの図を見て、形より先にこの流れを守ることを承認している。",
+      "checkedBy": "人",
+      "target": "airflow-scenario"
+    },
+    {
+      "id": "lines.complete",
+      "text": "案ごとに3面の線図と影絵があり、主な線が案と根拠（硬い点・空気の筋・性格）を引いている。",
+      "checkedBy": "AI",
+      "target": "line-drawings",
+      "rules": [
+        "line-cites-basis",
+        "line-cites-proposal",
+        "hard-point-drawn"
+      ]
+    },
+    {
+      "id": "lines.approved",
+      "text": "判断する人が影絵と線図を並べて見て、1案を選んでいる（選ばなかった案と理由は判断に残す）。",
+      "checkedBy": "人",
+      "target": "line-drawings"
+    },
+    {
+      "id": "proportions.complete",
+      "text": "比率の目安のすべてに測りがあり（除くものは理由）、外れた所と直したことが書かれている。",
+      "checkedBy": "AI",
+      "target": "proportion-check",
+      "rules": [
+        "measure-cites-target",
+        "measure-cites-proposal",
+        "target-measured"
+      ]
+    },
+    {
+      "id": "proportions.approved",
+      "text": "判断する人が比率の表と直した3面図を見て、形の骨格を承認している。この承認の前に面の工程へ進まない。",
+      "checkedBy": "人",
+      "target": "proportion-check"
+    },
+    {
+      "id": "surfaces.complete",
+      "text": "すべての主な線が面か細部に使われ（除くものは理由）、面が線を引き、面の確かめに結果がある。",
+      "checkedBy": "AI",
+      "target": "surface-model",
+      "rules": [
+        "panel-cites-line",
+        "surface-check-cites-panel",
+        "line-surfaced"
+      ]
+    },
+    {
+      "id": "surfaces.approved",
+      "text": "判断する人が静止画と映り込みを見て、外板を承認している。形の問題は面ではなく線図へ戻って直したことを確かめている。",
+      "checkedBy": "人",
+      "target": "surface-model"
+    },
+    {
+      "id": "aero.complete",
+      "text": "すべての空気の筋が所見か細部で確かめられ（除くものは理由）、所見が筋を引いている。",
+      "checkedBy": "AI",
+      "target": "aero-check",
+      "rules": [
+        "aero-finding-cites-flow",
+        "flow-checked"
+      ]
+    },
+    {
+      "id": "aero.approved",
+      "text": "判断する人が指標と所見を見て、直す・受け入れる・持ち越すを決めている。簡易な指標で、風洞や数値解析の代わりにはならないことを確かめている。",
+      "checkedBy": "人",
+      "target": "aero-check"
+    },
+    {
+      "id": "details.complete",
+      "text": "細部が線図の線か空気の筋を引き、寄りの静止画がある。",
+      "checkedBy": "AI",
+      "target": "detail-design",
+      "rules": [
+        "detail-cites-line"
+      ]
+    },
+    {
+      "id": "details.approved",
+      "text": "判断する人が寄りの静止画を見て、細部が全体の線に従っていることを承認している。",
+      "checkedBy": "人",
+      "target": "detail-design"
+    },
+    {
+      "id": "finish.complete",
+      "text": "配色の案と材料、並べ比べの絵があり、最終の静止画と動画が配色を引いている。",
+      "checkedBy": "AI",
+      "target": "presentation",
+      "rules": [
+        "material-cites-scheme",
+        "image-cites-scheme"
+      ]
+    },
+    {
+      "id": "finish.scheme-approved",
+      "text": "判断する人が並べ比べを見て、配色を1つ選んでいる。",
+      "checkedBy": "人",
+      "target": "colour-material"
+    },
+    {
+      "id": "finish.approved",
+      "text": "判断する人が最終の静止画と動画を見て、受け入れている。",
+      "checkedBy": "人",
+      "target": "presentation"
+    },
+    {
+      "id": "log.complete",
+      "text": "すべての案・所見・配色に判断があり（面の確かめは除く理由を書けばよい）、性格のことばのすべてが線か判断に表れている。",
+      "checkedBy": "AI",
+      "target": "design-log",
+      "rules": [
+        "decision-cites-subject",
+        "proposal-decided",
+        "finding-decided",
+        "scheme-decided",
+        "surface-check-decided",
+        "trait-shown"
+      ]
+    },
+    {
+      "id": "log.approved",
+      "text": "判断する人が判断の記録と学びを確かめ、デザインの完成を宣言している。",
+      "checkedBy": "人",
+      "target": "design-log"
+    }
+  ]
+}
