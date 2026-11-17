@@ -29,6 +29,8 @@
 
 ロゴ・シンボル・アプリアイコンなどの視覚表現の制作向けには `definitions/visual-identity.json` の **`visual-identity@1.0.0`** を収録しています。探索・ラフ・候補比較・採用・マスター・用途別展開の進め方は [利用ガイド](docs/visual-identity.md) を参照してください。
 
+腕時計や自動車のように機構と外装を持つ組立製品の開発向けには `definitions/product-design-engineering.json` の **`product-design-engineering@1.0.0`** を収録しています。企画から設計・試作検証・調達・生産準備・量産までの工程、3Dモデルと図面の扱い、見本は [利用ガイド](docs/product-design-engineering.md) を参照してください。
+
 建物・塔・橋などの施工計画向けには `definitions/construction-planning.json` の **`construction-planning@1.0.0`** を収録しています。施工単位・工法・工程表・揚重と搬入の計画を、日付ごとの模型で模擬して確かめ、承認して説明する進め方は [利用ガイド](docs/construction-planning.md) を参照してください。
 
 工場の生産ラインの計画向けには `definitions/production-system-planning.json` の **`production-system-planning@1.0.0`** を収録しています。作業・設備・バッファ・搬送・作業者・配置を時刻で動くモデルにして流し、案を比べて採り、承認して説明する進め方は [利用ガイド](docs/production-system-planning.md) を参照してください。

@@ -11,6 +11,8 @@
 | `fiction-novel/short-story.json` | fiction-novel@1.2.0 | 絵を使わない短編小説。画作りの成果物を理由つきで省く。回想でのシーンの再提示、裏の出来事、次作へ持ち越す筋 |
 | `fiction-manga/four-pages.json` | fiction-manga@1.1.0 | 4ページの短編漫画。舞台の3Dモデルを省く。コマはページを親にせず欄 `in` で入るページを書く。絵だけで見せる台詞を吹き出しから除く |
 | `fiction-manga/two-styles.json` | fiction-manga@1.1.0 | 同じ世界・人物・場所・ラフから二つの画風。橋が落ちる前と後を出来事で分け、設定の訂正を版で分け、既刊の提示位置を古い版のまま残す |
+| `product-design-engineering/skeleton-watch.json` | product-design-engineering@1.0.0 | スケルトンの手巻き腕時計を詳細設計の出図まで。後の工程を理由つきで省き、購入品の図面・未設計の部品・試験で確かめる要求を網羅から除く |
+| `product-design-engineering/mid-engine-car.json` | product-design-engineering@1.0.0 | ミッドシップの2人乗りの外形を詳細設計まで。選ばなかった外装の方向、骨格と足回りの部品、確認用の乗員の形を理由つきで扱う |
 | `construction-planning/skytree.json` | construction-planning@1.0.0 | 634 m の電波塔の建設（東京スカイツリーを題材にした近似）。PaoBub の Project の項目と引用を写したもの。昇るタワークレーン・引き上げ・搬入、吊りの検査の記録。構造の確認を理由つきで省く。網羅の例外 1 件（制約で扱う条件） |
 | `production-system-planning/small-line.json` | production-system-planning@1.0.0 | 架空の動力系の小さな組立ライン（9 資源・7 つながり）。手計算と極端な条件でのモデルの確認、現状・バッファ増・加工機増の 3 案と所見、わざと誤った制御の確認。網羅の例外 6 件（配置で扱う要件、流れの外の作業者、時間のデータの要らない資源、説明しない案） |
 
