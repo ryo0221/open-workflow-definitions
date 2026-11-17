@@ -1,0 +1,1070 @@
+{
+  "format": 1,
+  "id": "construction-planning",
+  "version": "1.0.0",
+  "title": "施工計画",
+  "purpose": "建物や塔・橋などの構造物を、設計の情報と敷地の条件から、どう分けて、どの順に、どの機械と経路で建てるかを計画し、その計画を日付ごとの模型で動かして揚重・搬入・安全・施工中の構造を確かめ、承認を経て関係者に説明できる形にする。題材・工法・道具・出力形式は利用側が決める。",
+  "phases": [
+    {
+      "id": "process",
+      "name": "進め方",
+      "purpose": "対象と範囲、工程、省略・反復の扱い、AIに委ねる範囲、承認責任者と完成の出口を決める。",
+      "after": [],
+      "deliverables": [
+        "process-map"
+      ],
+      "acceptance": [
+        "process.complete",
+        "process.approved"
+      ]
+    },
+    {
+      "id": "conditions",
+      "name": "与条件の整理",
+      "purpose": "設計の情報・敷地と周辺・工期・法令と近隣の約束・公開情報の確からしさを、計画が守る条件として一件ずつ書く。",
+      "after": [
+        "process"
+      ],
+      "deliverables": [
+        "site-conditions"
+      ],
+      "acceptance": [
+        "conditions.complete",
+        "conditions.sourced",
+        "conditions.approved"
+      ]
+    },
+    {
+      "id": "model",
+      "name": "施工用のモデル",
+      "purpose": "設計のモデルを、建てる・吊る・運ぶ単位（施工単位）に分け、重さと材料を持たせる。設計の形と、施工の単位の形の違いを書く。",
+      "after": [
+        "conditions"
+      ],
+      "deliverables": [
+        "construction-model"
+      ],
+      "acceptance": [
+        "model.complete",
+        "model.traced",
+        "model.approved"
+      ]
+    },
+    {
+      "id": "method",
+      "name": "施工方法の選定",
+      "purpose": "施工単位ごとの建て方（据え付け・引き上げ・型枠の上昇・仮設の支えなど）を、比べた案と理由とともに決める。",
+      "after": [
+        "model"
+      ],
+      "deliverables": [
+        "method-statement"
+      ],
+      "acceptance": [
+        "method.complete",
+        "method.traced",
+        "method.approved"
+      ]
+    },
+    {
+      "id": "schedule",
+      "name": "工程計画",
+      "purpose": "施工単位を建てる作業と節目を、順序・日数・暦で並べ、工期の条件を満たすかを確かめる。実績が出たら実績の日付を書き足す。",
+      "after": [
+        "method"
+      ],
+      "deliverables": [
+        "master-schedule"
+      ],
+      "acceptance": [
+        "schedule.complete",
+        "schedule.traced",
+        "schedule.approved"
+      ]
+    },
+    {
+      "id": "logistics",
+      "name": "揚重・搬入・仮設の計画",
+      "purpose": "揚重機（据え付け・昇り・解体を含む）、搬入と人の経路、仮設物と作業の時間を、工程の日付に結びつけて決める。",
+      "after": [
+        "schedule"
+      ],
+      "deliverables": [
+        "site-logistics-plan"
+      ],
+      "acceptance": [
+        "logistics.complete",
+        "logistics.traced",
+        "logistics.approved"
+      ]
+    },
+    {
+      "id": "simulation",
+      "name": "施工の模擬",
+      "purpose": "工程と揚重・搬入の計画を日付ごとの模型で動かし、届かない・重すぎる・ぶつかる・支えの無い・時間に収まらない吊りや便を一覧にして、直すか受け入れるかを決める。",
+      "after": [
+        "logistics"
+      ],
+      "deliverables": [
+        "simulation-record"
+      ],
+      "acceptance": [
+        "simulation.complete",
+        "simulation.traced",
+        "simulation.approved"
+      ]
+    },
+    {
+      "id": "safety",
+      "name": "安全の確認",
+      "purpose": "吊り荷の下・旋回の範囲・開口や掘削の縁・車の経路など、日付と時刻ごとの危険と、人と車の近づきを一覧にし、対策を決める。",
+      "after": [
+        "logistics"
+      ],
+      "deliverables": [
+        "hazard-review"
+      ],
+      "acceptance": [
+        "safety.complete",
+        "safety.traced",
+        "safety.approved"
+      ]
+    },
+    {
+      "id": "structure",
+      "name": "施工中の構造の確認",
+      "purpose": "途中の段階の構造（据え付けた部材・仮設の支え・揚重機の載る所）が、その日の重さに耐えるかを、段階ごとの解析で確かめる。",
+      "after": [
+        "logistics"
+      ],
+      "deliverables": [
+        "staging-analysis"
+      ],
+      "acceptance": [
+        "structure.complete",
+        "structure.traced",
+        "structure.approved"
+      ]
+    },
+    {
+      "id": "approval",
+      "name": "計画の承認",
+      "purpose": "模擬・安全・構造で出た事項ごとに、直した・受け入れた・持ち越したを決め、計画の版を承認する。",
+      "after": [
+        "simulation",
+        "safety",
+        "structure"
+      ],
+      "deliverables": [
+        "plan-approval"
+      ],
+      "acceptance": [
+        "approval.complete",
+        "approval.traced",
+        "approval.approved"
+      ]
+    },
+    {
+      "id": "presentation",
+      "name": "説明と記録",
+      "purpose": "承認した版の計画を、関係者が見て分かる形（日付を追う映像・図・説明）にし、公開してよい範囲と出典・注意書きを確かめる。",
+      "after": [
+        "approval"
+      ],
+      "deliverables": [
+        "presentation-record"
+      ],
+      "acceptance": [
+        "presentation.complete",
+        "presentation.traced",
+        "presentation.approved"
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "id": "plan",
+      "name": "企画",
+      "phases": [
+        "process",
+        "conditions"
+      ]
+    },
+    {
+      "id": "design",
+      "name": "計画",
+      "phases": [
+        "model",
+        "method",
+        "schedule",
+        "logistics"
+      ]
+    },
+    {
+      "id": "verify",
+      "name": "検証",
+      "phases": [
+        "simulation",
+        "safety",
+        "structure"
+      ]
+    },
+    {
+      "id": "decide",
+      "name": "判断と伝達",
+      "phases": [
+        "approval",
+        "presentation"
+      ]
+    }
+  ],
+  "deliverables": [
+    {
+      "id": "process-map",
+      "name": "進め方",
+      "form": "図",
+      "outline": [
+        {
+          "heading": "対象と出口",
+          "describe": "建てるもの、計画の範囲（どこからどこまで）、完成とする状態"
+        },
+        {
+          "heading": "工程と成果物",
+          "describe": "使う工程、省く工程と理由、代わりの確認、繰り返す工程"
+        },
+        {
+          "heading": "責任とAIの関与",
+          "describe": "承認する人、AIに任せる作業と、人が判断すること"
+        },
+        {
+          "heading": "公開と権利",
+          "describe": "題材が実在するときの名乗り方、使う情報の出典、関係者でないことの断り"
+        }
+      ],
+      "uses": []
+    },
+    {
+      "id": "site-conditions",
+      "name": "与条件",
+      "form": "文書",
+      "outline": [
+        {
+          "heading": "対象",
+          "describe": "建てるものの形・高さ・構造の形式・主な材料"
+        },
+        {
+          "heading": "条件",
+          "describe": "工期・敷地と周辺・道路・法令・近隣との約束・設計の制約を一件ずつ。出典と確からしさ（確か・推定・仮定）を書く",
+          "item": "constraint"
+        },
+        {
+          "heading": "確かでないこと",
+          "describe": "分からない・公開されていない情報と、計画での仮定"
+        }
+      ],
+      "uses": [
+        "process-map"
+      ]
+    },
+    {
+      "id": "construction-model",
+      "name": "施工用のモデル",
+      "form": "建物",
+      "outline": [
+        {
+          "heading": "施工単位",
+          "describe": "建てる・吊る・運ぶ単位ごとに、含む部材、重さ、大きさ、材料。設計の部材との対応",
+          "item": "work-unit"
+        },
+        {
+          "heading": "設計との違い",
+          "describe": "施工の都合で分けた・まとめた所と、近似した形"
+        },
+        {
+          "heading": "モデルの版",
+          "describe": "元にした設計のモデルの版と、施工用のモデルの版"
+        }
+      ],
+      "uses": [
+        "site-conditions"
+      ]
+    },
+    {
+      "id": "method-statement",
+      "name": "施工方法",
+      "form": "文書",
+      "outline": [
+        {
+          "heading": "工法",
+          "describe": "施工単位ごとの建て方、使う機械と仮設、順序の決まり",
+          "item": "method"
+        },
+        {
+          "heading": "比べた案",
+          "describe": "採らなかった工法と、比べた観点"
+        },
+        {
+          "heading": "決めた理由",
+          "describe": "条件と施工単位から、その工法にした理由"
+        }
+      ],
+      "uses": [
+        "site-conditions",
+        "construction-model"
+      ]
+    },
+    {
+      "id": "master-schedule",
+      "name": "工程表",
+      "form": "表",
+      "outline": [
+        {
+          "heading": "作業",
+          "describe": "施工単位を建てる・撤去する・仮設する・引き上げる作業。先行の作業・日数・始まりと終わり・実績",
+          "item": "task"
+        },
+        {
+          "heading": "節目",
+          "describe": "工期の条件に結びつく日付（着工・上棟・完成など）と、計画の日付",
+          "item": "milestone"
+        },
+        {
+          "heading": "暦",
+          "describe": "稼働する曜日・休日・作業の時間"
+        }
+      ],
+      "uses": [
+        "method-statement",
+        "construction-model"
+      ],
+      "view": [
+        {
+          "as": "timeline",
+          "items": "task",
+          "start": "start",
+          "end": "finish",
+          "scale": "month"
+        },
+        {
+          "as": "table",
+          "items": "milestone",
+          "columns": [
+            "name",
+            "date",
+            "planned"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "site-logistics-plan",
+      "name": "揚重・搬入・仮設の計画",
+      "form": "表",
+      "outline": [
+        {
+          "heading": "揚重機",
+          "describe": "種類・据える所・届く範囲と定格荷重・立てる作業と解体の作業・昇りと下がりの日付と高さ・載る部材",
+          "item": "equipment"
+        },
+        {
+          "heading": "経路",
+          "describe": "搬入の車と人の経路・速さ・時刻または吊りから決まる便・通るゲート",
+          "item": "route"
+        },
+        {
+          "heading": "仮設物",
+          "describe": "囲い・ゲート・置き場・事務所・支え。立つ期間",
+          "item": "temporary"
+        },
+        {
+          "heading": "吊りの割り当て",
+          "describe": "施工単位ごとに、吊る揚重機・吊り上げる所・運び込む経路"
+        }
+      ],
+      "uses": [
+        "master-schedule",
+        "method-statement",
+        "construction-model"
+      ]
+    },
+    {
+      "id": "simulation-record",
+      "name": "施工の模擬の記録",
+      "form": "表",
+      "outline": [
+        {
+          "heading": "模擬の条件",
+          "describe": "モデル・工程・計画の版、日付の範囲、検査の種類、かかった時間"
+        },
+        {
+          "heading": "事項",
+          "describe": "検査で出た事項ごとに、種類・日付・対象・内容・処置（直した・受け入れた・持ち越した）",
+          "item": "sim-issue"
+        },
+        {
+          "heading": "映像と画像",
+          "describe": "日付を追って見た記録の場所と版"
+        }
+      ],
+      "uses": [
+        "site-logistics-plan",
+        "master-schedule",
+        "construction-model"
+      ],
+      "view": {
+        "as": "table",
+        "items": "sim-issue",
+        "columns": [
+          "kind",
+          "day",
+          "text",
+          "action"
+        ],
+        "groupBy": "kind"
+      }
+    },
+    {
+      "id": "hazard-review",
+      "name": "安全の確認",
+      "form": "表",
+      "outline": [
+        {
+          "heading": "危険",
+          "describe": "日付と時刻の範囲、場所、種類（吊り荷の下・旋回の範囲・縁・車の経路など）、近づく人と車、対策",
+          "item": "hazard"
+        },
+        {
+          "heading": "出入りの数",
+          "describe": "日ごとのゲートを通る車と人の数"
+        }
+      ],
+      "uses": [
+        "site-logistics-plan",
+        "master-schedule"
+      ]
+    },
+    {
+      "id": "staging-analysis",
+      "name": "施工中の構造の確認",
+      "form": "文書",
+      "outline": [
+        {
+          "heading": "解析の場合",
+          "describe": "段階（日付）、立っている部材と仮設の支え、載せた重さ、結果と完成時との比べ",
+          "item": "analysis-case"
+        },
+        {
+          "heading": "解析の条件",
+          "describe": "道具・要素・材料・支えの仮定と、その確からしさ"
+        }
+      ],
+      "uses": [
+        "master-schedule",
+        "site-logistics-plan",
+        "construction-model"
+      ]
+    },
+    {
+      "id": "plan-approval",
+      "name": "計画の承認",
+      "form": "文書",
+      "outline": [
+        {
+          "heading": "判断",
+          "describe": "事項ごとの処置と理由、残る危険、決めた人",
+          "item": "decision"
+        },
+        {
+          "heading": "承認した版",
+          "describe": "承認したモデル・工程・計画の版と日付"
+        }
+      ],
+      "uses": [
+        "simulation-record",
+        "hazard-review",
+        "staging-analysis"
+      ]
+    },
+    {
+      "id": "presentation-record",
+      "name": "説明と記録",
+      "form": "文書",
+      "outline": [
+        {
+          "heading": "場面",
+          "describe": "映像や説明の場面ごとに、見せる日付・節目・見どころ・使った版",
+          "item": "presentation-scene"
+        },
+        {
+          "heading": "注意書きと出典",
+          "describe": "近似であること、出典、関係者でないこと、公開してよい範囲"
+        },
+        {
+          "heading": "成果物の場所",
+          "describe": "映像・画像・説明の資料の場所と版"
+        }
+      ],
+      "uses": [
+        "plan-approval",
+        "master-schedule"
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "constraint",
+      "name": "条件",
+      "idForm": "CO-{nn}"
+    },
+    {
+      "id": "work-unit",
+      "name": "施工単位",
+      "idForm": "WU-{nnn}"
+    },
+    {
+      "id": "method",
+      "name": "工法",
+      "idForm": "MT-{nn}"
+    },
+    {
+      "id": "task",
+      "name": "作業",
+      "idForm": "TK-{nnn}"
+    },
+    {
+      "id": "milestone",
+      "name": "節目",
+      "idForm": "MS-{nn}"
+    },
+    {
+      "id": "equipment",
+      "name": "揚重機",
+      "idForm": "EQ-{nn}"
+    },
+    {
+      "id": "route",
+      "name": "経路",
+      "idForm": "RT-{nn}"
+    },
+    {
+      "id": "temporary",
+      "name": "仮設物",
+      "idForm": "TW-{nn}"
+    },
+    {
+      "id": "sim-issue",
+      "name": "模擬の事項",
+      "idForm": "SI-{nnn}"
+    },
+    {
+      "id": "hazard",
+      "name": "危険",
+      "idForm": "HZ-{nn}"
+    },
+    {
+      "id": "analysis-case",
+      "name": "解析の場合",
+      "idForm": "AC-{nn}"
+    },
+    {
+      "id": "decision",
+      "name": "判断",
+      "idForm": "DC-{nn}"
+    },
+    {
+      "id": "presentation-scene",
+      "name": "説明の場面",
+      "idForm": "PS-{nn}"
+    }
+  ],
+  "rules": [
+    {
+      "id": "work-unit-cites-constraint",
+      "type": "cites",
+      "from": "work-unit",
+      "to": [
+        "constraint"
+      ],
+      "min": 0
+    },
+    {
+      "id": "method-cites-work-unit",
+      "type": "cites",
+      "from": "method",
+      "to": [
+        "work-unit"
+      ],
+      "min": 1
+    },
+    {
+      "id": "method-cites-constraint",
+      "type": "cites",
+      "from": "method",
+      "to": [
+        "constraint"
+      ],
+      "min": 0
+    },
+    {
+      "id": "task-cites-work-unit",
+      "type": "cites",
+      "from": "task",
+      "to": [
+        "work-unit"
+      ],
+      "min": 0
+    },
+    {
+      "id": "task-cites-method",
+      "type": "cites",
+      "from": "task",
+      "to": [
+        "method"
+      ],
+      "min": 1
+    },
+    {
+      "id": "task-cites-task",
+      "type": "cites",
+      "from": "task",
+      "to": [
+        "task"
+      ],
+      "min": 0
+    },
+    {
+      "id": "milestone-cites-constraint",
+      "type": "cites",
+      "from": "milestone",
+      "to": [
+        "constraint"
+      ],
+      "min": 1
+    },
+    {
+      "id": "milestone-cites-task",
+      "type": "cites",
+      "from": "milestone",
+      "to": [
+        "task"
+      ],
+      "min": 1
+    },
+    {
+      "id": "equipment-cites-method",
+      "type": "cites",
+      "from": "equipment",
+      "to": [
+        "method"
+      ],
+      "min": 1
+    },
+    {
+      "id": "equipment-cites-task",
+      "type": "cites",
+      "from": "equipment",
+      "to": [
+        "task"
+      ],
+      "min": 1
+    },
+    {
+      "id": "route-cites-task",
+      "type": "cites",
+      "from": "route",
+      "to": [
+        "task"
+      ],
+      "min": 1
+    },
+    {
+      "id": "route-cites-equipment",
+      "type": "cites",
+      "from": "route",
+      "to": [
+        "equipment"
+      ],
+      "min": 0
+    },
+    {
+      "id": "temporary-cites-task",
+      "type": "cites",
+      "from": "temporary",
+      "to": [
+        "task"
+      ],
+      "min": 1
+    },
+    {
+      "id": "sim-issue-cites-plan",
+      "type": "cites",
+      "from": "sim-issue",
+      "to": [
+        "task",
+        "equipment",
+        "route",
+        "temporary",
+        "work-unit"
+      ],
+      "min": 1
+    },
+    {
+      "id": "hazard-cites-plan",
+      "type": "cites",
+      "from": "hazard",
+      "to": [
+        "task",
+        "equipment",
+        "route",
+        "temporary"
+      ],
+      "min": 1
+    },
+    {
+      "id": "analysis-case-cites-task",
+      "type": "cites",
+      "from": "analysis-case",
+      "to": [
+        "task"
+      ],
+      "min": 1
+    },
+    {
+      "id": "analysis-case-cites-plan",
+      "type": "cites",
+      "from": "analysis-case",
+      "to": [
+        "equipment",
+        "temporary",
+        "method"
+      ],
+      "min": 0
+    },
+    {
+      "id": "decision-cites-finding",
+      "type": "cites",
+      "from": "decision",
+      "to": [
+        "sim-issue",
+        "hazard",
+        "analysis-case"
+      ],
+      "min": 1
+    },
+    {
+      "id": "scene-cites-milestone",
+      "type": "cites",
+      "from": "presentation-scene",
+      "to": [
+        "milestone",
+        "task"
+      ],
+      "min": 1
+    },
+    {
+      "id": "constraint-covered",
+      "type": "covered",
+      "of": "constraint",
+      "by": [
+        "method",
+        "milestone",
+        "work-unit"
+      ],
+      "exempt": true
+    },
+    {
+      "id": "work-unit-covered-by-method",
+      "type": "covered",
+      "of": "work-unit",
+      "by": [
+        "method"
+      ]
+    },
+    {
+      "id": "work-unit-covered-by-task",
+      "type": "covered",
+      "of": "work-unit",
+      "by": [
+        "task"
+      ]
+    },
+    {
+      "id": "method-covered",
+      "type": "covered",
+      "of": "method",
+      "by": [
+        "task"
+      ]
+    },
+    {
+      "id": "milestone-covered",
+      "type": "covered",
+      "of": "milestone",
+      "by": [
+        "presentation-scene"
+      ],
+      "exempt": true
+    },
+    {
+      "id": "sim-issue-covered",
+      "type": "covered",
+      "of": "sim-issue",
+      "by": [
+        "decision"
+      ]
+    },
+    {
+      "id": "hazard-covered",
+      "type": "covered",
+      "of": "hazard",
+      "by": [
+        "decision"
+      ]
+    },
+    {
+      "id": "analysis-case-covered",
+      "type": "covered",
+      "of": "analysis-case",
+      "by": [
+        "decision"
+      ],
+      "exempt": true
+    }
+  ],
+  "acceptance": [
+    {
+      "id": "process.complete",
+      "text": "対象と出口、工程と成果物、責任者とAIの関与、省略の理由と代わりの確認、公開と権利の扱いが書かれている。",
+      "checkedBy": "AI",
+      "target": "process-map"
+    },
+    {
+      "id": "process.approved",
+      "text": "人が工程と役割・省略・公開の扱いを確かめ、開始を承認している。",
+      "checkedBy": "人",
+      "target": "process-map"
+    },
+    {
+      "id": "conditions.complete",
+      "text": "工期・敷地・周辺・法令・設計の制約が条件として一件ずつあり、分からない情報と仮定が書かれている。",
+      "checkedBy": "AI",
+      "target": "site-conditions"
+    },
+    {
+      "id": "conditions.sourced",
+      "text": "各条件に出典と確からしさ（確か・推定・仮定）がある。",
+      "checkedBy": "AI",
+      "target": "site-conditions"
+    },
+    {
+      "id": "conditions.approved",
+      "text": "人が条件の抜けと仮定の妥当さを確かめている。",
+      "checkedBy": "人",
+      "target": "site-conditions"
+    },
+    {
+      "id": "model.complete",
+      "text": "施工単位ごとに含む部材・重さ・大きさ・材料があり、重さの分からない単位は理由がある。元の設計のモデルの版が書かれている。",
+      "checkedBy": "AI",
+      "target": "construction-model"
+    },
+    {
+      "id": "model.traced",
+      "text": "すべての施工単位が工法に引用され、作業に引用されている。",
+      "checkedBy": "AI",
+      "target": "construction-model",
+      "rules": [
+        "method-cites-work-unit",
+        "work-unit-covered-by-method",
+        "work-unit-covered-by-task"
+      ]
+    },
+    {
+      "id": "model.approved",
+      "text": "人が施工単位の分け方と、設計との違いを確かめている。",
+      "checkedBy": "人",
+      "target": "construction-model"
+    },
+    {
+      "id": "method.complete",
+      "text": "施工単位ごとの工法、比べた案と観点、決めた理由が書かれている。",
+      "checkedBy": "AI",
+      "target": "method-statement"
+    },
+    {
+      "id": "method.traced",
+      "text": "工法が施工単位を引用し、すべての工法が作業に使われている。",
+      "checkedBy": "AI",
+      "target": "method-statement",
+      "rules": [
+        "method-cites-work-unit",
+        "method-covered",
+        "task-cites-method"
+      ]
+    },
+    {
+      "id": "method.approved",
+      "text": "人が工法の選択と理由を承認している。",
+      "checkedBy": "人",
+      "target": "method-statement"
+    },
+    {
+      "id": "schedule.complete",
+      "text": "作業ごとに先行・日数・始まりと終わりがあり、暦と作業の時間が書かれている。節目ごとに条件の日付と計画の日付がある。",
+      "checkedBy": "AI",
+      "target": "master-schedule"
+    },
+    {
+      "id": "schedule.traced",
+      "text": "節目が条件と作業を引用し、条件のうち工期の条件が節目に結びついている。",
+      "checkedBy": "AI",
+      "target": "master-schedule",
+      "rules": [
+        "milestone-cites-constraint",
+        "milestone-cites-task",
+        "constraint-covered"
+      ]
+    },
+    {
+      "id": "schedule.approved",
+      "text": "人が工期と順序の妥当さを確かめ、工程の版を承認している。",
+      "checkedBy": "人",
+      "target": "master-schedule"
+    },
+    {
+      "id": "logistics.complete",
+      "text": "揚重機・経路・仮設物ごとに、立つ期間と作業の日付が書かれ、吊りの割り当てがすべての吊る施工単位にある。",
+      "checkedBy": "AI",
+      "target": "site-logistics-plan"
+    },
+    {
+      "id": "logistics.traced",
+      "text": "揚重機が工法と作業を、経路と仮設物が作業を引用している。",
+      "checkedBy": "AI",
+      "target": "site-logistics-plan",
+      "rules": [
+        "equipment-cites-method",
+        "equipment-cites-task",
+        "route-cites-task",
+        "temporary-cites-task"
+      ]
+    },
+    {
+      "id": "logistics.approved",
+      "text": "人が揚重機の選定・配置・昇り降り、搬入の経路と時間を承認している。",
+      "checkedBy": "人",
+      "target": "site-logistics-plan"
+    },
+    {
+      "id": "simulation.complete",
+      "text": "模擬の条件（版・日付の範囲・検査の種類・時間）が書かれ、事項ごとに処置がある。意図した事項だけが残っている。",
+      "checkedBy": "AI",
+      "target": "simulation-record"
+    },
+    {
+      "id": "simulation.traced",
+      "text": "事項が計画の対象（作業・揚重機・経路・仮設物・施工単位）を引用し、すべての事項が判断に引用されている。",
+      "checkedBy": "AI",
+      "target": "simulation-record",
+      "rules": [
+        "sim-issue-cites-plan",
+        "sim-issue-covered"
+      ]
+    },
+    {
+      "id": "simulation.approved",
+      "text": "人が模擬の映像や画像を見て、検査で拾えない不自然さが無いかを確かめている。",
+      "checkedBy": "人",
+      "target": "simulation-record"
+    },
+    {
+      "id": "safety.complete",
+      "text": "危険ごとに日付と時刻・場所・種類・近づく人と車・対策があり、日ごとの出入りの数がある。",
+      "checkedBy": "AI",
+      "target": "hazard-review"
+    },
+    {
+      "id": "safety.traced",
+      "text": "危険が計画の対象を引用し、すべての危険が判断に引用されている。",
+      "checkedBy": "AI",
+      "target": "hazard-review",
+      "rules": [
+        "hazard-cites-plan",
+        "hazard-covered"
+      ]
+    },
+    {
+      "id": "safety.approved",
+      "text": "安全の責任者が危険と対策を確かめている。",
+      "checkedBy": "人",
+      "target": "hazard-review"
+    },
+    {
+      "id": "structure.complete",
+      "text": "解析の場合ごとに段階・立つ部材・支え・重さ・結果と完成時との比べがあり、解析の仮定が書かれている。",
+      "checkedBy": "AI",
+      "target": "staging-analysis"
+    },
+    {
+      "id": "structure.traced",
+      "text": "解析の場合が作業を引用している。",
+      "checkedBy": "AI",
+      "target": "staging-analysis",
+      "rules": [
+        "analysis-case-cites-task",
+        "analysis-case-covered"
+      ]
+    },
+    {
+      "id": "structure.approved",
+      "text": "構造の責任者が段階の選び方と結果を確かめている。",
+      "checkedBy": "人",
+      "target": "staging-analysis"
+    },
+    {
+      "id": "approval.complete",
+      "text": "判断ごとに処置・理由・残る危険・決めた人があり、承認した版が書かれている。",
+      "checkedBy": "AI",
+      "target": "plan-approval"
+    },
+    {
+      "id": "approval.traced",
+      "text": "判断が模擬の事項・危険・解析の場合を引用している。",
+      "checkedBy": "AI",
+      "target": "plan-approval",
+      "rules": [
+        "decision-cites-finding",
+        "sim-issue-covered",
+        "hazard-covered"
+      ]
+    },
+    {
+      "id": "approval.approved",
+      "text": "承認者が計画の版を承認している。",
+      "checkedBy": "人",
+      "target": "plan-approval"
+    },
+    {
+      "id": "presentation.complete",
+      "text": "場面ごとに日付・見どころ・版があり、近似であること・出典・関係者でないことが書かれている。",
+      "checkedBy": "AI",
+      "target": "presentation-record"
+    },
+    {
+      "id": "presentation.traced",
+      "text": "場面が節目か作業を引用している。",
+      "checkedBy": "AI",
+      "target": "presentation-record",
+      "rules": [
+        "scene-cites-milestone",
+        "milestone-covered"
+      ]
+    },
+    {
+      "id": "presentation.approved",
+      "text": "人が映像と説明を見て、公開してよい範囲と誤解を招かないことを確かめている。",
+      "checkedBy": "人",
+      "target": "presentation-record"
+    }
+  ]
+}

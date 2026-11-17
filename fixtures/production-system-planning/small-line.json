@@ -1,0 +1,581 @@
+{
+  "fixture": 1,
+  "id": "small-line",
+  "title": "架空の動力系の小さな組立ライン",
+  "purpose": "架空の電動の動力系（モーター・減速機・ケースを一つにした部品）を組み立てる小さなラインで、現状のボトルネックを見つけ、バッファと加工機の台数の案を比べて採るまでの、項目と引用の形を示す見本。数値は説明のための架空の値。",
+  "definition": {
+    "id": "production-system-planning",
+    "version": "1.0.0"
+  },
+  "deliverables": {
+    "process-map": {
+      "note": "対象は加工から梱包までの 1 本のライン。11 工程をすべて通す。AI はモデルの組み立て・実験の実行・事項の一覧化、人は要件・案の採否・承認を受け持つ。題材は架空で、実在の工場・製品とは関係が無い。"
+    },
+    "production-requirements": {
+      "items": [
+        {
+          "id": "RQ-01",
+          "name": "1 シフトの生産数",
+          "kind": "量",
+          "target": "1 シフト（7.5 時間）で 400 台",
+          "source": "企画の想定",
+          "certainty": "仮定"
+        },
+        {
+          "id": "RQ-02",
+          "name": "タクト",
+          "kind": "タクト",
+          "target": "67 秒以下",
+          "source": "RQ-01 から計算",
+          "certainty": "推定"
+        },
+        {
+          "id": "RQ-03",
+          "name": "建屋の柱の間隔",
+          "kind": "建屋",
+          "target": "既存の建屋の 12 m の柱の間隔に収める",
+          "source": "建屋のモデル",
+          "certainty": "確か"
+        }
+      ]
+    },
+    "process-plan": {
+      "items": [
+        {
+          "id": "PT-01",
+          "name": "架空の動力系",
+          "mix": "100%",
+          "cites": [
+            "RQ-01",
+            "RQ-02"
+          ]
+        },
+        {
+          "id": "OP-001",
+          "name": "ケースの加工",
+          "product": "PT-01",
+          "time": "三角分布 100〜140 秒",
+          "cites": [
+            "PT-01"
+          ]
+        },
+        {
+          "id": "OP-002",
+          "name": "部品の組付け",
+          "product": "PT-01",
+          "after": "OP-001",
+          "time": "一定 55 秒",
+          "cites": [
+            "PT-01",
+            "OP-001"
+          ]
+        },
+        {
+          "id": "OP-003",
+          "name": "検査",
+          "product": "PT-01",
+          "after": "OP-002",
+          "time": "一様分布 45〜60 秒",
+          "cites": [
+            "PT-01",
+            "OP-002"
+          ]
+        },
+        {
+          "id": "OP-004",
+          "name": "梱包",
+          "product": "PT-01",
+          "after": "OP-003",
+          "time": "一定 40 秒",
+          "cites": [
+            "PT-01",
+            "OP-003"
+          ]
+        }
+      ]
+    },
+    "line-model": {
+      "items": [
+        {
+          "id": "RS-001",
+          "name": "ケースの投入口",
+          "kind": "投入口",
+          "capacity": "無制限"
+        },
+        {
+          "id": "RS-002",
+          "name": "加工機",
+          "kind": "並列の設備",
+          "capacity": "2 台",
+          "cites": [
+            "OP-001"
+          ]
+        },
+        {
+          "id": "RS-003",
+          "name": "加工後のバッファ",
+          "kind": "バッファ",
+          "capacity": "4"
+        },
+        {
+          "id": "RS-004",
+          "name": "組付けの台",
+          "kind": "設備",
+          "capacity": "1",
+          "cites": [
+            "OP-002"
+          ]
+        },
+        {
+          "id": "RS-005",
+          "name": "組付け後のコンベヤ",
+          "kind": "コンベヤ",
+          "capacity": "長さ 6 m・速さ 0.2 m/s"
+        },
+        {
+          "id": "RS-006",
+          "name": "検査の台",
+          "kind": "設備",
+          "capacity": "1",
+          "cites": [
+            "OP-003"
+          ]
+        },
+        {
+          "id": "RS-007",
+          "name": "梱包の台",
+          "kind": "設備",
+          "capacity": "1",
+          "cites": [
+            "OP-004"
+          ]
+        },
+        {
+          "id": "RS-008",
+          "name": "出荷の口",
+          "kind": "出口",
+          "capacity": "無制限"
+        },
+        {
+          "id": "RS-009",
+          "name": "組付けと検査の作業者",
+          "kind": "作業者",
+          "capacity": "2 人",
+          "cites": [
+            "OP-002",
+            "OP-003"
+          ]
+        },
+        {
+          "id": "CN-001",
+          "name": "投入→加工",
+          "from": "RS-001",
+          "to": "RS-002",
+          "cites": [
+            "RS-001",
+            "RS-002"
+          ]
+        },
+        {
+          "id": "CN-002",
+          "name": "加工→バッファ",
+          "from": "RS-002",
+          "to": "RS-003",
+          "cites": [
+            "RS-002",
+            "RS-003"
+          ]
+        },
+        {
+          "id": "CN-003",
+          "name": "バッファ→組付け",
+          "from": "RS-003",
+          "to": "RS-004",
+          "cites": [
+            "RS-003",
+            "RS-004"
+          ]
+        },
+        {
+          "id": "CN-004",
+          "name": "組付け→コンベヤ",
+          "from": "RS-004",
+          "to": "RS-005",
+          "cites": [
+            "RS-004",
+            "RS-005"
+          ]
+        },
+        {
+          "id": "CN-005",
+          "name": "コンベヤ→検査",
+          "from": "RS-005",
+          "to": "RS-006",
+          "cites": [
+            "RS-005",
+            "RS-006"
+          ]
+        },
+        {
+          "id": "CN-006",
+          "name": "検査→梱包",
+          "from": "RS-006",
+          "to": "RS-007",
+          "cites": [
+            "RS-006",
+            "RS-007"
+          ]
+        },
+        {
+          "id": "CN-007",
+          "name": "梱包→出荷",
+          "from": "RS-007",
+          "to": "RS-008",
+          "cites": [
+            "RS-007",
+            "RS-008"
+          ]
+        }
+      ]
+    },
+    "input-data": {
+      "items": [
+        {
+          "id": "DS-01",
+          "name": "ケースの投入の間隔",
+          "kind": "投入",
+          "distribution": "一定 60 秒",
+          "source": "企画の想定",
+          "certainty": "仮定",
+          "cites": [
+            "RS-001"
+          ]
+        },
+        {
+          "id": "DS-02",
+          "name": "加工の時間",
+          "kind": "作業時間",
+          "distribution": "三角分布 100〜140 秒（最頻 120 秒）",
+          "source": "似た加工の実績",
+          "certainty": "推定",
+          "cites": [
+            "RS-002",
+            "OP-001"
+          ]
+        },
+        {
+          "id": "DS-03",
+          "name": "加工機の故障",
+          "kind": "故障",
+          "distribution": "故障の間隔 指数分布 平均 4 時間・修理 一様分布 10〜20 分",
+          "source": "設備の仕様",
+          "certainty": "推定",
+          "cites": [
+            "RS-002"
+          ]
+        },
+        {
+          "id": "DS-04",
+          "name": "組付けの時間",
+          "kind": "作業時間",
+          "distribution": "一定 55 秒",
+          "source": "作業の分析",
+          "certainty": "推定",
+          "cites": [
+            "RS-004",
+            "OP-002"
+          ]
+        },
+        {
+          "id": "DS-05",
+          "name": "検査の時間",
+          "kind": "作業時間",
+          "distribution": "一様分布 45〜60 秒",
+          "source": "作業の分析",
+          "certainty": "推定",
+          "cites": [
+            "RS-006",
+            "OP-003"
+          ]
+        },
+        {
+          "id": "DS-06",
+          "name": "梱包の時間",
+          "kind": "作業時間",
+          "distribution": "一定 40 秒",
+          "source": "作業の分析",
+          "certainty": "推定",
+          "cites": [
+            "RS-007",
+            "OP-004"
+          ]
+        },
+        {
+          "id": "DS-07",
+          "name": "作業者の歩き",
+          "kind": "移動",
+          "distribution": "持ち場の間 8 m を 1 m/s",
+          "source": "配置の計画",
+          "certainty": "推定",
+          "cites": [
+            "RS-009"
+          ]
+        }
+      ]
+    },
+    "layout-plan": {
+      "items": [
+        {
+          "id": "ZN-01",
+          "name": "加工の区画",
+          "cites": [
+            "RS-002"
+          ]
+        },
+        {
+          "id": "ZN-02",
+          "name": "組立と検査の区画",
+          "cites": [
+            "RS-004",
+            "RS-005",
+            "RS-006",
+            "RS-007"
+          ]
+        },
+        {
+          "id": "ZN-03",
+          "name": "人の通路",
+          "cites": [
+            "RS-009"
+          ]
+        },
+        {
+          "id": "LI-01",
+          "name": "加工機の 2 台目が柱に掛かる",
+          "kind": "干渉",
+          "text": "柱の間隔 12 m に 2 台と保守の場所が収まらない",
+          "action": "直した（加工機を通路の向かいへ移した）",
+          "cites": [
+            "ZN-01",
+            "RS-002"
+          ]
+        }
+      ]
+    },
+    "validation-record": {
+      "items": [
+        {
+          "id": "VC-01",
+          "name": "作業時間が一定のときの生産数を手計算と比べる",
+          "kind": "手計算との比べ",
+          "expected": "ボトルネックは加工（2 台で 60 秒）で 1 シフト 450 台",
+          "actual": "450 台",
+          "result": "合",
+          "cites": [
+            "RS-002",
+            "RQ-02"
+          ]
+        },
+        {
+          "id": "VC-02",
+          "name": "バッファの容量 0 で詰まりが出る",
+          "kind": "極端な条件",
+          "expected": "組付けの待ちで加工機に詰まりが出る",
+          "actual": "詰まり 18%",
+          "result": "合",
+          "cites": [
+            "RS-003"
+          ]
+        }
+      ]
+    },
+    "experiment-record": {
+      "items": [
+        {
+          "id": "SC-01",
+          "name": "現状",
+          "cites": [
+            "RS-002",
+            "RS-003",
+            "DS-03"
+          ]
+        },
+        {
+          "id": "SC-02",
+          "name": "バッファを 8 に",
+          "cites": [
+            "RS-003"
+          ]
+        },
+        {
+          "id": "SC-03",
+          "name": "加工機を 3 台に",
+          "cites": [
+            "RS-002",
+            "ZN-01"
+          ]
+        },
+        {
+          "id": "FD-001",
+          "name": "現状は加工がボトルネックで要件に届かない",
+          "scenario": "SC-01",
+          "kind": "生産数",
+          "value": "平均 371 台（95% 信頼区間 364〜378、20 回）",
+          "cites": [
+            "SC-01",
+            "RS-002",
+            "RQ-01"
+          ]
+        },
+        {
+          "id": "FD-002",
+          "name": "バッファを増やしても故障の間の止まりは埋まらない",
+          "scenario": "SC-02",
+          "kind": "生産数",
+          "value": "平均 382 台（95% 信頼区間 375〜389）",
+          "cites": [
+            "SC-02",
+            "RS-003",
+            "RQ-01"
+          ]
+        },
+        {
+          "id": "FD-003",
+          "name": "加工機を 3 台にすると要件を満たし、ボトルネックは組付けに移る",
+          "scenario": "SC-03",
+          "kind": "生産数",
+          "value": "平均 452 台（95% 信頼区間 447〜457）",
+          "cites": [
+            "SC-03",
+            "RS-004",
+            "RQ-01"
+          ]
+        }
+      ]
+    },
+    "control-record": {
+      "items": [
+        {
+          "id": "CC-01",
+          "name": "コンベヤの先が詰まったら止める",
+          "condition": "正しい制御",
+          "expected": "検査が空くまでコンベヤが止まり、製品は落ちない",
+          "actual": "同じ",
+          "result": "合",
+          "cites": [
+            "RS-005"
+          ]
+        },
+        {
+          "id": "CC-02",
+          "name": "詰まりでも止めない制御",
+          "condition": "わざと誤った制御",
+          "expected": "コンベヤの終わりで製品があふれ、流れが止まる",
+          "actual": "12 分で止まりを検出",
+          "result": "合",
+          "cites": [
+            "RS-005"
+          ]
+        }
+      ]
+    },
+    "plan-approval": {
+      "items": [
+        {
+          "id": "DC-01",
+          "name": "加工機を通路の向かいへ移す",
+          "action": "直した",
+          "who": "計画の承認者",
+          "cites": [
+            "LI-01"
+          ]
+        },
+        {
+          "id": "DC-02",
+          "name": "加工機を 3 台にする案を採る",
+          "action": "受け入れた",
+          "risk": "組付けが次のボトルネックになる",
+          "who": "計画の承認者",
+          "cites": [
+            "FD-001",
+            "FD-002",
+            "FD-003",
+            "SC-03"
+          ]
+        },
+        {
+          "id": "DC-03",
+          "name": "コンベヤの詰まりの止めを制御の要件にする",
+          "action": "直した",
+          "who": "制御の責任者",
+          "cites": [
+            "CC-01",
+            "CC-02"
+          ]
+        },
+        {
+          "id": "DC-04",
+          "name": "モデルを実験に使ってよいとする",
+          "action": "受け入れた",
+          "who": "ラインを知る人",
+          "cites": [
+            "VC-01",
+            "VC-02"
+          ]
+        }
+      ]
+    },
+    "presentation-record": {
+      "items": [
+        {
+          "id": "PS-01",
+          "name": "現状で加工機の前に仕掛りがたまる",
+          "cites": [
+            "SC-01",
+            "FD-001"
+          ]
+        },
+        {
+          "id": "PS-02",
+          "name": "3 台にした案で流れがそろう",
+          "cites": [
+            "SC-03",
+            "DC-02"
+          ]
+        }
+      ]
+    }
+  },
+  "exceptions": [
+    {
+      "rule": "requirement-covered",
+      "item": "RQ-03",
+      "reason": "建屋の条件は配置の計画の事項（LI-01）で扱う"
+    },
+    {
+      "rule": "resource-covered-by-connection",
+      "item": "RS-009",
+      "reason": "作業者は流れの外で組付けと検査を受け持つ"
+    },
+    {
+      "rule": "resource-covered-by-data",
+      "item": "RS-003",
+      "reason": "バッファは容量だけで動き、時間のデータが要らない"
+    },
+    {
+      "rule": "resource-covered-by-data",
+      "item": "RS-005",
+      "reason": "コンベヤの長さと速さはモデルに書いた"
+    },
+    {
+      "rule": "resource-covered-by-data",
+      "item": "RS-008",
+      "reason": "出口は時間のデータが要らない"
+    },
+    {
+      "rule": "scenario-shown",
+      "item": "SC-02",
+      "reason": "効かなかった案は比べの表だけで示す"
+    }
+  ]
+}
