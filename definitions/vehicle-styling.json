@@ -483,7 +483,7 @@
       "outline": [
         {
           "heading": "判断",
-          "describe": "各工程で人が決めたことを一件ずつ。何について（案・測り・面の確かめ・所見・細部・配色・絵）、選んだこと、理由、戻った工程",
+          "describe": "各工程で人が決めたことを一件ずつ。何について（性格・規則・目安・硬い点・空気の筋・案・線・測り・面・面の確かめ・所見・細部・配色・材料・絵）、選んだこと、理由、戻った工程",
           "item": "decision"
         },
         {
@@ -706,32 +706,30 @@
       "to": [
         "scheme"
       ],
-      "min": 0
+      "min": 1
     },
     {
       "id": "decision-cites-subject",
       "type": "cites",
       "from": "decision",
       "to": [
+        "trait",
+        "rule",
+        "proportion-target",
+        "hard-point",
+        "flow",
         "proposal",
+        "line",
         "measure",
+        "panel",
         "surface-check",
         "aero-finding",
         "detail",
         "scheme",
+        "material",
         "image"
       ],
       "min": 1
-    },
-    {
-      "id": "decision-cites-trait",
-      "type": "cites",
-      "from": "decision",
-      "to": [
-        "trait",
-        "rule"
-      ],
-      "min": 0
     },
     {
       "id": "rule-covered",
