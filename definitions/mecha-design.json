@@ -82,7 +82,7 @@
     {
       "id": "mechanism",
       "name": "変形と合体の仕組み",
-      "purpose": "関節と結合点、変形と合体の手順を決め、手順ごとの変形図を2次元で描いて、干渉と成立を確かめる。",
+      "purpose": "機体のどの部分が合体の姿のどの部位になるかを寸法つきで対応させ、関節と結合点、変形と合体の手順を決める。手順ごとの変形図を2次元で描き、寸法の突き合わせと干渉と成立を確かめる。",
       "after": [
         "lines"
       ],
@@ -97,7 +97,7 @@
     {
       "id": "model",
       "name": "3Dモデル",
-      "purpose": "線図を下敷きに機体ごとの3Dモデルを組み、線図との違いと、各形態と合体の姿勢で干渉が無いことを確かめる。",
+      "purpose": "線図を下敷きに、乗り物の形と合体の形を同じ部品と関節から3Dで組む。手順どおりに関節を動かして、動きの途中の干渉と届くかを確かめ、線図との違いを測る。",
       "after": [
         "mechanism"
       ],
@@ -112,7 +112,7 @@
     {
       "id": "sheets",
       "name": "設定画（決定稿）",
-      "purpose": "作画と3DCGが使う設定画を、形態ごとの面と注意書きつきで決める。",
+      "purpose": "作画と3DCGが使う設定画を、形態ごとの面と注意書きつきで決める。絵（AIの生成を含む）は、3Dモデルで動きを確かめた部品の対応と比率を下敷きにする。",
       "after": [
         "model"
       ],
@@ -384,6 +384,11 @@
       "form": "表",
       "outline": [
         {
+          "heading": "部品の対応と寸法",
+          "describe": "機体のどの部分が合体の姿のどの部位になるか。乗り物の形での寸法（長さ・幅・高さ）と、部位としての寸法。入らない・足りない所",
+          "item": "part"
+        },
+        {
           "heading": "関節と結合点",
           "describe": "関節（回る軸と範囲）と、機体どうしの結合点（向き・抜け止め）",
           "item": "joint"
@@ -399,7 +404,7 @@
         },
         {
           "heading": "干渉と成立の確認",
-          "describe": "手順ごとの干渉・届くか・保持の確認と結果",
+          "describe": "部品の寸法の突き合わせと、手順ごとの干渉・届くか・保持の確認と結果",
           "item": "check"
         }
       ],
@@ -425,7 +430,7 @@
       "outline": [
         {
           "heading": "機体ごとのモデル",
-          "describe": "機体ごとの部品と関節、各形態の姿勢。下敷きにした線図"
+          "describe": "機体ごとの部品と関節。乗り物の形と合体の形を、同じ部品と関節の姿勢として持つ。下敷きにした線図"
         },
         {
           "heading": "線図との違い",
@@ -434,6 +439,11 @@
         {
           "heading": "合体の姿勢",
           "describe": "合体した形態での結合の位置と、干渉の確認の結果"
+        },
+        {
+          "heading": "変形の動き",
+          "describe": "乗り物の形から合体の形まで、手順どおりに関節を動かした検証。手順ごとの動きの途中の干渉、届くか、部品の寸法が足りるかの結果",
+          "item": "motion"
         },
         {
           "heading": "手で直した所",
@@ -452,7 +462,7 @@
       "outline": [
         {
           "heading": "設定画",
-          "describe": "形態ごとの正面・側面・背面・合体の図。作画の注意書き",
+          "describe": "形態ごとの正面・側面・背面・合体の図。作画の注意書き。AIで生成した絵は、下敷きにした3Dの姿勢と入力を書く",
           "item": "sheet"
         }
       ],
@@ -620,6 +630,11 @@
       "idForm": "PM-{nn}"
     },
     {
+      "id": "part",
+      "name": "部品の対応",
+      "idForm": "PT-{nn}"
+    },
+    {
       "id": "joint",
       "name": "関節と結合点",
       "idForm": "JT-{nn}"
@@ -633,6 +648,11 @@
       "id": "check",
       "name": "干渉と成立の確認",
       "idForm": "CK-{nn}"
+    },
+    {
+      "id": "motion",
+      "name": "動きの検証",
+      "idForm": "MV-{nn}"
     },
     {
       "id": "sheet",
@@ -724,6 +744,16 @@
       "min": 1
     },
     {
+      "id": "part-cites",
+      "type": "cites",
+      "from": "part",
+      "to": [
+        "unit",
+        "form"
+      ],
+      "min": 2
+    },
+    {
       "id": "silhouette-cites-form",
       "type": "cites",
       "from": "silhouette",
@@ -771,7 +801,19 @@
       "from": "check",
       "to": [
         "step",
-        "joint"
+        "joint",
+        "part"
+      ],
+      "min": 1
+    },
+    {
+      "id": "motion-cites",
+      "type": "cites",
+      "from": "motion",
+      "to": [
+        "step",
+        "joint",
+        "part"
       ],
       "min": 1
     },
@@ -782,7 +824,8 @@
       "to": [
         "form",
         "silhouette",
-        "drawing"
+        "drawing",
+        "motion"
       ],
       "min": 1
     },
@@ -832,9 +875,11 @@
         "silhouette",
         "proportion",
         "drawing",
+        "part",
         "joint",
         "step",
         "check",
+        "motion",
         "sheet",
         "toy-check",
         "color",
@@ -855,8 +900,10 @@
         "form",
         "silhouette",
         "drawing",
+        "part",
         "joint",
         "step",
+        "motion",
         "sheet",
         "toy-check",
         "color",
@@ -904,6 +951,31 @@
         "check",
         "toy-check",
         "step"
+      ]
+    },
+    {
+      "id": "unit-parted",
+      "type": "covered",
+      "of": "unit",
+      "by": [
+        "part"
+      ]
+    },
+    {
+      "id": "part-checked",
+      "type": "covered",
+      "of": "part",
+      "by": [
+        "check",
+        "motion"
+      ]
+    },
+    {
+      "id": "step-moved",
+      "type": "covered",
+      "of": "step",
+      "by": [
+        "motion"
       ]
     },
     {
@@ -1003,10 +1075,13 @@
     },
     {
       "id": "mechanism.complete",
-      "text": "関節・結合点と手順が一件ずつあり、手順ごとの干渉の確認が書かれている。",
+      "text": "機体ごとに部品の対応が寸法つきであり、関節・結合点と手順が一件ずつあり、寸法の突き合わせと手順ごとの干渉の確認が書かれている。",
       "checkedBy": "AI",
       "target": "mechanism-plan",
       "rules": [
+        "part-cites",
+        "unit-parted",
+        "part-checked",
         "joint-cites-unit",
         "step-cites-joint",
         "check-cites-step",
@@ -1016,19 +1091,24 @@
     },
     {
       "id": "mechanism.approved",
-      "text": "メカデザイナーが仕組みを、玩具の担当が保持と組み立ての見込みを確かめ、承認している。",
+      "text": "メカデザイナーが仕組みと寸法の突き合わせを、玩具の担当が保持と組み立ての見込みを確かめ、承認している。部品が部位に入らない所は、寸法を直すか、指摘として残している。",
       "checkedBy": "人",
       "target": "mechanism-plan"
     },
     {
       "id": "model.complete",
-      "text": "機体ごとのモデルと形態があり、線図との違いの測りと、各形態の干渉の確認の結果が書かれている。",
+      "text": "乗り物の形と合体の形が同じ部品と関節から組まれ、手順ごとに動かした検証（動きの途中の干渉と届くか）、線図との違いの測りが書かれている。",
       "checkedBy": "AI",
-      "target": "model-3d"
+      "target": "model-3d",
+      "rules": [
+        "motion-cites",
+        "step-moved",
+        "part-checked"
+      ]
     },
     {
       "id": "model.approved",
-      "text": "メカデザイナーがモデルを見て、手で直した所を含めて形を承認している。",
+      "text": "メカデザイナーが乗り物の形から合体の形までの動きを3Dで見て、手で直した所を含めて形と変形の成立を承認している。",
       "checkedBy": "人",
       "target": "model-3d"
     },
@@ -1044,7 +1124,7 @@
     },
     {
       "id": "sheets.approved",
-      "text": "監督とメカデザイナーが決定稿として承認している。",
+      "text": "監督とメカデザイナーが決定稿として承認している。AIで生成した絵は、3Dで確かめた部品の対応と比率から外れていないことを確かめている。",
       "checkedBy": "人",
       "target": "design-sheets"
     },
