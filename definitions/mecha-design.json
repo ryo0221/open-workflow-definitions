@@ -3,7 +3,7 @@
   "id": "mecha-design",
   "version": "1.0.0",
   "title": "アニメのメカデザインと玩具化",
-  "purpose": "アニメに出す変形・合体のメカを、企画の要求と合体の構想から決め、シルエットと比率、変形と合体の仕組み、3Dモデルで成り立ちを確かめてから、設定画の決定稿・玩具化の検討・色彩・見せ場の絵と動画へ進める。制作側（監督・ディレクター・メカデザイナー）と玩具側の複数の組織の人が工程ごとに議論し、進め方で決めた組織と人数の承認で受け入れる。題材・道具・出力形式は利用側が決める。",
+  "purpose": "アニメに出す変形・合体のメカを、言葉で決めた企画（コンセプト・特徴・新しさ・要求）と合体の構想から決め、シルエットと比率、2次元の線図（三面図）と変形図で形と仕組みを固め、それを下敷きにした3Dモデルで成り立ちを確かめてから、設定画の決定稿・玩具化の検討・色彩・見せ場の絵と動画へ進める。制作側（監督・ディレクター・メカデザイナー）と玩具側の複数の組織の人が工程ごとに議論し、進め方で決めた組織と人数の承認で受け入れる。題材・道具・出力形式は利用側が決める。",
   "phases": [
     {
       "id": "process",
@@ -20,8 +20,8 @@
     },
     {
       "id": "brief",
-      "name": "企画と要求",
-      "purpose": "作品の中での役割と見せ場、商品としての条件を、形より先に要求として並べる。",
+      "name": "企画（コンセプトと要求）",
+      "purpose": "形を描く前に、どんなメカかを言葉で決める。コンセプトを一文で書き、特徴と、これまでのメカに無い新しさを並べ、作品の中での役割と見せ場、商品としての条件を要求として並べる。",
       "after": [
         "process"
       ],
@@ -65,11 +65,26 @@
       ]
     },
     {
-      "id": "mechanism",
-      "name": "変形と合体の仕組み",
-      "purpose": "関節と結合点、変形と合体の手順を決め、手順ごとに干渉と成立を確かめる。",
+      "id": "lines",
+      "name": "線図（三面図）",
+      "purpose": "選んだシルエットと比率から、形態ごとに正面・側面・上面の線図を2次元で描く。案を並べて選び、3Dの下敷きにする。",
       "after": [
         "silhouette"
+      ],
+      "deliverables": [
+        "line-drawings"
+      ],
+      "acceptance": [
+        "lines.complete",
+        "lines.approved"
+      ]
+    },
+    {
+      "id": "mechanism",
+      "name": "変形と合体の仕組み",
+      "purpose": "関節と結合点、変形と合体の手順を決め、手順ごとの変形図を2次元で描いて、干渉と成立を確かめる。",
+      "after": [
+        "lines"
       ],
       "deliverables": [
         "mechanism-plan"
@@ -82,7 +97,7 @@
     {
       "id": "model",
       "name": "3Dモデル",
-      "purpose": "機体ごとの3Dモデルを組み、各形態と合体の姿勢で干渉が無いことを確かめる。",
+      "purpose": "線図を下敷きに機体ごとの3Dモデルを組み、線図との違いと、各形態と合体の姿勢で干渉が無いことを確かめる。",
       "after": [
         "mechanism"
       ],
@@ -185,7 +200,8 @@
       "name": "形",
       "phases": [
         "concept",
-        "silhouette"
+        "silhouette",
+        "lines"
       ]
     },
     {
@@ -245,9 +261,23 @@
     },
     {
       "id": "requirements",
-      "name": "企画と要求",
+      "name": "企画（コンセプトと要求）",
       "form": "表",
       "outline": [
+        {
+          "heading": "コンセプト",
+          "describe": "このメカを一文で。題名（仮）と、見た人に残したい印象"
+        },
+        {
+          "heading": "特徴",
+          "describe": "形・変形・合体・乗り手・玩具での遊びの特徴を一件ずつ。どの要求から来たか",
+          "item": "feature"
+        },
+        {
+          "heading": "新しさ",
+          "describe": "これまでの変形・合体のメカと比べて新しい所を一件ずつ。何と比べたか（一般的な型で書き、特定の作品の写しにしない）と、どの特徴で実現するか",
+          "item": "novelty"
+        },
         {
           "heading": "作品での役割",
           "describe": "誰が乗り、どの場面で何をするメカか。敵や物語の山との関係"
@@ -325,6 +355,30 @@
       ]
     },
     {
+      "id": "line-drawings",
+      "name": "線図（三面図）",
+      "form": "図",
+      "outline": [
+        {
+          "heading": "線図の案",
+          "describe": "形態ごとの正面・側面・上面の線図の案（2次元）。同じ縮尺で並べ、選んだ案と理由",
+          "item": "drawing"
+        },
+        {
+          "heading": "寸法",
+          "describe": "三面で合わせた主な寸法（全高・全幅・全長、機体ごとの長さと幅）"
+        },
+        {
+          "heading": "手で直した所",
+          "describe": "AIの出した線図から人が直した所と理由"
+        }
+      ],
+      "uses": [
+        "silhouettes",
+        "combine-concept"
+      ]
+    },
+    {
       "id": "mechanism-plan",
       "name": "変形と合体の仕組み",
       "form": "表",
@@ -340,6 +394,10 @@
           "item": "step"
         },
         {
+          "heading": "変形図",
+          "describe": "手順ごとの2次元の変形図（線図の上で、動く部分と向き）"
+        },
+        {
           "heading": "干渉と成立の確認",
           "describe": "手順ごとの干渉・届くか・保持の確認と結果",
           "item": "check"
@@ -347,7 +405,7 @@
       ],
       "uses": [
         "combine-concept",
-        "silhouettes"
+        "line-drawings"
       ],
       "view": {
         "as": "table",
@@ -367,7 +425,11 @@
       "outline": [
         {
           "heading": "機体ごとのモデル",
-          "describe": "機体ごとの部品と関節、各形態の姿勢"
+          "describe": "機体ごとの部品と関節、各形態の姿勢。下敷きにした線図"
+        },
+        {
+          "heading": "線図との違い",
+          "describe": "三面で線図と重ねて測った違いと、残した理由"
         },
         {
           "heading": "合体の姿勢",
@@ -379,7 +441,8 @@
         }
       ],
       "uses": [
-        "mechanism-plan"
+        "mechanism-plan",
+        "line-drawings"
       ]
     },
     {
@@ -517,6 +580,21 @@
   ],
   "items": [
     {
+      "id": "feature",
+      "name": "特徴",
+      "idForm": "FT-{nn}"
+    },
+    {
+      "id": "novelty",
+      "name": "新しさ",
+      "idForm": "NV-{nn}"
+    },
+    {
+      "id": "drawing",
+      "name": "線図の案",
+      "idForm": "DR-{nn}"
+    },
+    {
       "id": "requirement",
       "name": "要求",
       "idForm": "RQ-{nn}"
@@ -588,6 +666,44 @@
     }
   ],
   "rules": [
+    {
+      "id": "feature-cites-requirement",
+      "type": "cites",
+      "from": "feature",
+      "to": [
+        "requirement"
+      ],
+      "min": 1
+    },
+    {
+      "id": "novelty-cites-feature",
+      "type": "cites",
+      "from": "novelty",
+      "to": [
+        "feature"
+      ],
+      "min": 1
+    },
+    {
+      "id": "drawing-cites-form",
+      "type": "cites",
+      "from": "drawing",
+      "to": [
+        "form",
+        "silhouette",
+        "proportion"
+      ],
+      "min": 1
+    },
+    {
+      "id": "form-drawn",
+      "type": "covered",
+      "of": "form",
+      "by": [
+        "drawing"
+      ],
+      "exempt": true
+    },
     {
       "id": "unit-cites-requirement",
       "type": "cites",
@@ -665,7 +781,8 @@
       "from": "sheet",
       "to": [
         "form",
-        "silhouette"
+        "silhouette",
+        "drawing"
       ],
       "min": 1
     },
@@ -708,10 +825,13 @@
       "from": "issue",
       "to": [
         "requirement",
+        "feature",
+        "novelty",
         "unit",
         "form",
         "silhouette",
         "proportion",
+        "drawing",
         "joint",
         "step",
         "check",
@@ -729,9 +849,12 @@
       "to": [
         "issue",
         "requirement",
+        "feature",
+        "novelty",
         "unit",
         "form",
         "silhouette",
+        "drawing",
         "joint",
         "step",
         "sheet",
@@ -808,13 +931,17 @@
     },
     {
       "id": "brief.complete",
-      "text": "役割・見せ場・商品の条件・制約が要求として一件ずつ書かれ、出した人の立場が付いている。",
+      "text": "コンセプトの一文があり、特徴・新しさ・要求が一件ずつ書かれ、出した人の立場が付いている。新しさは特徴を引き、何と比べて新しいかが書かれている。",
       "checkedBy": "AI",
-      "target": "requirements"
+      "target": "requirements",
+      "rules": [
+        "novelty-cites-feature",
+        "feature-cites-requirement"
+      ]
     },
     {
       "id": "brief.approved",
-      "text": "監督・ディレクター・玩具の担当が、要求と優先の順を確かめ、承認している。",
+      "text": "監督・ディレクター・メカデザイナー・玩具の担当が、コンセプトと特徴と新しさ、要求と優先の順を確かめ、承認している。",
       "checkedBy": "人",
       "target": "requirements"
     },
@@ -860,6 +987,22 @@
       "target": "silhouettes"
     },
     {
+      "id": "lines.complete",
+      "text": "形態ごとに三面の線図の案と選んだ案があり、形態とシルエットと比率を引き、三面の寸法が合っている。",
+      "checkedBy": "AI",
+      "target": "line-drawings",
+      "rules": [
+        "drawing-cites-form",
+        "form-drawn"
+      ]
+    },
+    {
+      "id": "lines.approved",
+      "text": "監督とメカデザイナーが線図の案を選び、手で直した所を含めて承認している。玩具の担当が商品の大きさで成り立つ見込みを確かめている。",
+      "checkedBy": "人",
+      "target": "line-drawings"
+    },
+    {
       "id": "mechanism.complete",
       "text": "関節・結合点と手順が一件ずつあり、手順ごとの干渉の確認が書かれている。",
       "checkedBy": "AI",
@@ -880,7 +1023,7 @@
     },
     {
       "id": "model.complete",
-      "text": "機体ごとのモデルと形態があり、各形態の干渉の確認の結果が書かれている。",
+      "text": "機体ごとのモデルと形態があり、線図との違いの測りと、各形態の干渉の確認の結果が書かれている。",
       "checkedBy": "AI",
       "target": "model-3d"
     },
