@@ -891,12 +891,28 @@
       "min": 1
     },
     {
-      "id": "motion-cites",
+      "id": "motion-cites-step",
       "type": "cites",
       "from": "motion",
       "to": [
-        "step",
-        "joint",
+        "step"
+      ],
+      "min": 1
+    },
+    {
+      "id": "motion-cites-joint",
+      "type": "cites",
+      "from": "motion",
+      "to": [
+        "joint"
+      ],
+      "min": 1
+    },
+    {
+      "id": "motion-cites-part",
+      "type": "cites",
+      "from": "motion",
+      "to": [
         "part"
       ],
       "min": 1
@@ -954,10 +970,18 @@
       "type": "cites",
       "from": "color",
       "to": [
-        "unit",
-        "requirement"
+        "unit"
       ],
       "min": 1
+    },
+    {
+      "id": "color-cites-requirement",
+      "type": "cites",
+      "from": "color",
+      "to": [
+        "requirement"
+      ],
+      "min": 0
     },
     {
       "id": "shot-cites",
@@ -965,10 +989,18 @@
       "from": "shot",
       "to": [
         "form",
-        "step",
-        "color"
+        "step"
       ],
       "min": 1
+    },
+    {
+      "id": "shot-cites-color",
+      "type": "cites",
+      "from": "shot",
+      "to": [
+        "color"
+      ],
+      "min": 0
     },
     {
       "id": "issue-cites",
@@ -1005,9 +1037,11 @@
         "requirement",
         "feature",
         "novelty",
+        "reference",
         "unit",
         "form",
         "silhouette",
+        "proportion",
         "drawing",
         "part",
         "joint",
@@ -1214,7 +1248,9 @@
       "checkedBy": "AI",
       "target": "model-3d",
       "rules": [
-        "motion-cites",
+        "motion-cites-step",
+        "motion-cites-joint",
+        "motion-cites-part",
         "step-moved",
         "part-checked"
       ]
