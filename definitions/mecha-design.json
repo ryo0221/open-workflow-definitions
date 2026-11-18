@@ -745,8 +745,24 @@
       "type": "cites",
       "from": "drawing",
       "to": [
-        "form",
-        "silhouette",
+        "form"
+      ],
+      "min": 1
+    },
+    {
+      "id": "drawing-cites-silhouette",
+      "type": "cites",
+      "from": "drawing",
+      "to": [
+        "silhouette"
+      ],
+      "min": 1
+    },
+    {
+      "id": "drawing-cites-proportion",
+      "type": "cites",
+      "from": "drawing",
+      "to": [
         "proportion"
       ],
       "min": 1
@@ -833,11 +849,19 @@
       "type": "cites",
       "from": "step",
       "to": [
-        "joint",
+        "joint"
+      ],
+      "min": 1
+    },
+    {
+      "id": "step-cites-form",
+      "type": "cites",
+      "from": "step",
+      "to": [
         "form",
         "step"
       ],
-      "min": 1
+      "min": 0
     },
     {
       "id": "check-cites-step",
@@ -948,6 +972,7 @@
         "part",
         "joint",
         "step",
+        "check",
         "motion",
         "sheet",
         "toy-check",
@@ -994,8 +1019,7 @@
       "of": "joint",
       "by": [
         "check",
-        "toy-check",
-        "step"
+        "toy-check"
       ]
     },
     {
