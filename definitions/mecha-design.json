@@ -769,14 +769,22 @@
       "min": 1
     },
     {
-      "id": "part-cites",
+      "id": "part-cites-unit",
       "type": "cites",
       "from": "part",
       "to": [
-        "unit",
+        "unit"
+      ],
+      "min": 1
+    },
+    {
+      "id": "part-cites-form",
+      "type": "cites",
+      "from": "part",
+      "to": [
         "form"
       ],
-      "min": 2
+      "min": 1
     },
     {
       "id": "silhouette-cites-form",
@@ -893,6 +901,7 @@
       "from": "issue",
       "to": [
         "requirement",
+        "reference",
         "feature",
         "novelty",
         "unit",
@@ -1105,7 +1114,8 @@
       "checkedBy": "AI",
       "target": "mechanism-plan",
       "rules": [
-        "part-cites",
+        "part-cites-unit",
+        "part-cites-form",
         "unit-parted",
         "part-checked",
         "joint-cites-unit",
