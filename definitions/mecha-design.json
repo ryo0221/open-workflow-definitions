@@ -818,21 +818,37 @@
       "type": "cites",
       "from": "silhouette",
       "to": [
-        "form",
-        "requirement"
+        "form"
       ],
       "min": 1
+    },
+    {
+      "id": "silhouette-cites-requirement",
+      "type": "cites",
+      "from": "silhouette",
+      "to": [
+        "requirement"
+      ],
+      "min": 0
     },
     {
       "id": "proportion-cites-form",
       "type": "cites",
       "from": "proportion",
       "to": [
-        "form",
+        "form"
+      ],
+      "min": 1
+    },
+    {
+      "id": "proportion-cites-inputs",
+      "type": "cites",
+      "from": "proportion",
+      "to": [
         "silhouette",
         "requirement"
       ],
-      "min": 1
+      "min": 0
     },
     {
       "id": "joint-cites-unit",
@@ -890,9 +906,33 @@
       "type": "cites",
       "from": "sheet",
       "to": [
-        "form",
-        "silhouette",
-        "drawing",
+        "form"
+      ],
+      "min": 1
+    },
+    {
+      "id": "sheet-cites-silhouette",
+      "type": "cites",
+      "from": "sheet",
+      "to": [
+        "silhouette"
+      ],
+      "min": 1
+    },
+    {
+      "id": "sheet-cites-drawing",
+      "type": "cites",
+      "from": "sheet",
+      "to": [
+        "drawing"
+      ],
+      "min": 1
+    },
+    {
+      "id": "sheet-cites-motion",
+      "type": "cites",
+      "from": "sheet",
+      "to": [
         "motion"
       ],
       "min": 1
@@ -1134,6 +1174,8 @@
       "target": "line-drawings",
       "rules": [
         "drawing-cites-form",
+        "drawing-cites-silhouette",
+        "drawing-cites-proportion",
         "form-drawn"
       ]
     },
@@ -1190,6 +1232,9 @@
       "target": "design-sheets",
       "rules": [
         "sheet-cites-form",
+        "sheet-cites-silhouette",
+        "sheet-cites-drawing",
+        "sheet-cites-motion",
         "form-covered"
       ]
     },
