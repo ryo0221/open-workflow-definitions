@@ -892,8 +892,7 @@
       "type": "covered",
       "of": "form",
       "by": [
-        "sheet",
-        "form"
+        "sheet"
       ],
       "exempt": true
     },
