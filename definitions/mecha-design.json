@@ -1,0 +1,972 @@
+{
+  "format": 1,
+  "id": "mecha-design",
+  "version": "1.0.0",
+  "title": "アニメのメカデザインと玩具化",
+  "purpose": "アニメに出す変形・合体のメカを、企画の要求と合体の構想から決め、シルエットと比率、変形と合体の仕組み、3Dモデルで成り立ちを確かめてから、設定画の決定稿・玩具化の検討・色彩・見せ場の絵と動画へ進める。制作側（監督・ディレクター・メカデザイナー）と玩具側の複数の組織の人が工程ごとに議論し、進め方で決めた組織と人数の承認で受け入れる。題材・道具・出力形式は利用側が決める。",
+  "phases": [
+    {
+      "id": "process",
+      "name": "進め方",
+      "purpose": "誰が何を判断し、どの工程で誰を呼び、どの組織から何人の承認で受け入れるかを、作る前に決める。",
+      "after": [],
+      "deliverables": [
+        "process-map"
+      ],
+      "acceptance": [
+        "process.complete",
+        "process.approved"
+      ]
+    },
+    {
+      "id": "brief",
+      "name": "企画と要求",
+      "purpose": "作品の中での役割と見せ場、商品としての条件を、形より先に要求として並べる。",
+      "after": [
+        "process"
+      ],
+      "deliverables": [
+        "requirements"
+      ],
+      "acceptance": [
+        "brief.complete",
+        "brief.approved"
+      ]
+    },
+    {
+      "id": "concept",
+      "name": "合体の構想",
+      "purpose": "何機が、どの順に、どの部位になって合体するかを、機体と形態の表と合体図で決める。",
+      "after": [
+        "brief"
+      ],
+      "deliverables": [
+        "combine-concept"
+      ],
+      "acceptance": [
+        "concept.complete",
+        "concept.covered",
+        "concept.approved"
+      ]
+    },
+    {
+      "id": "silhouette",
+      "name": "シルエットと比率",
+      "purpose": "形態ごとのシルエット案を並べて選び、比率の目安で全体の形を固める。細部は描かない。",
+      "after": [
+        "concept"
+      ],
+      "deliverables": [
+        "silhouettes"
+      ],
+      "acceptance": [
+        "silhouette.complete",
+        "silhouette.approved"
+      ]
+    },
+    {
+      "id": "mechanism",
+      "name": "変形と合体の仕組み",
+      "purpose": "関節と結合点、変形と合体の手順を決め、手順ごとに干渉と成立を確かめる。",
+      "after": [
+        "silhouette"
+      ],
+      "deliverables": [
+        "mechanism-plan"
+      ],
+      "acceptance": [
+        "mechanism.complete",
+        "mechanism.approved"
+      ]
+    },
+    {
+      "id": "model",
+      "name": "3Dモデル",
+      "purpose": "機体ごとの3Dモデルを組み、各形態と合体の姿勢で干渉が無いことを確かめる。",
+      "after": [
+        "mechanism"
+      ],
+      "deliverables": [
+        "model-3d"
+      ],
+      "acceptance": [
+        "model.complete",
+        "model.approved"
+      ]
+    },
+    {
+      "id": "sheets",
+      "name": "設定画（決定稿）",
+      "purpose": "作画と3DCGが使う設定画を、形態ごとの面と注意書きつきで決める。",
+      "after": [
+        "model"
+      ],
+      "deliverables": [
+        "design-sheets"
+      ],
+      "acceptance": [
+        "sheets.complete",
+        "sheets.approved"
+      ]
+    },
+    {
+      "id": "toy",
+      "name": "玩具化の検討",
+      "purpose": "玩具として、保持・強度・安全・部品数・費用を確かめ、設定画との違いを決める。",
+      "after": [
+        "model"
+      ],
+      "deliverables": [
+        "toy-review"
+      ],
+      "acceptance": [
+        "toy.complete",
+        "toy.approved"
+      ]
+    },
+    {
+      "id": "color",
+      "name": "色彩",
+      "purpose": "作画の色と玩具の色を、機体ごとに同じ配色から決める。",
+      "after": [
+        "sheets",
+        "toy"
+      ],
+      "deliverables": [
+        "color-design"
+      ],
+      "acceptance": [
+        "color.complete",
+        "color.approved"
+      ]
+    },
+    {
+      "id": "showcase",
+      "name": "見せ場",
+      "purpose": "変形合体の流れと決めのポーズ、背景の場所を、絵と動画で決める。",
+      "after": [
+        "color"
+      ],
+      "deliverables": [
+        "showcase-shots"
+      ],
+      "acceptance": [
+        "showcase.complete",
+        "showcase.approved"
+      ]
+    },
+    {
+      "id": "release",
+      "name": "決定と記録",
+      "purpose": "出た指摘をすべて閉じ、関わった組織の承認で決定稿にし、学びを残す。",
+      "after": [
+        "showcase"
+      ],
+      "deliverables": [
+        "review-log"
+      ],
+      "acceptance": [
+        "release.complete",
+        "release.approved"
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "id": "plan",
+      "name": "企画",
+      "phases": [
+        "process",
+        "brief"
+      ]
+    },
+    {
+      "id": "shape",
+      "name": "形",
+      "phases": [
+        "concept",
+        "silhouette"
+      ]
+    },
+    {
+      "id": "structure",
+      "name": "仕組み",
+      "phases": [
+        "mechanism",
+        "model"
+      ]
+    },
+    {
+      "id": "final",
+      "name": "決定稿",
+      "phases": [
+        "sheets",
+        "toy",
+        "color"
+      ]
+    },
+    {
+      "id": "show",
+      "name": "見せ場と決定",
+      "phases": [
+        "showcase",
+        "release"
+      ]
+    }
+  ],
+  "deliverables": [
+    {
+      "id": "process-map",
+      "name": "進め方",
+      "form": "文書",
+      "outline": [
+        {
+          "heading": "題材と出口",
+          "describe": "作るメカ（新しい独自のメカか、既存の見直しか）、何機の合体か、どこまで作るか（設定画まで・3Dモデルまで・玩具の見込みまで・宣伝の絵と動画まで）"
+        },
+        {
+          "heading": "組織と担当",
+          "describe": "関わる組織（制作会社・デザイン事務所・玩具メーカーなど）と、担当（監督・ディレクター・メカデザイナー・玩具の担当など）、工程ごとに呼ぶ人"
+        },
+        {
+          "heading": "承認の条件",
+          "describe": "工程ごとに、どの組織から何人の承認で受け入れるか。代わりに承認する人と期限"
+        },
+        {
+          "heading": "AIの関与",
+          "describe": "AIに任せる作業（案出し・モデル化・干渉の確認・描画）と、人が決めること、人が手で直す所"
+        },
+        {
+          "heading": "道具と参考と権利",
+          "describe": "使う道具、足りない機能、参考にした考え方の出典。既存の作品のメカ・名前・標章を写さないことの断り"
+        }
+      ],
+      "uses": []
+    },
+    {
+      "id": "requirements",
+      "name": "企画と要求",
+      "form": "表",
+      "outline": [
+        {
+          "heading": "作品での役割",
+          "describe": "誰が乗り、どの場面で何をするメカか。敵や物語の山との関係"
+        },
+        {
+          "heading": "要求",
+          "describe": "役割・見せ場・商品・制約を一件ずつ。出した人の立場（監督・ディレクター・玩具など）と優先の順を付ける",
+          "item": "requirement"
+        }
+      ],
+      "uses": [
+        "process-map"
+      ],
+      "view": {
+        "as": "table",
+        "items": "requirement",
+        "columns": [
+          "name",
+          "by",
+          "priority",
+          "kind"
+        ],
+        "groupBy": "kind"
+      }
+    },
+    {
+      "id": "combine-concept",
+      "name": "合体の構想",
+      "form": "図",
+      "outline": [
+        {
+          "heading": "機体",
+          "describe": "合体する機体ごとに、乗り物の形・役割・大きさ・乗る人",
+          "item": "unit"
+        },
+        {
+          "heading": "形態",
+          "describe": "機体ごとの形態と合体した形態。合体での部位（頭・胴・腕・脚・背）",
+          "item": "form"
+        },
+        {
+          "heading": "合体図",
+          "describe": "どの機体がどこへ付くかの図と、合体の順"
+        }
+      ],
+      "uses": [
+        "requirements"
+      ],
+      "view": {
+        "as": "graph",
+        "nodes": [
+          "unit",
+          "form"
+        ]
+      }
+    },
+    {
+      "id": "silhouettes",
+      "name": "シルエットと比率",
+      "form": "図",
+      "outline": [
+        {
+          "heading": "案",
+          "describe": "形態ごとのシルエットの案と、選んだ案と理由",
+          "item": "silhouette"
+        },
+        {
+          "heading": "比率の測り",
+          "describe": "頭身・肩幅・脚の長さ・機体の長さと幅など、目安と測った値",
+          "item": "proportion"
+        }
+      ],
+      "uses": [
+        "combine-concept"
+      ]
+    },
+    {
+      "id": "mechanism-plan",
+      "name": "変形と合体の仕組み",
+      "form": "表",
+      "outline": [
+        {
+          "heading": "関節と結合点",
+          "describe": "関節（回る軸と範囲）と、機体どうしの結合点（向き・抜け止め）",
+          "item": "joint"
+        },
+        {
+          "heading": "手順",
+          "describe": "変形と合体の手順を順に。動く部分と、関わる関節・結合点",
+          "item": "step"
+        },
+        {
+          "heading": "干渉と成立の確認",
+          "describe": "手順ごとの干渉・届くか・保持の確認と結果",
+          "item": "check"
+        }
+      ],
+      "uses": [
+        "combine-concept",
+        "silhouettes"
+      ],
+      "view": {
+        "as": "table",
+        "items": "step",
+        "columns": [
+          "name",
+          "order",
+          "moves",
+          "cites"
+        ]
+      }
+    },
+    {
+      "id": "model-3d",
+      "name": "3Dモデル",
+      "form": "3Dモデル",
+      "outline": [
+        {
+          "heading": "機体ごとのモデル",
+          "describe": "機体ごとの部品と関節、各形態の姿勢"
+        },
+        {
+          "heading": "合体の姿勢",
+          "describe": "合体した形態での結合の位置と、干渉の確認の結果"
+        },
+        {
+          "heading": "手で直した所",
+          "describe": "AIの出したモデルから人が直した所と理由"
+        }
+      ],
+      "uses": [
+        "mechanism-plan"
+      ]
+    },
+    {
+      "id": "design-sheets",
+      "name": "設定画",
+      "form": "画像",
+      "outline": [
+        {
+          "heading": "設定画",
+          "describe": "形態ごとの正面・側面・背面・合体の図。作画の注意書き",
+          "item": "sheet"
+        }
+      ],
+      "uses": [
+        "model-3d",
+        "silhouettes"
+      ]
+    },
+    {
+      "id": "toy-review",
+      "name": "玩具化の検討",
+      "form": "表",
+      "outline": [
+        {
+          "heading": "確認",
+          "describe": "保持力・関節の強さ・小さな部品と尖った所（安全）・部品数・費用の見込みを一件ずつ。判定と対策",
+          "item": "toy-check"
+        },
+        {
+          "heading": "設定画との違い",
+          "describe": "玩具の都合で変える所と、変えない所"
+        }
+      ],
+      "uses": [
+        "model-3d",
+        "mechanism-plan",
+        "requirements"
+      ],
+      "view": {
+        "as": "table",
+        "items": "toy-check",
+        "columns": [
+          "name",
+          "kind",
+          "result",
+          "measure",
+          "cites"
+        ],
+        "groupBy": "kind"
+      }
+    },
+    {
+      "id": "color-design",
+      "name": "色彩",
+      "form": "表",
+      "outline": [
+        {
+          "heading": "配色",
+          "describe": "機体ごとの主色・副色・差し色。作画の色と玩具の成形色・塗装を並べる",
+          "item": "color"
+        }
+      ],
+      "uses": [
+        "design-sheets",
+        "toy-review"
+      ]
+    },
+    {
+      "id": "showcase-shots",
+      "name": "見せ場",
+      "form": "画像と動画",
+      "outline": [
+        {
+          "heading": "見せ場",
+          "describe": "変形・合体・決めのポーズの絵と動画。背景の場所と、背景の出典",
+          "item": "shot"
+        }
+      ],
+      "uses": [
+        "color-design",
+        "model-3d"
+      ]
+    },
+    {
+      "id": "review-log",
+      "name": "判断の記録",
+      "form": "表",
+      "outline": [
+        {
+          "heading": "指摘",
+          "describe": "議論で出た指摘を一件ずつ。出した人と組織、対象、対応",
+          "item": "issue"
+        },
+        {
+          "heading": "判断",
+          "describe": "工程ごとに決めたこと、承認した人と組織、差し戻しと戻った工程",
+          "item": "decision"
+        },
+        {
+          "heading": "学び",
+          "describe": "次のメカで変えること"
+        }
+      ],
+      "uses": [
+        "process-map"
+      ],
+      "view": [
+        {
+          "as": "kanban",
+          "items": "issue",
+          "groupBy": "state",
+          "columns": [
+            "出た",
+            "対応中",
+            "閉じた"
+          ],
+          "card": [
+            "name",
+            "by",
+            "organization"
+          ]
+        },
+        {
+          "as": "table",
+          "items": "decision",
+          "columns": [
+            "name",
+            "phase",
+            "approvedBy",
+            "cites"
+          ]
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "requirement",
+      "name": "要求",
+      "idForm": "RQ-{nn}"
+    },
+    {
+      "id": "unit",
+      "name": "機体",
+      "idForm": "UN-{nn}"
+    },
+    {
+      "id": "form",
+      "name": "形態",
+      "idForm": "FM-{nn}"
+    },
+    {
+      "id": "silhouette",
+      "name": "シルエットの案",
+      "idForm": "SL-{nn}"
+    },
+    {
+      "id": "proportion",
+      "name": "比率の測り",
+      "idForm": "PM-{nn}"
+    },
+    {
+      "id": "joint",
+      "name": "関節と結合点",
+      "idForm": "JT-{nn}"
+    },
+    {
+      "id": "step",
+      "name": "手順",
+      "idForm": "SP-{nn}"
+    },
+    {
+      "id": "check",
+      "name": "干渉と成立の確認",
+      "idForm": "CK-{nn}"
+    },
+    {
+      "id": "sheet",
+      "name": "設定画",
+      "idForm": "SH-{nn}"
+    },
+    {
+      "id": "toy-check",
+      "name": "玩具の確認",
+      "idForm": "TC-{nn}"
+    },
+    {
+      "id": "color",
+      "name": "配色",
+      "idForm": "CL-{nn}"
+    },
+    {
+      "id": "shot",
+      "name": "見せ場",
+      "idForm": "SC-{nn}"
+    },
+    {
+      "id": "issue",
+      "name": "指摘",
+      "idForm": "IS-{nn}"
+    },
+    {
+      "id": "decision",
+      "name": "判断",
+      "idForm": "DC-{nn}"
+    }
+  ],
+  "rules": [
+    {
+      "id": "unit-cites-requirement",
+      "type": "cites",
+      "from": "unit",
+      "to": [
+        "requirement"
+      ],
+      "min": 1
+    },
+    {
+      "id": "form-cites-unit",
+      "type": "cites",
+      "from": "form",
+      "to": [
+        "unit",
+        "form"
+      ],
+      "min": 1
+    },
+    {
+      "id": "silhouette-cites-form",
+      "type": "cites",
+      "from": "silhouette",
+      "to": [
+        "form",
+        "requirement"
+      ],
+      "min": 1
+    },
+    {
+      "id": "proportion-cites-form",
+      "type": "cites",
+      "from": "proportion",
+      "to": [
+        "form",
+        "silhouette",
+        "requirement"
+      ],
+      "min": 1
+    },
+    {
+      "id": "joint-cites-unit",
+      "type": "cites",
+      "from": "joint",
+      "to": [
+        "unit",
+        "form"
+      ],
+      "min": 1
+    },
+    {
+      "id": "step-cites-joint",
+      "type": "cites",
+      "from": "step",
+      "to": [
+        "joint",
+        "form",
+        "step"
+      ],
+      "min": 1
+    },
+    {
+      "id": "check-cites-step",
+      "type": "cites",
+      "from": "check",
+      "to": [
+        "step",
+        "joint"
+      ],
+      "min": 1
+    },
+    {
+      "id": "sheet-cites-form",
+      "type": "cites",
+      "from": "sheet",
+      "to": [
+        "form",
+        "silhouette"
+      ],
+      "min": 1
+    },
+    {
+      "id": "toycheck-cites",
+      "type": "cites",
+      "from": "toy-check",
+      "to": [
+        "requirement",
+        "joint",
+        "step",
+        "form"
+      ],
+      "min": 1
+    },
+    {
+      "id": "color-cites-unit",
+      "type": "cites",
+      "from": "color",
+      "to": [
+        "unit",
+        "requirement"
+      ],
+      "min": 1
+    },
+    {
+      "id": "shot-cites",
+      "type": "cites",
+      "from": "shot",
+      "to": [
+        "form",
+        "step",
+        "color"
+      ],
+      "min": 1
+    },
+    {
+      "id": "issue-cites",
+      "type": "cites",
+      "from": "issue",
+      "to": [
+        "requirement",
+        "unit",
+        "form",
+        "silhouette",
+        "proportion",
+        "joint",
+        "step",
+        "check",
+        "sheet",
+        "toy-check",
+        "color",
+        "shot"
+      ],
+      "min": 1
+    },
+    {
+      "id": "decision-cites",
+      "type": "cites",
+      "from": "decision",
+      "to": [
+        "issue",
+        "requirement",
+        "unit",
+        "form",
+        "silhouette",
+        "joint",
+        "step",
+        "sheet",
+        "toy-check",
+        "color",
+        "shot"
+      ],
+      "min": 1
+    },
+    {
+      "id": "requirement-covered",
+      "type": "covered",
+      "of": "requirement",
+      "by": [
+        "unit",
+        "silhouette",
+        "proportion",
+        "toy-check",
+        "color",
+        "issue",
+        "decision"
+      ],
+      "exempt": true
+    },
+    {
+      "id": "step-covered",
+      "type": "covered",
+      "of": "step",
+      "by": [
+        "check"
+      ]
+    },
+    {
+      "id": "form-covered",
+      "type": "covered",
+      "of": "form",
+      "by": [
+        "sheet",
+        "form"
+      ],
+      "exempt": true
+    },
+    {
+      "id": "joint-covered",
+      "type": "covered",
+      "of": "joint",
+      "by": [
+        "check",
+        "toy-check",
+        "step"
+      ]
+    },
+    {
+      "id": "issue-covered",
+      "type": "covered",
+      "of": "issue",
+      "by": [
+        "decision"
+      ]
+    }
+  ],
+  "acceptance": [
+    {
+      "id": "process.complete",
+      "text": "題材と出口、関わる組織と担当、工程ごとの承認の条件、AIの関与、道具、参考と権利が書かれている。",
+      "checkedBy": "AI",
+      "target": "process-map"
+    },
+    {
+      "id": "process.approved",
+      "text": "制作側と玩具側の責任者が、工程・担当・承認の条件を確かめ、開始を承認している。",
+      "checkedBy": "人",
+      "target": "process-map"
+    },
+    {
+      "id": "brief.complete",
+      "text": "役割・見せ場・商品の条件・制約が要求として一件ずつ書かれ、出した人の立場が付いている。",
+      "checkedBy": "AI",
+      "target": "requirements"
+    },
+    {
+      "id": "brief.approved",
+      "text": "監督・ディレクター・玩具の担当が、要求と優先の順を確かめ、承認している。",
+      "checkedBy": "人",
+      "target": "requirements"
+    },
+    {
+      "id": "concept.complete",
+      "text": "機体ごとに役割と形態、合体での部位が書かれ、要求を引いている。",
+      "checkedBy": "AI",
+      "target": "combine-concept",
+      "rules": [
+        "unit-cites-requirement",
+        "form-cites-unit"
+      ]
+    },
+    {
+      "id": "concept.covered",
+      "text": "要求が機体・形態・玩具の確認のどれかに引かれているか、引かない理由が書かれている。",
+      "checkedBy": "AI",
+      "target": "combine-concept",
+      "rules": [
+        "requirement-covered"
+      ]
+    },
+    {
+      "id": "concept.approved",
+      "text": "監督とメカデザイナーが合体の構想を選び、玩具の担当が商品として成り立つ見込みを確かめている。",
+      "checkedBy": "人",
+      "target": "combine-concept"
+    },
+    {
+      "id": "silhouette.complete",
+      "text": "形態ごとに案と選んだ案と比率の測りがあり、形態を引いている。",
+      "checkedBy": "AI",
+      "target": "silhouettes",
+      "rules": [
+        "silhouette-cites-form",
+        "proportion-cites-form"
+      ]
+    },
+    {
+      "id": "silhouette.approved",
+      "text": "監督とメカデザイナーが、遠目の影で役割が読めることを確かめ、案を承認している。",
+      "checkedBy": "人",
+      "target": "silhouettes"
+    },
+    {
+      "id": "mechanism.complete",
+      "text": "関節・結合点と手順が一件ずつあり、手順ごとの干渉の確認が書かれている。",
+      "checkedBy": "AI",
+      "target": "mechanism-plan",
+      "rules": [
+        "joint-cites-unit",
+        "step-cites-joint",
+        "check-cites-step",
+        "step-covered",
+        "joint-covered"
+      ]
+    },
+    {
+      "id": "mechanism.approved",
+      "text": "メカデザイナーが仕組みを、玩具の担当が保持と組み立ての見込みを確かめ、承認している。",
+      "checkedBy": "人",
+      "target": "mechanism-plan"
+    },
+    {
+      "id": "model.complete",
+      "text": "機体ごとのモデルと形態があり、各形態の干渉の確認の結果が書かれている。",
+      "checkedBy": "AI",
+      "target": "model-3d"
+    },
+    {
+      "id": "model.approved",
+      "text": "メカデザイナーがモデルを見て、手で直した所を含めて形を承認している。",
+      "checkedBy": "人",
+      "target": "model-3d"
+    },
+    {
+      "id": "sheets.complete",
+      "text": "形態ごとに設定画があり、形態を引き、作画の注意が付いている。",
+      "checkedBy": "AI",
+      "target": "design-sheets",
+      "rules": [
+        "sheet-cites-form",
+        "form-covered"
+      ]
+    },
+    {
+      "id": "sheets.approved",
+      "text": "監督とメカデザイナーが決定稿として承認している。",
+      "checkedBy": "人",
+      "target": "design-sheets"
+    },
+    {
+      "id": "toy.complete",
+      "text": "玩具の確認が一件ずつあり、要求・関節・結合点を引き、判定が付いている。",
+      "checkedBy": "AI",
+      "target": "toy-review",
+      "rules": [
+        "toycheck-cites"
+      ]
+    },
+    {
+      "id": "toy.approved",
+      "text": "玩具の担当が商品化の見込みを、メカデザイナーが設定画との違いを確かめ、承認している。",
+      "checkedBy": "人",
+      "target": "toy-review"
+    },
+    {
+      "id": "color.complete",
+      "text": "機体ごとの配色があり、作画の色と玩具の色が並べて書かれている。",
+      "checkedBy": "AI",
+      "target": "color-design",
+      "rules": [
+        "color-cites-unit"
+      ]
+    },
+    {
+      "id": "color.approved",
+      "text": "監督と玩具の担当が配色を承認している。",
+      "checkedBy": "人",
+      "target": "color-design"
+    },
+    {
+      "id": "showcase.complete",
+      "text": "見せ場ごとに形態か手順を引き、背景と出力が書かれている。",
+      "checkedBy": "AI",
+      "target": "showcase-shots",
+      "rules": [
+        "shot-cites"
+      ]
+    },
+    {
+      "id": "showcase.approved",
+      "text": "監督とディレクターが見せ場を承認している。",
+      "checkedBy": "人",
+      "target": "showcase-shots"
+    },
+    {
+      "id": "release.complete",
+      "text": "指摘ごとに対応と閉じた判断があり、判断に承認した人と組織が書かれている。",
+      "checkedBy": "AI",
+      "target": "review-log",
+      "rules": [
+        "issue-cites",
+        "issue-covered",
+        "decision-cites"
+      ]
+    },
+    {
+      "id": "release.approved",
+      "text": "進め方で決めた承認の条件（組織と人数）がそろって、決定稿を承認している。",
+      "checkedBy": "人",
+      "target": "review-log"
+    }
+  ]
+}
