@@ -381,7 +381,18 @@
       "uses": [
         "silhouettes",
         "combine-concept"
-      ]
+      ],
+      "view": {
+        "as": "table",
+        "items": "drawing",
+        "columns": [
+          "name",
+          "form",
+          "views",
+          "size",
+          "note"
+        ]
+      }
     },
     {
       "id": "mechanism-plan",
