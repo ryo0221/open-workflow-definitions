@@ -1,3 +1,4 @@
+import { createHash } from 'node:crypto';
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync, readdirSync } from 'node:fs';
@@ -15,6 +16,19 @@ const fixture = () => ({
 test('published definitions pass the shared validator', () => {
   for (const file of readdirSync(new URL('../definitions/', import.meta.url))) {
     assert.deepEqual(check(JSON.parse(readFileSync(new URL('../definitions/' + file, import.meta.url)))), [], file);
+  }
+});
+test('archived definitions retain their pinned bytes, identity and version', () => {
+  for (const [id, version, sha] of [
+    ['japan-company-establishment', '1.0.0', 'bf5dfa49b83547b6d3277e78f621be7cdf4e084e97072d0e76cb80bbc63995f8'],
+    ['fiction-novel', '1.1.0', 'bedb11ddc03df78174e42bd0a19804db590b48778a116208a3ab21425ac9d80e'],
+    ['fiction-manga', '1.0.0', 'f5d6c93bdd22ac327ede713d69613f66a3ad30e1e4c2c4d9d48aeda06ea956ba'],
+  ]) {
+    const bytes = readFileSync(new URL(`../archive/${sha.slice(0, 8)}/definitions/${id}.json`, import.meta.url));
+    assert.equal(createHash('sha256').update(bytes).digest('hex'), sha);
+    const definition = JSON.parse(bytes);
+    assert.deepEqual([definition.id, definition.version], [id, version]);
+    assert.deepEqual(check(definition), []);
   }
 });
 test('seven declared views are independent of Host capabilities', () => {

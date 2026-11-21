@@ -10,6 +10,21 @@ const fx = (id, name) => read(`../fixtures/${id}/${name}.json`);
 const item = (f, id) => Object.values(f.deliverables).flatMap((e) => e.items ?? []).find((x) => x.id === id);
 const has = (problems, text) => problems.some((p) => p.includes(text));
 
+test('親・孫の ID は実在する親の種類と定義された書式に従い、記載順を問わない', () => {
+  const kinds = def('software-product').items.filter(it => ['story', 'criterion', 'example'].includes(it.id));
+  const child = { id: 'sub', parent: 'criterion', idForm: '[{parent}].{nn}/{nn}' };
+  const d = { id: 'test', version: '1', items: [child, ...kinds], deliverables: [{ id: 'stories', outline: [child, ...kinds].map(k => ({ item: k.id })) }] };
+  const fixture = ids => ({ fixture: 1, id: 'sample', title: '例', purpose: '検査', definition: { id: 'test', version: '1' },
+    deliverables: { stories: { items: ids.map(id => ({ id, name: id })) } } });
+  const ids = ['[ST-01#1].01/02', 'ST-01#1', 'ST-01#e1', 'ST-01'];
+  assert.deepEqual(checkFixture(d, fixture(ids)), []);
+  for (const invalid of ['ST-02#1', 'XX-01#1', '[ST-01#1]x01/02', '[ST-01#1].01/2']) {
+    assert.ok(has(checkFixture(d, fixture([...ids, invalid])), invalid));
+  }
+  child.parent = 'sub';
+  assert.ok(has(checkFixture(d, fixture(ids)), '循環'));
+});
+
 test('収録した見本は、今の版の定義の規則をすべて満たす', () => {
   for (const id of readdirSync(new URL('../fixtures/', import.meta.url))) {
     for (const file of readdirSync(new URL(`../fixtures/${id}/`, import.meta.url))) {
