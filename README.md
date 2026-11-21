@@ -1,4 +1,4 @@
-# workflow-definitions
+# open-workflow-definitions
 
 任意の分野のワークフローを、工程・成果物・項目の種類・達成条件と、それらの関係として定義するためのリポジトリです。
 
@@ -143,6 +143,18 @@ npm run check
 PR提出前・マージ前の必須検査は `npm run check` です。生成済み検査器とschemaの一致、正式定義、契約試験を順に検査し、どれかが失敗すれば停止します。`node scripts/check.mjs` は定義のみの検査で、この必須検査の代わりにはなりません。
 
 ID の重なり、存在しない参照、工程の順の循環、成果物や達成条件の無い工程、まとまりに入っていないか順に合わない工程を見つけます。
+
+### 過去の固定版
+
+既存の案件や契約が参照する版は `archive/` から取得できます。取得したファイルのバイト列を SHA-256 で照合してください。
+
+| 定義 | ファイル | SHA-256 |
+|---|---|---|
+| japan-company-establishment@1.0.0（12工程・13成果物） | [定義](archive/bf5dfa49/definitions/japan-company-establishment.json) | `bf5dfa49b83547b6d3277e78f621be7cdf4e084e97072d0e76cb80bbc63995f8` |
+| fiction-novel@1.1.0 | [定義](archive/bedb11dd/definitions/fiction-novel.json) | `bedb11ddc03df78174e42bd0a19804db590b48778a116208a3ab21425ac9d80e` |
+| fiction-manga@1.0.0 | [定義](archive/f5d6c93b/definitions/fiction-manga.json) | `f5d6c93bdd22ac327ede713d69613f66a3ad30e1e4c2c4d9d48aeda06ea956ba` |
+
+設立定義の現行版は16工程・19成果物で、旧版と同じ `1.0.0` を宣言しています。既存案件は固定したハッシュで版を選びます。
 
 ## 共通の定義検査
 
