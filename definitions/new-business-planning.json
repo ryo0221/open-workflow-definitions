@@ -1,0 +1,1540 @@
+{
+  "format": 1,
+  "id": "new-business-planning",
+  "version": "1.0.0",
+  "title": "新規事業の企画",
+  "purpose": "会社の新規事業を、要る仕事の洗い出しから、機会の探索・仮説・市場と顧客・事業モデル・実行の計画・収支・リスク・投資の判断を経て、事業計画書と説明の資料にまとめ、経営の判断を受ける。数字は種類と出典を分けて持ち、説明の資料の数字から前提と出典までたどれる形にする。題材・手法・道具・出力形式は利用側が決める。",
+  "phases": [
+    {
+      "id": "process",
+      "name": "進め方",
+      "purpose": "対象の事業領域と出口、工程と成果物、承認の決め方（どの組織から何人）、ゲート、組織ごとに見せる範囲、AIに委ねる範囲を決める。工程そのものも、要る仕事を枝に広げて整理してから決める。",
+      "after": [],
+      "deliverables": [
+        "process-map"
+      ],
+      "acceptance": [
+        "process.complete",
+        "process.traced",
+        "process.approved"
+      ]
+    },
+    {
+      "id": "opportunity",
+      "name": "機会の探索",
+      "purpose": "市場の変化・社会の課題・自社の強みと資産を枝に広げ、事業の機会を一件ずつ取り出し、選んだ機会と捨てた機会の理由を書く。",
+      "after": [
+        "process"
+      ],
+      "deliverables": [
+        "opportunity-map"
+      ],
+      "acceptance": [
+        "opportunity.complete",
+        "opportunity.traced",
+        "opportunity.approved"
+      ]
+    },
+    {
+      "id": "hypothesis",
+      "name": "事業の仮説",
+      "purpose": "選んだ機会について、顧客・課題・提供する価値・収益の仕組みの仮説と、その確かめ方を書く。探索を続けるかを決める最初のゲート。",
+      "after": [
+        "opportunity"
+      ],
+      "deliverables": [
+        "hypotheses"
+      ],
+      "acceptance": [
+        "hypothesis.complete",
+        "hypothesis.traced",
+        "hypothesis.gate"
+      ]
+    },
+    {
+      "id": "market",
+      "name": "市場と顧客",
+      "purpose": "市場の規模と伸び、顧客の話、競合を、数字の種類（実績・予測・仮定・計算）と出典を分けて集め、仮説を確かめる。",
+      "after": [
+        "hypothesis"
+      ],
+      "deliverables": [
+        "market-research"
+      ],
+      "acceptance": [
+        "market.complete",
+        "market.sourced",
+        "market.traced",
+        "market.approved"
+      ]
+    },
+    {
+      "id": "business-model",
+      "name": "事業モデル",
+      "purpose": "価値の流れの中での自社の位置、関係者（顧客・提携先・調達先・規制当局など）と、物・お金・情報の流れを決める。",
+      "after": [
+        "market"
+      ],
+      "deliverables": [
+        "business-model-map"
+      ],
+      "acceptance": [
+        "business-model.complete",
+        "business-model.traced",
+        "business-model.approved"
+      ]
+    },
+    {
+      "id": "execution",
+      "name": "実行の計画",
+      "purpose": "拠点・物流・設備・人・立ち上げの日程を、事業モデルを実行できる形にする。提携先と共同で作るときは、見せる範囲を分けて作る。",
+      "after": [
+        "business-model"
+      ],
+      "deliverables": [
+        "execution-plan"
+      ],
+      "acceptance": [
+        "execution.complete",
+        "execution.traced",
+        "execution.approved"
+      ]
+    },
+    {
+      "id": "business-case",
+      "name": "収支計画",
+      "purpose": "前提を一件ずつ置き、年次の収支・資金・投資の指標を計算し、シナリオと感応度で比べる。結果は使った前提と計算モデルの版から再計算できる形にする。",
+      "after": [
+        "business-model",
+        "execution"
+      ],
+      "deliverables": [
+        "business-case-model"
+      ],
+      "acceptance": [
+        "business-case.complete",
+        "business-case.sourced",
+        "business-case.recomputable",
+        "business-case.traced",
+        "business-case.approved"
+      ]
+    },
+    {
+      "id": "risk",
+      "name": "リスクと対策",
+      "purpose": "事業・市場・提携・規制・為替・国・実行のリスクを一件ずつ、影響・起きやすさ・対策・担当として書き、どの前提や計画に効くかを結ぶ。",
+      "after": [
+        "business-case"
+      ],
+      "deliverables": [
+        "risk-register"
+      ],
+      "acceptance": [
+        "risk.complete",
+        "risk.traced",
+        "risk.approved"
+      ]
+    },
+    {
+      "id": "investment",
+      "name": "投資の判断",
+      "purpose": "段階ごとの投資額、追う指標、撤退の基準を決め、投資を審査する人たちが承認する。",
+      "after": [
+        "business-case",
+        "risk"
+      ],
+      "deliverables": [
+        "investment-decision"
+      ],
+      "acceptance": [
+        "investment.complete",
+        "investment.traced",
+        "investment.committee"
+      ]
+    },
+    {
+      "id": "plan-document",
+      "name": "事業計画書",
+      "purpose": "ここまでの成果物を引いて、事業計画書にまとめる。数字と主張はすべて、もとの項目と版を引く。",
+      "after": [
+        "investment"
+      ],
+      "deliverables": [
+        "business-plan"
+      ],
+      "acceptance": [
+        "plan-document.complete",
+        "plan-document.traced",
+        "plan-document.consistent",
+        "plan-document.approved"
+      ]
+    },
+    {
+      "id": "deck",
+      "name": "説明の資料",
+      "purpose": "事業計画書から、決める人に説明する資料（スライドと発表者の原稿・想定問答）を作る。数字は受け入れた計画書と収支の版を引く。",
+      "after": [
+        "plan-document"
+      ],
+      "deliverables": [
+        "presentation-deck"
+      ],
+      "acceptance": [
+        "deck.complete",
+        "deck.traced",
+        "deck.consistent",
+        "deck.readable",
+        "deck.approved"
+      ]
+    },
+    {
+      "id": "decision",
+      "name": "経営の判断",
+      "purpose": "経営として実行するかを決め、条件と実行の項目を記録する。",
+      "after": [
+        "deck"
+      ],
+      "deliverables": [
+        "decision-record"
+      ],
+      "acceptance": [
+        "decision.complete",
+        "decision.traced",
+        "decision.approved"
+      ]
+    },
+    {
+      "id": "learning",
+      "name": "学び",
+      "purpose": "この企画で分かったことを、次の企画と工程の定義への直しとして残す。",
+      "after": [
+        "decision"
+      ],
+      "deliverables": [
+        "learning-notes"
+      ],
+      "acceptance": [
+        "learning.complete",
+        "learning.approved"
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "id": "explore",
+      "name": "探索",
+      "phases": [
+        "process",
+        "opportunity",
+        "hypothesis"
+      ]
+    },
+    {
+      "id": "validate",
+      "name": "確かめと設計",
+      "phases": [
+        "market",
+        "business-model",
+        "execution",
+        "business-case",
+        "risk",
+        "investment"
+      ]
+    },
+    {
+      "id": "conclude",
+      "name": "まとめと説明",
+      "phases": [
+        "plan-document",
+        "deck",
+        "decision"
+      ]
+    },
+    {
+      "id": "reflect",
+      "name": "学び",
+      "phases": [
+        "learning"
+      ]
+    }
+  ],
+  "deliverables": [
+    {
+      "id": "process-map",
+      "name": "進め方",
+      "form": "図・文書",
+      "outline": [
+        {
+          "heading": "対象と出口",
+          "describe": "対象の事業領域、企画の範囲、完成とする状態（経営の判断を受けるまで、など）"
+        },
+        {
+          "heading": "要る仕事",
+          "describe": "この企画で要る仕事・成果物・判断を、枝に広げて一件ずつ。欄 parent に親の枝、欄 kind に仕事・成果物・判断・条件の別、欄 by に枝を足した役割（企画・財務・法務など）を書く",
+          "item": "need"
+        },
+        {
+          "heading": "工程と成果物",
+          "describe": "使う工程、省く工程と理由、代わりの確認、繰り返す工程。どの枝がどの工程・成果物・達成条件になったかの対応"
+        },
+        {
+          "heading": "承認とゲート",
+          "describe": "工程ごとに承認する人、どの組織から何人の承認が要るか、ゲートで見ること"
+        },
+        {
+          "heading": "見せる範囲",
+          "describe": "組織ごとに見せる成果物と見せない成果物、範囲を分ける単位、受け渡す版"
+        },
+        {
+          "heading": "責任とAIの関与",
+          "describe": "AIに任せる作業と、人が判断すること"
+        },
+        {
+          "heading": "公開と権利",
+          "describe": "題材が架空か実在か、実在の会社・人・製品との関係の断り、使う情報の出典の扱い"
+        }
+      ],
+      "uses": [],
+      "view": {
+        "as": "mindmap",
+        "items": "need",
+        "parent": "parent",
+        "colorBy": "by"
+      }
+    },
+    {
+      "id": "opportunity-map",
+      "name": "機会の探索",
+      "form": "図",
+      "outline": [
+        {
+          "heading": "探索の枝",
+          "describe": "市場の変化・社会の課題・自社の強みと資産・規制や技術の動きを、枝に広げて一件ずつ。欄 parent に親の枝、欄 kind に変化・課題・強み・動き・着想の別を書く",
+          "item": "branch"
+        },
+        {
+          "heading": "機会",
+          "describe": "枝から取り出した事業の機会を一件ずつ。もとにした枝、選んだか捨てたか、その理由",
+          "item": "opportunity"
+        }
+      ],
+      "uses": [
+        "process-map"
+      ],
+      "view": [
+        {
+          "as": "mindmap",
+          "items": "branch",
+          "parent": "parent",
+          "layout": "radial",
+          "colorBy": "kind"
+        },
+        {
+          "as": "table",
+          "items": "opportunity",
+          "columns": [
+            "name",
+            "状態",
+            "理由"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hypotheses",
+      "name": "事業の仮説",
+      "form": "表",
+      "outline": [
+        {
+          "heading": "仮説",
+          "describe": "顧客・課題・提供する価値・収益の仕組みの仮説を一件ずつ。もとにした機会、確かめ方、確かめた結果（後の工程で書き足す）",
+          "item": "hypothesis"
+        },
+        {
+          "heading": "ゲートの判断",
+          "describe": "探索を続けるか、どの仮説を確かめるか、判断した人と日付"
+        }
+      ],
+      "uses": [
+        "opportunity-map"
+      ],
+      "view": {
+        "as": "table",
+        "items": "hypothesis",
+        "columns": [
+          "name",
+          "顧客",
+          "課題",
+          "価値",
+          "確かめ方",
+          "状態"
+        ]
+      }
+    },
+    {
+      "id": "market-research",
+      "name": "市場と顧客",
+      "form": "表・文書",
+      "outline": [
+        {
+          "heading": "市場の数字",
+          "describe": "市場の規模と伸び（全体・狙える範囲・取れる範囲など）を一件ずつ。欄 kind に実績・予測・仮定・計算の別を書き、実績は出典・地域・年・単位、予測は出典と予測の条件、仮定は理由と幅、計算は使った数字を書く",
+          "item": "market-figure"
+        },
+        {
+          "heading": "顧客の話",
+          "describe": "顧客や関係者から聞いたことを一件ずつ。誰の話か（属性）、どの仮説を確かめたか、確かめた・崩れた・分からないの別",
+          "item": "customer-note"
+        },
+        {
+          "heading": "競合と代わり",
+          "describe": "競合と、顧客が今使っている代わりの手段を一件ずつ。強み、弱み、どの仮説に効くか",
+          "item": "competitor"
+        }
+      ],
+      "uses": [
+        "hypotheses"
+      ],
+      "view": [
+        {
+          "as": "table",
+          "items": "market-figure",
+          "groupBy": "kind"
+        },
+        {
+          "as": "kanban",
+          "items": "customer-note",
+          "groupBy": "結果",
+          "columns": [
+            "確かめた",
+            "崩れた",
+            "分からない"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "business-model-map",
+      "name": "事業モデル",
+      "form": "図",
+      "outline": [
+        {
+          "heading": "関係者",
+          "describe": "自社・顧客・提携先・調達先・規制当局などを一件ずつ。欄 kind に役割、欄 in に入る領域（国や事業の区分）を書く",
+          "item": "actor"
+        },
+        {
+          "heading": "流れ",
+          "describe": "関係者の間の物・お金・情報の流れを一件ずつ。欄 from・to に関係者の ID、欄 kind に物・お金・情報の別",
+          "item": "value-flow"
+        },
+        {
+          "heading": "領域",
+          "describe": "国や事業の区分など、関係者をまとめる枠を一件ずつ",
+          "item": "domain"
+        },
+        {
+          "heading": "自社の位置",
+          "describe": "価値の流れの中で自社が担うこと、担わないこと、取り分の考え方"
+        }
+      ],
+      "uses": [
+        "market-research"
+      ],
+      "view": {
+        "as": "graph",
+        "sections": [
+          "domain"
+        ],
+        "nodes": [
+          "actor"
+        ],
+        "edges": [
+          "value-flow"
+        ],
+        "colorBy": "kind",
+        "edgeColorBy": "kind"
+      }
+    },
+    {
+      "id": "execution-plan",
+      "name": "実行の計画",
+      "form": "地図・日程・文書",
+      "outline": [
+        {
+          "heading": "拠点",
+          "describe": "事務所・倉庫・工場・回収の場所などを一件ずつ。場所、役割、規模、受け持つ関係者",
+          "item": "site"
+        },
+        {
+          "heading": "経路",
+          "describe": "拠点の間の物の流れを一件ずつ。欄 from・to に拠点の ID、量、手段",
+          "item": "route"
+        },
+        {
+          "heading": "設備と人",
+          "describe": "拠点ごとの設備・人の計画。工場のモデルなど別の成果物があればその版"
+        },
+        {
+          "heading": "節目",
+          "describe": "立ち上げの日程の節目を一件ずつ。欄 start・end に日付（YYYY-MM-DD）、担当",
+          "item": "milestone"
+        },
+        {
+          "heading": "共同で作る範囲",
+          "describe": "提携先と共同で作る部分、見せる範囲、受け渡した版"
+        }
+      ],
+      "uses": [
+        "business-model-map"
+      ],
+      "view": [
+        {
+          "as": "graph",
+          "nodes": [
+            "site"
+          ],
+          "edges": [
+            "route"
+          ],
+          "colorBy": "kind"
+        },
+        {
+          "as": "timeline",
+          "items": "milestone",
+          "start": "start",
+          "end": "end",
+          "groupBy": "担当",
+          "scale": "month"
+        }
+      ]
+    },
+    {
+      "id": "business-case-model",
+      "name": "収支計画",
+      "form": "収支",
+      "outline": [
+        {
+          "heading": "計算の条件",
+          "describe": "期間・年次か月次か・基準の通貨・割引率・税・丸めの決まり・計算モデルの版"
+        },
+        {
+          "heading": "前提",
+          "describe": "収支を決める数字を一件ずつ。値・単位・通貨、欄 kind に実績・予測・仮定・条件の別、出典か理由、想定する幅",
+          "item": "assumption"
+        },
+        {
+          "heading": "シナリオ",
+          "describe": "基本・楽観・悲観などを一件ずつ。どの前提をどの値に変えるか",
+          "item": "scenario"
+        },
+        {
+          "heading": "計算結果",
+          "describe": "シナリオごとの年次の売上・費用・投資・資金の動きと、投資の指標（正味現在価値・内部収益率・回収年など）を一件ずつ。使った前提と計算モデルの版",
+          "item": "result"
+        },
+        {
+          "heading": "感応度",
+          "describe": "主な前提を幅の中で動かしたとき、指標がどれだけ動くか。効く順"
+        }
+      ],
+      "uses": [
+        "business-model-map",
+        "execution-plan",
+        "market-research"
+      ],
+      "view": [
+        {
+          "as": "table",
+          "items": "assumption",
+          "groupBy": "kind",
+          "columns": [
+            "name",
+            "値",
+            "単位",
+            "kind",
+            "出典",
+            "幅"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "risk-register",
+      "name": "リスクと対策",
+      "form": "表",
+      "outline": [
+        {
+          "heading": "リスク",
+          "describe": "リスクを一件ずつ。欄 category（事業・市場・提携・規制・為替・国・実行）、影響、起きやすさ、対策、担当、効く前提や計画",
+          "item": "risk"
+        }
+      ],
+      "uses": [
+        "business-case-model",
+        "execution-plan",
+        "business-model-map"
+      ],
+      "view": {
+        "as": "table",
+        "items": "risk",
+        "groupBy": "category",
+        "columns": [
+          "name",
+          "影響",
+          "起きやすさ",
+          "対策",
+          "担当"
+        ],
+        "sort": [
+          {
+            "by": "影響",
+            "desc": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "investment-decision",
+      "name": "投資の判断",
+      "form": "表・文書",
+      "outline": [
+        {
+          "heading": "段階の投資",
+          "describe": "段階ごとの投資額、次の段階へ進む条件",
+          "item": "stage"
+        },
+        {
+          "heading": "追う指標",
+          "describe": "事業の進み具合を見る指標を一件ずつ。目標の値と測り方",
+          "item": "kpi"
+        },
+        {
+          "heading": "撤退の基準",
+          "describe": "やめる・見直す条件を一件ずつ。どの指標や前提を見て、いつ判断するか",
+          "item": "exit-criterion"
+        },
+        {
+          "heading": "審査",
+          "describe": "審査した人と組織、承認・差し戻し・条件、差し戻したときの直し"
+        }
+      ],
+      "uses": [
+        "business-case-model",
+        "risk-register"
+      ],
+      "view": {
+        "as": "table",
+        "items": "exit-criterion",
+        "columns": [
+          "name",
+          "見る指標",
+          "判断の時期"
+        ]
+      }
+    },
+    {
+      "id": "business-plan",
+      "name": "事業計画書",
+      "form": "文書",
+      "outline": [
+        {
+          "heading": "要旨",
+          "describe": "事業の一文、なぜ自社か、数字の要点、求める判断"
+        },
+        {
+          "heading": "主張",
+          "describe": "計画書の主張を一件ずつ。もとにした項目（数字は前提・計算結果の版）",
+          "item": "claim"
+        },
+        {
+          "heading": "本文",
+          "describe": "事業の背景・機会・仮説と確かめ・市場・事業モデル・実行・収支・リスク・投資と撤退の章"
+        }
+      ],
+      "uses": [
+        "investment-decision",
+        "business-case-model",
+        "risk-register",
+        "execution-plan",
+        "business-model-map",
+        "market-research",
+        "hypotheses"
+      ]
+    },
+    {
+      "id": "presentation-deck",
+      "name": "説明の資料",
+      "form": "スライド",
+      "outline": [
+        {
+          "heading": "スライド",
+          "describe": "説明のスライドを一枚ずつ。伝えること、載せる数字と図、もとにした主張、動きの順",
+          "item": "slide"
+        },
+        {
+          "heading": "発表者の原稿",
+          "describe": "スライドごとの話す言葉。数字の読み方"
+        },
+        {
+          "heading": "想定問答",
+          "describe": "決める人から出そうな問いと答えを一件ずつ。もとにした主張やリスク",
+          "item": "qa"
+        }
+      ],
+      "uses": [
+        "business-plan"
+      ],
+      "view": {
+        "as": "table",
+        "items": "slide",
+        "columns": [
+          "name",
+          "伝えること",
+          "動き"
+        ]
+      }
+    },
+    {
+      "id": "decision-record",
+      "name": "経営の判断",
+      "form": "文書",
+      "outline": [
+        {
+          "heading": "判断",
+          "describe": "実行する・しない・条件付きなどの判断を一件ずつ。判断した人、条件、もとにした資料と版",
+          "item": "decision"
+        },
+        {
+          "heading": "実行の項目",
+          "describe": "判断に付いた条件と、次にやること、担当、期限"
+        }
+      ],
+      "uses": [
+        "presentation-deck",
+        "business-plan"
+      ]
+    },
+    {
+      "id": "learning-notes",
+      "name": "学び",
+      "form": "表",
+      "outline": [
+        {
+          "heading": "学び",
+          "describe": "この企画で分かったことを一件ずつ。何が起きたか、次にどうするか、工程の定義への直しの案",
+          "item": "lesson"
+        }
+      ],
+      "uses": [
+        "decision-record"
+      ],
+      "view": {
+        "as": "table",
+        "items": "lesson"
+      }
+    }
+  ],
+  "items": [
+    {
+      "id": "need",
+      "name": "要る仕事",
+      "idForm": "ND-{nn}"
+    },
+    {
+      "id": "branch",
+      "name": "探索の枝",
+      "idForm": "BR-{nnn}"
+    },
+    {
+      "id": "opportunity",
+      "name": "機会",
+      "idForm": "OP-{nn}"
+    },
+    {
+      "id": "hypothesis",
+      "name": "仮説",
+      "idForm": "HY-{nn}"
+    },
+    {
+      "id": "market-figure",
+      "name": "市場の数字",
+      "idForm": "MF-{nn}"
+    },
+    {
+      "id": "customer-note",
+      "name": "顧客の話",
+      "idForm": "CU-{nn}"
+    },
+    {
+      "id": "competitor",
+      "name": "競合と代わり",
+      "idForm": "CP-{nn}"
+    },
+    {
+      "id": "domain",
+      "name": "領域",
+      "idForm": "DM-{nn}"
+    },
+    {
+      "id": "actor",
+      "name": "関係者",
+      "idForm": "AC-{nn}"
+    },
+    {
+      "id": "value-flow",
+      "name": "流れ",
+      "idForm": "VF-{nn}"
+    },
+    {
+      "id": "site",
+      "name": "拠点",
+      "idForm": "SI-{nn}"
+    },
+    {
+      "id": "route",
+      "name": "経路",
+      "idForm": "RT-{nn}"
+    },
+    {
+      "id": "milestone",
+      "name": "節目",
+      "idForm": "MS-{nn}"
+    },
+    {
+      "id": "assumption",
+      "name": "前提",
+      "idForm": "AS-{nn}"
+    },
+    {
+      "id": "scenario",
+      "name": "シナリオ",
+      "idForm": "SN-{nn}"
+    },
+    {
+      "id": "result",
+      "name": "計算結果",
+      "idForm": "CR-{nn}"
+    },
+    {
+      "id": "risk",
+      "name": "リスク",
+      "idForm": "RK-{nn}"
+    },
+    {
+      "id": "stage",
+      "name": "段階の投資",
+      "idForm": "SG-{nn}"
+    },
+    {
+      "id": "kpi",
+      "name": "追う指標",
+      "idForm": "KP-{nn}"
+    },
+    {
+      "id": "exit-criterion",
+      "name": "撤退の基準",
+      "idForm": "EX-{nn}"
+    },
+    {
+      "id": "claim",
+      "name": "主張",
+      "idForm": "CL-{nn}"
+    },
+    {
+      "id": "slide",
+      "name": "スライド",
+      "idForm": "SL-{nn}"
+    },
+    {
+      "id": "qa",
+      "name": "想定問答",
+      "idForm": "QA-{nn}"
+    },
+    {
+      "id": "decision",
+      "name": "判断",
+      "idForm": "DC-{nn}"
+    },
+    {
+      "id": "lesson",
+      "name": "学び",
+      "idForm": "LN-{nn}"
+    }
+  ],
+  "rules": [
+    {
+      "id": "need-cites-need",
+      "type": "cites",
+      "from": "need",
+      "to": [
+        "need"
+      ],
+      "min": 0
+    },
+    {
+      "id": "branch-cites-branch",
+      "type": "cites",
+      "from": "branch",
+      "to": [
+        "branch"
+      ],
+      "min": 0
+    },
+    {
+      "id": "opportunity-cites-branch",
+      "type": "cites",
+      "from": "opportunity",
+      "to": [
+        "branch"
+      ],
+      "min": 1
+    },
+    {
+      "id": "hypothesis-cites-opportunity",
+      "type": "cites",
+      "from": "hypothesis",
+      "to": [
+        "opportunity"
+      ],
+      "min": 1
+    },
+    {
+      "id": "market-figure-cites-figure",
+      "type": "cites",
+      "from": "market-figure",
+      "to": [
+        "market-figure"
+      ],
+      "min": 0
+    },
+    {
+      "id": "market-figure-cites-hypothesis",
+      "type": "cites",
+      "from": "market-figure",
+      "to": [
+        "hypothesis"
+      ],
+      "min": 0
+    },
+    {
+      "id": "customer-note-cites-hypothesis",
+      "type": "cites",
+      "from": "customer-note",
+      "to": [
+        "hypothesis"
+      ],
+      "min": 1
+    },
+    {
+      "id": "competitor-cites-hypothesis",
+      "type": "cites",
+      "from": "competitor",
+      "to": [
+        "hypothesis"
+      ],
+      "min": 0
+    },
+    {
+      "id": "actor-cites-research",
+      "type": "cites",
+      "from": "actor",
+      "to": [
+        "hypothesis",
+        "customer-note",
+        "competitor"
+      ],
+      "min": 0
+    },
+    {
+      "id": "value-flow-cites-actor",
+      "type": "cites",
+      "from": "value-flow",
+      "to": [
+        "actor"
+      ],
+      "min": 2
+    },
+    {
+      "id": "site-cites-actor",
+      "type": "cites",
+      "from": "site",
+      "to": [
+        "actor"
+      ],
+      "min": 1
+    },
+    {
+      "id": "route-cites-site",
+      "type": "cites",
+      "from": "route",
+      "to": [
+        "site"
+      ],
+      "min": 2
+    },
+    {
+      "id": "milestone-cites-plan",
+      "type": "cites",
+      "from": "milestone",
+      "to": [
+        "site",
+        "route",
+        "milestone"
+      ],
+      "min": 0
+    },
+    {
+      "id": "assumption-cites-source",
+      "type": "cites",
+      "from": "assumption",
+      "to": [
+        "market-figure",
+        "customer-note",
+        "site",
+        "route",
+        "milestone",
+        "value-flow"
+      ],
+      "min": 0
+    },
+    {
+      "id": "scenario-cites-assumption",
+      "type": "cites",
+      "from": "scenario",
+      "to": [
+        "assumption"
+      ],
+      "min": 1
+    },
+    {
+      "id": "result-cites-scenario",
+      "type": "cites",
+      "from": "result",
+      "to": [
+        "scenario",
+        "assumption"
+      ],
+      "min": 1
+    },
+    {
+      "id": "risk-cites-target",
+      "type": "cites",
+      "from": "risk",
+      "to": [
+        "assumption",
+        "site",
+        "route",
+        "actor",
+        "value-flow",
+        "milestone",
+        "result"
+      ],
+      "min": 1
+    },
+    {
+      "id": "stage-cites-result",
+      "type": "cites",
+      "from": "stage",
+      "to": [
+        "result",
+        "milestone"
+      ],
+      "min": 1
+    },
+    {
+      "id": "kpi-cites-target",
+      "type": "cites",
+      "from": "kpi",
+      "to": [
+        "assumption",
+        "hypothesis",
+        "milestone"
+      ],
+      "min": 1
+    },
+    {
+      "id": "exit-cites-kpi",
+      "type": "cites",
+      "from": "exit-criterion",
+      "to": [
+        "kpi",
+        "assumption",
+        "risk"
+      ],
+      "min": 1
+    },
+    {
+      "id": "claim-cites-source",
+      "type": "cites",
+      "from": "claim",
+      "to": [
+        "hypothesis",
+        "market-figure",
+        "customer-note",
+        "actor",
+        "value-flow",
+        "site",
+        "milestone",
+        "assumption",
+        "result",
+        "risk",
+        "stage",
+        "kpi",
+        "exit-criterion"
+      ],
+      "min": 1
+    },
+    {
+      "id": "slide-cites-claim",
+      "type": "cites",
+      "from": "slide",
+      "to": [
+        "claim"
+      ],
+      "min": 1
+    },
+    {
+      "id": "qa-cites-source",
+      "type": "cites",
+      "from": "qa",
+      "to": [
+        "claim",
+        "risk",
+        "assumption"
+      ],
+      "min": 1
+    },
+    {
+      "id": "decision-cites-source",
+      "type": "cites",
+      "from": "decision",
+      "to": [
+        "slide",
+        "claim",
+        "exit-criterion",
+        "stage"
+      ],
+      "min": 1
+    },
+    {
+      "id": "lesson-cites-any",
+      "type": "cites",
+      "from": "lesson",
+      "to": [
+        "need",
+        "hypothesis",
+        "assumption",
+        "risk",
+        "decision",
+        "slide"
+      ],
+      "min": 0
+    },
+    {
+      "id": "branch-covered",
+      "type": "covered",
+      "of": "branch",
+      "by": [
+        "branch",
+        "opportunity"
+      ],
+      "exempt": true
+    },
+    {
+      "id": "opportunity-covered",
+      "type": "covered",
+      "of": "opportunity",
+      "by": [
+        "hypothesis"
+      ],
+      "exempt": true
+    },
+    {
+      "id": "hypothesis-covered",
+      "type": "covered",
+      "of": "hypothesis",
+      "by": [
+        "customer-note",
+        "market-figure"
+      ]
+    },
+    {
+      "id": "assumption-covered",
+      "type": "covered",
+      "of": "assumption",
+      "by": [
+        "result",
+        "scenario"
+      ],
+      "exempt": true
+    },
+    {
+      "id": "scenario-covered",
+      "type": "covered",
+      "of": "scenario",
+      "by": [
+        "result"
+      ]
+    },
+    {
+      "id": "risk-covered",
+      "type": "covered",
+      "of": "risk",
+      "by": [
+        "claim",
+        "qa",
+        "exit-criterion"
+      ],
+      "exempt": true
+    },
+    {
+      "id": "result-covered",
+      "type": "covered",
+      "of": "result",
+      "by": [
+        "claim",
+        "stage"
+      ],
+      "exempt": true
+    },
+    {
+      "id": "claim-covered",
+      "type": "covered",
+      "of": "claim",
+      "by": [
+        "slide",
+        "qa"
+      ],
+      "exempt": true
+    },
+    {
+      "id": "exit-covered",
+      "type": "covered",
+      "of": "exit-criterion",
+      "by": [
+        "claim",
+        "decision"
+      ]
+    }
+  ],
+  "acceptance": [
+    {
+      "id": "process.complete",
+      "text": "対象と出口、要る仕事の枝、工程と成果物、承認とゲート、見せる範囲、AIの関与、公開と権利の扱いが書かれている。",
+      "checkedBy": "AI",
+      "target": "process-map"
+    },
+    {
+      "id": "process.traced",
+      "text": "要る仕事の枝が親の枝につながり、使う工程・成果物・達成条件のそれぞれが、どの枝から来たかの対応を持つ。",
+      "checkedBy": "AI",
+      "target": "process-map",
+      "rules": [
+        "need-cites-need"
+      ]
+    },
+    {
+      "id": "process.approved",
+      "text": "人が工程・承認の決め方・ゲート・見せる範囲を確かめ、開始を承認している。工程の定義を変えるときは、差分を確かめて新版として承認している。",
+      "checkedBy": "人",
+      "target": "process-map"
+    },
+    {
+      "id": "opportunity.complete",
+      "text": "探索の枝が変化・課題・強み・動き・着想の別を持ち、機会が一件ずつあり、選んだ機会と捨てた機会に理由がある。",
+      "checkedBy": "AI",
+      "target": "opportunity-map"
+    },
+    {
+      "id": "opportunity.traced",
+      "text": "機会が探索の枝を引用し、どの機会にもならなかった枝は理由を書いて除いている。",
+      "checkedBy": "AI",
+      "target": "opportunity-map",
+      "rules": [
+        "opportunity-cites-branch",
+        "branch-covered"
+      ]
+    },
+    {
+      "id": "opportunity.approved",
+      "text": "人が機会の選び方と捨て方を確かめている。",
+      "checkedBy": "人",
+      "target": "opportunity-map"
+    },
+    {
+      "id": "hypothesis.complete",
+      "text": "仮説ごとに顧客・課題・提供する価値・収益の仕組み・確かめ方が書かれている。",
+      "checkedBy": "AI",
+      "target": "hypotheses"
+    },
+    {
+      "id": "hypothesis.traced",
+      "text": "仮説が機会を引用し、選んだ機会に仮説がある（捨てた機会は理由を書いて除く）。",
+      "checkedBy": "AI",
+      "target": "hypotheses",
+      "rules": [
+        "hypothesis-cites-opportunity",
+        "opportunity-covered"
+      ]
+    },
+    {
+      "id": "hypothesis.gate",
+      "text": "事業の企画を受け持つ責任者が、仮説を確かめる価値があると判断し、探索を続けることを承認している。",
+      "checkedBy": "人",
+      "target": "hypotheses"
+    },
+    {
+      "id": "market.complete",
+      "text": "市場の数字・顧客の話・競合と代わりが一件ずつあり、どの仮説も顧客の話か市場の数字で確かめられている。",
+      "checkedBy": "AI",
+      "target": "market-research",
+      "rules": [
+        "hypothesis-covered"
+      ]
+    },
+    {
+      "id": "market.sourced",
+      "text": "市場の数字ごとに実績・予測・仮定・計算の別があり、実績は出典・地域・年・単位、予測は出典と条件、仮定は理由と幅、計算は使った数字を持つ。",
+      "checkedBy": "AI",
+      "target": "market-research"
+    },
+    {
+      "id": "market.traced",
+      "text": "顧客の話が仮説を引用している。",
+      "checkedBy": "AI",
+      "target": "market-research",
+      "rules": [
+        "customer-note-cites-hypothesis",
+        "market-figure-cites-hypothesis"
+      ]
+    },
+    {
+      "id": "market.approved",
+      "text": "人が数字の確からしさと、仮説が確かめられたか崩れたかの読みを確かめている。",
+      "checkedBy": "人",
+      "target": "market-research"
+    },
+    {
+      "id": "business-model.complete",
+      "text": "関係者と物・お金・情報の流れ、自社の位置と取り分の考え方が書かれている。",
+      "checkedBy": "AI",
+      "target": "business-model-map"
+    },
+    {
+      "id": "business-model.traced",
+      "text": "流れが関係者を引用している。",
+      "checkedBy": "AI",
+      "target": "business-model-map",
+      "rules": [
+        "value-flow-cites-actor"
+      ]
+    },
+    {
+      "id": "business-model.approved",
+      "text": "人が事業モデルと自社の位置を確かめている。",
+      "checkedBy": "人",
+      "target": "business-model-map"
+    },
+    {
+      "id": "execution.complete",
+      "text": "拠点・経路・設備と人・節目が書かれ、共同で作る範囲と受け渡した版が書かれている。",
+      "checkedBy": "AI",
+      "target": "execution-plan"
+    },
+    {
+      "id": "execution.traced",
+      "text": "拠点が関係者を、経路が拠点を引用している。",
+      "checkedBy": "AI",
+      "target": "execution-plan",
+      "rules": [
+        "site-cites-actor",
+        "route-cites-site"
+      ]
+    },
+    {
+      "id": "execution.approved",
+      "text": "人が実行の計画を確かめている。提携先と共同で作ったときは、その担当者も確かめている。",
+      "checkedBy": "人",
+      "target": "execution-plan"
+    },
+    {
+      "id": "business-case.complete",
+      "text": "計算の条件（期間・基準の通貨・割引率・丸め・計算モデルの版）、前提、シナリオ、計算結果、感応度が書かれている。",
+      "checkedBy": "AI",
+      "target": "business-case-model"
+    },
+    {
+      "id": "business-case.sourced",
+      "text": "前提ごとに値・単位・通貨と、実績・予測・仮定・条件の別があり、実績と予測は出典を、仮定は理由と幅を持つ。",
+      "checkedBy": "AI",
+      "target": "business-case-model"
+    },
+    {
+      "id": "business-case.recomputable",
+      "text": "計算結果が、書いた前提と計算モデルの版から再計算でき、値が一致する。",
+      "checkedBy": "AI",
+      "target": "business-case-model"
+    },
+    {
+      "id": "business-case.traced",
+      "text": "シナリオが前提を、計算結果がシナリオか前提を引用し、すべてのシナリオに計算結果がある。使わない前提は理由を書いて除いている。",
+      "checkedBy": "AI",
+      "target": "business-case-model",
+      "rules": [
+        "scenario-cites-assumption",
+        "result-cites-scenario",
+        "scenario-covered",
+        "assumption-covered"
+      ]
+    },
+    {
+      "id": "business-case.approved",
+      "text": "財務の担当が、前提の確からしさと計算の条件を確かめている。",
+      "checkedBy": "人",
+      "target": "business-case-model"
+    },
+    {
+      "id": "risk.complete",
+      "text": "リスクごとに区分・影響・起きやすさ・対策・担当が書かれている。",
+      "checkedBy": "AI",
+      "target": "risk-register"
+    },
+    {
+      "id": "risk.traced",
+      "text": "リスクが効く前提・計画・関係者・計算結果を引用している。",
+      "checkedBy": "AI",
+      "target": "risk-register",
+      "rules": [
+        "risk-cites-target"
+      ]
+    },
+    {
+      "id": "risk.approved",
+      "text": "法務・リスクの担当が、リスクの抜けと対策を確かめている。",
+      "checkedBy": "人",
+      "target": "risk-register"
+    },
+    {
+      "id": "investment.complete",
+      "text": "段階の投資、追う指標、撤退の基準、審査の記録が書かれている。",
+      "checkedBy": "AI",
+      "target": "investment-decision"
+    },
+    {
+      "id": "investment.traced",
+      "text": "段階の投資が計算結果か節目を、追う指標が前提・仮説・節目を、撤退の基準が指標・前提・リスクを引用している。",
+      "checkedBy": "AI",
+      "target": "investment-decision",
+      "rules": [
+        "stage-cites-result",
+        "kpi-cites-target",
+        "exit-cites-kpi"
+      ]
+    },
+    {
+      "id": "investment.committee",
+      "text": "投資を審査する人たちが、進め方で決めた組織と人数のとおりに承認している（差し戻しがあれば、その直しを確かめている）。",
+      "checkedBy": "人",
+      "target": "investment-decision"
+    },
+    {
+      "id": "plan-document.complete",
+      "text": "要旨・主張・本文の各章が書かれている。",
+      "checkedBy": "AI",
+      "target": "business-plan"
+    },
+    {
+      "id": "plan-document.traced",
+      "text": "主張がもとの項目を引用し、計算結果と重いリスクが主張か想定問答か撤退の基準で扱われている（扱わないものは理由を書く）。",
+      "checkedBy": "AI",
+      "target": "business-plan",
+      "rules": [
+        "claim-cites-source",
+        "result-covered",
+        "risk-covered"
+      ]
+    },
+    {
+      "id": "plan-document.consistent",
+      "text": "計画書の数字が、受け入れた収支計画の版の値と一致する。",
+      "checkedBy": "AI",
+      "target": "business-plan"
+    },
+    {
+      "id": "plan-document.approved",
+      "text": "人が計画書を確かめている。",
+      "checkedBy": "人",
+      "target": "business-plan"
+    },
+    {
+      "id": "deck.complete",
+      "text": "スライドごとに伝えること・数字と図・動きの順・発表者の原稿があり、想定問答がある。",
+      "checkedBy": "AI",
+      "target": "presentation-deck"
+    },
+    {
+      "id": "deck.traced",
+      "text": "スライドと想定問答が主張を引用し、計画書の主張がスライドか想定問答で扱われている（扱わないものは理由を書く）。",
+      "checkedBy": "AI",
+      "target": "presentation-deck",
+      "rules": [
+        "slide-cites-claim",
+        "qa-cites-source",
+        "claim-covered"
+      ]
+    },
+    {
+      "id": "deck.consistent",
+      "text": "スライドの数字が、受け入れた計画書と収支計画の版の値と一致する。",
+      "checkedBy": "AI",
+      "target": "presentation-deck"
+    },
+    {
+      "id": "deck.readable",
+      "text": "スライドの絵で、文字の重なり・枠からのはみ出し・読めない大きさの文字が無い。",
+      "checkedBy": "AI",
+      "target": "presentation-deck"
+    },
+    {
+      "id": "deck.approved",
+      "text": "人が資料と発表を確かめている。",
+      "checkedBy": "人",
+      "target": "presentation-deck"
+    },
+    {
+      "id": "decision.complete",
+      "text": "判断・条件・実行の項目・判断した人と日付が書かれている。",
+      "checkedBy": "AI",
+      "target": "decision-record"
+    },
+    {
+      "id": "decision.traced",
+      "text": "判断が説明の資料・主張・撤退の基準・段階の投資を引用し、どの撤退の基準も計画書か判断で扱われている。",
+      "checkedBy": "AI",
+      "target": "decision-record",
+      "rules": [
+        "decision-cites-source",
+        "exit-covered"
+      ]
+    },
+    {
+      "id": "decision.approved",
+      "text": "経営として判断する人が、判断と条件を承認している。",
+      "checkedBy": "人",
+      "target": "decision-record"
+    },
+    {
+      "id": "learning.complete",
+      "text": "学びが一件ずつあり、次にどうするかと、工程の定義への直しの案がある。",
+      "checkedBy": "AI",
+      "target": "learning-notes"
+    },
+    {
+      "id": "learning.approved",
+      "text": "人が学びと定義への直しの案を確かめている。",
+      "checkedBy": "人",
+      "target": "learning-notes"
+    }
+  ]
+}

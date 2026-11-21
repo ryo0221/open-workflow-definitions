@@ -15,6 +15,7 @@
 | `product-design-engineering/mid-engine-car.json` | product-design-engineering@1.0.0 | ミッドシップの2人乗りの外形を詳細設計まで。選ばなかった外装の方向、骨格と足回りの部品、確認用の乗員の形を理由つきで扱う |
 | `construction-planning/skytree.json` | construction-planning@1.0.0 | 634 m の電波塔の建設（東京スカイツリーを題材にした近似）。PaoBub の Project の項目と引用を写したもの。昇るタワークレーン・引き上げ・搬入、吊りの検査の記録。構造の確認を理由つきで省く。網羅の例外 1 件（制約で扱う条件） |
 | `production-system-planning/small-line.json` | production-system-planning@1.0.0 | 架空の動力系の小さな組立ライン（9 資源・7 つながり）。手計算と極端な条件でのモデルの確認、現状・バッファ増・加工機増の 3 案と所見、わざと誤った制御の確認。網羅の例外 6 件（配置で扱う要件、流れの外の作業者、時間のデータの要らない資源、説明しない案） |
+| `new-business-planning/ev-circular.json` | new-business-planning@1.0.0 | 架空の総合商社の EV 駆動ユニットと電池の循環事業。要る仕事と探索の枝をマインドマップの親子で持ち、捨てた機会、確かめた・分からない顧客の話、仮定・計算・条件の前提、基本と悲観のシナリオ、撤退の基準を引く判断まで。網羅の例外 2 件（捨てた機会、本文だけで扱うリスク） |
 | `vehicle-styling/sho.json` | vehicle-styling@1.0.0 | 独自の2座ミッドシップ「翔」の外観（Editor Platform の CAD で描いた記録から写したもの）。3案から1案を選び、比率をベルトラインで直した版、面の波を線図へ戻して直した記録、配色3案から紅を選ぶ判断。網羅の例外 2 件（測りの無い目安） |
 
 ## 形

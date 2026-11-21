@@ -154,3 +154,16 @@ test('見本の定義の版が今の定義と違えば知らせる', () => {
   f.definition.version = '1.1.0';
   assert.ok(has(checkFixture(def('fiction-novel'), f), '定義の版が違う'));
 });
+
+test('mindmap の view の親の欄は、同じ種類の実在する項目を指し、循環しない', () => {
+  const d = def('new-business-planning');
+  assert.deepEqual(checkFixture(d, fx('new-business-planning', 'ev-circular')), []);
+  for (const [parent, text] of [['HY-01', '親は同じ need'], ['not-an-id', 'need の項目の ID でない'], ['ND-02', '循環']]) {
+    const f = fx('new-business-planning', 'ev-circular');
+    item(f, 'ND-02').parent = parent;
+    assert.ok(has(checkFixture(d, f), text), parent);
+  }
+  const f = fx('new-business-planning', 'ev-circular');
+  item(f, 'ND-01').parent = 'ND-02';
+  assert.ok(has(checkFixture(d, f), '循環'));
+});
