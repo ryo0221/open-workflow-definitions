@@ -83,6 +83,25 @@ export function checkFixture(def, fx) {
     }
   }
 
+  // mindmap の view：親の欄は同じ種類の項目の ID（無ければ根）。自分や子孫を親にしない
+  for (const d of def.deliverables ?? []) {
+    for (const v of [d.view ?? []].flat().filter((v) => v?.as === 'mindmap' && typeof v.parent === 'string')) {
+      const nodes = [...items.values()].filter((x) => x.kind === v.items);
+      for (const it of nodes) {
+        const p = it[v.parent];
+        if (p === undefined) continue;
+        const to = typeof p === 'string' ? items.get(p) : undefined;
+        if (!to) { problems.push(`${it.id}: 欄 ${v.parent} の ${p} は ${v.items} の項目の ID でない`); continue; }
+        if (to.kind !== v.items) { problems.push(`${it.id}: 欄 ${v.parent} の ${p} は ${to.kind}（親は同じ ${v.items}）`); continue; }
+        const seen = new Set([it.id]);
+        for (let cur = to; cur; cur = typeof cur[v.parent] === 'string' ? items.get(cur[v.parent]) : undefined) {
+          if (seen.has(cur.id)) { problems.push(`${it.id}: 欄 ${v.parent} の親をたどると循環している`); break; }
+          seen.add(cur.id);
+        }
+      }
+    }
+  }
+
   // 引用：引用先がある・固定した版がある・規則の向きに合う・最低数を満たす
   const rules = def.rules ?? [];
   const keep = new Map((fx.keepOld ?? []).map((k, i) => [`${k.item} ${k.cite}`, { ...k, i, used: false }]));
