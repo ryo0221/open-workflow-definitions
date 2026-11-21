@@ -16,6 +16,7 @@
 | `construction-planning/skytree.json` | construction-planning@1.0.0 | 634 m の電波塔の建設（東京スカイツリーを題材にした近似）。PaoBub の Project の項目と引用を写したもの。昇るタワークレーン・引き上げ・搬入、吊りの検査の記録。構造の確認を理由つきで省く。網羅の例外 1 件（制約で扱う条件） |
 | `production-system-planning/small-line.json` | production-system-planning@1.0.0 | 架空の動力系の小さな組立ライン（9 資源・7 つながり）。手計算と極端な条件でのモデルの確認、現状・バッファ増・加工機増の 3 案と所見、わざと誤った制御の確認。網羅の例外 6 件（配置で扱う要件、流れの外の作業者、時間のデータの要らない資源、説明しない案） |
 | `vehicle-styling/sho.json` | vehicle-styling@1.0.0 | 独自の2座ミッドシップ「翔」の外観（Editor Platform の CAD で描いた記録から写したもの）。3案から1案を選び、比率をベルトラインで直した版、面の波を線図へ戻して直した記録、配色3案から紅を選ぶ判断。網羅の例外 2 件（測りの無い目安） |
+| `editor-development/card-editor.json` | editor-development@1.0.0 | Editor のテンプレートが最初から持つカードの Editor を、目的・形式・操作・画面・試験・取り込みの項目で書き直したもの。網羅の例外 2 件（データを変えない保存と再読込、しないと決めた共同編集） |
 
 ## 形
 

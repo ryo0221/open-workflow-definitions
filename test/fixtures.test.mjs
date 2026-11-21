@@ -154,3 +154,14 @@ test('見本の定義の版が今の定義と違えば知らせる', () => {
   f.definition.version = '1.1.0';
   assert.ok(has(checkFixture(def('fiction-novel'), f), '定義の版が違う'));
 });
+
+test('Editor の取り込みの確認は、配布版と代表操作の両方を引く', () => {
+  const d = def('editor-development');
+  assert.deepEqual(checkFixture(d, fx('editor-development', 'card-editor')), []);
+  const f = fx('editor-development', 'card-editor');
+  item(f, 'HC-01').cites = ['RL-01'];
+  assert.ok(has(checkFixture(d, f), 'host-check-cites-operation'));
+  const g = fx('editor-development', 'card-editor');
+  item(g, 'HC-01').cites = ['OP-02'];
+  assert.ok(has(checkFixture(d, g), 'host-check-cites-release'));
+});
