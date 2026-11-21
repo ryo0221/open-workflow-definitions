@@ -579,7 +579,7 @@
       "to": [
         "operation"
       ],
-      "min": 0
+      "min": 1
     },
     {
       "id": "learning-cites",
@@ -804,6 +804,7 @@
       "target": "release-record",
       "rules": [
         "host-check-cites-release",
+        "host-check-cites-operation",
         "release-covered-by-host-check"
       ]
     },
