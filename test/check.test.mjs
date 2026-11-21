@@ -31,11 +31,12 @@ test('archived definitions retain their pinned bytes, identity and version', () 
     assert.deepEqual(check(definition), []);
   }
 });
-test('seven declared views are independent of Host capabilities', () => {
+test('eight declared views are independent of Host capabilities', () => {
   for (const view of [
     { as: 'graph', nodes: ['page'] }, { as: 'kanban', items: 'page', groupBy: 'state' },
     { as: 'timeline', items: 'page', start: 'start', end: 'end' }, { as: 'calendar', items: 'page', date: 'date' },
     { as: 'table', items: 'page' }, { as: 'form', items: 'page' }, { as: 'matrix', rows: 'page', columns: 'page' },
+    { as: 'mindmap', items: 'page', parent: 'parent', layout: 'radial', colorBy: 'kind', colors: { '機会': '#0f766e' } },
   ]) {
     const d = fixture(); d.deliverables[0].view = view;
     assert.deepEqual(check(d), [], view.as);
@@ -60,6 +61,18 @@ test('native-free semantic checks reject missing references and cyclic prerequis
   assert.ok(check(cycle).some(m => m.includes('循環')));
   const matrix = fixture(); matrix.deliverables[0].view = { as: 'matrix', rows: 'page', columns: 'page' }; matrix.rules = [];
   assert.ok(check(matrix).some(m => m.includes('引用')));
+});
+test('mindmap views need a parent field of their own item kind', () => {
+  for (const [view, word] of [
+    [{ as: 'mindmap', items: 'page' }, 'parent'],
+    [{ as: 'mindmap', items: 'absent', parent: 'parent' }, 'absent'],
+    [{ as: 'mindmap', items: 'page', parent: 'parent', layout: 'spiral' }, 'layout'],
+    [{ as: 'mindmap', items: 'page', parent: 'parent', colors: { a: '#000000' } }, 'colors'],
+    [{ as: 'mindmap', items: 'page', parent: 'parent', colorBy: 'kind', colors: { a: 'red' } }, 'colors'],
+  ]) {
+    const d = fixture(); d.deliverables[0].view = view;
+    assert.ok(check(d).some(m => m.includes(word)), `${JSON.stringify(view)} → ${word}`);
+  }
 });
 test('import does not scan files, print output, or exit the consuming process', () => {
   const run = spawnSync(process.execPath, ['--disallow-code-generation-from-strings', '--input-type=module', '-e', "import { check } from 'workflow-definitions'; console.log(check(null).length > 0 ? 'alive' : 'bad')"], { cwd: new URL('..', import.meta.url), encoding: 'utf8' });

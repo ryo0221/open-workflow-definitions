@@ -325,7 +325,7 @@
       }
     },
     "view": {
-      "description": "成果物の見せ方（任意）。図・カンバン・タイムライン・カレンダー・表・フォーム・マトリクスを 1 つか、配列で幾つでも（as ごとに 1 つまで）。道具は見せ方ごとに見え方を出し、最初の見せ方で開く。決めない成果物は、道具が中身の形から開き方を決める",
+      "description": "成果物の見せ方（任意）。図・カンバン・タイムライン・カレンダー・表・フォーム・マトリクス・マインドマップを 1 つか、配列で幾つでも（as ごとに 1 つまで）。道具は見せ方ごとに見え方を出し、最初の見せ方で開く。決めない成果物は、道具が中身の形から開き方を決める",
       "oneOf": [
         {
           "$ref": "#/$defs/oneView"
@@ -623,6 +623,51 @@
         }
       }
     },
+    "mindmapView": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "as",
+        "items",
+        "parent"
+      ],
+      "description": "マインドマップ（as: mindmap）。1 つの項目の種類を、欄 parent に書いた親の項目の ID でつないだ木にして、中心から枝で広げる。親の無い項目が中心のすぐ外の枝になる。枝を別の親へ動かすと、その欄の値が変わる",
+      "properties": {
+        "as": {
+          "const": "mindmap"
+        },
+        "items": {
+          "$ref": "#/$defs/id",
+          "description": "枝にする項目の種類"
+        },
+        "parent": {
+          "type": "string",
+          "minLength": 1,
+          "description": "親の項目の ID を持つ欄。親は同じ種類の項目"
+        },
+        "layout": {
+          "enum": [
+            "radial",
+            "right",
+            "tree"
+          ],
+          "description": "枝の広げ方。radial は中心から四方、right は右へ、tree は上から下へ。書かなければ道具が選ぶ"
+        },
+        "colorBy": {
+          "type": "string",
+          "minLength": 1,
+          "description": "枝の色を分ける欄"
+        },
+        "colors": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "pattern": "^#[0-9a-fA-F]{6}$"
+          },
+          "description": "colorBy の値 → 色。無い値は道具が選ぶ"
+        }
+      }
+    },
     "oneView": {
       "oneOf": [
         {
@@ -645,6 +690,9 @@
         },
         {
           "$ref": "#/$defs/matrixView"
+        },
+        {
+          "$ref": "#/$defs/mindmapView"
         }
       ]
     }

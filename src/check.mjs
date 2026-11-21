@@ -10,13 +10,13 @@ const CHECKERS = ['人', 'AI'];
 
 const HEX = /^#[0-9a-fA-F]{6}$/;
 const kindsOf = (secs) => (secs ?? []).flatMap((s) => [...(s.item ? [s.item] : []), ...kindsOf(s.children)]);
-// 成果物の見せ方。図・カンバン・タイムライン・カレンダー・表・フォーム・マトリクスを 1 つか配列で（as ごとに 1 つまで）。種類はその成果物の見出しの項目
-const AS = 'graph・kanban・timeline・calendar・table・form・matrix';
+// 成果物の見せ方。図・カンバン・タイムライン・カレンダー・表・フォーム・マトリクス・マインドマップを 1 つか配列で（as ごとに 1 つまで）。種類はその成果物の見出しの項目
+const AS = 'graph・kanban・timeline・calendar・table・form・matrix・mindmap';
 function viewProblems(d, def) {
   const list = Array.isArray(d.view) ? d.view : [d.view];
   if (!list.length) return ['の配列が空'];
   const out = [], as = new Set(), own = new Set(kindsOf(d.outline));
-  const check = { graph: graphProblems, kanban: kanbanProblems, timeline: timelineProblems, calendar: calendarProblems, table: tableProblems, form: formProblems, matrix: matrixProblems };
+  const check = { graph: graphProblems, kanban: kanbanProblems, timeline: timelineProblems, calendar: calendarProblems, table: tableProblems, form: formProblems, matrix: matrixProblems, mindmap: mindmapProblems };
   list.forEach((v, i) => {
     const at = Array.isArray(d.view) ? `[${i}]` : '';
     const ps = v && typeof v === 'object' && typeof v.as === 'string' && Object.hasOwn(check, v.as) ? check[v.as](v, own, def) : [`の as は ${AS} のどれか`];
@@ -70,6 +70,18 @@ function matrixProblems(v, own, def) {
   else if (!all.has(v.columns)) out.push(`の columns の ${v.columns} は items に無い`);
   const cites = (a, b) => (def.rules ?? []).some((r) => r.type === 'cites' && r.from === a && (r.to ?? []).includes(b));
   if (!out.length && !cites(v.rows, v.columns) && !cites(v.columns, v.rows)) out.push(`の ${v.rows} と ${v.columns} のあいだに引用の規則が無い`);
+  return out;
+}
+
+// 親の欄でつないだ木。親は同じ種類の項目（ID の形は見本の検査で確かめる）
+function mindmapProblems(v, own) {
+  const out = [...unknownKeys(v, ['as', 'items', 'parent', 'layout', 'colorBy', 'colors']), ...itemsOf(v, own), ...fieldName(v, 'parent', true), ...fieldName(v, 'colorBy', false)];
+  if (v.layout !== undefined && !['radial', 'right', 'tree'].includes(v.layout)) out.push('の layout は radial・right・tree のどれか');
+  if (v.colors !== undefined) {
+    if (!v.colors || typeof v.colors !== 'object' || Array.isArray(v.colors)) out.push('の colors は値 → 色');
+    else for (const [x, col] of Object.entries(v.colors)) if (typeof col !== 'string' || !HEX.test(col)) out.push(`の colors の ${x} の色は #rrggbb`);
+    if (!v.colorBy) out.push('の colors には colorBy が要る');
+  }
   return out;
 }
 
