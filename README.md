@@ -1,4 +1,4 @@
-# workflow-definitions
+# open-workflow-definitions
 
 任意の分野のワークフローを、工程・成果物・項目の種類・達成条件と、それらの関係として定義するためのリポジトリです。
 
@@ -38,6 +38,8 @@
 自動車の外観デザイン向けには `definitions/vehicle-styling.json` の **`vehicle-styling@1.0.0`** を収録しています。性格と規則・硬い点のパッケージ・空気の筋書きから先に決め、3面の線図と比率で形を固めてから面・細部・色と材料・最終の絵と動画へ進める進め方は [利用ガイド](docs/vehicle-styling.md) を参照してください。
 
 アニメのメカデザインと玩具化向けには `definitions/mecha-design.json` の **`mecha-design@1.0.0`** を収録しています。言葉で決めた企画（コンセプト・特徴・新しさ・要求）と合体の構想から、シルエットと比率・2次元の線図（三面図）と変形図・それを下敷きにした3Dモデルで成り立ちを確かめ、設定画・玩具化の検討・色彩・見せ場へ進め、制作と玩具の複数の組織の承認で受け入れる進め方は [利用ガイド](docs/mecha-design.md) を参照してください。
+
+ひとつの題材を編集する新しい Editor を、Editor のテンプレートから作って Host に取り込むまでには `definitions/editor-development.json` の **`editor-development@1.0.0`** を収録しています。目的と範囲・データ形式・操作・画面を決めてから実装・試験の対応・package の取り込みへ進める進め方は [利用ガイド](docs/editor-development.md) を参照してください。画面のある製品全体を作るときは software-product を使います。
 
 株式会社設立・事業開始向けには `definitions/japan-company-establishment.json` の **`japan-company-establishment@1.0.0`** を収録しています。適用範囲と利用上の区別は [利用ガイド](docs/japan-company-establishment.md) を参照してください。
 
@@ -145,6 +147,18 @@ npm run check
 PR提出前・マージ前の必須検査は `npm run check` です。生成済み検査器とschemaの一致、正式定義、契約試験を順に検査し、どれかが失敗すれば停止します。`node scripts/check.mjs` は定義のみの検査で、この必須検査の代わりにはなりません。
 
 ID の重なり、存在しない参照、工程の順の循環、成果物や達成条件の無い工程、まとまりに入っていないか順に合わない工程を見つけます。
+
+### 過去の固定版
+
+既存の案件や契約が参照する版は `archive/` から取得できます。取得したファイルのバイト列を SHA-256 で照合してください。
+
+| 定義 | ファイル | SHA-256 |
+|---|---|---|
+| japan-company-establishment@1.0.0（12工程・13成果物） | [定義](archive/bf5dfa49/definitions/japan-company-establishment.json) | `bf5dfa49b83547b6d3277e78f621be7cdf4e084e97072d0e76cb80bbc63995f8` |
+| fiction-novel@1.1.0 | [定義](archive/bedb11dd/definitions/fiction-novel.json) | `bedb11ddc03df78174e42bd0a19804db590b48778a116208a3ab21425ac9d80e` |
+| fiction-manga@1.0.0 | [定義](archive/f5d6c93b/definitions/fiction-manga.json) | `f5d6c93bdd22ac327ede713d69613f66a3ad30e1e4c2c4d9d48aeda06ea956ba` |
+
+設立定義の現行版は16工程・19成果物で、旧版と同じ `1.0.0` を宣言しています。既存案件は固定したハッシュで版を選びます。
 
 ## 共通の定義検査
 

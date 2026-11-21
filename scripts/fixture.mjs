@@ -2,8 +2,35 @@
 // 確かめるのは AI が確かめる構造の条件（ID の形・置き場・引用切れ・引用の向き・最低数・網羅・固定した版）だけ。
 // 作品の出来や、人が確かめる達成条件は確かめない。道具の保存形式やファイル配置とは別の、道具に依らない形。
 
-const pattern = (idForm) => new RegExp('^' + idForm.replace(/[.*+?^$()|[\]\\]/g, '\\$&')
-  .replace('{nnn}', '\\d{3}').replace('{nn}', '\\d{2}').replace('{n}', '\\d+') + '$');
+const escape = (text) => text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+const digits = new Map([['{n}', '\\d+'], ['{nn}', '\\d{2}'], ['{nnn}', '\\d{3}']]);
+function itemPatterns(kinds, entries, problems) {
+  const ids = Object.values(entries).flatMap(e => Array.isArray(e?.items) ? e.items.map(i => i?.id).filter(id => typeof id === 'string') : []);
+  const byKind = new Map(kinds.map(k => [k.id, k]));
+  const cache = new Map(), visiting = new Set();
+  function patterns(kind) {
+    if (cache.has(kind.id)) return cache.get(kind.id);
+    if (visiting.has(kind.id)) {
+      problems.push(`項目 ${kind.id}: 親の定義が循環している`);
+      return [];
+    }
+    visiting.add(kind.id);
+    const parts = kind.idForm.split(/(\{(?:parent|nnn|nn|n)\})/);
+    let parents = [''];
+    if (parts.includes('{parent}')) {
+      const parent = byKind.get(kind.parent);
+      if (!parent) problems.push(`項目 ${kind.id}: 親の種類 ${kind.parent} が無い`);
+      const match = parent ? patterns(parent) : [];
+      parents = ids.filter(id => match.some(re => re.test(id)));
+    }
+    const result = parents.map(parent => new RegExp('^' + parts.map(s =>
+      s === '{parent}' ? escape(parent) : digits.get(s) ?? escape(s)).join('') + '$'));
+    visiting.delete(kind.id);
+    cache.set(kind.id, result);
+    return result;
+  }
+  return kinds.map(kind => ({ kind: kind.id, patterns: patterns(kind) }));
+}
 const kindsOf = (secs) => (secs ?? []).flatMap((s) => [...(s.item ? [s.item] : []), ...kindsOf(s.children)]);
 const ENTRY = ['items', 'note', 'skipped'];
 const ITEM = ['id', 'name', 'version', 'cites'];
@@ -21,13 +48,13 @@ export function checkFixture(def, fx) {
   need(fx.definition?.id === def.id, `定義が違う: ${fx.definition?.id}（${def.id} が要る）`);
   need(fx.definition?.version === def.version, `定義の版が違う: ${fx.definition?.version}（今は ${def.version}）`);
 
-  const forms = (def.items ?? []).map((it) => ({ kind: it.id, re: pattern(it.idForm) }));
-  const kindOfId = (id) => forms.find((f) => f.re.test(id))?.kind;
+  const entries = fx.deliverables ?? {};
+  const forms = itemPatterns(def.items ?? [], entries, problems);
+  const kindOfId = (id) => typeof id === 'string' ? forms.find(f => f.patterns.some(re => re.test(id)))?.kind : undefined;
   const owner = new Map();
   for (const d of def.deliverables ?? []) for (const k of kindsOf(d.outline)) owner.set(k, d.id);
 
   // 成果物：定義のすべての成果物について、項目・覚え書き・省いた理由のどれかを書く
-  const entries = fx.deliverables ?? {};
   const D = new Set((def.deliverables ?? []).map((d) => d.id));
   for (const id of Object.keys(entries)) need(D.has(id), `成果物 ${id} は定義に無い`);
   const items = new Map();
