@@ -80,7 +80,7 @@ function checkSemantics(def) {
   for (const k of ['id', 'version', 'title', 'purpose']) need(typeof def[k] === 'string' && def[k].length > 0, `${k} が無い`);
   need(ID.test(def.id ?? ''), `id の形が違う: ${def.id}`);
   need(/^\d+\.\d+\.\d+$/.test(def.version ?? ''), `version の形が違う: ${def.version}`);
-  const allowed = new Set(['format', 'id', 'version', 'title', 'purpose', 'phases', 'sections', 'deliverables', 'items', 'rules', 'acceptance', 'gates']);
+  const allowed = new Set(['format', 'id', 'version', 'title', 'purpose', 'phases', 'sections', 'deliverables', 'items', 'rules', 'roles', 'acceptance', 'gates']);
   for (const k of Object.keys(def)) need(allowed.has(k), `知らない欄: ${k}`);
 
   const phases = def.phases ?? [], sections = def.sections ?? [], deliverables = def.deliverables ?? [], acceptance = def.acceptance ?? [];
@@ -150,6 +150,23 @@ function checkSemantics(def) {
   }
   for (const it of items) need(marked.get(it.id) === 1, `項目 ${it.id}: どれか一つの見出しに item として置く（今 ${marked.get(it.id) ?? 0} か所）`);
   for (const a of acceptance) for (const r of a.rules ?? []) need(R.has(r), `達成条件 ${a.id}: 規則 ${r} が無い`);
+  const roles = def.roles ?? [], RO = new Set();
+  for (const r of roles) {
+    need(ID.test(r?.id ?? '') && !RO.has(r?.id), `役割の id が違うか重なっている: ${r?.id}`);
+    RO.add(r?.id);
+    need(typeof r?.name === 'string' && r.name.length > 0, `役割 ${r?.id}: name が無い`);
+  }
+  for (const a of acceptance) {
+    if (a.approvers === undefined) continue;
+    need(a.checkedBy === '人', `達成条件 ${a.id}: approvers は人の条件にだけ書ける`);
+    const rs = a.approvers?.roles;
+    need(Array.isArray(rs) && rs.length > 0, `達成条件 ${a.id}: approvers に roles が無い`);
+    for (const r of Array.isArray(rs) ? rs : []) need(RO.has(r), `達成条件 ${a.id}: 役割 ${r} が無い`);
+    need(Array.isArray(rs) && new Set(rs).size === rs.length, `達成条件 ${a.id}: approvers の roles が重なっている`);
+    const n = a.approvers?.count;
+    need(n === undefined || (Number.isInteger(n) && n >= 1), `達成条件 ${a.id}: approvers の count は 1 以上の整数`);
+  }
+  for (const r of roles) need(acceptance.some((a) => (a.approvers?.roles ?? []).includes(r?.id)), `役割 ${r?.id}: どの達成条件でも使われていない`);
   for (const a of acceptance) {
     need(CHECKERS.includes(a.checkedBy), `達成条件 ${a.id}: checkedBy は 人・AI のどれか`);
     need(D.has(a.target), `達成条件 ${a.id}: 対象 ${a.target} が無い`);

@@ -59,11 +59,30 @@
 ├─ deliverables  成果物。形（文書・表・図・画面・コードなど）と、見出しの並び（outline）、見せ方（view。任意。図・カンバン・タイムライン・カレンダー・表・フォーム・マトリクス）
 ├─ items         ID を持つ項目の種類と、ID の形
 ├─ rules         引用の規則（cites）と網羅の規則（covered）
-├─ acceptance    達成条件。誰が確かめるか（人・AI）と、機械で確かめる規則
+├─ roles         役割。人の条件を確かめる立場（任意。人の名前は書かない）
+├─ acceptance    達成条件。誰が確かめるか（人・AI）、機械で確かめる規則、人の条件を確かめる役割と人数（approvers。任意）
 └─ gates         既定のゲート（任意）。工程の作業のあとに流す検査のコマンドと、流す工程
 ```
 
 形の詳細は `schema/definition.schema.json` を見てください。
+
+### 人の条件を確かめる役割（roles・approvers）
+
+人の条件（`checkedBy: "人"`）には、確かめる役割と人数を `approvers` で書ける（任意）。役割は定義の `roles` に置き、人の名前は書かない。どの人がどの役割を持つかは、定義を使う側（Project）が決める。
+
+```json
+{
+  "roles": [{ "id": "g1-board", "name": "G1 企画会議の構成員" }],
+  "acceptance": [
+    { "id": "market.review2", "text": "G1 企画会議：ここまでで続けるか決める", "checkedBy": "人", "target": "market-sizing",
+      "approvers": { "roles": ["g1-board"], "count": 2 } }
+  ]
+}
+```
+
+- `roles` のどれかを持つ、違う人の確かめが `count` 人分（既定 1）あれば、その条件を満たす。
+- `approvers` の無い人の条件は、承認できる人なら誰が確かめてもよい。どちらの場合も、使う側は条件ごとに誰が確かめたかを残す。
+- 1 人だけに決めたいときは、その人だけが持つ役割を作る。
 
 ### 既定のゲート（gates）
 
