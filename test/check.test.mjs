@@ -65,3 +65,28 @@ test('import does not scan files, print output, or exit the consuming process', 
   const run = spawnSync(process.execPath, ['--disallow-code-generation-from-strings', '--input-type=module', '-e', "import { check } from 'workflow-definitions'; console.log(check(null).length > 0 ? 'alive' : 'bad')"], { cwd: new URL('..', import.meta.url), encoding: 'utf8' });
   assert.equal(run.status, 0, run.stderr); assert.equal(run.stdout.trim(), 'alive');
 });
+test('human conditions may name approver roles and a count', () => {
+  const d = fixture();
+  d.roles = [{ id: 'board', name: '会議の構成員', text: '続けるかを決める' }];
+  d.acceptance[0].approvers = { roles: ['board'], count: 2 };
+  assert.deepEqual(check(d), []);
+  const once = fixture(); once.roles = [{ id: 'board', name: '会議' }]; once.acceptance[0].approvers = { roles: ['board'] };
+  assert.deepEqual(check(once), []);
+});
+test('approver roles are checked against the definition', () => {
+  const ai = fixture(); ai.roles = [{ id: 'board', name: '会議' }]; ai.acceptance.push({ id: 'auto', text: '機械', checkedBy: 'AI', target: 'pages', approvers: { roles: ['board'] } });
+  ai.phases[0].acceptance.push('auto');
+  assert.ok(check(ai).some((m) => m.includes('人の条件にだけ')));
+  const missing = fixture(); missing.acceptance[0].approvers = { roles: ['nobody'] };
+  assert.ok(check(missing).some((m) => m.includes('nobody')));
+  const zero = fixture(); zero.roles = [{ id: 'board', name: '会議' }]; zero.acceptance[0].approvers = { roles: ['board'], count: 0 };
+  assert.ok(check(zero).length);
+  const empty = fixture(); empty.roles = [{ id: 'board', name: '会議' }]; empty.acceptance[0].approvers = { roles: [] };
+  assert.ok(check(empty).length);
+  const unused = fixture(); unused.roles = [{ id: 'board', name: '会議' }];
+  assert.ok(check(unused).some((m) => m.includes('使われていない')));
+  const dup = fixture(); dup.roles = [{ id: 'board', name: '会議' }, { id: 'board', name: '会議2' }]; dup.acceptance[0].approvers = { roles: ['board'] };
+  assert.ok(check(dup).some((m) => m.includes('重なっている')));
+  const extra = fixture(); extra.roles = [{ id: 'board', name: '会議' }]; extra.acceptance[0].approvers = { roles: ['board'], people: ['石田'] };
+  assert.ok(check(extra).length);
+});

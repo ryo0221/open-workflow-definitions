@@ -36,7 +36,7 @@ var require_ucs2length = __commonJS({
 
 // schema-validator.mjs
 var validate = validate20;
-var schema31 = { "$schema": "https://json-schema.org/draft/2020-12/schema", "$id": "definition.schema.json", "title": "\u30EF\u30FC\u30AF\u30D5\u30ED\u30FC\u306E\u5B9A\u7FA9", "type": "object", "additionalProperties": false, "required": ["format", "id", "version", "title", "purpose", "phases", "deliverables", "acceptance"], "properties": { "format": { "const": 1, "description": "\u5B9A\u7FA9\u306E\u5F62\u306E\u7248" }, "id": { "$ref": "#/$defs/id" }, "version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" }, "title": { "type": "string", "minLength": 1 }, "purpose": { "type": "string", "minLength": 1, "description": "\u3053\u306E\u5B9A\u7FA9\u3067\u4F55\u3092\u4F5C\u308B\u304B" }, "phases": { "type": "array", "minItems": 1, "items": { "type": "object", "additionalProperties": false, "required": ["id", "name", "purpose", "after", "deliverables", "acceptance"], "properties": { "id": { "$ref": "#/$defs/id" }, "name": { "type": "string", "minLength": 1 }, "purpose": { "type": "string", "minLength": 1 }, "after": { "type": "array", "items": { "$ref": "#/$defs/id" }, "description": "\u5148\u306B\u7D42\u3048\u3066\u3044\u308B\u5DE5\u7A0B" }, "deliverables": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/id" } }, "acceptance": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/id" }, "description": "\u3053\u306E\u5DE5\u7A0B\u3092\u7D42\u3048\u308B\u6761\u4EF6" } } } }, "sections": { "type": "array", "description": "\u5DE5\u7A0B\u306E\u307E\u3068\u307E\u308A\u306E\u65E2\u5B9A\u306E\u5206\u3051\u65B9\u3002\u3069\u306E\u5DE5\u7A0B\u3082\u3061\u3087\u3046\u3069 1 \u3064\u306E\u307E\u3068\u307E\u308A\u306B\u5165\u308A\u3001\u307E\u3068\u307E\u308A\u306E\u4E26\u3073\u3068\u4E2D\u306E\u5DE5\u7A0B\u306E\u4E26\u3073\u306F\u5DE5\u7A0B\u306E\u9806\u306B\u5F93\u3046\u3002\u4F7F\u3046\u5074\u306F\u3053\u308C\u3092\u51FA\u767A\u70B9\u306B\u5206\u3051\u65B9\u3092\u5909\u3048\u3066\u3088\u3044", "items": { "type": "object", "additionalProperties": false, "required": ["id", "name", "phases"], "properties": { "id": { "$ref": "#/$defs/id" }, "name": { "type": "string", "minLength": 1 }, "phases": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/id" }, "description": "\u3053\u306E\u307E\u3068\u307E\u308A\u306B\u5165\u308B\u5DE5\u7A0B\u3002\u5DE5\u7A0B\u306E\u9806\u306B\u4E26\u3079\u308B" } } } }, "deliverables": { "type": "array", "items": { "type": "object", "additionalProperties": false, "required": ["id", "name", "form", "outline"], "properties": { "id": { "$ref": "#/$defs/id" }, "name": { "type": "string", "minLength": 1 }, "form": { "type": "string", "minLength": 1, "description": "\u6210\u679C\u7269\u306E\u8868\u73FE\u5F62\u614B\u3002\u8868\u793A\u7528\u306E\u5206\u985E\u3067\u3042\u308AEditor kind\u3084\u51FA\u529B\u5F62\u5F0F\u3092\u56FA\u5B9A\u3057\u306A\u3044\u3002\u7DE8\u96C6\u30FB\u51FA\u529B\u306E\u53EF\u5426\u306FEditor Platform\u306E\u516C\u958Bcapabilities\u306B\u5F93\u3046" }, "outline": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/section" }, "description": "\u898B\u51FA\u3057\u306E\u4E26\u3073\u3002\u4EBA\u304C\u78BA\u304B\u3081\u308B\u9806" }, "uses": { "type": "array", "items": { "$ref": "#/$defs/id" }, "description": "\u3082\u3068\u306B\u3059\u308B\u6210\u679C\u7269" }, "view": { "$ref": "#/$defs/view" } } } }, "items": { "type": "array", "description": "ID \u3092\u6301\u3064\u9805\u76EE\u306E\u7A2E\u985E\u3002\u5F71\u97FF\u3068\u7DB2\u7F85\u306F\u3053\u306E\u8868\u3068 rules \u3060\u3051\u3067\u6C7A\u3081\u308B", "items": { "type": "object", "additionalProperties": false, "required": ["id", "name", "idForm"], "properties": { "id": { "$ref": "#/$defs/id" }, "name": { "type": "string", "minLength": 1 }, "idForm": { "type": "string", "description": "\u9805\u76EE\u306E ID \u306E\u5F62\u3002{nn}\u30FB{nnn} \u306F\u6841\u3092\u305D\u308D\u3048\u305F\u9023\u756A\u3001{n} \u306F\u9023\u756A\u3001{parent} \u306F\u89AA\u306E\u9805\u76EE\u306E ID" }, "parent": { "$ref": "#/$defs/id", "description": "\u89AA\u306E\u9805\u76EE\u306E\u7A2E\u985E\u3002ID \u306F\u89AA\u306E ID \u304B\u3089\u4F5C\u308B" } } } }, "rules": { "type": "array", "description": "\u5F15\u7528\u3068\u7DB2\u7F85\u306E\u898F\u5247", "items": { "type": "object", "additionalProperties": false, "required": ["id", "type"], "properties": { "id": { "$ref": "#/$defs/id" }, "type": { "enum": ["cites", "covered"] }, "from": { "$ref": "#/$defs/id", "description": "cites\uFF1A\u5F15\u7528\u3059\u308B\u5074\u306E\u9805\u76EE\u306E\u7A2E\u985E" }, "to": { "type": "array", "items": { "$ref": "#/$defs/id" }, "description": "cites\uFF1A\u5F15\u7528\u3067\u304D\u308B\u5148\u306E\u9805\u76EE\u306E\u7A2E\u985E" }, "min": { "type": "integer", "minimum": 0, "description": "cites\uFF1A\u5C11\u306A\u304F\u3068\u3082\u3044\u304F\u3064\u5F15\u7528\u3059\u308B\u304B\u30020 \u306A\u3089\u3001\u5F15\u3051\u308B\u304C\u5F15\u304B\u306A\u304F\u3066\u3088\u3044" }, "of": { "$ref": "#/$defs/id", "description": "covered\uFF1A\u5F15\u7528\u3055\u308C\u308B\u5074\u306E\u9805\u76EE\u306E\u7A2E\u985E" }, "by": { "type": "array", "items": { "$ref": "#/$defs/id" }, "description": "covered\uFF1A\u5F15\u7528\u3059\u308B\u5074\u306E\u9805\u76EE\u306E\u7A2E\u985E" }, "exempt": { "const": true, "description": "covered\uFF1A\u7406\u7531\u3092\u66F8\u3051\u3070\u9664\u3051\u308B" } } } }, "acceptance": { "type": "array", "items": { "type": "object", "additionalProperties": false, "required": ["id", "text", "checkedBy", "target"], "properties": { "id": { "$ref": "#/$defs/id" }, "text": { "type": "string", "minLength": 1 }, "checkedBy": { "enum": ["\u4EBA", "AI"] }, "target": { "$ref": "#/$defs/id", "description": "\u78BA\u304B\u3081\u308B\u6210\u679C\u7269" }, "rules": { "type": "array", "items": { "$ref": "#/$defs/id" }, "description": "\u3053\u306E\u6761\u4EF6\u3092\u6A5F\u68B0\u3067\u78BA\u304B\u3081\u308B\u898F\u5247" } } } } }, "$defs": { "id": { "type": "string", "pattern": "^[a-z][a-z0-9-]*(\\.[a-z0-9-]+)*$" }, "section": { "type": "object", "additionalProperties": false, "required": ["heading", "describe"], "properties": { "heading": { "type": "string", "minLength": 1 }, "describe": { "type": "string", "minLength": 1, "description": "\u3053\u306E\u898B\u51FA\u3057\u306E\u4E0B\u306B\u66F8\u304F\u3053\u3068" }, "repeat": { "const": true, "description": "\u9805\u76EE\u3054\u3068\u306B\u7E70\u308A\u8FD4\u3059\u898B\u51FA\u3057\uFF08\u30B9\u30C8\u30FC\u30EA\u30FC\u3054\u3068\u30FB\u753B\u9762\u3054\u3068\u306A\u3069\uFF09\u3002\u898B\u51FA\u3057\u306E\u6587\u5B57\u306F\u9805\u76EE\u306E\u540D\u524D\u306B\u7F6E\u304D\u63DB\u3048\u308B" }, "children": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/section" } }, "item": { "$ref": "#/$defs/id", "description": "\u3053\u306E\u898B\u51FA\u3057\u306E\u4E0B\u306E\u4E00\u3064\u4E00\u3064\u304C\u3001\u3053\u306E\u7A2E\u985E\u306E\u9805\u76EE\u306B\u306A\u308B" } } }, "view": { "description": "\u6210\u679C\u7269\u306E\u898B\u305B\u65B9\uFF08\u4EFB\u610F\uFF09\u3002\u56F3\u30FB\u30AB\u30F3\u30D0\u30F3\u30FB\u30BF\u30A4\u30E0\u30E9\u30A4\u30F3\u30FB\u30AB\u30EC\u30F3\u30C0\u30FC\u30FB\u8868\u30FB\u30D5\u30A9\u30FC\u30E0\u30FB\u30DE\u30C8\u30EA\u30AF\u30B9\u3092 1 \u3064\u304B\u3001\u914D\u5217\u3067\u5E7E\u3064\u3067\u3082\uFF08as \u3054\u3068\u306B 1 \u3064\u307E\u3067\uFF09\u3002\u9053\u5177\u306F\u898B\u305B\u65B9\u3054\u3068\u306B\u898B\u3048\u65B9\u3092\u51FA\u3057\u3001\u6700\u521D\u306E\u898B\u305B\u65B9\u3067\u958B\u304F\u3002\u6C7A\u3081\u306A\u3044\u6210\u679C\u7269\u306F\u3001\u9053\u5177\u304C\u4E2D\u8EAB\u306E\u5F62\u304B\u3089\u958B\u304D\u65B9\u3092\u6C7A\u3081\u308B", "oneOf": [{ "$ref": "#/$defs/oneView" }, { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/oneView" } }] }, "graphView": { "type": "object", "additionalProperties": false, "required": ["as", "nodes"], "description": "\u56F3\uFF08as: graph\uFF09\u3002\u6210\u679C\u7269\u306E\u9805\u76EE\u306E\u7A2E\u985E\u3054\u3068\u306B\u3001\u70B9\u30FB\u7DDA\u30FB\u67A0\u306E\u3069\u308C\u3067\u63CF\u304F\u304B\u3092\u6C7A\u3081\u308B\u3002\u9805\u76EE\u306E\u6B04 in \u306F\u5165\u308B\u67A0\u306E ID\u3001at \u306F\u70B9\u306E\u5834\u6240 [x, y]\u3001frame \u306F\u67A0\u306E\u5834\u6240\u3068\u5927\u304D\u3055 [x, y, \u5E45, \u9AD8\u3055]\uFF08\u3069\u308C\u3082\u5165\u3063\u3066\u3044\u308B\u67A0\u306E\u5DE6\u4E0A\u304B\u3089\u3002\u7121\u3051\u308C\u3070\u9053\u5177\u304C\u4E26\u3079\u308B\uFF09", "properties": { "as": { "const": "graph" }, "nodes": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/id" }, "description": "\u70B9\u306B\u3059\u308B\u9805\u76EE\u306E\u7A2E\u985E" }, "edges": { "type": "array", "items": { "$ref": "#/$defs/id" }, "description": "\u7DDA\u306B\u3059\u308B\u9805\u76EE\u306E\u7A2E\u985E\u3002\u9805\u76EE\u306F from\u30FBto \u306B\u70B9\u306E ID \u3092\u6301\u3064" }, "sections": { "type": "array", "items": { "$ref": "#/$defs/id" }, "description": "\u67A0\u306B\u3059\u308B\u9805\u76EE\u306E\u7A2E\u985E\u3002\u67A0\u306E\u4E2D\u306E\u67A0\u306F in \u306B\u5916\u306E\u67A0\u306E ID" }, "colorBy": { "type": "string", "minLength": 1, "description": "\u70B9\u3068\u67A0\u306E\u8272\u3092\u5206\u3051\u308B\u6B04\u3002\u5024\u3054\u3068\u306B\u8272\u3092\u5909\u3048\u308B\uFF08\u67A0\u306F\u3001\u81EA\u5206\u306E ID \u304C\u305D\u306E\u5024\u306E\u3068\u304D\u3082\u305D\u306E\u8272\uFF09" }, "colors": { "type": "object", "additionalProperties": { "type": "string", "pattern": "^#[0-9a-fA-F]{6}$" }, "description": "colorBy \u306E\u5024 \u2192 \u8272\u3002\u7121\u3044\u5024\u306F\u9053\u5177\u304C\u9078\u3076" }, "edgeColorBy": { "type": "string", "minLength": 1, "description": "\u7DDA\u306E\u8272\u3092\u5206\u3051\u308B\u6B04" }, "edgeColors": { "type": "object", "additionalProperties": { "type": "string", "pattern": "^#[0-9a-fA-F]{6}$" }, "description": "edgeColorBy \u306E\u5024 \u2192 \u8272\u3002\u7121\u3044\u5024\u306F\u9053\u5177\u304C\u9078\u3076" } } }, "kanbanView": { "type": "object", "additionalProperties": false, "required": ["as", "items", "groupBy"], "description": "\u30AB\u30F3\u30D0\u30F3\uFF08as: kanban\uFF09\u30021 \u3064\u306E\u9805\u76EE\u306E\u7A2E\u985E\u3092\u3001\u6B04 groupBy \u306E\u5024\u3054\u3068\u306E\u5217\u306B\u30AB\u30FC\u30C9\u3067\u4E26\u3079\u308B\u3002\u30AB\u30FC\u30C9\u3092\u5225\u306E\u5217\u306B\u52D5\u304B\u3059\u3068\u3001\u305D\u306E\u6B04\u306E\u5024\u304C\u5909\u308F\u308B", "properties": { "as": { "const": "kanban" }, "items": { "$ref": "#/$defs/id", "description": "\u30AB\u30FC\u30C9\u306B\u3059\u308B\u9805\u76EE\u306E\u7A2E\u985E" }, "groupBy": { "type": "string", "minLength": 1, "description": "\u5217\u3092\u5206\u3051\u308B\u6B04" }, "columns": { "type": "array", "items": { "type": "string", "minLength": 1 }, "description": "\u5217\u306E\u4E26\u3073\uFF08\u5024\uFF09\u3002\u66F8\u304B\u306A\u3044\u5024\u306E\u5217\u306F\u3001\u305D\u306E\u3042\u3068\u306B\u51FA\u308B" }, "card": { "type": "array", "items": { "type": "string", "minLength": 1 }, "description": "\u30AB\u30FC\u30C9\u306B\u51FA\u3059\u6B04\u3002\u66F8\u304B\u306A\u3051\u308C\u3070\u9053\u5177\u304C\u9078\u3076" } } }, "timelineView": { "type": "object", "additionalProperties": false, "required": ["as", "items", "start", "end"], "description": "\u30BF\u30A4\u30E0\u30E9\u30A4\u30F3\uFF08as: timeline\uFF09\u30021 \u3064\u306E\u9805\u76EE\u306E\u7A2E\u985E\u3092\u3001\u6B04 start \u304B\u3089\u6B04 end \u307E\u3067\u306E\u5E2F\u3067\u65E5\u4ED8\u306E\u8EF8\u306B\u4E26\u3079\u308B\uFF08\u65E5\u4ED8\u306F YYYY-MM-DD\uFF09", "properties": { "as": { "const": "timeline" }, "items": { "$ref": "#/$defs/id", "description": "\u5E2F\u306B\u3059\u308B\u9805\u76EE\u306E\u7A2E\u985E" }, "start": { "type": "string", "minLength": 1, "description": "\u59CB\u307E\u308A\u306E\u65E5\u4ED8\u306E\u6B04" }, "end": { "type": "string", "minLength": 1, "description": "\u7D42\u308F\u308A\u306E\u65E5\u4ED8\u306E\u6B04" }, "groupBy": { "type": "string", "minLength": 1, "description": "\u5E2F\u306E\u884C\u3092\u5206\u3051\u308B\u6B04" }, "scale": { "enum": ["day", "week", "month"], "description": "\u8EF8\u306E\u76EE\u76DB\u308A" } } }, "calendarView": { "type": "object", "additionalProperties": false, "required": ["as", "items", "date"], "description": "\u30AB\u30EC\u30F3\u30C0\u30FC\uFF08as: calendar\uFF09\u30021 \u3064\u306E\u9805\u76EE\u306E\u7A2E\u985E\u3092\u3001\u6B04 date \u306E\u65E5\uFF08end \u304C\u3042\u308C\u3070 date \u304B\u3089 end \u307E\u3067\uFF09\u306B\u6708\u306E\u66A6\u3067\u4E26\u3079\u308B\uFF08\u65E5\u4ED8\u306F YYYY-MM-DD\uFF09\u3002\u671F\u9650\u306E\u3088\u3046\u306B\u65E5\u4ED8\u304C 1 \u3064\u306E\u9805\u76EE\u306B\u5411\u304F", "properties": { "as": { "const": "calendar" }, "items": { "$ref": "#/$defs/id", "description": "\u66A6\u306B\u7F6E\u304F\u9805\u76EE\u306E\u7A2E\u985E" }, "date": { "type": "string", "minLength": 1, "description": "\u65E5\u4ED8\u306E\u6B04\uFF08\u59CB\u307E\u308A\u306E\u65E5\uFF09" }, "end": { "type": "string", "minLength": 1, "description": "\u7D42\u308F\u308A\u306E\u65E5\u4ED8\u306E\u6B04\u3002\u7121\u3051\u308C\u3070 date \u306E\u65E5\u3060\u3051" } } }, "tableView": { "type": "object", "additionalProperties": false, "required": ["as", "items"], "description": "\u8868\uFF08as: table\uFF09\u30021 \u3064\u306E\u9805\u76EE\u306E\u7A2E\u985E\u3092\u8868\u3067\u958B\u304F\u3068\u304D\u306E\u3001\u6B04\u306E\u4E26\u3073\u30FB\u4E26\u3079\u66FF\u3048\u30FB\u307E\u3068\u3081\u65B9\u30FB\u96A0\u3059\u6B04\u3092\u6C7A\u3081\u308B\u3002\u6C7A\u3081\u306A\u3051\u308C\u3070\u9053\u5177\u304C\u6C7A\u3081\u308B", "properties": { "as": { "const": "table" }, "items": { "$ref": "#/$defs/id", "description": "\u8868\u306B\u3059\u308B\u9805\u76EE\u306E\u7A2E\u985E" }, "columns": { "type": "array", "items": { "type": "string", "minLength": 1 }, "description": "\u6B04\u306E\u4E26\u3073\u3002\u66F8\u304B\u306A\u3044\u6B04\u306F\u3001\u305D\u306E\u3042\u3068\u306B\u51FA\u308B" }, "sort": { "type": "array", "items": { "type": "object", "additionalProperties": false, "required": ["by"], "properties": { "by": { "type": "string", "minLength": 1, "description": "\u4E26\u3079\u66FF\u3048\u308B\u6B04" }, "desc": { "type": "boolean", "description": "\u5927\u304D\u3044\u9806\uFF08\u65B0\u3057\u3044\u9806\uFF09\u3002\u7121\u3051\u308C\u3070\u5C0F\u3055\u3044\u9806" } } }, "description": "\u4E26\u3079\u66FF\u3048\u3002\u524D\u306E\u3082\u306E\u307B\u3069\u5148\u306B\u52B9\u304F" }, "groupBy": { "type": "string", "minLength": 1, "description": "\u884C\u3092\u307E\u3068\u3081\u308B\u6B04" }, "hide": { "type": "array", "items": { "type": "string", "minLength": 1 }, "description": "\u96A0\u3059\u6B04" } } }, "formView": { "type": "object", "additionalProperties": false, "required": ["as", "items"], "description": "\u30D5\u30A9\u30FC\u30E0\uFF08as: form\uFF09\u30021 \u3064\u306E\u9805\u76EE\u306E\u7A2E\u985E\u3092\u30011 \u4EF6\u305A\u3064\u306E\u5165\u529B\u306E\u753B\u9762\u3067\u958B\u304F\u3002\u6B04\u306E\u591A\u3044\u53F0\u5E33\u306B\u5411\u304F", "properties": { "as": { "const": "form" }, "items": { "$ref": "#/$defs/id", "description": "1 \u4EF6\u305A\u3064\u958B\u304F\u9805\u76EE\u306E\u7A2E\u985E" }, "fields": { "type": "array", "items": { "type": "string", "minLength": 1 }, "description": "\u6B04\u306E\u4E26\u3073\u3002\u66F8\u304B\u306A\u3044\u6B04\u306F\u3001\u305D\u306E\u3042\u3068\u306B\u51FA\u308B" } } }, "matrixView": { "type": "object", "additionalProperties": false, "required": ["as", "rows", "columns"], "description": "\u30DE\u30C8\u30EA\u30AF\u30B9\uFF08as: matrix\uFF09\u3002\u884C\u306E\u9805\u76EE\u306E\u7A2E\u985E\u3068\u5217\u306E\u9805\u76EE\u306E\u7A2E\u985E\u3092\u4E26\u3079\u3001\u5F15\u7528\u306E\u8868\u306B\u3042\u308B\u7D44\u306E\u307E\u3059\u76EE\u306B\u5370\u3092\u4ED8\u3051\u308B\u3002\u307E\u3059\u76EE\u3092\u5207\u308A\u66FF\u3048\u308B\u3068\u3001\u5F15\u7528\u306E\u8868\u306E\u7D44\u304C\u5897\u3048\u308B\u30FB\u6E1B\u308B\u3002\u884C\u3068\u5217\u306E\u7A2E\u985E\u306E\u9593\u306B\u306F\u3001\u3069\u3061\u3089\u5411\u304D\u304B\u306E\u5F15\u7528\u306E\u898F\u5247\uFF08cites\uFF09\u304C\u8981\u308B", "properties": { "as": { "const": "matrix" }, "rows": { "$ref": "#/$defs/id", "description": "\u884C\u306E\u9805\u76EE\u306E\u7A2E\u985E\uFF08\u3053\u306E\u6210\u679C\u7269\u306E\u9805\u76EE\uFF09" }, "columns": { "$ref": "#/$defs/id", "description": "\u5217\u306E\u9805\u76EE\u306E\u7A2E\u985E\uFF08\u5B9A\u7FA9\u306E\u3069\u306E\u9805\u76EE\u3067\u3082\u3088\u3044\uFF09" } } }, "oneView": { "oneOf": [{ "$ref": "#/$defs/graphView" }, { "$ref": "#/$defs/kanbanView" }, { "$ref": "#/$defs/timelineView" }, { "$ref": "#/$defs/calendarView" }, { "$ref": "#/$defs/tableView" }, { "$ref": "#/$defs/formView" }, { "$ref": "#/$defs/matrixView" }] } } };
+var schema31 = { "$schema": "https://json-schema.org/draft/2020-12/schema", "$id": "definition.schema.json", "title": "\u30EF\u30FC\u30AF\u30D5\u30ED\u30FC\u306E\u5B9A\u7FA9", "type": "object", "additionalProperties": false, "required": ["format", "id", "version", "title", "purpose", "phases", "deliverables", "acceptance"], "properties": { "format": { "const": 1, "description": "\u5B9A\u7FA9\u306E\u5F62\u306E\u7248" }, "id": { "$ref": "#/$defs/id" }, "version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" }, "title": { "type": "string", "minLength": 1 }, "purpose": { "type": "string", "minLength": 1, "description": "\u3053\u306E\u5B9A\u7FA9\u3067\u4F55\u3092\u4F5C\u308B\u304B" }, "phases": { "type": "array", "minItems": 1, "items": { "type": "object", "additionalProperties": false, "required": ["id", "name", "purpose", "after", "deliverables", "acceptance"], "properties": { "id": { "$ref": "#/$defs/id" }, "name": { "type": "string", "minLength": 1 }, "purpose": { "type": "string", "minLength": 1 }, "after": { "type": "array", "items": { "$ref": "#/$defs/id" }, "description": "\u5148\u306B\u7D42\u3048\u3066\u3044\u308B\u5DE5\u7A0B" }, "deliverables": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/id" } }, "acceptance": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/id" }, "description": "\u3053\u306E\u5DE5\u7A0B\u3092\u7D42\u3048\u308B\u6761\u4EF6" } } } }, "sections": { "type": "array", "description": "\u5DE5\u7A0B\u306E\u307E\u3068\u307E\u308A\u306E\u65E2\u5B9A\u306E\u5206\u3051\u65B9\u3002\u3069\u306E\u5DE5\u7A0B\u3082\u3061\u3087\u3046\u3069 1 \u3064\u306E\u307E\u3068\u307E\u308A\u306B\u5165\u308A\u3001\u307E\u3068\u307E\u308A\u306E\u4E26\u3073\u3068\u4E2D\u306E\u5DE5\u7A0B\u306E\u4E26\u3073\u306F\u5DE5\u7A0B\u306E\u9806\u306B\u5F93\u3046\u3002\u4F7F\u3046\u5074\u306F\u3053\u308C\u3092\u51FA\u767A\u70B9\u306B\u5206\u3051\u65B9\u3092\u5909\u3048\u3066\u3088\u3044", "items": { "type": "object", "additionalProperties": false, "required": ["id", "name", "phases"], "properties": { "id": { "$ref": "#/$defs/id" }, "name": { "type": "string", "minLength": 1 }, "phases": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/id" }, "description": "\u3053\u306E\u307E\u3068\u307E\u308A\u306B\u5165\u308B\u5DE5\u7A0B\u3002\u5DE5\u7A0B\u306E\u9806\u306B\u4E26\u3079\u308B" } } } }, "deliverables": { "type": "array", "items": { "type": "object", "additionalProperties": false, "required": ["id", "name", "form", "outline"], "properties": { "id": { "$ref": "#/$defs/id" }, "name": { "type": "string", "minLength": 1 }, "form": { "type": "string", "minLength": 1, "description": "\u6210\u679C\u7269\u306E\u8868\u73FE\u5F62\u614B\u3002\u8868\u793A\u7528\u306E\u5206\u985E\u3067\u3042\u308AEditor kind\u3084\u51FA\u529B\u5F62\u5F0F\u3092\u56FA\u5B9A\u3057\u306A\u3044\u3002\u7DE8\u96C6\u30FB\u51FA\u529B\u306E\u53EF\u5426\u306FEditor Platform\u306E\u516C\u958Bcapabilities\u306B\u5F93\u3046" }, "outline": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/section" }, "description": "\u898B\u51FA\u3057\u306E\u4E26\u3073\u3002\u4EBA\u304C\u78BA\u304B\u3081\u308B\u9806" }, "uses": { "type": "array", "items": { "$ref": "#/$defs/id" }, "description": "\u3082\u3068\u306B\u3059\u308B\u6210\u679C\u7269" }, "view": { "$ref": "#/$defs/view" } } } }, "items": { "type": "array", "description": "ID \u3092\u6301\u3064\u9805\u76EE\u306E\u7A2E\u985E\u3002\u5F71\u97FF\u3068\u7DB2\u7F85\u306F\u3053\u306E\u8868\u3068 rules \u3060\u3051\u3067\u6C7A\u3081\u308B", "items": { "type": "object", "additionalProperties": false, "required": ["id", "name", "idForm"], "properties": { "id": { "$ref": "#/$defs/id" }, "name": { "type": "string", "minLength": 1 }, "idForm": { "type": "string", "description": "\u9805\u76EE\u306E ID \u306E\u5F62\u3002{nn}\u30FB{nnn} \u306F\u6841\u3092\u305D\u308D\u3048\u305F\u9023\u756A\u3001{n} \u306F\u9023\u756A\u3001{parent} \u306F\u89AA\u306E\u9805\u76EE\u306E ID" }, "parent": { "$ref": "#/$defs/id", "description": "\u89AA\u306E\u9805\u76EE\u306E\u7A2E\u985E\u3002ID \u306F\u89AA\u306E ID \u304B\u3089\u4F5C\u308B" } } } }, "rules": { "type": "array", "description": "\u5F15\u7528\u3068\u7DB2\u7F85\u306E\u898F\u5247", "items": { "type": "object", "additionalProperties": false, "required": ["id", "type"], "properties": { "id": { "$ref": "#/$defs/id" }, "type": { "enum": ["cites", "covered"] }, "from": { "$ref": "#/$defs/id", "description": "cites\uFF1A\u5F15\u7528\u3059\u308B\u5074\u306E\u9805\u76EE\u306E\u7A2E\u985E" }, "to": { "type": "array", "items": { "$ref": "#/$defs/id" }, "description": "cites\uFF1A\u5F15\u7528\u3067\u304D\u308B\u5148\u306E\u9805\u76EE\u306E\u7A2E\u985E" }, "min": { "type": "integer", "minimum": 0, "description": "cites\uFF1A\u5C11\u306A\u304F\u3068\u3082\u3044\u304F\u3064\u5F15\u7528\u3059\u308B\u304B\u30020 \u306A\u3089\u3001\u5F15\u3051\u308B\u304C\u5F15\u304B\u306A\u304F\u3066\u3088\u3044" }, "of": { "$ref": "#/$defs/id", "description": "covered\uFF1A\u5F15\u7528\u3055\u308C\u308B\u5074\u306E\u9805\u76EE\u306E\u7A2E\u985E" }, "by": { "type": "array", "items": { "$ref": "#/$defs/id" }, "description": "covered\uFF1A\u5F15\u7528\u3059\u308B\u5074\u306E\u9805\u76EE\u306E\u7A2E\u985E" }, "exempt": { "const": true, "description": "covered\uFF1A\u7406\u7531\u3092\u66F8\u3051\u3070\u9664\u3051\u308B" } } } }, "roles": { "type": "array", "description": "\u4EBA\u306E\u9054\u6210\u6761\u4EF6\u3092\u78BA\u304B\u3081\u308B\u5F79\u5272\u3002\u4EBA\u306E\u540D\u524D\u306F\u66F8\u304B\u305A\u3001\u3069\u306E\u4EBA\u304C\u5F79\u5272\u3092\u6301\u3064\u304B\u306F\u4F7F\u3046\u5074\u304C\u6C7A\u3081\u308B", "items": { "type": "object", "additionalProperties": false, "required": ["id", "name"], "properties": { "id": { "$ref": "#/$defs/id" }, "name": { "type": "string", "minLength": 1 }, "text": { "type": "string", "minLength": 1, "description": "\u5F79\u5272\u306E\u8AAC\u660E" } } } }, "acceptance": { "type": "array", "items": { "type": "object", "additionalProperties": false, "required": ["id", "text", "checkedBy", "target"], "properties": { "id": { "$ref": "#/$defs/id" }, "text": { "type": "string", "minLength": 1 }, "checkedBy": { "enum": ["\u4EBA", "AI"] }, "target": { "$ref": "#/$defs/id", "description": "\u78BA\u304B\u3081\u308B\u6210\u679C\u7269" }, "rules": { "type": "array", "items": { "$ref": "#/$defs/id" }, "description": "\u3053\u306E\u6761\u4EF6\u3092\u6A5F\u68B0\u3067\u78BA\u304B\u3081\u308B\u898F\u5247" }, "approvers": { "type": "object", "additionalProperties": false, "required": ["roles"], "description": "\u4EBA\u306E\u6761\u4EF6\u3092\u78BA\u304B\u3081\u308B\u4EBA\u306E\u6C7A\u307E\u308A\uFF08\u4EBA\u306E\u6761\u4EF6\u3060\u3051\uFF09\u3002\u3069\u308C\u304B\u306E\u5F79\u5272\u3092\u6301\u3064\u3001\u9055\u3046\u4EBA\u306E\u78BA\u304B\u3081\u304C count \u4EBA\u5206\u3042\u308C\u3070\u6E80\u305F\u3059", "properties": { "roles": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/id" }, "description": "\u78BA\u304B\u3081\u308B\u5F79\u5272\uFF08roles \u306E id\uFF09" }, "count": { "type": "integer", "minimum": 1, "description": "\u8981\u308B\u4EBA\u6570\uFF08\u65E2\u5B9A 1\uFF09" } } } } } } }, "$defs": { "id": { "type": "string", "pattern": "^[a-z][a-z0-9-]*(\\.[a-z0-9-]+)*$" }, "section": { "type": "object", "additionalProperties": false, "required": ["heading", "describe"], "properties": { "heading": { "type": "string", "minLength": 1 }, "describe": { "type": "string", "minLength": 1, "description": "\u3053\u306E\u898B\u51FA\u3057\u306E\u4E0B\u306B\u66F8\u304F\u3053\u3068" }, "repeat": { "const": true, "description": "\u9805\u76EE\u3054\u3068\u306B\u7E70\u308A\u8FD4\u3059\u898B\u51FA\u3057\uFF08\u30B9\u30C8\u30FC\u30EA\u30FC\u3054\u3068\u30FB\u753B\u9762\u3054\u3068\u306A\u3069\uFF09\u3002\u898B\u51FA\u3057\u306E\u6587\u5B57\u306F\u9805\u76EE\u306E\u540D\u524D\u306B\u7F6E\u304D\u63DB\u3048\u308B" }, "children": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/section" } }, "item": { "$ref": "#/$defs/id", "description": "\u3053\u306E\u898B\u51FA\u3057\u306E\u4E0B\u306E\u4E00\u3064\u4E00\u3064\u304C\u3001\u3053\u306E\u7A2E\u985E\u306E\u9805\u76EE\u306B\u306A\u308B" } } }, "view": { "description": "\u6210\u679C\u7269\u306E\u898B\u305B\u65B9\uFF08\u4EFB\u610F\uFF09\u3002\u56F3\u30FB\u30AB\u30F3\u30D0\u30F3\u30FB\u30BF\u30A4\u30E0\u30E9\u30A4\u30F3\u30FB\u30AB\u30EC\u30F3\u30C0\u30FC\u30FB\u8868\u30FB\u30D5\u30A9\u30FC\u30E0\u30FB\u30DE\u30C8\u30EA\u30AF\u30B9\u3092 1 \u3064\u304B\u3001\u914D\u5217\u3067\u5E7E\u3064\u3067\u3082\uFF08as \u3054\u3068\u306B 1 \u3064\u307E\u3067\uFF09\u3002\u9053\u5177\u306F\u898B\u305B\u65B9\u3054\u3068\u306B\u898B\u3048\u65B9\u3092\u51FA\u3057\u3001\u6700\u521D\u306E\u898B\u305B\u65B9\u3067\u958B\u304F\u3002\u6C7A\u3081\u306A\u3044\u6210\u679C\u7269\u306F\u3001\u9053\u5177\u304C\u4E2D\u8EAB\u306E\u5F62\u304B\u3089\u958B\u304D\u65B9\u3092\u6C7A\u3081\u308B", "oneOf": [{ "$ref": "#/$defs/oneView" }, { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/oneView" } }] }, "graphView": { "type": "object", "additionalProperties": false, "required": ["as", "nodes"], "description": "\u56F3\uFF08as: graph\uFF09\u3002\u6210\u679C\u7269\u306E\u9805\u76EE\u306E\u7A2E\u985E\u3054\u3068\u306B\u3001\u70B9\u30FB\u7DDA\u30FB\u67A0\u306E\u3069\u308C\u3067\u63CF\u304F\u304B\u3092\u6C7A\u3081\u308B\u3002\u9805\u76EE\u306E\u6B04 in \u306F\u5165\u308B\u67A0\u306E ID\u3001at \u306F\u70B9\u306E\u5834\u6240 [x, y]\u3001frame \u306F\u67A0\u306E\u5834\u6240\u3068\u5927\u304D\u3055 [x, y, \u5E45, \u9AD8\u3055]\uFF08\u3069\u308C\u3082\u5165\u3063\u3066\u3044\u308B\u67A0\u306E\u5DE6\u4E0A\u304B\u3089\u3002\u7121\u3051\u308C\u3070\u9053\u5177\u304C\u4E26\u3079\u308B\uFF09", "properties": { "as": { "const": "graph" }, "nodes": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/id" }, "description": "\u70B9\u306B\u3059\u308B\u9805\u76EE\u306E\u7A2E\u985E" }, "edges": { "type": "array", "items": { "$ref": "#/$defs/id" }, "description": "\u7DDA\u306B\u3059\u308B\u9805\u76EE\u306E\u7A2E\u985E\u3002\u9805\u76EE\u306F from\u30FBto \u306B\u70B9\u306E ID \u3092\u6301\u3064" }, "sections": { "type": "array", "items": { "$ref": "#/$defs/id" }, "description": "\u67A0\u306B\u3059\u308B\u9805\u76EE\u306E\u7A2E\u985E\u3002\u67A0\u306E\u4E2D\u306E\u67A0\u306F in \u306B\u5916\u306E\u67A0\u306E ID" }, "colorBy": { "type": "string", "minLength": 1, "description": "\u70B9\u3068\u67A0\u306E\u8272\u3092\u5206\u3051\u308B\u6B04\u3002\u5024\u3054\u3068\u306B\u8272\u3092\u5909\u3048\u308B\uFF08\u67A0\u306F\u3001\u81EA\u5206\u306E ID \u304C\u305D\u306E\u5024\u306E\u3068\u304D\u3082\u305D\u306E\u8272\uFF09" }, "colors": { "type": "object", "additionalProperties": { "type": "string", "pattern": "^#[0-9a-fA-F]{6}$" }, "description": "colorBy \u306E\u5024 \u2192 \u8272\u3002\u7121\u3044\u5024\u306F\u9053\u5177\u304C\u9078\u3076" }, "edgeColorBy": { "type": "string", "minLength": 1, "description": "\u7DDA\u306E\u8272\u3092\u5206\u3051\u308B\u6B04" }, "edgeColors": { "type": "object", "additionalProperties": { "type": "string", "pattern": "^#[0-9a-fA-F]{6}$" }, "description": "edgeColorBy \u306E\u5024 \u2192 \u8272\u3002\u7121\u3044\u5024\u306F\u9053\u5177\u304C\u9078\u3076" } } }, "kanbanView": { "type": "object", "additionalProperties": false, "required": ["as", "items", "groupBy"], "description": "\u30AB\u30F3\u30D0\u30F3\uFF08as: kanban\uFF09\u30021 \u3064\u306E\u9805\u76EE\u306E\u7A2E\u985E\u3092\u3001\u6B04 groupBy \u306E\u5024\u3054\u3068\u306E\u5217\u306B\u30AB\u30FC\u30C9\u3067\u4E26\u3079\u308B\u3002\u30AB\u30FC\u30C9\u3092\u5225\u306E\u5217\u306B\u52D5\u304B\u3059\u3068\u3001\u305D\u306E\u6B04\u306E\u5024\u304C\u5909\u308F\u308B", "properties": { "as": { "const": "kanban" }, "items": { "$ref": "#/$defs/id", "description": "\u30AB\u30FC\u30C9\u306B\u3059\u308B\u9805\u76EE\u306E\u7A2E\u985E" }, "groupBy": { "type": "string", "minLength": 1, "description": "\u5217\u3092\u5206\u3051\u308B\u6B04" }, "columns": { "type": "array", "items": { "type": "string", "minLength": 1 }, "description": "\u5217\u306E\u4E26\u3073\uFF08\u5024\uFF09\u3002\u66F8\u304B\u306A\u3044\u5024\u306E\u5217\u306F\u3001\u305D\u306E\u3042\u3068\u306B\u51FA\u308B" }, "card": { "type": "array", "items": { "type": "string", "minLength": 1 }, "description": "\u30AB\u30FC\u30C9\u306B\u51FA\u3059\u6B04\u3002\u66F8\u304B\u306A\u3051\u308C\u3070\u9053\u5177\u304C\u9078\u3076" } } }, "timelineView": { "type": "object", "additionalProperties": false, "required": ["as", "items", "start", "end"], "description": "\u30BF\u30A4\u30E0\u30E9\u30A4\u30F3\uFF08as: timeline\uFF09\u30021 \u3064\u306E\u9805\u76EE\u306E\u7A2E\u985E\u3092\u3001\u6B04 start \u304B\u3089\u6B04 end \u307E\u3067\u306E\u5E2F\u3067\u65E5\u4ED8\u306E\u8EF8\u306B\u4E26\u3079\u308B\uFF08\u65E5\u4ED8\u306F YYYY-MM-DD\uFF09", "properties": { "as": { "const": "timeline" }, "items": { "$ref": "#/$defs/id", "description": "\u5E2F\u306B\u3059\u308B\u9805\u76EE\u306E\u7A2E\u985E" }, "start": { "type": "string", "minLength": 1, "description": "\u59CB\u307E\u308A\u306E\u65E5\u4ED8\u306E\u6B04" }, "end": { "type": "string", "minLength": 1, "description": "\u7D42\u308F\u308A\u306E\u65E5\u4ED8\u306E\u6B04" }, "groupBy": { "type": "string", "minLength": 1, "description": "\u5E2F\u306E\u884C\u3092\u5206\u3051\u308B\u6B04" }, "scale": { "enum": ["day", "week", "month"], "description": "\u8EF8\u306E\u76EE\u76DB\u308A" } } }, "calendarView": { "type": "object", "additionalProperties": false, "required": ["as", "items", "date"], "description": "\u30AB\u30EC\u30F3\u30C0\u30FC\uFF08as: calendar\uFF09\u30021 \u3064\u306E\u9805\u76EE\u306E\u7A2E\u985E\u3092\u3001\u6B04 date \u306E\u65E5\uFF08end \u304C\u3042\u308C\u3070 date \u304B\u3089 end \u307E\u3067\uFF09\u306B\u6708\u306E\u66A6\u3067\u4E26\u3079\u308B\uFF08\u65E5\u4ED8\u306F YYYY-MM-DD\uFF09\u3002\u671F\u9650\u306E\u3088\u3046\u306B\u65E5\u4ED8\u304C 1 \u3064\u306E\u9805\u76EE\u306B\u5411\u304F", "properties": { "as": { "const": "calendar" }, "items": { "$ref": "#/$defs/id", "description": "\u66A6\u306B\u7F6E\u304F\u9805\u76EE\u306E\u7A2E\u985E" }, "date": { "type": "string", "minLength": 1, "description": "\u65E5\u4ED8\u306E\u6B04\uFF08\u59CB\u307E\u308A\u306E\u65E5\uFF09" }, "end": { "type": "string", "minLength": 1, "description": "\u7D42\u308F\u308A\u306E\u65E5\u4ED8\u306E\u6B04\u3002\u7121\u3051\u308C\u3070 date \u306E\u65E5\u3060\u3051" } } }, "tableView": { "type": "object", "additionalProperties": false, "required": ["as", "items"], "description": "\u8868\uFF08as: table\uFF09\u30021 \u3064\u306E\u9805\u76EE\u306E\u7A2E\u985E\u3092\u8868\u3067\u958B\u304F\u3068\u304D\u306E\u3001\u6B04\u306E\u4E26\u3073\u30FB\u4E26\u3079\u66FF\u3048\u30FB\u307E\u3068\u3081\u65B9\u30FB\u96A0\u3059\u6B04\u3092\u6C7A\u3081\u308B\u3002\u6C7A\u3081\u306A\u3051\u308C\u3070\u9053\u5177\u304C\u6C7A\u3081\u308B", "properties": { "as": { "const": "table" }, "items": { "$ref": "#/$defs/id", "description": "\u8868\u306B\u3059\u308B\u9805\u76EE\u306E\u7A2E\u985E" }, "columns": { "type": "array", "items": { "type": "string", "minLength": 1 }, "description": "\u6B04\u306E\u4E26\u3073\u3002\u66F8\u304B\u306A\u3044\u6B04\u306F\u3001\u305D\u306E\u3042\u3068\u306B\u51FA\u308B" }, "sort": { "type": "array", "items": { "type": "object", "additionalProperties": false, "required": ["by"], "properties": { "by": { "type": "string", "minLength": 1, "description": "\u4E26\u3079\u66FF\u3048\u308B\u6B04" }, "desc": { "type": "boolean", "description": "\u5927\u304D\u3044\u9806\uFF08\u65B0\u3057\u3044\u9806\uFF09\u3002\u7121\u3051\u308C\u3070\u5C0F\u3055\u3044\u9806" } } }, "description": "\u4E26\u3079\u66FF\u3048\u3002\u524D\u306E\u3082\u306E\u307B\u3069\u5148\u306B\u52B9\u304F" }, "groupBy": { "type": "string", "minLength": 1, "description": "\u884C\u3092\u307E\u3068\u3081\u308B\u6B04" }, "hide": { "type": "array", "items": { "type": "string", "minLength": 1 }, "description": "\u96A0\u3059\u6B04" } } }, "formView": { "type": "object", "additionalProperties": false, "required": ["as", "items"], "description": "\u30D5\u30A9\u30FC\u30E0\uFF08as: form\uFF09\u30021 \u3064\u306E\u9805\u76EE\u306E\u7A2E\u985E\u3092\u30011 \u4EF6\u305A\u3064\u306E\u5165\u529B\u306E\u753B\u9762\u3067\u958B\u304F\u3002\u6B04\u306E\u591A\u3044\u53F0\u5E33\u306B\u5411\u304F", "properties": { "as": { "const": "form" }, "items": { "$ref": "#/$defs/id", "description": "1 \u4EF6\u305A\u3064\u958B\u304F\u9805\u76EE\u306E\u7A2E\u985E" }, "fields": { "type": "array", "items": { "type": "string", "minLength": 1 }, "description": "\u6B04\u306E\u4E26\u3073\u3002\u66F8\u304B\u306A\u3044\u6B04\u306F\u3001\u305D\u306E\u3042\u3068\u306B\u51FA\u308B" } } }, "matrixView": { "type": "object", "additionalProperties": false, "required": ["as", "rows", "columns"], "description": "\u30DE\u30C8\u30EA\u30AF\u30B9\uFF08as: matrix\uFF09\u3002\u884C\u306E\u9805\u76EE\u306E\u7A2E\u985E\u3068\u5217\u306E\u9805\u76EE\u306E\u7A2E\u985E\u3092\u4E26\u3079\u3001\u5F15\u7528\u306E\u8868\u306B\u3042\u308B\u7D44\u306E\u307E\u3059\u76EE\u306B\u5370\u3092\u4ED8\u3051\u308B\u3002\u307E\u3059\u76EE\u3092\u5207\u308A\u66FF\u3048\u308B\u3068\u3001\u5F15\u7528\u306E\u8868\u306E\u7D44\u304C\u5897\u3048\u308B\u30FB\u6E1B\u308B\u3002\u884C\u3068\u5217\u306E\u7A2E\u985E\u306E\u9593\u306B\u306F\u3001\u3069\u3061\u3089\u5411\u304D\u304B\u306E\u5F15\u7528\u306E\u898F\u5247\uFF08cites\uFF09\u304C\u8981\u308B", "properties": { "as": { "const": "matrix" }, "rows": { "$ref": "#/$defs/id", "description": "\u884C\u306E\u9805\u76EE\u306E\u7A2E\u985E\uFF08\u3053\u306E\u6210\u679C\u7269\u306E\u9805\u76EE\uFF09" }, "columns": { "$ref": "#/$defs/id", "description": "\u5217\u306E\u9805\u76EE\u306E\u7A2E\u985E\uFF08\u5B9A\u7FA9\u306E\u3069\u306E\u9805\u76EE\u3067\u3082\u3088\u3044\uFF09" } } }, "oneView": { "oneOf": [{ "$ref": "#/$defs/graphView" }, { "$ref": "#/$defs/kanbanView" }, { "$ref": "#/$defs/timelineView" }, { "$ref": "#/$defs/calendarView" }, { "$ref": "#/$defs/tableView" }, { "$ref": "#/$defs/formView" }, { "$ref": "#/$defs/matrixView" }] } } };
 var func1 = Object.prototype.hasOwnProperty;
 var func2 = require_ucs2length().default;
 var pattern4 = new RegExp("^[a-z][a-z0-9-]*(\\.[a-z0-9-]+)*$", "u");
@@ -2983,15 +2983,15 @@ function validate20(data, { instancePath = "", parentData, parentDataProperty, r
         errors++;
       }
     }
-    if (data.acceptance !== void 0) {
-      let data50 = data.acceptance;
+    if (data.roles !== void 0) {
+      let data50 = data.roles;
       if (Array.isArray(data50)) {
         const len13 = data50.length;
         for (let i13 = 0; i13 < len13; i13++) {
           let data51 = data50[i13];
           if (data51 && typeof data51 == "object" && !Array.isArray(data51)) {
             if (data51.id === void 0) {
-              const err111 = { instancePath: instancePath + "/acceptance/" + i13, schemaPath: "#/properties/acceptance/items/required", keyword: "required", params: { missingProperty: "id" }, message: "must have required property 'id'" };
+              const err111 = { instancePath: instancePath + "/roles/" + i13, schemaPath: "#/properties/roles/items/required", keyword: "required", params: { missingProperty: "id" }, message: "must have required property 'id'" };
               if (vErrors === null) {
                 vErrors = [err111];
               } else {
@@ -2999,8 +2999,8 @@ function validate20(data, { instancePath = "", parentData, parentDataProperty, r
               }
               errors++;
             }
-            if (data51.text === void 0) {
-              const err112 = { instancePath: instancePath + "/acceptance/" + i13, schemaPath: "#/properties/acceptance/items/required", keyword: "required", params: { missingProperty: "text" }, message: "must have required property 'text'" };
+            if (data51.name === void 0) {
+              const err112 = { instancePath: instancePath + "/roles/" + i13, schemaPath: "#/properties/roles/items/required", keyword: "required", params: { missingProperty: "name" }, message: "must have required property 'name'" };
               if (vErrors === null) {
                 vErrors = [err112];
               } else {
@@ -3008,31 +3008,13 @@ function validate20(data, { instancePath = "", parentData, parentDataProperty, r
               }
               errors++;
             }
-            if (data51.checkedBy === void 0) {
-              const err113 = { instancePath: instancePath + "/acceptance/" + i13, schemaPath: "#/properties/acceptance/items/required", keyword: "required", params: { missingProperty: "checkedBy" }, message: "must have required property 'checkedBy'" };
-              if (vErrors === null) {
-                vErrors = [err113];
-              } else {
-                vErrors.push(err113);
-              }
-              errors++;
-            }
-            if (data51.target === void 0) {
-              const err114 = { instancePath: instancePath + "/acceptance/" + i13, schemaPath: "#/properties/acceptance/items/required", keyword: "required", params: { missingProperty: "target" }, message: "must have required property 'target'" };
-              if (vErrors === null) {
-                vErrors = [err114];
-              } else {
-                vErrors.push(err114);
-              }
-              errors++;
-            }
             for (const key6 in data51) {
-              if (!(key6 === "id" || key6 === "text" || key6 === "checkedBy" || key6 === "target" || key6 === "rules")) {
-                const err115 = { instancePath: instancePath + "/acceptance/" + i13, schemaPath: "#/properties/acceptance/items/additionalProperties", keyword: "additionalProperties", params: { additionalProperty: key6 }, message: "must NOT have additional properties" };
+              if (!(key6 === "id" || key6 === "name" || key6 === "text")) {
+                const err113 = { instancePath: instancePath + "/roles/" + i13, schemaPath: "#/properties/roles/items/additionalProperties", keyword: "additionalProperties", params: { additionalProperty: key6 }, message: "must NOT have additional properties" };
                 if (vErrors === null) {
-                  vErrors = [err115];
+                  vErrors = [err113];
                 } else {
-                  vErrors.push(err115);
+                  vErrors.push(err113);
                 }
                 errors++;
               }
@@ -3041,7 +3023,29 @@ function validate20(data, { instancePath = "", parentData, parentDataProperty, r
               let data52 = data51.id;
               if (typeof data52 === "string") {
                 if (!pattern4.test(data52)) {
-                  const err116 = { instancePath: instancePath + "/acceptance/" + i13 + "/id", schemaPath: "#/$defs/id/pattern", keyword: "pattern", params: { pattern: "^[a-z][a-z0-9-]*(\\.[a-z0-9-]+)*$" }, message: 'must match pattern "^[a-z][a-z0-9-]*(\\.[a-z0-9-]+)*$"' };
+                  const err114 = { instancePath: instancePath + "/roles/" + i13 + "/id", schemaPath: "#/$defs/id/pattern", keyword: "pattern", params: { pattern: "^[a-z][a-z0-9-]*(\\.[a-z0-9-]+)*$" }, message: 'must match pattern "^[a-z][a-z0-9-]*(\\.[a-z0-9-]+)*$"' };
+                  if (vErrors === null) {
+                    vErrors = [err114];
+                  } else {
+                    vErrors.push(err114);
+                  }
+                  errors++;
+                }
+              } else {
+                const err115 = { instancePath: instancePath + "/roles/" + i13 + "/id", schemaPath: "#/$defs/id/type", keyword: "type", params: { type: "string" }, message: "must be string" };
+                if (vErrors === null) {
+                  vErrors = [err115];
+                } else {
+                  vErrors.push(err115);
+                }
+                errors++;
+              }
+            }
+            if (data51.name !== void 0) {
+              let data53 = data51.name;
+              if (typeof data53 === "string") {
+                if (func2(data53) < 1) {
+                  const err116 = { instancePath: instancePath + "/roles/" + i13 + "/name", schemaPath: "#/properties/roles/items/properties/name/minLength", keyword: "minLength", params: { limit: 1 }, message: "must NOT have fewer than 1 characters" };
                   if (vErrors === null) {
                     vErrors = [err116];
                   } else {
@@ -3050,7 +3054,7 @@ function validate20(data, { instancePath = "", parentData, parentDataProperty, r
                   errors++;
                 }
               } else {
-                const err117 = { instancePath: instancePath + "/acceptance/" + i13 + "/id", schemaPath: "#/$defs/id/type", keyword: "type", params: { type: "string" }, message: "must be string" };
+                const err117 = { instancePath: instancePath + "/roles/" + i13 + "/name", schemaPath: "#/properties/roles/items/properties/name/type", keyword: "type", params: { type: "string" }, message: "must be string" };
                 if (vErrors === null) {
                   vErrors = [err117];
                 } else {
@@ -3060,10 +3064,10 @@ function validate20(data, { instancePath = "", parentData, parentDataProperty, r
               }
             }
             if (data51.text !== void 0) {
-              let data53 = data51.text;
-              if (typeof data53 === "string") {
-                if (func2(data53) < 1) {
-                  const err118 = { instancePath: instancePath + "/acceptance/" + i13 + "/text", schemaPath: "#/properties/acceptance/items/properties/text/minLength", keyword: "minLength", params: { limit: 1 }, message: "must NOT have fewer than 1 characters" };
+              let data54 = data51.text;
+              if (typeof data54 === "string") {
+                if (func2(data54) < 1) {
+                  const err118 = { instancePath: instancePath + "/roles/" + i13 + "/text", schemaPath: "#/properties/roles/items/properties/text/minLength", keyword: "minLength", params: { limit: 1 }, message: "must NOT have fewer than 1 characters" };
                   if (vErrors === null) {
                     vErrors = [err118];
                   } else {
@@ -3072,7 +3076,7 @@ function validate20(data, { instancePath = "", parentData, parentDataProperty, r
                   errors++;
                 }
               } else {
-                const err119 = { instancePath: instancePath + "/acceptance/" + i13 + "/text", schemaPath: "#/properties/acceptance/items/properties/text/type", keyword: "type", params: { type: "string" }, message: "must be string" };
+                const err119 = { instancePath: instancePath + "/roles/" + i13 + "/text", schemaPath: "#/properties/roles/items/properties/text/type", keyword: "type", params: { type: "string" }, message: "must be string" };
                 if (vErrors === null) {
                   vErrors = [err119];
                 } else {
@@ -3081,102 +3085,321 @@ function validate20(data, { instancePath = "", parentData, parentDataProperty, r
                 errors++;
               }
             }
-            if (data51.checkedBy !== void 0) {
-              let data54 = data51.checkedBy;
-              if (!(data54 === "\u4EBA" || data54 === "AI")) {
-                const err120 = { instancePath: instancePath + "/acceptance/" + i13 + "/checkedBy", schemaPath: "#/properties/acceptance/items/properties/checkedBy/enum", keyword: "enum", params: { allowedValues: schema31.properties.acceptance.items.properties.checkedBy.enum }, message: "must be equal to one of the allowed values" };
-                if (vErrors === null) {
-                  vErrors = [err120];
-                } else {
-                  vErrors.push(err120);
-                }
-                errors++;
-              }
-            }
-            if (data51.target !== void 0) {
-              let data55 = data51.target;
-              if (typeof data55 === "string") {
-                if (!pattern4.test(data55)) {
-                  const err121 = { instancePath: instancePath + "/acceptance/" + i13 + "/target", schemaPath: "#/$defs/id/pattern", keyword: "pattern", params: { pattern: "^[a-z][a-z0-9-]*(\\.[a-z0-9-]+)*$" }, message: 'must match pattern "^[a-z][a-z0-9-]*(\\.[a-z0-9-]+)*$"' };
-                  if (vErrors === null) {
-                    vErrors = [err121];
-                  } else {
-                    vErrors.push(err121);
-                  }
-                  errors++;
-                }
-              } else {
-                const err122 = { instancePath: instancePath + "/acceptance/" + i13 + "/target", schemaPath: "#/$defs/id/type", keyword: "type", params: { type: "string" }, message: "must be string" };
-                if (vErrors === null) {
-                  vErrors = [err122];
-                } else {
-                  vErrors.push(err122);
-                }
-                errors++;
-              }
-            }
-            if (data51.rules !== void 0) {
-              let data56 = data51.rules;
-              if (Array.isArray(data56)) {
-                const len14 = data56.length;
-                for (let i14 = 0; i14 < len14; i14++) {
-                  let data57 = data56[i14];
-                  if (typeof data57 === "string") {
-                    if (!pattern4.test(data57)) {
-                      const err123 = { instancePath: instancePath + "/acceptance/" + i13 + "/rules/" + i14, schemaPath: "#/$defs/id/pattern", keyword: "pattern", params: { pattern: "^[a-z][a-z0-9-]*(\\.[a-z0-9-]+)*$" }, message: 'must match pattern "^[a-z][a-z0-9-]*(\\.[a-z0-9-]+)*$"' };
-                      if (vErrors === null) {
-                        vErrors = [err123];
-                      } else {
-                        vErrors.push(err123);
-                      }
-                      errors++;
-                    }
-                  } else {
-                    const err124 = { instancePath: instancePath + "/acceptance/" + i13 + "/rules/" + i14, schemaPath: "#/$defs/id/type", keyword: "type", params: { type: "string" }, message: "must be string" };
-                    if (vErrors === null) {
-                      vErrors = [err124];
-                    } else {
-                      vErrors.push(err124);
-                    }
-                    errors++;
-                  }
-                }
-              } else {
-                const err125 = { instancePath: instancePath + "/acceptance/" + i13 + "/rules", schemaPath: "#/properties/acceptance/items/properties/rules/type", keyword: "type", params: { type: "array" }, message: "must be array" };
-                if (vErrors === null) {
-                  vErrors = [err125];
-                } else {
-                  vErrors.push(err125);
-                }
-                errors++;
-              }
-            }
           } else {
-            const err126 = { instancePath: instancePath + "/acceptance/" + i13, schemaPath: "#/properties/acceptance/items/type", keyword: "type", params: { type: "object" }, message: "must be object" };
+            const err120 = { instancePath: instancePath + "/roles/" + i13, schemaPath: "#/properties/roles/items/type", keyword: "type", params: { type: "object" }, message: "must be object" };
             if (vErrors === null) {
-              vErrors = [err126];
+              vErrors = [err120];
             } else {
-              vErrors.push(err126);
+              vErrors.push(err120);
             }
             errors++;
           }
         }
       } else {
-        const err127 = { instancePath: instancePath + "/acceptance", schemaPath: "#/properties/acceptance/type", keyword: "type", params: { type: "array" }, message: "must be array" };
+        const err121 = { instancePath: instancePath + "/roles", schemaPath: "#/properties/roles/type", keyword: "type", params: { type: "array" }, message: "must be array" };
         if (vErrors === null) {
-          vErrors = [err127];
+          vErrors = [err121];
         } else {
-          vErrors.push(err127);
+          vErrors.push(err121);
+        }
+        errors++;
+      }
+    }
+    if (data.acceptance !== void 0) {
+      let data55 = data.acceptance;
+      if (Array.isArray(data55)) {
+        const len14 = data55.length;
+        for (let i14 = 0; i14 < len14; i14++) {
+          let data56 = data55[i14];
+          if (data56 && typeof data56 == "object" && !Array.isArray(data56)) {
+            if (data56.id === void 0) {
+              const err122 = { instancePath: instancePath + "/acceptance/" + i14, schemaPath: "#/properties/acceptance/items/required", keyword: "required", params: { missingProperty: "id" }, message: "must have required property 'id'" };
+              if (vErrors === null) {
+                vErrors = [err122];
+              } else {
+                vErrors.push(err122);
+              }
+              errors++;
+            }
+            if (data56.text === void 0) {
+              const err123 = { instancePath: instancePath + "/acceptance/" + i14, schemaPath: "#/properties/acceptance/items/required", keyword: "required", params: { missingProperty: "text" }, message: "must have required property 'text'" };
+              if (vErrors === null) {
+                vErrors = [err123];
+              } else {
+                vErrors.push(err123);
+              }
+              errors++;
+            }
+            if (data56.checkedBy === void 0) {
+              const err124 = { instancePath: instancePath + "/acceptance/" + i14, schemaPath: "#/properties/acceptance/items/required", keyword: "required", params: { missingProperty: "checkedBy" }, message: "must have required property 'checkedBy'" };
+              if (vErrors === null) {
+                vErrors = [err124];
+              } else {
+                vErrors.push(err124);
+              }
+              errors++;
+            }
+            if (data56.target === void 0) {
+              const err125 = { instancePath: instancePath + "/acceptance/" + i14, schemaPath: "#/properties/acceptance/items/required", keyword: "required", params: { missingProperty: "target" }, message: "must have required property 'target'" };
+              if (vErrors === null) {
+                vErrors = [err125];
+              } else {
+                vErrors.push(err125);
+              }
+              errors++;
+            }
+            for (const key7 in data56) {
+              if (!(key7 === "id" || key7 === "text" || key7 === "checkedBy" || key7 === "target" || key7 === "rules" || key7 === "approvers")) {
+                const err126 = { instancePath: instancePath + "/acceptance/" + i14, schemaPath: "#/properties/acceptance/items/additionalProperties", keyword: "additionalProperties", params: { additionalProperty: key7 }, message: "must NOT have additional properties" };
+                if (vErrors === null) {
+                  vErrors = [err126];
+                } else {
+                  vErrors.push(err126);
+                }
+                errors++;
+              }
+            }
+            if (data56.id !== void 0) {
+              let data57 = data56.id;
+              if (typeof data57 === "string") {
+                if (!pattern4.test(data57)) {
+                  const err127 = { instancePath: instancePath + "/acceptance/" + i14 + "/id", schemaPath: "#/$defs/id/pattern", keyword: "pattern", params: { pattern: "^[a-z][a-z0-9-]*(\\.[a-z0-9-]+)*$" }, message: 'must match pattern "^[a-z][a-z0-9-]*(\\.[a-z0-9-]+)*$"' };
+                  if (vErrors === null) {
+                    vErrors = [err127];
+                  } else {
+                    vErrors.push(err127);
+                  }
+                  errors++;
+                }
+              } else {
+                const err128 = { instancePath: instancePath + "/acceptance/" + i14 + "/id", schemaPath: "#/$defs/id/type", keyword: "type", params: { type: "string" }, message: "must be string" };
+                if (vErrors === null) {
+                  vErrors = [err128];
+                } else {
+                  vErrors.push(err128);
+                }
+                errors++;
+              }
+            }
+            if (data56.text !== void 0) {
+              let data58 = data56.text;
+              if (typeof data58 === "string") {
+                if (func2(data58) < 1) {
+                  const err129 = { instancePath: instancePath + "/acceptance/" + i14 + "/text", schemaPath: "#/properties/acceptance/items/properties/text/minLength", keyword: "minLength", params: { limit: 1 }, message: "must NOT have fewer than 1 characters" };
+                  if (vErrors === null) {
+                    vErrors = [err129];
+                  } else {
+                    vErrors.push(err129);
+                  }
+                  errors++;
+                }
+              } else {
+                const err130 = { instancePath: instancePath + "/acceptance/" + i14 + "/text", schemaPath: "#/properties/acceptance/items/properties/text/type", keyword: "type", params: { type: "string" }, message: "must be string" };
+                if (vErrors === null) {
+                  vErrors = [err130];
+                } else {
+                  vErrors.push(err130);
+                }
+                errors++;
+              }
+            }
+            if (data56.checkedBy !== void 0) {
+              let data59 = data56.checkedBy;
+              if (!(data59 === "\u4EBA" || data59 === "AI")) {
+                const err131 = { instancePath: instancePath + "/acceptance/" + i14 + "/checkedBy", schemaPath: "#/properties/acceptance/items/properties/checkedBy/enum", keyword: "enum", params: { allowedValues: schema31.properties.acceptance.items.properties.checkedBy.enum }, message: "must be equal to one of the allowed values" };
+                if (vErrors === null) {
+                  vErrors = [err131];
+                } else {
+                  vErrors.push(err131);
+                }
+                errors++;
+              }
+            }
+            if (data56.target !== void 0) {
+              let data60 = data56.target;
+              if (typeof data60 === "string") {
+                if (!pattern4.test(data60)) {
+                  const err132 = { instancePath: instancePath + "/acceptance/" + i14 + "/target", schemaPath: "#/$defs/id/pattern", keyword: "pattern", params: { pattern: "^[a-z][a-z0-9-]*(\\.[a-z0-9-]+)*$" }, message: 'must match pattern "^[a-z][a-z0-9-]*(\\.[a-z0-9-]+)*$"' };
+                  if (vErrors === null) {
+                    vErrors = [err132];
+                  } else {
+                    vErrors.push(err132);
+                  }
+                  errors++;
+                }
+              } else {
+                const err133 = { instancePath: instancePath + "/acceptance/" + i14 + "/target", schemaPath: "#/$defs/id/type", keyword: "type", params: { type: "string" }, message: "must be string" };
+                if (vErrors === null) {
+                  vErrors = [err133];
+                } else {
+                  vErrors.push(err133);
+                }
+                errors++;
+              }
+            }
+            if (data56.rules !== void 0) {
+              let data61 = data56.rules;
+              if (Array.isArray(data61)) {
+                const len15 = data61.length;
+                for (let i15 = 0; i15 < len15; i15++) {
+                  let data62 = data61[i15];
+                  if (typeof data62 === "string") {
+                    if (!pattern4.test(data62)) {
+                      const err134 = { instancePath: instancePath + "/acceptance/" + i14 + "/rules/" + i15, schemaPath: "#/$defs/id/pattern", keyword: "pattern", params: { pattern: "^[a-z][a-z0-9-]*(\\.[a-z0-9-]+)*$" }, message: 'must match pattern "^[a-z][a-z0-9-]*(\\.[a-z0-9-]+)*$"' };
+                      if (vErrors === null) {
+                        vErrors = [err134];
+                      } else {
+                        vErrors.push(err134);
+                      }
+                      errors++;
+                    }
+                  } else {
+                    const err135 = { instancePath: instancePath + "/acceptance/" + i14 + "/rules/" + i15, schemaPath: "#/$defs/id/type", keyword: "type", params: { type: "string" }, message: "must be string" };
+                    if (vErrors === null) {
+                      vErrors = [err135];
+                    } else {
+                      vErrors.push(err135);
+                    }
+                    errors++;
+                  }
+                }
+              } else {
+                const err136 = { instancePath: instancePath + "/acceptance/" + i14 + "/rules", schemaPath: "#/properties/acceptance/items/properties/rules/type", keyword: "type", params: { type: "array" }, message: "must be array" };
+                if (vErrors === null) {
+                  vErrors = [err136];
+                } else {
+                  vErrors.push(err136);
+                }
+                errors++;
+              }
+            }
+            if (data56.approvers !== void 0) {
+              let data63 = data56.approvers;
+              if (data63 && typeof data63 == "object" && !Array.isArray(data63)) {
+                if (data63.roles === void 0) {
+                  const err137 = { instancePath: instancePath + "/acceptance/" + i14 + "/approvers", schemaPath: "#/properties/acceptance/items/properties/approvers/required", keyword: "required", params: { missingProperty: "roles" }, message: "must have required property 'roles'" };
+                  if (vErrors === null) {
+                    vErrors = [err137];
+                  } else {
+                    vErrors.push(err137);
+                  }
+                  errors++;
+                }
+                for (const key8 in data63) {
+                  if (!(key8 === "roles" || key8 === "count")) {
+                    const err138 = { instancePath: instancePath + "/acceptance/" + i14 + "/approvers", schemaPath: "#/properties/acceptance/items/properties/approvers/additionalProperties", keyword: "additionalProperties", params: { additionalProperty: key8 }, message: "must NOT have additional properties" };
+                    if (vErrors === null) {
+                      vErrors = [err138];
+                    } else {
+                      vErrors.push(err138);
+                    }
+                    errors++;
+                  }
+                }
+                if (data63.roles !== void 0) {
+                  let data64 = data63.roles;
+                  if (Array.isArray(data64)) {
+                    if (data64.length < 1) {
+                      const err139 = { instancePath: instancePath + "/acceptance/" + i14 + "/approvers/roles", schemaPath: "#/properties/acceptance/items/properties/approvers/properties/roles/minItems", keyword: "minItems", params: { limit: 1 }, message: "must NOT have fewer than 1 items" };
+                      if (vErrors === null) {
+                        vErrors = [err139];
+                      } else {
+                        vErrors.push(err139);
+                      }
+                      errors++;
+                    }
+                    const len16 = data64.length;
+                    for (let i16 = 0; i16 < len16; i16++) {
+                      let data65 = data64[i16];
+                      if (typeof data65 === "string") {
+                        if (!pattern4.test(data65)) {
+                          const err140 = { instancePath: instancePath + "/acceptance/" + i14 + "/approvers/roles/" + i16, schemaPath: "#/$defs/id/pattern", keyword: "pattern", params: { pattern: "^[a-z][a-z0-9-]*(\\.[a-z0-9-]+)*$" }, message: 'must match pattern "^[a-z][a-z0-9-]*(\\.[a-z0-9-]+)*$"' };
+                          if (vErrors === null) {
+                            vErrors = [err140];
+                          } else {
+                            vErrors.push(err140);
+                          }
+                          errors++;
+                        }
+                      } else {
+                        const err141 = { instancePath: instancePath + "/acceptance/" + i14 + "/approvers/roles/" + i16, schemaPath: "#/$defs/id/type", keyword: "type", params: { type: "string" }, message: "must be string" };
+                        if (vErrors === null) {
+                          vErrors = [err141];
+                        } else {
+                          vErrors.push(err141);
+                        }
+                        errors++;
+                      }
+                    }
+                  } else {
+                    const err142 = { instancePath: instancePath + "/acceptance/" + i14 + "/approvers/roles", schemaPath: "#/properties/acceptance/items/properties/approvers/properties/roles/type", keyword: "type", params: { type: "array" }, message: "must be array" };
+                    if (vErrors === null) {
+                      vErrors = [err142];
+                    } else {
+                      vErrors.push(err142);
+                    }
+                    errors++;
+                  }
+                }
+                if (data63.count !== void 0) {
+                  let data66 = data63.count;
+                  if (!(typeof data66 == "number" && (!(data66 % 1) && !isNaN(data66)))) {
+                    const err143 = { instancePath: instancePath + "/acceptance/" + i14 + "/approvers/count", schemaPath: "#/properties/acceptance/items/properties/approvers/properties/count/type", keyword: "type", params: { type: "integer" }, message: "must be integer" };
+                    if (vErrors === null) {
+                      vErrors = [err143];
+                    } else {
+                      vErrors.push(err143);
+                    }
+                    errors++;
+                  }
+                  if (typeof data66 == "number") {
+                    if (data66 < 1 || isNaN(data66)) {
+                      const err144 = { instancePath: instancePath + "/acceptance/" + i14 + "/approvers/count", schemaPath: "#/properties/acceptance/items/properties/approvers/properties/count/minimum", keyword: "minimum", params: { comparison: ">=", limit: 1 }, message: "must be >= 1" };
+                      if (vErrors === null) {
+                        vErrors = [err144];
+                      } else {
+                        vErrors.push(err144);
+                      }
+                      errors++;
+                    }
+                  }
+                }
+              } else {
+                const err145 = { instancePath: instancePath + "/acceptance/" + i14 + "/approvers", schemaPath: "#/properties/acceptance/items/properties/approvers/type", keyword: "type", params: { type: "object" }, message: "must be object" };
+                if (vErrors === null) {
+                  vErrors = [err145];
+                } else {
+                  vErrors.push(err145);
+                }
+                errors++;
+              }
+            }
+          } else {
+            const err146 = { instancePath: instancePath + "/acceptance/" + i14, schemaPath: "#/properties/acceptance/items/type", keyword: "type", params: { type: "object" }, message: "must be object" };
+            if (vErrors === null) {
+              vErrors = [err146];
+            } else {
+              vErrors.push(err146);
+            }
+            errors++;
+          }
+        }
+      } else {
+        const err147 = { instancePath: instancePath + "/acceptance", schemaPath: "#/properties/acceptance/type", keyword: "type", params: { type: "array" }, message: "must be array" };
+        if (vErrors === null) {
+          vErrors = [err147];
+        } else {
+          vErrors.push(err147);
         }
         errors++;
       }
     }
   } else {
-    const err128 = { instancePath, schemaPath: "#/type", keyword: "type", params: { type: "object" }, message: "must be object" };
+    const err148 = { instancePath, schemaPath: "#/type", keyword: "type", params: { type: "object" }, message: "must be object" };
     if (vErrors === null) {
-      vErrors = [err128];
+      vErrors = [err148];
     } else {
-      vErrors.push(err128);
+      vErrors.push(err148);
     }
     errors++;
   }

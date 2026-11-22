@@ -245,6 +245,32 @@
         }
       }
     },
+    "roles": {
+      "type": "array",
+      "description": "人の達成条件を確かめる役割。人の名前は書かず、どの人が役割を持つかは使う側が決める",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "name"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "#/$defs/id"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "text": {
+            "type": "string",
+            "minLength": 1,
+            "description": "役割の説明"
+          }
+        }
+      }
+    },
     "acceptance": {
       "type": "array",
       "items": {
@@ -280,6 +306,29 @@
               "$ref": "#/$defs/id"
             },
             "description": "この条件を機械で確かめる規則"
+          },
+          "approvers": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "roles"
+            ],
+            "description": "人の条件を確かめる人の決まり（人の条件だけ）。どれかの役割を持つ、違う人の確かめが count 人分あれば満たす",
+            "properties": {
+              "roles": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "$ref": "#/$defs/id"
+                },
+                "description": "確かめる役割（roles の id）"
+              },
+              "count": {
+                "type": "integer",
+                "minimum": 1,
+                "description": "要る人数（既定 1）"
+              }
+            }
           }
         }
       }
