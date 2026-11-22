@@ -165,3 +165,12 @@ test('Editor の取り込みの確認は、配布版と代表操作の両方を�
   item(g, 'HC-01').cites = ['OP-02'];
   assert.ok(has(checkFixture(d, g), 'host-check-cites-release'));
 });
+
+test('使わなかった配布版は、理由を書けば取り込みの確認から除ける', () => {
+  const d = def('editor-development');
+  const f = fx('editor-development', 'card-editor');
+  f.deliverables['release-record'].items.splice(1, 0, { id: 'RL-02', name: 'example.card-editor 0.2.2（出す前に直した版）' });
+  assert.ok(has(checkFixture(d, f), 'RL-02: 規則 release-covered-by-host-check'));
+  f.exceptions.push({ rule: 'release-covered-by-host-check', item: 'RL-02', reason: '取り込む前に不具合が見つかり、次の版を出した' });
+  assert.deepEqual(checkFixture(d, f), []);
+});

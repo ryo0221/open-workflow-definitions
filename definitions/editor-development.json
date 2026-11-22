@@ -1,7 +1,7 @@
 {
   "format": 1,
   "id": "editor-development",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "title": "新しい Editor の開発",
   "purpose": "Editor のテンプレートから、ひとつの題材を編集する Editor を作る。目的と範囲・データ形式・操作・画面を人が工程ごとに確かめて受け入れ、試験を対応させ、package として Host に取り込んで使えるところまで進める。",
   "phases": [
@@ -651,7 +651,8 @@
       "of": "release",
       "by": [
         "host-check"
-      ]
+      ],
+      "exempt": true
     }
   ],
   "acceptance": [
@@ -799,7 +800,7 @@
     },
     {
       "id": "package.trace",
-      "text": "どの取り込みの確認も配布版と代表操作に結び付き、どの配布版にも取り込みの確認がある。",
+      "text": "どの取り込みの確認も配布版と代表操作に結び付き、どの配布版にも通った取り込みの確認がある。使わなかった版は、使わなかった理由を書いて除ける。",
       "checkedBy": "AI",
       "target": "release-record",
       "rules": [
