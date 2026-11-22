@@ -1,7 +1,7 @@
 {
   "format": 1,
   "id": "editor-development",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "title": "新しい Editor の開発",
   "purpose": "Editor のテンプレートから、ひとつの題材を編集する Editor を作る。目的と範囲・データ形式・操作・画面を人が工程ごとに確かめて受け入れ、試験を対応させ、package として Host に取り込んで使えるところまで進める。",
   "phases": [
@@ -831,6 +831,60 @@
       "text": "人が学びを読み、残すと承認している。",
       "checkedBy": "人",
       "target": "learning-notes"
+    }
+  ],
+  "gates": [
+    {
+      "name": "依存を入れる",
+      "run": "npm ci --no-audit --no-fund",
+      "limitSeconds": 600,
+      "phases": [
+        "format",
+        "build",
+        "verify",
+        "package"
+      ]
+    },
+    {
+      "name": "型の検査",
+      "run": "npm run check",
+      "limitSeconds": 300,
+      "phases": [
+        "build",
+        "verify",
+        "package"
+      ]
+    },
+    {
+      "name": "単体の試験",
+      "run": "npm test",
+      "limitSeconds": 600,
+      "phases": [
+        "format",
+        "build",
+        "verify",
+        "package"
+      ]
+    },
+    {
+      "name": "ビルド",
+      "run": "npm run build:extension",
+      "limitSeconds": 600,
+      "phases": [
+        "build",
+        "verify",
+        "package"
+      ]
+    },
+    {
+      "name": "package の検証",
+      "run": "npm run verify:package",
+      "limitSeconds": 300,
+      "phases": [
+        "build",
+        "verify",
+        "package"
+      ]
     }
   ]
 }
