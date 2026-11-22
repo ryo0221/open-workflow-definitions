@@ -18,6 +18,12 @@ test('published definitions pass the shared validator', () => {
     assert.deepEqual(check(JSON.parse(readFileSync(new URL('../definitions/' + file, import.meta.url)))), [], file);
   }
 });
+test('default gates are optional, need a name and a command, and run only in known phases', () => {
+  assert.deepEqual(check({ ...fixture(), gates: [{ name: '試験', run: 'npm test', limitSeconds: 60, phases: ['make'] }, { name: '型', run: 'npm run check' }] }), []);
+  assert.ok(check({ ...fixture(), gates: [{ name: '試験' }] }).some((m) => m.includes("must have required property 'run'")));
+  assert.ok(check({ ...fixture(), gates: [{ name: '試験', run: 'x', where: 'ci' }] }).some((m) => m.includes('(where)')));
+  assert.deepEqual(check({ ...fixture(), gates: [{ name: '試験', run: 'a' }, { name: '試験', run: 'b', phases: ['ship'] }] }), ['ゲートの名前が重なっている: 試験', 'ゲート 試験: 工程 ship が無い']);
+});
 test('archived definitions retain their pinned bytes, identity and version', () => {
   for (const [id, version, sha] of [
     ['japan-company-establishment', '1.0.0', 'bf5dfa49b83547b6d3277e78f621be7cdf4e084e97072d0e76cb80bbc63995f8'],
