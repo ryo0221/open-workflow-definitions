@@ -339,6 +339,14 @@
       "items": {
         "$ref": "#/$defs/gate"
       }
+    },
+    "placements": {
+      "type": "array",
+      "minItems": 1,
+      "description": "置き場所の形（任意）。同じ工程のまま、作るものを置くリポジトリの形ごとに、既定のゲートと成果物の置き場所を変える。利用側は Project を始めるときに 1 つ選ぶ（最初のものが既定）。選んだ形の gates は定義の gates の代わりに写し、paths は成果物の置き場所を変える",
+      "items": {
+        "$ref": "#/$defs/placement"
+      }
     }
   },
   "$defs": {
@@ -735,6 +743,44 @@
             "$ref": "#/$defs/id"
           },
           "description": "流す工程。無ければどの工程でも流す"
+        }
+      }
+    },
+    "placement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "name"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1,
+          "description": "どんなときに選ぶか"
+        },
+        "gates": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/gate"
+          },
+          "description": "この形の既定のゲート。書けば定義の gates の代わりに写す。書かなければ定義の gates"
+        },
+        "paths": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^(?!/)(?![\\s\\S]*\\.\\.)[^\\\\\\r\\n\\u2028\\u2029]+$"
+          },
+          "description": "成果物の ID → 置き場所（リポジトリの中の相対の path。.. と \\ と改行を含まない。/ で終われば場所の下のファイル全部）。書かない成果物は利用側の既定の置き場所"
         }
       }
     }

@@ -1,9 +1,9 @@
 {
   "format": 1,
   "id": "editor-development",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "title": "新しい Editor の開発",
-  "purpose": "Editor のテンプレートから、ひとつの題材を編集する Editor を作る。目的と範囲・データ形式・操作・画面を人が工程ごとに確かめて受け入れ、試験を対応させ、package として Host に取り込んで使えるところまで進める。",
+  "purpose": "Editor のテンプレートから（または Open Editor Platform に足して）、ひとつの題材を編集する Editor を作る。目的と範囲・データ形式・操作・画面を人が工程ごとに確かめて受け入れ、試験を対応させ、package として Host に取り込んで使えるところまで進める。",
   "phases": [
     {
       "id": "process",
@@ -88,7 +88,7 @@
     {
       "id": "build",
       "name": "実装",
-      "purpose": "テンプレートから作ったリポジトリで、決めた形式・操作・画面を実装し、テンプレートの検査（型・試験・ビルド・package の検証）を通す。",
+      "purpose": "テンプレートから作ったリポジトリ（または Open Editor Platform）で、決めた形式・操作・画面を実装し、置き場所の形の検査（テンプレートなら型・試験・ビルド・package の検証）を通す。",
       "after": [
         "screen"
       ],
@@ -770,7 +770,7 @@
     },
     {
       "id": "build.gates",
-      "text": "型の検査・すべての単体の試験・ビルド・package の検証が通る。",
+      "text": "選んだ置き場所の形のゲートがすべて通る（テンプレートの形なら型の検査・すべての単体の試験・ビルド・package の検証、Open Editor Platform の形なら型の検査と、変わったところで絞った lint と単体の試験）。",
       "checkedBy": "AI",
       "target": "code"
     },
@@ -900,6 +900,65 @@
         "verify",
         "package"
       ]
+    }
+  ],
+  "placements": [
+    {
+      "id": "template",
+      "name": "テンプレートから作る",
+      "text": "Editor のテンプレートから新しいリポジトリを作る。ゲートと置き場所は定義の既定のまま"
+    },
+    {
+      "id": "open-editor-platform",
+      "name": "Open Editor Platform に足す",
+      "text": "Open Editor Platform のリポジトリに、新しい Editor か機能を足す。ゲートは変わったところで絞った lint と単体の試験（scripts/gates/affected.mjs）と型の検査。コードは packages/ の下",
+      "gates": [
+        {
+          "name": "依存を入れる",
+          "run": "npm ci --no-audit --no-fund && npm run fonts:fetch",
+          "limitSeconds": 900,
+          "phases": [
+            "format",
+            "build",
+            "verify",
+            "package"
+          ]
+        },
+        {
+          "name": "型の検査",
+          "run": "npm run typecheck",
+          "limitSeconds": 600,
+          "phases": [
+            "build",
+            "verify",
+            "package"
+          ]
+        },
+        {
+          "name": "lint",
+          "run": "node scripts/gates/affected.mjs lint",
+          "limitSeconds": 300,
+          "phases": [
+            "build",
+            "verify",
+            "package"
+          ]
+        },
+        {
+          "name": "単体の試験",
+          "run": "node scripts/gates/affected.mjs unit",
+          "limitSeconds": 1800,
+          "phases": [
+            "format",
+            "build",
+            "verify",
+            "package"
+          ]
+        }
+      ],
+      "paths": {
+        "code": "packages/"
+      }
     }
   ]
 }
