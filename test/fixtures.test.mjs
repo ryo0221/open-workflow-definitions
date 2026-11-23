@@ -175,7 +175,7 @@ test('使わなかった配布版は、理由を書けば取り込みの確認�
   assert.deepEqual(checkFixture(d, f), []);
 });
 
-test('editor-development 1.3.0 offers the template placement first and an Open Editor Platform placement with scoped gates', () => {
+test('editor-development 1.4.0 offers the template placement first and an Open Editor Platform placement with scoped gates', () => {
   const d = def('editor-development');
   assert.deepEqual(d.placements.map((p) => p.id), ['template', 'open-editor-platform']);
   assert.equal(d.placements[0].gates, undefined);
