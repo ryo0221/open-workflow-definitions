@@ -112,3 +112,10 @@ test('approver roles are checked against the definition', () => {
   const extra = fixture(); extra.roles = [{ id: 'board', name: '会議' }]; extra.acceptance[0].approvers = { roles: ['board'], people: ['石田'] };
   assert.ok(check(extra).length);
 });
+
+test('two cites rules may not allow the same from → to pair, since a citation keeps no rule id', () => {
+  const def = fixture();
+  assert.deepEqual(check({ ...def, rules: [...def.rules, { id: 'links-again', type: 'cites', from: 'page', to: ['page'], min: 1 }] }), ['規則 links と links-again: 同じ組 page → page の引用を許している（組ごとに規則は 1 つ）']);
+  // 同じ規則の to に同じ種類が二度あっても、意味は一つなので重なりではない
+  assert.deepEqual(check({ ...def, rules: [{ id: 'links', type: 'cites', from: 'page', to: ['page', 'page'], min: 0 }] }), []);
+});

@@ -115,6 +115,16 @@ function checkSemantics(def) {
       need((r.by ?? []).length > 0 && r.by.every((t) => I.has(t)), `規則 ${r.id}: by に無い項目がある`);
     } else problems.push(`規則 ${r.id}: type は cites・covered のどれか`);
   }
+  // 引用は from→to の組だけを持ち、規則の ID を持たない。同じ組を二つの規則が許すと、引用がどちらの意味かが決まらない
+  const pairs = new Map();
+  for (const r of rules) {
+    if (r.type !== 'cites' || typeof r.from !== 'string' || !Array.isArray(r.to)) continue;
+    for (const t of new Set(r.to)) {
+      const k = `${r.from}\u0000${t}`, had = pairs.get(k);
+      if (had === undefined) pairs.set(k, r.id);
+      else if (had !== r.id) problems.push(`規則 ${had} と ${r.id}: 同じ組 ${r.from} → ${t} の引用を許している（組ごとに規則は 1 つ）`);
+    }
+  }
 
   for (const p of phases) {
     for (const k of ['name', 'purpose']) need(typeof p[k] === 'string' && p[k], `工程 ${p.id}: ${k} が無い`);
