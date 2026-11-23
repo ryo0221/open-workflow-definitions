@@ -174,3 +174,13 @@ test('使わなかった配布版は、理由を書けば取り込みの確認�
   f.exceptions.push({ rule: 'release-covered-by-host-check', item: 'RL-02', reason: '取り込む前に不具合が見つかり、次の版を出した' });
   assert.deepEqual(checkFixture(d, f), []);
 });
+
+test('editor-development 1.3.0 offers the template placement first and an Open Editor Platform placement with scoped gates', () => {
+  const d = def('editor-development');
+  assert.deepEqual(d.placements.map((p) => p.id), ['template', 'open-editor-platform']);
+  assert.equal(d.placements[0].gates, undefined);
+  const oep = d.placements[1];
+  assert.deepEqual(oep.paths, { code: 'packages/' });
+  assert.ok(oep.gates.some((g) => g.run === 'node scripts/gates/affected.mjs unit'));
+  assert.ok(!oep.gates.some((g) => /build:extension|verify:package/.test(g.run)));
+});

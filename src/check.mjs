@@ -80,7 +80,7 @@ function checkSemantics(def) {
   for (const k of ['id', 'version', 'title', 'purpose']) need(typeof def[k] === 'string' && def[k].length > 0, `${k} が無い`);
   need(ID.test(def.id ?? ''), `id の形が違う: ${def.id}`);
   need(/^\d+\.\d+\.\d+$/.test(def.version ?? ''), `version の形が違う: ${def.version}`);
-  const allowed = new Set(['format', 'id', 'version', 'title', 'purpose', 'phases', 'sections', 'deliverables', 'items', 'rules', 'roles', 'acceptance', 'gates']);
+  const allowed = new Set(['format', 'id', 'version', 'title', 'purpose', 'phases', 'sections', 'deliverables', 'items', 'rules', 'roles', 'acceptance', 'gates', 'placements']);
   for (const k of Object.keys(def)) need(allowed.has(k), `知らない欄: ${k}`);
 
   const phases = def.phases ?? [], sections = def.sections ?? [], deliverables = def.deliverables ?? [], acceptance = def.acceptance ?? [];
@@ -203,6 +203,19 @@ function checkSemantics(def) {
     need(!gateNames.has(g.name), `ゲートの名前が重なっている: ${g.name}`);
     gateNames.add(g.name);
     for (const p of g.phases ?? []) need(P.has(p), `ゲート ${g.name}: 工程 ${p} が無い`);
+  }
+  // 置き場所の形：ID は重ならず、ゲートは定義のゲートと同じ決まり、paths は成果物の ID
+  const placementIds = new Set();
+  for (const pl of def.placements ?? []) {
+    need(!placementIds.has(pl.id), `置き場所の形の ID が重なっている: ${pl.id}`);
+    placementIds.add(pl.id);
+    const names = new Set();
+    for (const g of pl.gates ?? []) {
+      need(!names.has(g.name), `置き場所の形 ${pl.id}: ゲートの名前が重なっている: ${g.name}`);
+      names.add(g.name);
+      for (const p of g.phases ?? []) need(P.has(p), `置き場所の形 ${pl.id}: ゲート ${g.name}: 工程 ${p} が無い`);
+    }
+    for (const d of Object.keys(pl.paths ?? {})) need(D.has(d), `置き場所の形 ${pl.id}: 成果物 ${d} が無い`);
   }
   // 工程の順の循環
   const state = new Map();

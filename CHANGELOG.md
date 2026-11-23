@@ -1,5 +1,13 @@
 # 変更の記録
 
+## editor-development 1.3.0・定義の形に置き場所の形（2026-11-23）
+
+同じ工程のまま、作るものを置くリポジトリの形ごとに、既定のゲートと成果物の置き場所を変えられるようにした。`placements` は任意の欄で、既存の定義はそのまま通る。
+
+- schema に `placements`（`id`・`name`・`text`・`gates`・`paths`）を足した。利用側は Project を始めるときに 1 つ選ぶ（最初のものが既定）。選んだ形の `gates` は定義の `gates` の代わりに写し、`paths` は成果物の ID ごとに置き場所（相対の path。`/` で終われば場所の下全部）を変える。検査は、形の ID の重なり、形の中のゲートの名前の重なりと無い工程、無い成果物を落とす。
+- editor-development 1.3.0：`template`（今までどおり）と `open-editor-platform`（依存・型の検査・変わったところで絞った lint と単体の試験。コードは `packages/`）の 2 つの形。
+- 学び（東雲物産の試し）：生きた引用を Open Editor Platform に足すとき、テンプレートの形を前提にした既定のゲート（build:extension・verify:package）と置き場所（src/）が合わず、人が手で直した。Open Editor Platform の型の検査と全部の単体の試験は 1 回 40 分ほどかかった。
+
 ## editor-development 1.2.0（2026-11-22）
 
 使わなかった配布版を、理由を書いて取り込みの確認から除けるようにした。

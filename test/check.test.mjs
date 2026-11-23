@@ -18,6 +18,19 @@ test('published definitions pass the shared validator', () => {
     assert.deepEqual(check(JSON.parse(readFileSync(new URL('../definitions/' + file, import.meta.url)))), [], file);
   }
 });
+test('placements are optional; each names its own gates and the place of known deliverables', () => {
+  const def = fixture();
+  const d = def.deliverables[0].id;
+  assert.deepEqual(check({ ...def, placements: [{ id: 'template', name: 'テンプレート' }, { id: 'other', name: 'ほか', gates: [{ name: '試験', run: 'npm test', phases: ['make'] }], paths: { [d]: 'packages/' } }] }), []);
+  assert.deepEqual(
+    check({ ...def, placements: [{ id: 'a', name: 'A', gates: [{ name: '試験', run: 'a' }, { name: '試験', run: 'b', phases: ['ship'] }], paths: { nothing: 'x/' } }, { id: 'a', name: 'B' }] }),
+    ['置き場所の形 a: ゲートの名前が重なっている: 試験', '置き場所の形 a: ゲート 試験: 工程 ship が無い', '置き場所の形 a: 成果物 nothing が無い', '置き場所の形の ID が重なっている: a'],
+  );
+  assert.ok(check({ ...def, placements: [] }).length > 0);
+  assert.ok(check({ ...def, placements: [{ id: 'a', name: 'A', paths: { [d]: '/abs' } }] }).length > 0);
+  assert.ok(check({ ...def, placements: [{ id: 'a', name: 'A', paths: { [d]: '../up' } }] }).length > 0);
+});
+
 test('default gates are optional, need a name and a command, and run only in known phases', () => {
   assert.deepEqual(check({ ...fixture(), gates: [{ name: '試験', run: 'npm test', limitSeconds: 60, phases: ['make'] }, { name: '型', run: 'npm run check' }] }), []);
   assert.ok(check({ ...fixture(), gates: [{ name: '試験' }] }).some((m) => m.includes("must have required property 'run'")));
