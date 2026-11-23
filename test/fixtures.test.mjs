@@ -184,3 +184,19 @@ test('editor-development 1.4.0 offers the template placement first and an Open E
   assert.ok(oep.gates.some((g) => g.run === 'node scripts/gates/affected.mjs unit'));
   assert.ok(!oep.gates.some((g) => /build:extension|verify:package/.test(g.run)));
 });
+
+test('故障の解析：原因の候補・故障原因・基本事象は、下流から上流への明示した引用だけでつながる', () => {
+  const d = def('failure-analysis'), f = fx('failure-analysis', 'kettle-shutoff');
+  assert.deepEqual(checkFixture(d, f), []);
+  // 候補を経ない故障原因も、故障原因に対応しない基本事象も認める（min 0）
+  const free = structuredClone(f); item(free, 'FC-02').cites = ['FM-01']; item(free, 'BE-03').cites = [];
+  assert.deepEqual(checkFixture(d, free), []);
+  // 逆向き（候補が故障原因を引く、故障原因が基本事象を引く）は規則に無い
+  const reversed = structuredClone(f); item(reversed, 'CC-01').cites = ['PB-01', 'FC-01'];
+  assert.ok(has(checkFixture(d, reversed), 'CC-01'));
+  const upward = structuredClone(f); item(upward, 'FC-01').cites = ['FM-01', 'BE-01'];
+  assert.ok(has(checkFixture(d, upward), 'FC-01'));
+  // 原因の候補から基本事象へ直接は引かない
+  const skip = structuredClone(f); item(skip, 'BE-01').cites = ['CC-01'];
+  assert.ok(has(checkFixture(d, skip), 'BE-01'));
+});
