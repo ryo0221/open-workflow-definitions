@@ -211,7 +211,7 @@ CLIの `npm run check` もこの関数を呼びます。schemaの生成検査器
 
 ## 関連
 
-- [Open Editor Platform](https://open-editor-platform-site.ryo-tsutsui.workers.dev/)：これらの定義を読み込んで、工程ごとの成果物を Editor で作れる利用側の一つです（紹介ページ）。
+- [Open Editor Platform](https://open-editor-platform-site.ryo-tsutsui.workers.dev/)（紹介ページ）：文書・図・データ・地図・スライドなどの成果物を作る Editor の基盤です。
 
 ## ライセンス
 
