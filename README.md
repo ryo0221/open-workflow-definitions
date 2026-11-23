@@ -209,6 +209,10 @@ CLIの `npm run check` もこの関数を呼びます。schemaの生成検査器
 
 [SYNC_SOURCE.md](SYNC_SOURCE.md) に公開スナップショットの固定元と公開対象を記録しています。非公開開発リポジトリ内の実装計画や内部運用情報は公開していません。
 
+## 関連
+
+- [Open Editor Platform](https://open-editor-platform-site.ryo-tsutsui.workers.dev/)：これらの定義を読み込んで、工程ごとの成果物を Editor で作れる利用側の一つです（紹介ページ）。
+
 ## ライセンス
 
 定義・JSON Schema・検査スクリプト・文書は [MIT License](LICENSE) で提供します。生成済み検査器に含まれる第三者コードは [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) を確認してください。
