@@ -39,7 +39,7 @@
 
 アニメのメカデザインと玩具化向けには `definitions/mecha-design.json` の **`mecha-design@1.0.0`** を収録しています。言葉で決めた企画（コンセプト・特徴・新しさ・要求）と合体の構想から、シルエットと比率・2次元の線図（三面図）と変形図・それを下敷きにした3Dモデルで成り立ちを確かめ、設定画・玩具化の検討・色彩・見せ場へ進め、制作と玩具の複数の組織の承認で受け入れる進め方は [利用ガイド](docs/mecha-design.md) を参照してください。
 
-ひとつの題材を編集する新しい Editor を、Editor のテンプレートから作って Host に取り込むまでには `definitions/editor-development.json` の **`editor-development@1.2.0`** を収録しています。目的と範囲・データ形式・操作・画面を決めてから実装・試験の対応・package の取り込みへ進める進め方は [利用ガイド](docs/editor-development.md) を参照してください。画面のある製品全体を作るときは software-product を使います。
+ひとつの題材を編集する新しい Editor を、Editor のテンプレートから作って Host に取り込むまでには `definitions/editor-development.json` の **`editor-development@1.3.0`** を収録しています。目的と範囲・データ形式・操作・画面を決めてから実装・試験の対応・package の取り込みへ進める進め方は [利用ガイド](docs/editor-development.md) を参照してください。画面のある製品全体を作るときは software-product を使います。
 
 株式会社設立・事業開始向けには `definitions/japan-company-establishment.json` の **`japan-company-establishment@1.0.0`** を収録しています。適用範囲と利用上の区別は [利用ガイド](docs/japan-company-establishment.md) を参照してください。
 
