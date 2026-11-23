@@ -1,5 +1,20 @@
 # 変更の記録
 
+## failure-analysis 1.0.0（2026-11-24）
+
+故障の原因解析と対策の定義を足した。要因分析（特性要因図）・FMEA・FTA の項目を別の意味と ID のまま、明示した引用でつなぐ（[tokiwa-ecosystem 0001](https://github.com/ryo0221/tokiwa-ecosystem/blob/main/docs/decisions/0001-analysis-element-references.md) の R2・R3）。
+
+- 6 工程・6 成果物・9 種類の項目。三つの分析をつなぐ引用は `failure-cause-cites-cause-candidate`（FC → CC、根拠）と `basic-event-cites-failure-cause`（BE → FC、対応）の 2 本で、どちらも任意。三者を同じものとみなさず、文章から引用を読み取らない。
+- FTA の確率から FMEA の起きやすさを、RPN から優先度を自動で決めない。確率の独立や認証は扱わない。
+- 見本 `fixtures/failure-analysis/kettle-shutoff.json` と、引用の向きを確かめる試験を足した。
+
+## 引用の持ち場所と、組ごとに一つの規則（2026-11-24）
+
+横断の設計判断（[tokiwa-ecosystem 0001](https://github.com/ryo0221/tokiwa-ecosystem/blob/main/docs/decisions/0001-analysis-element-references.md)）の H1・H6 を決めた。既存の定義はそのまま通る。
+
+- README「項目と引用」：引用は文章の外で ID の組として持ち、持つ場所は成果物の外の引用の表か、引用する側の項目の構造化された参照の欄のどちらか（一つの引用の正本は一か所）とした。文章から読み取らないことは変えない。
+- 検査：同じ (from, to) の組を二つ以上の `cites` 規則が許すと落とす。引用は規則の ID を持たないので、組から意味が一つに決まるようにする。公開中の 12 の定義に重なりは無い。
+
 ## editor-development 1.4.0・定義の形に置き場所の形（2026-11-23）
 
 同じ工程のまま、作るものを置くリポジトリの形ごとに、既定のゲートと成果物の置き場所を変えられるようにした。`placements` は任意の欄で、既存の定義はそのまま通る。

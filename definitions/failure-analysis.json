@@ -1,0 +1,572 @@
+{
+  "format": 1,
+  "id": "failure-analysis",
+  "version": "1.0.0",
+  "title": "故障の原因解析と対策",
+  "purpose": "起きた・起こり得る故障について、要因分析（特性要因図）で原因の仮説を挙げ、FMEAで故障のしかた・原因・影響を評価し、FTAで頂上事象に至る論理を表す。三つの分析の項目は別の意味とIDのまま、明示した引用でつなぎ、対策と確認まで人が工程ごとに確かめて受け入れる。",
+  "phases": [
+    {
+      "id": "scope",
+      "name": "対象と問題",
+      "purpose": "解析する対象・機能・範囲と、起きた・起こり得る問題を、確かめられる事実と仮定を分けて決める。",
+      "after": [],
+      "deliverables": [
+        "problem-statement"
+      ],
+      "acceptance": [
+        "scope.problem",
+        "scope.approved"
+      ]
+    },
+    {
+      "id": "cause-analysis",
+      "name": "要因分析",
+      "purpose": "問題ごとに、原因の候補を分類して挙げ、根拠と状態（仮説・確認済み・除外）を記録する。候補は確定した故障原因として扱わない。",
+      "after": [
+        "scope"
+      ],
+      "deliverables": [
+        "cause-diagram"
+      ],
+      "acceptance": [
+        "cause-analysis.candidates",
+        "cause-analysis.approved"
+      ]
+    },
+    {
+      "id": "fmea-analysis",
+      "name": "FMEA",
+      "purpose": "機能ごとに故障モード・影響・故障原因と、深刻さ・起きやすさ・見つけやすさの評価、現行の管理を表にする。故障原因は要因分析の候補を明示して引用できるが、候補と同じものとはみなさない。",
+      "after": [
+        "cause-analysis"
+      ],
+      "deliverables": [
+        "fmea"
+      ],
+      "acceptance": [
+        "fmea-analysis.structure",
+        "fmea-analysis.ratings",
+        "fmea-analysis.approved"
+      ]
+    },
+    {
+      "id": "fta-analysis",
+      "name": "FTA",
+      "purpose": "頂上事象から故障の論理（ゲート）を下ろし、基本事象を置く。基本事象はFMEAの故障原因との対応を明示して引用できる。確率を使うなら仮定と出どころを書く。",
+      "after": [
+        "fmea-analysis"
+      ],
+      "deliverables": [
+        "fault-tree"
+      ],
+      "acceptance": [
+        "fta-analysis.logic",
+        "fta-analysis.probability",
+        "fta-analysis.approved"
+      ]
+    },
+    {
+      "id": "actions",
+      "name": "対策と確認",
+      "purpose": "故障原因ごとに対策を決め、実施して効果を確かめる。対策しない故障原因には理由を書く。",
+      "after": [
+        "fmea-analysis",
+        "fta-analysis"
+      ],
+      "deliverables": [
+        "action-plan"
+      ],
+      "acceptance": [
+        "actions.covered",
+        "actions.verified",
+        "actions.approved"
+      ]
+    },
+    {
+      "id": "close",
+      "name": "まとめと受け入れ",
+      "purpose": "三つの分析と対策のつながり、残るリスク、未実施・制限を一つの報告にまとめ、続けるか閉じるかを人が決める。",
+      "after": [
+        "actions"
+      ],
+      "deliverables": [
+        "analysis-report"
+      ],
+      "acceptance": [
+        "close.trace",
+        "close.limits",
+        "close.approved"
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "id": "understand",
+      "name": "問題と原因",
+      "phases": [
+        "scope",
+        "cause-analysis"
+      ]
+    },
+    {
+      "id": "analyze",
+      "name": "故障の解析",
+      "phases": [
+        "fmea-analysis",
+        "fta-analysis"
+      ]
+    },
+    {
+      "id": "act",
+      "name": "対策と受け入れ",
+      "phases": [
+        "actions",
+        "close"
+      ]
+    }
+  ],
+  "deliverables": [
+    {
+      "id": "problem-statement",
+      "name": "問題の定義",
+      "form": "文書",
+      "outline": [
+        {
+          "heading": "対象と機能",
+          "describe": "FN-{nn} ごとに、対象の製品・工程・サービスの範囲と、果たすべき機能、使われる条件を書く。",
+          "item": "function"
+        },
+        {
+          "heading": "問題",
+          "describe": "PB-{nn} ごとに、起きた（起こり得る）事象、発生の条件と頻度、影響、確かめた事実と未確認の仮定を分けて書く。",
+          "item": "problem"
+        },
+        {
+          "heading": "範囲の外",
+          "describe": "解析しない対象・条件と理由。"
+        }
+      ]
+    },
+    {
+      "id": "cause-diagram",
+      "name": "要因分析（特性要因図）",
+      "form": "図",
+      "uses": [
+        "problem-statement"
+      ],
+      "outline": [
+        {
+          "heading": "原因の候補",
+          "describe": "CC-{nn} ごとに、分類（人・機械・材料・方法・測定・環境など）、候補の内容、根拠、状態（仮説・確認済み・除外）と除外の理由を書く。候補は故障原因の確定ではない。",
+          "item": "cause-candidate"
+        }
+      ]
+    },
+    {
+      "id": "fmea",
+      "name": "FMEA",
+      "form": "表",
+      "uses": [
+        "problem-statement",
+        "cause-diagram"
+      ],
+      "outline": [
+        {
+          "heading": "故障モード",
+          "describe": "FM-{nn} ごとに、機能の故障のしかたと、その影響、深刻さ（S）を書く。",
+          "item": "failure-mode"
+        },
+        {
+          "heading": "故障原因",
+          "describe": "FC-{nn} ごとに、故障モードを起こす原因、起きやすさ（O）、現行の予防と検出の管理、見つけやすさ（D）を書く。評価の表（点の付け方）と、RPNや対策の優先度を使うならその決め方を明記する。RPNから優先度を自動で決めない。",
+          "item": "failure-cause"
+        }
+      ],
+      "view": {
+        "as": "table",
+        "items": "failure-cause",
+        "columns": [
+          "故障モード",
+          "原因",
+          "O",
+          "予防の管理",
+          "検出の管理",
+          "D",
+          "優先度"
+        ]
+      }
+    },
+    {
+      "id": "fault-tree",
+      "name": "故障の木（FTA）",
+      "form": "図",
+      "uses": [
+        "problem-statement",
+        "fmea"
+      ],
+      "outline": [
+        {
+          "heading": "頂上事象",
+          "describe": "TE-{nn} ごとに、望まない事象と、その定義（どの状態を起きたとみなすか）を書く。",
+          "item": "top-event"
+        },
+        {
+          "heading": "論理",
+          "describe": "頂上事象から基本事象までのゲート（AND・OR など）と中間事象。共通の原因や従属を見つけたら書く。"
+        },
+        {
+          "heading": "基本事象",
+          "describe": "BE-{nn} ごとに、これ以上分けない事象と、確率を使うなら値・単位・出どころ・独立の仮定を書く。",
+          "item": "basic-event"
+        }
+      ]
+    },
+    {
+      "id": "action-plan",
+      "name": "対策と確認",
+      "form": "表",
+      "uses": [
+        "fmea",
+        "fault-tree"
+      ],
+      "outline": [
+        {
+          "heading": "対策",
+          "describe": "AC-{nn} ごとに、対象の故障原因、内容、担当、期限、状態を書く。",
+          "item": "action"
+        },
+        {
+          "heading": "確認",
+          "describe": "VR-{nn} ごとに、対策の効果を確かめた方法・結果・日付と、評価をやり直した値を書く。",
+          "item": "verification"
+        }
+      ],
+      "view": {
+        "as": "table",
+        "items": "action",
+        "columns": [
+          "故障原因",
+          "内容",
+          "担当",
+          "期限",
+          "状態"
+        ]
+      }
+    },
+    {
+      "id": "analysis-report",
+      "name": "解析の報告",
+      "form": "文書",
+      "uses": [
+        "problem-statement",
+        "cause-diagram",
+        "fmea",
+        "fault-tree",
+        "action-plan"
+      ],
+      "outline": [
+        {
+          "heading": "つながり",
+          "describe": "問題から原因の候補・故障原因・基本事象・対策・確認までの引用のつながりと、つながらない項目の理由。"
+        },
+        {
+          "heading": "残るリスクと制限",
+          "describe": "対策しない故障原因、未確認の仮定、確率の仮定、実施していない確認、この解析が認証や承認された安全評価ではないこと。"
+        },
+        {
+          "heading": "判断",
+          "describe": "続ける・閉じるの判断と、判断した人。"
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "function",
+      "name": "機能",
+      "idForm": "FN-{nn}"
+    },
+    {
+      "id": "problem",
+      "name": "問題",
+      "idForm": "PB-{nn}"
+    },
+    {
+      "id": "cause-candidate",
+      "name": "原因の候補",
+      "idForm": "CC-{nn}"
+    },
+    {
+      "id": "failure-mode",
+      "name": "故障モード",
+      "idForm": "FM-{nn}"
+    },
+    {
+      "id": "failure-cause",
+      "name": "故障原因",
+      "idForm": "FC-{nn}"
+    },
+    {
+      "id": "top-event",
+      "name": "頂上事象",
+      "idForm": "TE-{nn}"
+    },
+    {
+      "id": "basic-event",
+      "name": "基本事象",
+      "idForm": "BE-{nn}"
+    },
+    {
+      "id": "action",
+      "name": "対策",
+      "idForm": "AC-{nn}"
+    },
+    {
+      "id": "verification",
+      "name": "確認",
+      "idForm": "VR-{nn}"
+    }
+  ],
+  "rules": [
+    {
+      "id": "problem-cites-function",
+      "type": "cites",
+      "from": "problem",
+      "to": [
+        "function"
+      ],
+      "min": 1
+    },
+    {
+      "id": "cause-candidate-cites-problem",
+      "type": "cites",
+      "from": "cause-candidate",
+      "to": [
+        "problem"
+      ],
+      "min": 1
+    },
+    {
+      "id": "failure-mode-cites-function",
+      "type": "cites",
+      "from": "failure-mode",
+      "to": [
+        "function"
+      ],
+      "min": 1
+    },
+    {
+      "id": "failure-cause-cites-failure-mode",
+      "type": "cites",
+      "from": "failure-cause",
+      "to": [
+        "failure-mode"
+      ],
+      "min": 1
+    },
+    {
+      "id": "failure-cause-cites-cause-candidate",
+      "type": "cites",
+      "from": "failure-cause",
+      "to": [
+        "cause-candidate"
+      ],
+      "min": 0
+    },
+    {
+      "id": "top-event-cites-problem",
+      "type": "cites",
+      "from": "top-event",
+      "to": [
+        "problem"
+      ],
+      "min": 1
+    },
+    {
+      "id": "basic-event-cites-failure-cause",
+      "type": "cites",
+      "from": "basic-event",
+      "to": [
+        "failure-cause"
+      ],
+      "min": 0
+    },
+    {
+      "id": "action-cites-failure-cause",
+      "type": "cites",
+      "from": "action",
+      "to": [
+        "failure-cause"
+      ],
+      "min": 1
+    },
+    {
+      "id": "verification-cites-action",
+      "type": "cites",
+      "from": "verification",
+      "to": [
+        "action"
+      ],
+      "min": 1
+    },
+    {
+      "id": "problem-analyzed",
+      "type": "covered",
+      "of": "problem",
+      "by": [
+        "cause-candidate"
+      ],
+      "exempt": true
+    },
+    {
+      "id": "failure-mode-caused",
+      "type": "covered",
+      "of": "failure-mode",
+      "by": [
+        "failure-cause"
+      ],
+      "exempt": true
+    },
+    {
+      "id": "failure-cause-acted",
+      "type": "covered",
+      "of": "failure-cause",
+      "by": [
+        "action"
+      ],
+      "exempt": true
+    },
+    {
+      "id": "action-verified",
+      "type": "covered",
+      "of": "action",
+      "by": [
+        "verification"
+      ],
+      "exempt": true
+    }
+  ],
+  "acceptance": [
+    {
+      "id": "scope.problem",
+      "text": "問題ごとに対象の機能があり、確かめた事実と未確認の仮定、範囲の外が区別されている。",
+      "checkedBy": "AI",
+      "target": "problem-statement",
+      "rules": [
+        "problem-cites-function"
+      ]
+    },
+    {
+      "id": "scope.approved",
+      "text": "人が対象・機能・問題と範囲の外を確かめ、この範囲で解析を始めると承認している。",
+      "checkedBy": "人",
+      "target": "problem-statement"
+    },
+    {
+      "id": "cause-analysis.candidates",
+      "text": "問題ごとに原因の候補があり（無い問題は理由がある）、各候補に分類・根拠・状態がある。除外した候補には理由がある。",
+      "checkedBy": "AI",
+      "target": "cause-diagram",
+      "rules": [
+        "cause-candidate-cites-problem",
+        "problem-analyzed"
+      ]
+    },
+    {
+      "id": "cause-analysis.approved",
+      "text": "人が原因の候補と状態を確かめ、仮説のまま残す候補を承知している。",
+      "checkedBy": "人",
+      "target": "cause-diagram"
+    },
+    {
+      "id": "fmea-analysis.structure",
+      "text": "故障モードは機能を、故障原因は故障モードを引用している。要因分析の候補を引く故障原因は、その引用を明示している。故障モードごとに故障原因がある（無いものは理由がある）。",
+      "checkedBy": "AI",
+      "target": "fmea",
+      "rules": [
+        "failure-mode-cites-function",
+        "failure-cause-cites-failure-mode",
+        "failure-cause-cites-cause-candidate",
+        "failure-mode-caused"
+      ]
+    },
+    {
+      "id": "fmea-analysis.ratings",
+      "text": "深刻さ・起きやすさ・見つけやすさの点の付け方（評価の表）が明記され、すべての故障原因に点がある。RPNを使うなら参考値として扱い、優先度の決め方を別に書いている。",
+      "checkedBy": "AI",
+      "target": "fmea"
+    },
+    {
+      "id": "fmea-analysis.approved",
+      "text": "人が故障モード・故障原因・評価を確かめ、評価の表と優先度の決め方を承認している。",
+      "checkedBy": "人",
+      "target": "fmea"
+    },
+    {
+      "id": "fta-analysis.logic",
+      "text": "頂上事象は問題を引用し、頂上事象から基本事象まで論理がつながっている。FMEAの故障原因に対応する基本事象は、その引用を明示している。",
+      "checkedBy": "AI",
+      "target": "fault-tree",
+      "rules": [
+        "top-event-cites-problem",
+        "basic-event-cites-failure-cause"
+      ]
+    },
+    {
+      "id": "fta-analysis.probability",
+      "text": "確率を使う基本事象には値・単位・出どころがあり、独立などの仮定と、扱っていない共通原因・従属が書かれている。確率を使わないならその旨がある。",
+      "checkedBy": "AI",
+      "target": "fault-tree"
+    },
+    {
+      "id": "fta-analysis.approved",
+      "text": "人が頂上事象の定義と故障の論理、確率の仮定を確かめ、承認している。",
+      "checkedBy": "人",
+      "target": "fault-tree"
+    },
+    {
+      "id": "actions.covered",
+      "text": "故障原因ごとに対策がある（無いものは理由がある）。対策には担当と期限がある。",
+      "checkedBy": "AI",
+      "target": "action-plan",
+      "rules": [
+        "action-cites-failure-cause",
+        "failure-cause-acted"
+      ]
+    },
+    {
+      "id": "actions.verified",
+      "text": "実施した対策ごとに確認があり、方法・結果と評価をやり直した値がある（未確認のものは理由がある）。",
+      "checkedBy": "AI",
+      "target": "action-plan",
+      "rules": [
+        "verification-cites-action",
+        "action-verified"
+      ]
+    },
+    {
+      "id": "actions.approved",
+      "text": "人が対策と確認の結果を確かめ、残す故障原因と理由を承認している。",
+      "checkedBy": "人",
+      "target": "action-plan"
+    },
+    {
+      "id": "close.trace",
+      "text": "問題から原因の候補・故障原因・基本事象・対策・確認までの引用のつながりが報告にあり、つながらない項目に理由がある。",
+      "checkedBy": "AI",
+      "target": "analysis-report"
+    },
+    {
+      "id": "close.limits",
+      "text": "残るリスク、未確認の仮定、確率の仮定、実施していない確認と、この解析が認証や承認された安全評価ではないことが書かれている。",
+      "checkedBy": "AI",
+      "target": "analysis-report"
+    },
+    {
+      "id": "close.approved",
+      "text": "判断する人が報告を確かめ、続けるか閉じるかを決めている。",
+      "checkedBy": "人",
+      "target": "analysis-report"
+    }
+  ]
+}
