@@ -1,7 +1,7 @@
 {
   "format": 1,
   "id": "editor-development",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "title": "新しい Editor の開発",
   "purpose": "Editor のテンプレートから、ひとつの題材を編集する Editor を作る。目的と範囲・データ形式・操作・画面を人が工程ごとに確かめて受け入れ、試験を対応させ、package として Host に取り込んで使えるところまで進める。",
   "phases": [
@@ -65,6 +65,7 @@
       "acceptance": [
         "commands.trace",
         "commands.safe",
+        "commands.ai",
         "commands.approved"
       ]
     },
@@ -96,6 +97,7 @@
       ],
       "acceptance": [
         "build.gates",
+        "build.declared",
         "build.approved"
       ]
     },
@@ -734,6 +736,12 @@
       "target": "command-table"
     },
     {
+      "id": "commands.ai",
+      "text": "AI が成果物を作り、直すのに要る編集（項目を足す・消す・値を変える・まとめて変える）が、Host に出す操作として操作の表にそろっている。入力の上限は成果物の大きさに足り、出さない編集には理由が書かれている。",
+      "checkedBy": "AI",
+      "target": "command-table"
+    },
+    {
       "id": "commands.approved",
       "text": "人が操作の表を読み、Undo の単位と拒否の条件を承認している。",
       "checkedBy": "人",
@@ -763,6 +771,12 @@
     {
       "id": "build.gates",
       "text": "型の検査・すべての単体の試験・ビルド・package の検証が通る。",
+      "checkedBy": "AI",
+      "target": "code"
+    },
+    {
+      "id": "build.declared",
+      "text": "Editor が「新しく作る」（create）を宣言して実装し、Host で空の成果物から始められる。Host に出す操作の宣言は、操作の表で出すと決めた操作と同じである。",
       "checkedBy": "AI",
       "target": "code"
     },
