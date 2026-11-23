@@ -29,6 +29,9 @@ test('placements are optional; each names its own gates and the place of known d
   assert.ok(check({ ...def, placements: [] }).length > 0);
   assert.ok(check({ ...def, placements: [{ id: 'a', name: 'A', paths: { [d]: '/abs' } }] }).length > 0);
   assert.ok(check({ ...def, placements: [{ id: 'a', name: 'A', paths: { [d]: '../up' } }] }).length > 0);
+  // 改行の後ろの .. も、改行そのものも断る（Codex on #20）
+  for (const at of ['safe\n/../../outside', 'safe\r\n..', 'a\u2028/../b', 'line\nbreak/'])
+    assert.ok(check({ ...def, placements: [{ id: 'a', name: 'A', paths: { [d]: at } }] }).length > 0, JSON.stringify(at));
 });
 
 test('default gates are optional, need a name and a command, and run only in known phases', () => {

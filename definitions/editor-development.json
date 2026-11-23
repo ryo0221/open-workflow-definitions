@@ -762,7 +762,7 @@
     },
     {
       "id": "build.gates",
-      "text": "型の検査・すべての単体の試験・ビルド・package の検証が通る。",
+      "text": "選んだ置き場所の形のゲートがすべて通る（テンプレートの形なら型の検査・すべての単体の試験・ビルド・package の検証、Open Editor Platform の形なら型の検査と、変わったところで絞った lint と単体の試験）。",
       "checkedBy": "AI",
       "target": "code"
     },
