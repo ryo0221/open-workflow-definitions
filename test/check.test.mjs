@@ -34,6 +34,12 @@ test('placements are optional; each names its own gates and the place of known d
     assert.ok(check({ ...def, placements: [{ id: 'a', name: 'A', paths: { [d]: at } }] }).length > 0, JSON.stringify(at));
 });
 
+test('strictCites is optional, only true, and needs a cites rule', () => {
+  assert.deepEqual(check({ ...fixture(), strictCites: true }), []);
+  assert.ok(check({ ...fixture(), strictCites: false }).some((m) => m.includes('strictCites')));
+  assert.ok(check({ ...fixture(), rules: [], strictCites: true }).some((m) => m.includes('strictCites には cites 規則が要る')));
+});
+
 test('default gates are optional, need a name and a command, and run only in known phases', () => {
   assert.deepEqual(check({ ...fixture(), gates: [{ name: '試験', run: 'npm test', limitSeconds: 60, phases: ['make'] }, { name: '型', run: 'npm run check' }] }), []);
   assert.ok(check({ ...fixture(), gates: [{ name: '試験' }] }).some((m) => m.includes("must have required property 'run'")));

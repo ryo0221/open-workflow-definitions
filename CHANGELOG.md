@@ -1,5 +1,13 @@
 # 変更の記録
 
+## failure-analysis 1.1.0・規則に無い組の引用を止める宣言（2026-11-24）
+
+規則に無い組の引用（故障原因が基本事象を引くなど）を、宣言した定義では使う側が止めるようにした。`strictCites` は任意の欄で、既存の定義はそのまま通る。
+
+- schema に `strictCites`（`true` だけ）を足した。検査は、`true` 以外の値と、`cites` 規則の無い定義での宣言を落とす。
+- failure-analysis 1.1.0：`strictCites: true`。規則・項目・工程は 1.0.0 と同じ。見本は 1.1.0 に合わせた。
+- 学び（統合の確かめ、tokiwa-ecosystem #8 の AR-P4）：PaoBub では、FC → BE の引用が、引用の表に書いても Editor の欄に書いても問題に出ず、受け入れも止まらなかった。どの定義でも止めることはできない。ソフトウェア製品の見本の Project では、規則に無い組の引用が 10,552 件中 819 件あった。そこで定義が宣言する形にした。
+
 ## failure-analysis 1.0.0（2026-11-24）
 
 故障の原因解析と対策の定義を足した。要因分析（特性要因図）・FMEA・FTA の項目を別の意味と ID のまま、明示した引用でつなぐ（[tokiwa-ecosystem 0001](https://github.com/ryo0221/tokiwa-ecosystem/blob/main/docs/decisions/0001-analysis-element-references.md) の R2・R3）。

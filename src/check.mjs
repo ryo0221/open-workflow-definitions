@@ -80,7 +80,7 @@ function checkSemantics(def) {
   for (const k of ['id', 'version', 'title', 'purpose']) need(typeof def[k] === 'string' && def[k].length > 0, `${k} が無い`);
   need(ID.test(def.id ?? ''), `id の形が違う: ${def.id}`);
   need(/^\d+\.\d+\.\d+$/.test(def.version ?? ''), `version の形が違う: ${def.version}`);
-  const allowed = new Set(['format', 'id', 'version', 'title', 'purpose', 'phases', 'sections', 'deliverables', 'items', 'rules', 'roles', 'acceptance', 'gates', 'placements']);
+  const allowed = new Set(['format', 'id', 'version', 'title', 'purpose', 'phases', 'sections', 'deliverables', 'items', 'rules', 'strictCites', 'roles', 'acceptance', 'gates', 'placements']);
   for (const k of Object.keys(def)) need(allowed.has(k), `知らない欄: ${k}`);
 
   const phases = def.phases ?? [], sections = def.sections ?? [], deliverables = def.deliverables ?? [], acceptance = def.acceptance ?? [];
@@ -115,6 +115,9 @@ function checkSemantics(def) {
       need((r.by ?? []).length > 0 && r.by.every((t) => I.has(t)), `規則 ${r.id}: by に無い項目がある`);
     } else problems.push(`規則 ${r.id}: type は cites・covered のどれか`);
   }
+  // strictCites：規則に無い組の引用を使う側が違反にする。許す組が無いと、どの引用も違反になる
+  need(def.strictCites === undefined || def.strictCites === true, 'strictCites は true だけ（書かなければ使う側に任せる）');
+  need(def.strictCites === undefined || rules.some((r) => r.type === 'cites'), 'strictCites には cites 規則が要る');
   // 引用は from→to の組だけを持ち、規則の ID を持たない。同じ組を二つの規則が許すと、引用がどちらの意味かが決まらない
   const pairs = new Map();
   for (const r of rules) {
