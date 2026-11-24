@@ -188,6 +188,8 @@ test('editor-development 1.4.0 offers the template placement first and an Open E
 test('故障の解析：原因の候補・故障原因・基本事象は、下流から上流への明示した引用だけでつながる', () => {
   const d = def('failure-analysis'), f = fx('failure-analysis', 'kettle-shutoff');
   assert.deepEqual(checkFixture(d, f), []);
+  // 規則に無い組の引用は、使う側でも違反にする（1.1.0）
+  assert.equal(d.strictCites, true);
   // 候補を経ない故障原因も、故障原因に対応しない基本事象も認める（min 0）
   const free = structuredClone(f); item(free, 'FC-02').cites = ['FM-01']; item(free, 'BE-03').cites = [];
   assert.deepEqual(checkFixture(d, free), []);
