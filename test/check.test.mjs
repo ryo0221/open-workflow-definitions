@@ -125,3 +125,12 @@ test('two cites rules may not allow the same from → to pair, since a citation 
   // 同じ規則の to に同じ種類が二度あっても、意味は一つなので重なりではない
   assert.deepEqual(check({ ...def, rules: [{ id: 'links', type: 'cites', from: 'page', to: ['page', 'page'], min: 0 }] }), []);
 });
+
+test('phases and sections may name an icon in kebab-case; other forms are refused', () => {
+  const def = fixture();
+  const ok = { ...def, phases: [{ ...def.phases[0], icon: 'file-text' }], sections: [{ id: 's', name: 'まとまり', phases: ['make'], icon: 'lightbulb' }] };
+  assert.deepEqual(check(ok), []);
+  for (const icon of ['', 'Lightbulb', 'file_text', 'file--text', '-x', 'x-', '1x', 'a b'])
+    assert.ok(check({ ...def, phases: [{ ...def.phases[0], icon }] }).length > 0, JSON.stringify(icon));
+  assert.ok(check({ ...def, sections: [{ id: 's', name: 'まとまり', phases: ['make'], icon: 3 }] }).length > 0);
+});

@@ -5,7 +5,7 @@
   "purpose": "架空の電動の動力系（モーター・減速機・ケースを一つにした部品）を組み立てる小さなラインで、現状のボトルネックを見つけ、バッファと加工機の台数の案を比べて採るまでの、項目と引用の形を示す見本。数値は説明のための架空の値。",
   "definition": {
     "id": "production-system-planning",
-    "version": "1.0.0"
+    "version": "1.1.0"
   },
   "deliverables": {
     "process-map": {

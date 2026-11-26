@@ -1,7 +1,7 @@
 {
   "format": 1,
   "id": "visual-identity",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "title": "ビジュアル・アイデンティティ制作",
   "purpose": "組織・製品・サービスなどの理念と用途から、ロゴ、シンボル、アプリアイコン等の視覚表現を探索・制作し、評価・承認を経て利用可能なデザイン資産と運用ルールを整える。題材・製品・道具・出力形式は利用側が決める。",
   "phases": [
@@ -220,6 +220,7 @@
     {
       "id": "plan",
       "name": "企画",
+      "icon": "lightbulb",
       "phases": [
         "process",
         "brand",
@@ -229,6 +230,7 @@
     {
       "id": "explore",
       "name": "探索",
+      "icon": "compass",
       "phases": [
         "research",
         "concept",
@@ -238,6 +240,7 @@
     {
       "id": "design",
       "name": "造形",
+      "icon": "palette",
       "phases": [
         "candidates",
         "refinement"
@@ -246,6 +249,7 @@
     {
       "id": "review",
       "name": "評価と判断",
+      "icon": "scale",
       "phases": [
         "evaluation",
         "verification",
@@ -255,6 +259,7 @@
     {
       "id": "deliver",
       "name": "完成と展開",
+      "icon": "sparkles",
       "phases": [
         "master",
         "variants",

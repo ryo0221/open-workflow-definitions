@@ -1,7 +1,7 @@
 {
   "format": 1,
   "id": "fiction-manga",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "title": "漫画の制作",
   "purpose": "漫画を、企画と画作りの決まりから、人物・世界と舞台・筋・脚本の設計、ネーム、ラフ・線画・仕上げと写植、通読を経て出版準備まで、作者が工程ごとに成果物を確かめて受け入れながら、AI の提案を採否して作る。",
   "phases": [
@@ -244,6 +244,7 @@
     {
       "id": "plan",
       "name": "企画",
+      "icon": "lightbulb",
       "phases": [
         "process",
         "concept"
@@ -252,6 +253,7 @@
     {
       "id": "design",
       "name": "物語設計",
+      "icon": "book-open",
       "phases": [
         "character",
         "stage",
@@ -262,6 +264,7 @@
     {
       "id": "draw",
       "name": "ネームと作画",
+      "icon": "pen-tool",
       "phases": [
         "storyboard",
         "rough",
@@ -272,6 +275,7 @@
     {
       "id": "finish-and-publish",
       "name": "仕上げと公開",
+      "icon": "send",
       "phases": [
         "read",
         "output",

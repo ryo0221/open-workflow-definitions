@@ -5,7 +5,7 @@
   "purpose": "径 35 mm・厚み 7.5 mm の手巻きのスケルトンの腕時計を、進め方から詳細設計の出図まで通した見本。方式は 3 案から手巻きを選び、外装の 3 方向を組み合わせる。配置の 3D モデルでハードポイントを寸法に持ち、詳細の 3D モデルで干渉と噛み合いを確かめる。設計検証より後は省く。",
   "definition": {
     "id": "product-design-engineering",
-    "version": "1.0.0"
+    "version": "1.1.0"
   },
   "deliverables": {
     "process-map": {

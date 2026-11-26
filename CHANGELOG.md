@@ -1,5 +1,13 @@
 # 変更の記録
 
+## 工程とまとまりのアイコン（2026-11-26）
+
+工程（`phases`）とまとまり（`sections`）に、画面で名前の横に出すアイコンの名前を書けるようにした。`icon` は任意の欄で、既存の定義はそのまま通る。
+
+- schema に `icon` を足した。形は英小文字の語をハイフンでつないだもの（例 `lightbulb`・`file-text`）。特定の道具の名前ではなく、使う側が自分の持つアイコンに当てる。知らない名前なら出さずに名前だけを見せてよい。
+- 使う側は、定義のアイコンを既定とし、Project ごとに上書きしてよい（PaoBub の左の帯で、Thread を頭文字でなくアイコンで見分けたいという要望から）。
+- 公開中の 13 の定義のまとまりにアイコンを入れ、版を一つずつ上げた（construction-planning 1.1.0・editor-development 1.5.0・failure-analysis 1.2.0・fiction-manga 1.6.0・fiction-novel 1.3.0・japan-company-establishment 1.1.0・mecha-design 1.1.0・product-design-engineering 1.1.0・production-system-planning 1.1.0・software-product 1.8.0・software-refactoring 1.1.0・vehicle-styling 1.1.0・visual-identity 1.1.0）。工程・成果物・項目・規則・達成条件は前の版と同じ。見本は新しい版に合わせ、docs/fixtures.md の古い版の表記も直した。
+
 ## failure-analysis 1.1.0・規則に無い組の引用を止める宣言（2026-11-24）
 
 規則に無い組の引用（故障原因が基本事象を引くなど）を、宣言した定義では使う側が止めるようにした。`strictCites` は任意の欄で、既存の定義はそのまま通る。

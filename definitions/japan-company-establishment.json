@@ -1,7 +1,7 @@
 {
   "format": 1,
   "id": "japan-company-establishment",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "title": "会社を設計し、設立して事業を始める",
   "purpose": "会社の存在意義、目指す未来、顧客価値、事業と組織の姿をまず人に伝わる制作物として形にし、その方針に基づいて法人設立と事業開始の実務を進める。",
   "phases": [
@@ -261,6 +261,7 @@
     {
       "id": "direction",
       "name": "会社の理念と事業像",
+      "icon": "compass",
       "phases": [
         "charter",
         "purpose",
@@ -273,6 +274,7 @@
     {
       "id": "establishment",
       "name": "会社を形にする",
+      "icon": "building-2",
       "phases": [
         "corporate",
         "capital",
@@ -283,6 +285,7 @@
     {
       "id": "foundation",
       "name": "事業を動かす準備",
+      "icon": "briefcase",
       "phases": [
         "tax",
         "people",
@@ -293,6 +296,7 @@
     {
       "id": "start",
       "name": "公開と継続運営",
+      "icon": "rocket",
       "phases": [
         "launch",
         "review"

@@ -5,7 +5,7 @@
   "purpose": "独自の2座ミッドシップの外観を、性格と規則から最終の絵と動画まで通した記録（Editor Platform の CAD で描いた「翔」、2026-11-12〜11-17）から、項目と引用の形を写した見本。実在の車・標章とは関係が無い。比率の値は規則の寸法から計算した近似で、測っていない所は理由を書いて除く。",
   "definition": {
     "id": "vehicle-styling",
-    "version": "1.0.0"
+    "version": "1.1.0"
   },
   "deliverables": {
     "process-map": {

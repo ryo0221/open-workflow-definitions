@@ -1,7 +1,7 @@
 {
   "format": 1,
   "id": "construction-planning",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "title": "施工計画",
   "purpose": "建物や塔・橋などの構造物を、設計の情報と敷地の条件から、どう分けて、どの順に、どの機械と経路で建てるかを計画し、その計画を日付ごとの模型で動かして揚重・搬入・安全・施工中の構造を確かめ、承認を経て関係者に説明できる形にする。題材・工法・道具・出力形式は利用側が決める。",
   "phases": [
@@ -185,6 +185,7 @@
     {
       "id": "plan",
       "name": "企画",
+      "icon": "lightbulb",
       "phases": [
         "process",
         "conditions"
@@ -193,6 +194,7 @@
     {
       "id": "design",
       "name": "計画",
+      "icon": "calendar-range",
       "phases": [
         "model",
         "method",
@@ -203,6 +205,7 @@
     {
       "id": "verify",
       "name": "検証",
+      "icon": "shield-check",
       "phases": [
         "simulation",
         "safety",
@@ -212,6 +215,7 @@
     {
       "id": "decide",
       "name": "判断と伝達",
+      "icon": "megaphone",
       "phases": [
         "approval",
         "presentation"
