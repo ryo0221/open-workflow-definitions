@@ -1,7 +1,7 @@
 {
   "format": 1,
   "id": "vehicle-styling",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "title": "自動車の外観デザイン",
   "purpose": "自動車の外観を、性格と規則、硬い点のパッケージ、空気の筋書きから先に決め、3面の線図と比率で全体の形を固めてから、面・細部・色と材料・最終の絵と動画へ進める。形の問題は面ではなく線図へ戻して直し、各工程の終わりに一人の判断を取る。題材・道具・出力形式は利用側が決める。",
   "phases": [
@@ -175,6 +175,7 @@
     {
       "id": "plan",
       "name": "企画",
+      "icon": "lightbulb",
       "phases": [
         "process",
         "brief"
@@ -183,6 +184,7 @@
     {
       "id": "skeleton",
       "name": "骨格",
+      "icon": "box",
       "phases": [
         "package",
         "airflow"
@@ -191,6 +193,7 @@
     {
       "id": "form",
       "name": "形",
+      "icon": "shapes",
       "phases": [
         "lines",
         "proportions"
@@ -199,6 +202,7 @@
     {
       "id": "surface",
       "name": "面と細部",
+      "icon": "brush",
       "phases": [
         "surfaces",
         "aero",
@@ -208,6 +212,7 @@
     {
       "id": "finish-section",
       "name": "仕上げ",
+      "icon": "sparkles",
       "phases": [
         "finish",
         "review"

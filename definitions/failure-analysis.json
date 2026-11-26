@@ -1,7 +1,7 @@
 {
   "format": 1,
   "id": "failure-analysis",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "title": "故障の原因解析と対策",
   "purpose": "起きた・起こり得る故障について、要因分析（特性要因図）で原因の仮説を挙げ、FMEAで故障のしかた・原因・影響を評価し、FTAで頂上事象に至る論理を表す。三つの分析の項目は別の意味とIDのまま、明示した引用でつなぎ、対策と確認まで人が工程ごとに確かめて受け入れる。",
   "phases": [
@@ -103,6 +103,7 @@
     {
       "id": "understand",
       "name": "問題と原因",
+      "icon": "search",
       "phases": [
         "scope",
         "cause-analysis"
@@ -111,6 +112,7 @@
     {
       "id": "analyze",
       "name": "故障の解析",
+      "icon": "microscope",
       "phases": [
         "fmea-analysis",
         "fta-analysis"
@@ -119,6 +121,7 @@
     {
       "id": "act",
       "name": "対策と受け入れ",
+      "icon": "wrench",
       "phases": [
         "actions",
         "close"

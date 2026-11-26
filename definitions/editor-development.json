@@ -1,7 +1,7 @@
 {
   "format": 1,
   "id": "editor-development",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "title": "新しい Editor の開発",
   "purpose": "Editor のテンプレートから（または Open Editor Platform に足して）、ひとつの題材を編集する Editor を作る。目的と範囲・データ形式・操作・画面を人が工程ごとに確かめて受け入れ、試験を対応させ、package として Host に取り込んで使えるところまで進める。",
   "phases": [
@@ -153,6 +153,7 @@
     {
       "id": "decide",
       "name": "決める",
+      "icon": "target",
       "phases": [
         "process",
         "purpose",
@@ -164,6 +165,7 @@
     {
       "id": "make",
       "name": "作って確かめる",
+      "icon": "hammer",
       "phases": [
         "build",
         "verify"
@@ -172,6 +174,7 @@
     {
       "id": "deliver",
       "name": "届ける",
+      "icon": "package",
       "phases": [
         "package",
         "learning"

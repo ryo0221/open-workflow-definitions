@@ -1,7 +1,7 @@
 {
   "format": 1,
   "id": "product-design-engineering",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "title": "メカニカル製品の開発",
   "purpose": "腕時計や自動車のように機構と外装を持つ組立製品を、企画から設計・試作検証・調達・生産準備・量産と振り返りまで、ゲートで判定しながら進める。要求から3Dモデル・図面・解析・試験・工程の管理までを項目の引用でつなぐ。",
   "phases": [
@@ -209,6 +209,7 @@
     {
       "id": "plan",
       "name": "企画",
+      "icon": "lightbulb",
       "phases": [
         "process",
         "planning"
@@ -217,6 +218,7 @@
     {
       "id": "design",
       "name": "設計",
+      "icon": "ruler",
       "phases": [
         "concept",
         "system-design",
@@ -226,6 +228,7 @@
     {
       "id": "verify",
       "name": "設計検証",
+      "icon": "flask-conical",
       "phases": [
         "design-verification"
       ]
@@ -233,6 +236,7 @@
     {
       "id": "industrialize",
       "name": "調達と生産準備",
+      "icon": "truck",
       "phases": [
         "sourcing",
         "process-design",
@@ -242,6 +246,7 @@
     {
       "id": "produce",
       "name": "量産",
+      "icon": "factory",
       "phases": [
         "launch",
         "sustain"

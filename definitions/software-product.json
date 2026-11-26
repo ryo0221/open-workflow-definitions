@@ -1,7 +1,7 @@
 {
   "format": 1,
   "id": "software-product",
-  "version": "1.7.0",
+  "version": "1.8.0",
   "title": "ソフトウェア製品の開発",
   "purpose": "画面のあるソフトウェア製品を、人が工程ごとに成果物を確かめて受け入れながら、AI と対話して作り、Local から本番まで段階的に動かして公開する。",
   "phases": [
@@ -230,6 +230,7 @@
     {
       "id": "plan",
       "name": "企画",
+      "icon": "lightbulb",
       "phases": [
         "process",
         "scope",
@@ -239,6 +240,7 @@
     {
       "id": "design",
       "name": "設計",
+      "icon": "ruler",
       "phases": [
         "screens",
         "states",
@@ -250,6 +252,7 @@
     {
       "id": "build",
       "name": "作る",
+      "icon": "code",
       "phases": [
         "environments",
         "build-local",
@@ -259,6 +262,7 @@
     {
       "id": "ship",
       "name": "出す",
+      "icon": "rocket",
       "phases": [
         "build-staging",
         "release"

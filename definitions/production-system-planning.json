@@ -1,7 +1,7 @@
 {
   "format": 1,
   "id": "production-system-planning",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "title": "生産システム計画",
   "purpose": "工場の生産ラインを、製品と量の要件から、作業・設備・バッファ・搬送・作業者・配置として計画し、そのラインを時刻で動くモデルにして流し、生産数・稼働の内訳・ボトルネックを確かめ、改善の案を比べて採り、承認を経て関係者に説明できる形にする。題材・手法・道具・出力形式は利用側が決める。",
   "phases": [
@@ -186,6 +186,7 @@
     {
       "id": "plan",
       "name": "企画",
+      "icon": "lightbulb",
       "phases": [
         "process",
         "requirements"
@@ -194,6 +195,7 @@
     {
       "id": "design",
       "name": "計画",
+      "icon": "calendar-range",
       "phases": [
         "process-design",
         "line-design",
@@ -204,6 +206,7 @@
     {
       "id": "verify",
       "name": "検証",
+      "icon": "shield-check",
       "phases": [
         "validation",
         "experiment",
@@ -213,6 +216,7 @@
     {
       "id": "decide",
       "name": "判断と伝達",
+      "icon": "megaphone",
       "phases": [
         "approval",
         "presentation"

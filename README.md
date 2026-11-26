@@ -18,32 +18,32 @@
 ## 利用方法
 
 個々のワークフローは、共通のデータ形式で `definitions/<id>.json` に定義します。
-現在は、ソフトウェア開発向けの定義例として `definitions/software-product.json` の **`software-product@1.7.0`** を収録しています。
+現在は、ソフトウェア開発向けの定義例として `definitions/software-product.json` の **`software-product@1.8.0`** を収録しています。
 利用する定義ファイルと `schema/definition.schema.json` を任意のAIに渡すか、独自ツールからJSONとして読み込んで利用できます。
 
-既存ソフトウェアの責務・依存・古いコードや試験を見直すための独立した定義として、`definitions/software-refactoring.json` の **`software-refactoring@1.0.0`** を収録しています。現状調査・維持／変更する契約・改修計画・実装・検証・受入の進め方は [利用ガイド](docs/software-refactoring.md) を参照してください。通常の小さなコード整理は software-product の実装工程の中で行えます。
+既存ソフトウェアの責務・依存・古いコードや試験を見直すための独立した定義として、`definitions/software-refactoring.json` の **`software-refactoring@1.1.0`** を収録しています。現状調査・維持／変更する契約・改修計画・実装・検証・受入の進め方は [利用ガイド](docs/software-refactoring.md) を参照してください。通常の小さなコード整理は software-product の実装工程の中で行えます。
 
-小説の制作向けには `definitions/fiction-novel.json` の **`fiction-novel@1.2.0`** を収録しています。工程・項目と、利用側が受け持つことは [利用ガイド](docs/fiction-novel.md) を参照してください。
+小説の制作向けには `definitions/fiction-novel.json` の **`fiction-novel@1.3.0`** を収録しています。工程・項目と、利用側が受け持つことは [利用ガイド](docs/fiction-novel.md) を参照してください。
 
-漫画の制作向けには `definitions/fiction-manga.json` の **`fiction-manga@1.5.0`** を収録しています。画作りガイド（レイヤーの決まり）・地図・ネームと、利用側が受け持つことは [利用ガイド](docs/fiction-manga.md) を参照してください。
+漫画の制作向けには `definitions/fiction-manga.json` の **`fiction-manga@1.6.0`** を収録しています。画作りガイド（レイヤーの決まり）・地図・ネームと、利用側が受け持つことは [利用ガイド](docs/fiction-manga.md) を参照してください。
 
-ロゴ・シンボル・アプリアイコンなどの視覚表現の制作向けには `definitions/visual-identity.json` の **`visual-identity@1.0.0`** を収録しています。探索・ラフ・候補比較・採用・マスター・用途別展開の進め方は [利用ガイド](docs/visual-identity.md) を参照してください。
+ロゴ・シンボル・アプリアイコンなどの視覚表現の制作向けには `definitions/visual-identity.json` の **`visual-identity@1.1.0`** を収録しています。探索・ラフ・候補比較・採用・マスター・用途別展開の進め方は [利用ガイド](docs/visual-identity.md) を参照してください。
 
-腕時計や自動車のように機構と外装を持つ組立製品の開発向けには `definitions/product-design-engineering.json` の **`product-design-engineering@1.0.0`** を収録しています。企画から設計・試作検証・調達・生産準備・量産までの工程、3Dモデルと図面の扱い、見本は [利用ガイド](docs/product-design-engineering.md) を参照してください。
+腕時計や自動車のように機構と外装を持つ組立製品の開発向けには `definitions/product-design-engineering.json` の **`product-design-engineering@1.1.0`** を収録しています。企画から設計・試作検証・調達・生産準備・量産までの工程、3Dモデルと図面の扱い、見本は [利用ガイド](docs/product-design-engineering.md) を参照してください。
 
-建物・塔・橋などの施工計画向けには `definitions/construction-planning.json` の **`construction-planning@1.0.0`** を収録しています。施工単位・工法・工程表・揚重と搬入の計画を、日付ごとの模型で模擬して確かめ、承認して説明する進め方は [利用ガイド](docs/construction-planning.md) を参照してください。
+建物・塔・橋などの施工計画向けには `definitions/construction-planning.json` の **`construction-planning@1.1.0`** を収録しています。施工単位・工法・工程表・揚重と搬入の計画を、日付ごとの模型で模擬して確かめ、承認して説明する進め方は [利用ガイド](docs/construction-planning.md) を参照してください。
 
-工場の生産ラインの計画向けには `definitions/production-system-planning.json` の **`production-system-planning@1.0.0`** を収録しています。作業・設備・バッファ・搬送・作業者・配置を時刻で動くモデルにして流し、案を比べて採り、承認して説明する進め方は [利用ガイド](docs/production-system-planning.md) を参照してください。
+工場の生産ラインの計画向けには `definitions/production-system-planning.json` の **`production-system-planning@1.1.0`** を収録しています。作業・設備・バッファ・搬送・作業者・配置を時刻で動くモデルにして流し、案を比べて採り、承認して説明する進め方は [利用ガイド](docs/production-system-planning.md) を参照してください。
 
-自動車の外観デザイン向けには `definitions/vehicle-styling.json` の **`vehicle-styling@1.0.0`** を収録しています。性格と規則・硬い点のパッケージ・空気の筋書きから先に決め、3面の線図と比率で形を固めてから面・細部・色と材料・最終の絵と動画へ進める進め方は [利用ガイド](docs/vehicle-styling.md) を参照してください。
+自動車の外観デザイン向けには `definitions/vehicle-styling.json` の **`vehicle-styling@1.1.0`** を収録しています。性格と規則・硬い点のパッケージ・空気の筋書きから先に決め、3面の線図と比率で形を固めてから面・細部・色と材料・最終の絵と動画へ進める進め方は [利用ガイド](docs/vehicle-styling.md) を参照してください。
 
-アニメのメカデザインと玩具化向けには `definitions/mecha-design.json` の **`mecha-design@1.0.0`** を収録しています。言葉で決めた企画（コンセプト・特徴・新しさ・要求）と合体の構想から、シルエットと比率・2次元の線図（三面図）と変形図・それを下敷きにした3Dモデルで成り立ちを確かめ、設定画・玩具化の検討・色彩・見せ場へ進め、制作と玩具の複数の組織の承認で受け入れる進め方は [利用ガイド](docs/mecha-design.md) を参照してください。
+アニメのメカデザインと玩具化向けには `definitions/mecha-design.json` の **`mecha-design@1.1.0`** を収録しています。言葉で決めた企画（コンセプト・特徴・新しさ・要求）と合体の構想から、シルエットと比率・2次元の線図（三面図）と変形図・それを下敷きにした3Dモデルで成り立ちを確かめ、設定画・玩具化の検討・色彩・見せ場へ進め、制作と玩具の複数の組織の承認で受け入れる進め方は [利用ガイド](docs/mecha-design.md) を参照してください。
 
-起きた・起こり得る故障の原因解析と対策向けには `definitions/failure-analysis.json` の **`failure-analysis@1.1.0`** を収録しています。要因分析（特性要因図）・FMEA・FTA の項目を別の意味と ID のまま引用でつなぎ、対策と確認まで進める進め方は [利用ガイド](docs/failure-analysis.md) を参照してください。
+起きた・起こり得る故障の原因解析と対策向けには `definitions/failure-analysis.json` の **`failure-analysis@1.2.0`** を収録しています。要因分析（特性要因図）・FMEA・FTA の項目を別の意味と ID のまま引用でつなぎ、対策と確認まで進める進め方は [利用ガイド](docs/failure-analysis.md) を参照してください。
 
-ひとつの題材を編集する新しい Editor を、Editor のテンプレートから作って Host に取り込むまでには `definitions/editor-development.json` の **`editor-development@1.4.0`** を収録しています。目的と範囲・データ形式・操作・画面を決めてから実装・試験の対応・package の取り込みへ進める進め方は [利用ガイド](docs/editor-development.md) を参照してください。画面のある製品全体を作るときは software-product を使います。
+ひとつの題材を編集する新しい Editor を、Editor のテンプレートから作って Host に取り込むまでには `definitions/editor-development.json` の **`editor-development@1.5.0`** を収録しています。目的と範囲・データ形式・操作・画面を決めてから実装・試験の対応・package の取り込みへ進める進め方は [利用ガイド](docs/editor-development.md) を参照してください。画面のある製品全体を作るときは software-product を使います。
 
-株式会社設立・事業開始向けには `definitions/japan-company-establishment.json` の **`japan-company-establishment@1.0.0`** を収録しています。適用範囲と利用上の区別は [利用ガイド](docs/japan-company-establishment.md) を参照してください。
+株式会社設立・事業開始向けには `definitions/japan-company-establishment.json` の **`japan-company-establishment@1.1.0`** を収録しています。適用範囲と利用上の区別は [利用ガイド](docs/japan-company-establishment.md) を参照してください。
 
 ## 定義の書き方の原則
 

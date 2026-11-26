@@ -1,7 +1,7 @@
 {
   "format": 1,
   "id": "mecha-design",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "title": "アニメのメカデザインと玩具化",
   "purpose": "アニメに出す変形・合体のメカを、言葉で決めた企画（コンセプト・特徴・新しさ・要求）と合体の構想から決め、シルエットと比率、2次元の線図（三面図）と変形図で形と仕組みを固め、それを下敷きにした3Dモデルで成り立ちを確かめてから、設定画の決定稿・玩具化の検討・色彩・見せ場の絵と動画へ進める。制作側（監督・ディレクター・メカデザイナー）と玩具側の複数の組織の人が工程ごとに議論し、進め方で決めた組織と人数の承認で受け入れる。題材・道具・出力形式は利用側が決める。",
   "phases": [
@@ -190,6 +190,7 @@
     {
       "id": "plan",
       "name": "企画",
+      "icon": "lightbulb",
       "phases": [
         "process",
         "brief"
@@ -198,6 +199,7 @@
     {
       "id": "shape",
       "name": "形",
+      "icon": "shapes",
       "phases": [
         "concept",
         "silhouette",
@@ -207,6 +209,7 @@
     {
       "id": "structure",
       "name": "仕組み",
+      "icon": "cog",
       "phases": [
         "mechanism",
         "model"
@@ -215,6 +218,7 @@
     {
       "id": "final",
       "name": "決定稿",
+      "icon": "stamp",
       "phases": [
         "sheets",
         "toy",
@@ -224,6 +228,7 @@
     {
       "id": "show",
       "name": "見せ場と決定",
+      "icon": "clapperboard",
       "phases": [
         "showcase",
         "release"

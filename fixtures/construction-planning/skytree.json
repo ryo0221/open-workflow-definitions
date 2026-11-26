@@ -5,7 +5,7 @@
  "purpose": "PaoBub の dogfooding（paobub-dogfooding/projects/skytree-twin）の項目と引用をそのまま写した見本。昇るタワークレーン、引き上げ、搬入、吊りの検査の記録。構造の工程は省いた（解析の道具が無かった）",
  "definition": {
   "id": "construction-planning",
-  "version": "1.0.0"
+  "version": "1.1.0"
  },
  "deliverables": {
   "process-map": {

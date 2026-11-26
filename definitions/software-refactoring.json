@@ -1,7 +1,7 @@
 {
   "format": 1,
   "id": "software-refactoring",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "title": "ソフトウェアのリファクタリング",
   "purpose": "既存のソフトウェアを調査し、保つ契約と意図して変える振る舞いを区別しながら、不要なコード・複雑な依存・古い検証を整理する。変更単位ごとに人が確かめて受け入れ、元の製品の正本へ結果を反映する。",
   "phases": [
@@ -116,6 +116,7 @@
     {
       "id": "understand",
       "name": "調べて決める",
+      "icon": "search",
       "phases": [
         "inventory",
         "contracts"
@@ -124,6 +125,7 @@
     {
       "id": "change",
       "name": "設計して直す",
+      "icon": "wrench",
       "phases": [
         "plan",
         "implement"
@@ -132,6 +134,7 @@
     {
       "id": "confirm",
       "name": "確かめて受け入れる",
+      "icon": "badge-check",
       "phases": [
         "verify",
         "adopt"
