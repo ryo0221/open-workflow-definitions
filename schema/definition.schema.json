@@ -82,6 +82,11 @@
               "$ref": "#/$defs/id"
             },
             "description": "この工程を終える条件"
+          },
+          "icon": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9]*(-[a-z0-9]+)*$",
+            "description": "画面で工程やまとまりの横に出すアイコンの名前（英小文字の語をハイフンでつなぐ。例 lightbulb・ruler・file-text）。使う側が知らない名前なら、出さずに名前だけを見せてよい"
           }
         }
       }
@@ -112,6 +117,11 @@
               "$ref": "#/$defs/id"
             },
             "description": "このまとまりに入る工程。工程の順に並べる"
+          },
+          "icon": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9]*(-[a-z0-9]+)*$",
+            "description": "画面で工程やまとまりの横に出すアイコンの名前（英小文字の語をハイフンでつなぐ。例 lightbulb・ruler・file-text）。使う側が知らない名前なら、出さずに名前だけを見せてよい"
           }
         }
       }
